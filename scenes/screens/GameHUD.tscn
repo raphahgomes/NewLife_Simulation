@@ -1,0 +1,196 @@
+[gd_scene load_steps=2 format=3 uid="uid://gamehud001"]
+
+[ext_resource type="Script" path="res://scripts/ui/GameHUD.gd" id="1"]
+
+[node name="GameHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.94, 0.95, 0.96, 1)
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+theme_override_constants/separation = 12
+
+[node name="TopBar" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 80)
+theme_override_constants/separation = 12
+
+[node name="AvatarCircle" type="Panel" parent="MainLayout/TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+
+[node name="NameInfo" type="VBoxContainer" parent="MainLayout/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharName" type="Label" parent="MainLayout/TopBar/NameInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name Here"
+
+[node name="AgePhase" type="Label" parent="MainLayout/TopBar/NameInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Age 0 · Baby · BR"
+
+[node name="StatsContainer" type="VBoxContainer" parent="MainLayout"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HealthBar" type="HBoxContainer" parent="MainLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainLayout/StatsContainer/HealthBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "❤️ Health"
+
+[node name="Bar" type="ProgressBar" parent="MainLayout/StatsContainer/HealthBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 24)
+value = 80.0
+
+[node name="HappinessBar" type="HBoxContainer" parent="MainLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainLayout/StatsContainer/HappinessBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "😊 Happy"
+
+[node name="Bar" type="ProgressBar" parent="MainLayout/StatsContainer/HappinessBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 24)
+value = 70.0
+
+[node name="MoneyBar" type="HBoxContainer" parent="MainLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainLayout/StatsContainer/MoneyBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "💰 Money"
+
+[node name="Value" type="Label" parent="MainLayout/StatsContainer/MoneyBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "$0"
+
+[node name="RelationsBar" type="HBoxContainer" parent="MainLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainLayout/StatsContainer/RelationsBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "👥 Social"
+
+[node name="Bar" type="ProgressBar" parent="MainLayout/StatsContainer/RelationsBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 24)
+value = 50.0
+
+[node name="MoralityBar" type="HBoxContainer" parent="MainLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainLayout/StatsContainer/MoralityBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "⚖️ Moral"
+
+[node name="Bar" type="ProgressBar" parent="MainLayout/StatsContainer/MoralityBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 24)
+value = 50.0
+
+[node name="EventCard" type="PanelContainer" parent="MainLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 200)
+
+[node name="EventText" type="RichTextLabel" parent="MainLayout/EventCard"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your life begins..."
+fit_content = true
+
+[node name="ActionGrid" type="GridContainer" parent="MainLayout"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="BtnSocial" type="Button" parent="MainLayout/ActionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+text = "SOCIAL"
+
+[node name="BtnFamily" type="Button" parent="MainLayout/ActionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+text = "FAMILY"
+
+[node name="BtnSchoolWork" type="Button" parent="MainLayout/ActionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+text = "SCHOOL_WORK"
+
+[node name="BtnHealth" type="Button" parent="MainLayout/ActionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+text = "HEALTH"
+
+[node name="BtnFinance" type="Button" parent="MainLayout/ActionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+text = "FINANCE"
+
+[node name="BtnCrime" type="Button" parent="MainLayout/ActionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+text = "CRIME"
+
+[node name="BtnAdvanceYear" type="Button" parent="MainLayout"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 64)
+text = "AGE_PLUS"

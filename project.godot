@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="NewLife Simulation"
+config/description="A deep text-based life simulation game with rich events, moral choices, and long-term consequences."
+run/main_scene="res://scenes/screens/MainMenu.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/autoloads/GameManager.gd"
+AttributeSystem="*res://scripts/autoloads/AttributeSystem.gd"
+EventManager="*res://scripts/autoloads/EventManager.gd"
+SaveManager="*res://scripts/autoloads/SaveManager.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://data/localization/texts.en.translation", "res://data/localization/texts.pt_BR.translation")
+locale/fallback="en"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

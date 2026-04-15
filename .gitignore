@@ -1,0 +1,30 @@
+# Godot 4.x specific ignores
+.godot/
+.import/
+
+# Exported builds
+export/
+build/
+*.apk
+*.aab
+*.pck
+*.exe
+*.x86_64
+*.dmg
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Stable Diffusion outputs (keep only curated in assets/)
+sd_workspace/outputs/
+
+# Logs
+*.log

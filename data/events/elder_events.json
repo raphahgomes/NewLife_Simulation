@@ -1,0 +1,174 @@
+{
+  "events": [
+    {
+      "id": "elder_retirement",
+      "phases": ["ELDER"],
+      "age_min": 60,
+      "age_max": 70,
+      "category": "career",
+      "weight": 80,
+      "conditions": {"has_career": true},
+      "text_key": "EVENT_ELDER_RETIREMENT",
+      "choices": [
+        {
+          "text_key": "CHOICE_RETIRE_HAPPY",
+          "effects": {"happiness": 8, "mental_stability": 5}
+        },
+        {
+          "text_key": "CHOICE_KEEP_WORKING",
+          "effects": {"happiness": -2, "health": -3},
+          "money_effect": 3000
+        }
+      ]
+    },
+    {
+      "id": "elder_grandchild",
+      "phases": ["ELDER"],
+      "age_min": 55,
+      "age_max": 80,
+      "category": "family",
+      "weight": 60,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_GRANDCHILD",
+      "choices": [
+        {
+          "text_key": "CHOICE_CELEBRATE",
+          "effects": {"happiness": 10, "mental_stability": 5}
+        },
+        {
+          "text_key": "CHOICE_DISTANT",
+          "effects": {"happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "elder_health_decline",
+      "phases": ["ELDER"],
+      "age_min": 60,
+      "age_max": 90,
+      "category": "health",
+      "weight": 70,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_HEALTH_DECLINE",
+      "choices": [
+        {
+          "text_key": "CHOICE_TREATMENT",
+          "effects": {"health": 5},
+          "money_effect": -5000
+        },
+        {
+          "text_key": "CHOICE_NATURAL",
+          "effects": {"health": -5, "mental_stability": 3}
+        }
+      ]
+    },
+    {
+      "id": "elder_will",
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "finance",
+      "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_WILL",
+      "choices": [
+        {
+          "text_key": "CHOICE_FAMILY_EQUAL",
+          "effects": {"happiness": 3},
+          "morality_effect": 5
+        },
+        {
+          "text_key": "CHOICE_FAVORITE_CHILD",
+          "effects": {},
+          "morality_effect": -3
+        },
+        {
+          "text_key": "CHOICE_CHARITY",
+          "effects": {"happiness": 5},
+          "morality_effect": 10
+        }
+      ]
+    },
+    {
+      "id": "elder_legacy",
+      "phases": ["ELDER"],
+      "age_min": 70,
+      "age_max": 100,
+      "category": "social",
+      "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_LEGACY",
+      "choices": [
+        {
+          "text_key": "CHOICE_WRITE_MEMOIR",
+          "effects": {"intelligence": 2, "happiness": 5}
+        },
+        {
+          "text_key": "CHOICE_QUIET_LIFE",
+          "effects": {"mental_stability": 5}
+        }
+      ]
+    },
+    {
+      "id": "elder_friend_dies",
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "social",
+      "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_FRIEND_DIES",
+      "choices": [
+        {
+          "text_key": "CHOICE_MOURN",
+          "effects": {"happiness": -8, "mental_stability": -3}
+        },
+        {
+          "text_key": "CHOICE_CELEBRATE_LIFE",
+          "effects": {"happiness": -2, "mental_stability": 3}
+        }
+      ]
+    },
+    {
+      "id": "elder_hobby",
+      "phases": ["ELDER"],
+      "age_min": 60,
+      "age_max": 90,
+      "category": "social",
+      "weight": 55,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_HOBBY",
+      "choices": [
+        {
+          "text_key": "CHOICE_NEW_HOBBY",
+          "effects": {"happiness": 5, "intelligence": 2}
+        },
+        {
+          "text_key": "CHOICE_REST",
+          "effects": {"health": 2}
+        }
+      ]
+    },
+    {
+      "id": "elder_scam",
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "crime",
+      "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_ELDER_SCAM",
+      "choices": [
+        {
+          "text_key": "CHOICE_FALL_FOR_IT",
+          "effects": {"happiness": -10},
+          "money_effect": -10000
+        },
+        {
+          "text_key": "CHOICE_SUSPICIOUS",
+          "effects": {"intelligence": 2}
+        }
+      ]
+    }
+  ]
+}

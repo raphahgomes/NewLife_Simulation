@@ -1,0 +1,320 @@
+KEY,en,pt_BR
+NEW_LIFE,New Life,Nova Vida
+CONTINUE,Continue,Continuar
+PAST_LIVES,Past Lives,Vidas Passadas
+SETTINGS,Settings,Configurações
+BACK,Back,Voltar
+AGE,Age,Idade
+AGE_PLUS,Age +1,Idade +1
+YEARS,years,anos
+SOCIAL,Social,Social
+FAMILY,Family,Família
+SCHOOL,School,Escola
+SCHOOL_WORK,School / Work,Escola / Trabalho
+WORK,Work,Trabalho
+HEALTH,Health,Saúde
+FINANCE,Finance,Finanças
+CRIME,Crime,Crime
+CAREER,Career,Carreira
+NET_WORTH,Net Worth,Patrimônio
+EDUCATION,Education,Educação
+CAUSE_OF_DEATH,Cause of Death,Causa da Morte
+TRAITS,Traits,Traços
+NONE,None,Nenhum
+PRIMARY,Primary,Fundamental
+SECONDARY,Secondary,Médio
+TECHNICAL,Technical,Técnico
+COLLEGE,College,Faculdade
+POSTGRAD,Postgrad,Pós-graduação
+BABY,Baby,Bebê
+CHILD,Child,Criança
+TEEN,Teen,Adolescente
+ADULT,Adult,Adulto
+ELDER,Elder,Idoso
+NO_EVENTS_THIS_YEAR,Nothing notable happened this year.,Nada notável aconteceu este ano.
+LANGUAGE,Language,Idioma
+SOUND_VOLUME,Sound Volume,Volume do Som
+FONT_SIZE,Font Size,Tamanho da Fonte
+NATURAL_CAUSES,Natural Causes,Causas Naturais
+ACCIDENT,Accident,Acidente
+DISEASE,Disease,Doença
+HEART_ATTACK,Heart Attack,Infarto
+OLD_AGE,Old Age,Velhice
+MENTAL_BREAKDOWN,Mental Breakdown,Colapso Mental
+EVENT_BABY_FIRST_WORD,Your baby says their first word!,Seu bebê disse a primeira palavra!
+EVENT_BABY_FIRST_WORD_DESC,A milestone moment — what will it be?,Um momento marcante — o que será?
+CHOICE_MAMA,""Mama!"",""Mamãe!""
+CHOICE_PAPA,""Dada!"",""Papai!""
+EVENT_BABY_CRAWLING,Your baby starts crawling around the house.,Seu bebê começa a engatinhar pela casa.
+CHOICE_EXPLORE,Let them explore,Deixe explorar
+CHOICE_STAY_SAFE,Keep them safe,Manter seguro
+EVENT_BABY_PET,A neighbor's pet approaches your baby.,Um animal de estimação do vizinho se aproxima do bebê.
+CHOICE_PET_GENTLE,Gently pet it,Acariciar gentilmente
+CHOICE_PET_SCARED,Get scared,Ficar com medo
+EVENT_BABY_TANTRUM,Your baby throws a massive tantrum!,Seu bebê faz uma birra enorme!
+CHOICE_CRY_MORE,Keep crying,Continuar chorando
+CHOICE_CALM_DOWN,Calm down,Se acalmar
+EVENT_BABY_SICK,Your baby catches a cold.,Seu bebê pegou um resfriado.
+CHOICE_REST,Rest and recover,Descansar e recuperar
+CHOICE_IGNORE,Ignore it,Ignorar
+EVENT_BABY_PLAYGROUND,Time to visit the playground!,Hora de ir ao parquinho!
+CHOICE_PLAY_OTHERS,Play with other kids,Brincar com outras crianças
+CHOICE_PLAY_ALONE,Play alone,Brincar sozinho
+EVENT_BABY_FUNNY_FACE,Someone makes funny faces at you!,Alguém faz caretas pra você!
+CHOICE_LAUGH,Laugh out loud,Rir muito
+CHOICE_STARE,Stare confused,Olhar confuso
+EVENT_CHILD_SCHOOL_START,It's your first day of school!,É seu primeiro dia de aula!
+EVENT_CHILD_SCHOOL_START_DESC,A new chapter begins. How do you feel?,Um novo capítulo começa. Como você se sente?
+CHOICE_EXCITED,Excited!,Animado!
+CHOICE_NERVOUS,Nervous...,Nervoso...
+EVENT_CHILD_BULLY,A bigger kid starts bullying you at school.,Um garoto maior começa a te intimidar na escola.
+EVENT_CHILD_BULLY_DESC,What do you do?,O que você faz?
+CHOICE_STAND_UP,Stand up to them,Enfrentar
+CHOICE_TELL_TEACHER,Tell the teacher,Contar pro professor
+CHOICE_RUN_AWAY,Run away,Fugir
+EVENT_CHILD_BEST_FRIEND,You meet someone who could be your best friend.,Você conhece alguém que pode ser seu melhor amigo.
+EVENT_CHILD_BEST_FRIEND_DESC,Will you be friends?,Vocês serão amigos?
+CHOICE_BE_FRIENDS,Become best friends,Ser melhores amigos
+CHOICE_STAY_ALONE,Stay alone,Ficar sozinho
+EVENT_CHILD_TEST,A big test is coming up.,Uma prova importante está chegando.
+EVENT_CHILD_TEST_DESC,How will you prepare?,Como vai se preparar?
+CHOICE_STUDY_HARD,Study hard,Estudar muito
+CHOICE_WING_IT,Wing it,Ir na sorte
+CHOICE_CHEAT,Cheat,Colar
+EVENT_CHILD_SPORT,The school offers sports and reading clubs.,A escola oferece clubes de esporte e leitura.
+EVENT_CHILD_SPORT_DESC,Which do you choose?,Qual você escolhe?
+CHOICE_JOIN_TEAM,Join the sports team,Entrar no time de esporte
+CHOICE_READ_BOOK,Join the reading club,Entrar no clube de leitura
+EVENT_CHILD_TALENT_SHOW,The school talent show is coming up!,O show de talentos da escola está chegando!
+EVENT_CHILD_TALENT_SHOW_DESC,Will you perform or watch?,Vai se apresentar ou assistir?
+CHOICE_PERFORM,Perform on stage,Se apresentar no palco
+CHOICE_WATCH,Just watch,Só assistir
+EVENT_CHILD_STRAY_ANIMAL,You find a stray animal on the street.,Você encontra um animal abandonado na rua.
+EVENT_CHILD_STRAY_ANIMAL_DESC,What will you do?,O que vai fazer?
+CHOICE_BRING_HOME,Bring it home,Levar pra casa
+CHOICE_WALK_AWAY,Walk away,Ir embora
+EVENT_CHILD_PARENTS_FIGHT,Your parents are having a big argument.,Seus pais estão tendo uma grande discussão.
+EVENT_CHILD_PARENTS_FIGHT_DESC,What do you do?,O que você faz?
+CHOICE_HIDE,Hide in your room,Se esconder no quarto
+CHOICE_TRY_HELP,Try to help,Tentar ajudar
+EVENT_CHILD_MONEY_FOUND,You find money on the ground!,Você encontra dinheiro no chão!
+EVENT_CHILD_MONEY_FOUND_DESC,Someone probably dropped it.,Alguém provavelmente derrubou.
+CHOICE_RETURN_IT,Return it,Devolver
+CHOICE_KEEP_IT,Keep it,Ficar com ele
+EVENT_TEEN_FIRST_CRUSH,You develop a crush on someone at school.,Você se apaixona por alguém da escola.
+EVENT_TEEN_FIRST_CRUSH_DESC,Your heart races every time you see them.,Seu coração dispara toda vez que você os vê.
+CHOICE_CONFESS,Confess your feelings,Confessar seus sentimentos
+CHOICE_KEEP_SECRET,Keep it a secret,Manter em segredo
+EVENT_TEEN_PARTY,You're invited to a party.,Você foi convidado para uma festa.
+EVENT_TEEN_PARTY_DESC,Everyone's going. What do you do?,Todo mundo vai. O que você faz?
+CHOICE_GO_PARTY,Go and have fun,Ir e se divertir
+CHOICE_STAY_HOME,Stay home and study,Ficar em casa e estudar
+CHOICE_PARTY_DRINK,Go and drink,Ir e beber
+EVENT_TEEN_FIRST_JOB,A local shop offers you a part-time job.,Uma loja local te oferece um trabalho de meio período.
+EVENT_TEEN_FIRST_JOB_DESC,It would mean less free time but some money.,Significa menos tempo livre mas algum dinheiro.
+CHOICE_TAKE_JOB,Take the job,Aceitar o trabalho
+CHOICE_DECLINE,Decline,Recusar
+EVENT_TEEN_EXAM_PRESSURE,Final exams are approaching and pressure mounts.,As provas finais estão chegando e a pressão aumenta.
+EVENT_TEEN_EXAM_PRESSURE_DESC,How do you prepare?,Como você se prepara?
+CHOICE_STUDY_ALL_NIGHT,Study all night,Estudar a noite toda
+CHOICE_BALANCED_STUDY,Balanced approach,Abordagem equilibrada
+CHOICE_SKIP_EXAM,Skip studying,Não estudar
+EVENT_TEEN_DRUGS,Someone offers you drugs at a party.,Alguém te oferece drogas em uma festa.
+EVENT_TEEN_DRUGS_DESC,They say it's harmless. What do you do?,Eles dizem que é inofensivo. O que você faz?
+CHOICE_REFUSE,Refuse firmly,Recusar firmemente
+CHOICE_TRY_ONCE,Try it once,Experimentar uma vez
+EVENT_TEEN_COLLEGE_DECISION,It's time to decide your future after school.,É hora de decidir seu futuro após a escola.
+EVENT_TEEN_COLLEGE_DECISION_DESC,What path will you take?,Qual caminho vai seguir?
+CHOICE_APPLY_COLLEGE,Apply to college,Se inscrever na faculdade
+CHOICE_TRADE_SCHOOL,Go to trade school,Ir para escola técnica
+CHOICE_START_WORKING,Start working,Começar a trabalhar
+EVENT_TEEN_SOCIAL_MEDIA,Social media is taking over your life.,As redes sociais estão dominando sua vida.
+EVENT_TEEN_SOCIAL_MEDIA_DESC,How do you handle it?,Como você lida com isso?
+CHOICE_POST_OFTEN,Post all the time,Postar o tempo todo
+CHOICE_STAY_OFFLINE,Stay mostly offline,Ficar mais offline
+EVENT_TEEN_VOLUNTEER,A local charity needs volunteers.,Uma caridade local precisa de voluntários.
+EVENT_TEEN_VOLUNTEER_DESC,Will you help?,Vai ajudar?
+CHOICE_VOLUNTEER,Volunteer,Ser voluntário
+CHOICE_NO_TIME,No time,Sem tempo
+EVENT_TEEN_BREAKUP,Your relationship just ended.,Seu relacionamento acabou.
+EVENT_TEEN_BREAKUP_DESC,How do you handle it?,Como você lida com isso?
+CHOICE_MOVE_ON,Move on quickly,Seguir em frente rápido
+CHOICE_HEARTBROKEN,Feel heartbroken,Ficar de coração partido
+EVENT_TEEN_SHOPLIFTING,Your friends dare you to shoplift.,Seus amigos te desafiam a furtar uma loja.
+EVENT_TEEN_SHOPLIFTING_DESC,It's just a small item...,É só um item pequeno...
+CHOICE_SHOPLIFT,Do it,Fazer isso
+EVENT_ADULT_JOB_INTERVIEW,You have a job interview!,Você tem uma entrevista de emprego!
+EVENT_ADULT_JOB_INTERVIEW_DESC,How do you present yourself?,Como você se apresenta?
+CHOICE_CONFIDENT,Confident and prepared,Confiante e preparado
+CHOICE_NERVOUS,Nervous but honest,Nervoso mas honesto
+EVENT_ADULT_PROMOTION,Your boss offers you a promotion!,Seu chefe te oferece uma promoção!
+EVENT_ADULT_PROMOTION_DESC,A raise and more responsibility.,Um aumento e mais responsabilidade.
+CHOICE_ACCEPT,Accept gratefully,Aceitar com gratidão
+CHOICE_NEGOTIATE_MORE,Negotiate for more,Negociar por mais
+EVENT_ADULT_MARRIAGE,Someone proposes marriage to you!,Alguém pede você em casamento!
+EVENT_ADULT_MARRIAGE_DESC,This could change everything.,Isso pode mudar tudo.
+CHOICE_SAY_YES,Say yes!,Dizer sim!
+CHOICE_SAY_NO,Say no,Dizer não
+CHOICE_NEED_TIME,Need more time,Preciso de mais tempo
+EVENT_ADULT_HAVE_CHILD,You have the opportunity to have a child.,Você tem a oportunidade de ter um filho.
+EVENT_ADULT_HAVE_CHILD_DESC,Are you ready for parenthood?,Está pronto para ser pai/mãe?
+CHOICE_HAVE_CHILD,Have a child,Ter um filho
+CHOICE_NOT_READY,Not ready yet,Ainda não estou pronto
+EVENT_ADULT_BUY_HOUSE,You can afford to buy a house!,Você pode comprar uma casa!
+EVENT_ADULT_BUY_HOUSE_DESC,Is it the right time?,É o momento certo?
+CHOICE_BUY,Buy the house,Comprar a casa
+CHOICE_RENT,Keep renting,Continuar alugando
+CHOICE_INVEST_INSTEAD,Invest the money instead,Investir o dinheiro
+EVENT_ADULT_HEALTH_SCARE,You notice worrying health symptoms.,Você nota sintomas de saúde preocupantes.
+EVENT_ADULT_HEALTH_SCARE_DESC,Should you see a doctor?,Deveria ir ao médico?
+CHOICE_SEE_DOCTOR,See a doctor,Ir ao médico
+CHOICE_IGNORE_IT,Ignore it,Ignorar
+EVENT_ADULT_BUSINESS,You have a great business idea!,Você teve uma ótima ideia de negócio!
+EVENT_ADULT_BUSINESS_DESC,It requires investment but could pay off.,Requer investimento mas pode dar retorno.
+CHOICE_START_BUSINESS,Start the business,Abrir o negócio
+CHOICE_PLAY_SAFE,Play it safe,Ir pelo seguro
+EVENT_ADULT_MIDLIFE_CRISIS,You're questioning your life choices.,Você está questionando suas escolhas de vida.
+EVENT_ADULT_MIDLIFE_CRISIS_DESC,Is this all there is?,É só isso?
+CHOICE_ACCEPT_AGING,Accept and grow,Aceitar e crescer
+CHOICE_BIG_CHANGE,Make a big change,Fazer uma grande mudança
+CHOICE_THERAPY,Seek therapy,Buscar terapia
+EVENT_ADULT_DIVORCE,Your marriage is falling apart.,Seu casamento está desmoronando.
+EVENT_ADULT_DIVORCE_DESC,What will you do?,O que vai fazer?
+CHOICE_FIGHT_CUSTODY,Fight for custody,Lutar pela custódia
+CHOICE_SETTLE,Settle amicably,Resolver amigavelmente
+EVENT_ADULT_CAR_ACCIDENT,You're in a car accident!,Você sofreu um acidente de carro!
+EVENT_ADULT_CAR_ACCIDENT_DESC,How bad is it?,Quão grave é?
+CHOICE_HOSPITAL,Go to the hospital,Ir ao hospital
+CHOICE_WALK_AWAY,Walk away from it,Sair andando
+EVENT_ADULT_FRAUD_OPPORTUNITY,You discover a way to commit fraud at work.,Você descobre um jeito de cometer fraude no trabalho.
+EVENT_ADULT_FRAUD_OPPORTUNITY_DESC,Lots of money but very risky.,Muito dinheiro mas muito arriscado.
+CHOICE_COMMIT_FRAUD,Do it,Fazer isso
+CHOICE_REPORT_IT,Report it,Denunciar
+EVENT_ADULT_CHARITY,A charity asks for your donation.,Uma caridade pede sua doação.
+EVENT_ADULT_CHARITY_DESC,How generous will you be?,Quão generoso você vai ser?
+CHOICE_DONATE_BIG,Donate generously,Doar generosamente
+CHOICE_DONATE_SMALL,Donate a little,Doar um pouco
+EVENT_ELDER_RETIREMENT,It's time to retire.,É hora de se aposentar.
+EVENT_ELDER_RETIREMENT_DESC,You've worked hard. What now?,Você trabalhou duro. E agora?
+CHOICE_RETIRE_HAPPY,Retire happily,Se aposentar feliz
+CHOICE_KEEP_WORKING,Keep working,Continuar trabalhando
+EVENT_ELDER_GRANDCHILD,You have a grandchild!,Você tem um neto!
+EVENT_ELDER_GRANDCHILD_DESC,A new generation begins.,Uma nova geração começa.
+CHOICE_CELEBRATE,Celebrate joyfully,Celebrar com alegria
+CHOICE_DISTANT,Stay distant,Manter distância
+EVENT_ELDER_HEALTH_DECLINE,Your health is declining.,Sua saúde está piorando.
+EVENT_ELDER_HEALTH_DECLINE_DESC,What approach will you take?,Qual abordagem vai tomar?
+CHOICE_TREATMENT,Seek treatment,Buscar tratamento
+CHOICE_NATURAL,Accept naturally,Aceitar naturalmente
+EVENT_ELDER_WILL,It's time to write your will.,É hora de escrever seu testamento.
+EVENT_ELDER_WILL_DESC,How will you divide your legacy?,Como vai dividir seu legado?
+CHOICE_FAMILY_EQUAL,Equal among family,Igual entre a família
+CHOICE_FAVORITE_CHILD,Favor one child,Favorecer um filho
+CHOICE_CHARITY,Leave to charity,Deixar para caridade
+EVENT_ELDER_LEGACY,People ask about your life story.,Pessoas perguntam sobre sua história de vida.
+EVENT_ELDER_LEGACY_DESC,What will your legacy be?,Qual será seu legado?
+CHOICE_WRITE_MEMOIR,Write a memoir,Escrever memórias
+CHOICE_QUIET_LIFE,Live quietly,Viver tranquilamente
+EVENT_ELDER_FRIEND_DIES,An old friend has passed away.,Um velho amigo faleceu.
+EVENT_ELDER_FRIEND_DIES_DESC,How do you process the loss?,Como você processa a perda?
+CHOICE_MOURN,Mourn deeply,Lamentar profundamente
+CHOICE_CELEBRATE_LIFE,Celebrate their life,Celebrar a vida deles
+EVENT_ELDER_HOBBY,You have free time for hobbies.,Você tem tempo livre para hobbies.
+EVENT_ELDER_HOBBY_DESC,What will you do?,O que vai fazer?
+CHOICE_NEW_HOBBY,Pick up a new hobby,Começar um novo hobby
+CHOICE_REST,Rest and relax,Descansar e relaxar
+EVENT_ELDER_SCAM,You receive a suspicious phone call.,Você recebe uma ligação suspeita.
+EVENT_ELDER_SCAM_DESC,They claim you won a prize.,Dizem que você ganhou um prêmio.
+CHOICE_FALL_FOR_IT,Give them your info,Dar suas informações
+CHOICE_SUSPICIOUS,Hang up,Desligar
+CAREER_FAST_FOOD,Fast Food Worker,Trabalhador de Fast Food
+CAREER_RETAIL,Retail Worker,Vendedor
+CAREER_JANITOR,Janitor,Zelador
+CAREER_DRIVER,Driver,Motorista
+CAREER_MECHANIC,Mechanic,Mecânico
+CAREER_ELECTRICIAN,Electrician,Eletricista
+CAREER_NURSE,Nurse,Enfermeiro(a)
+CAREER_TEACHER,Teacher,Professor(a)
+CAREER_ACCOUNTANT,Accountant,Contador(a)
+CAREER_PROGRAMMER,Programmer,Programador(a)
+CAREER_MARKETING,Marketing,Marketing
+CAREER_POLICE,Police Officer,Policial
+CAREER_FIREFIGHTER,Firefighter,Bombeiro(a)
+CAREER_JOURNALIST,Journalist,Jornalista
+CAREER_LAWYER,Lawyer,Advogado(a)
+CAREER_DOCTOR,Doctor,Médico(a)
+CAREER_ENGINEER,Engineer,Engenheiro(a)
+CAREER_ARTIST,Artist,Artista
+CAREER_MUSICIAN,Musician,Músico(a)
+CAREER_ATHLETE,Athlete,Atleta
+CAREER_CHEF,Chef,Chef de Cozinha
+CAREER_REAL_ESTATE,Real Estate Agent,Corretor(a) de Imóveis
+CAREER_POLITICIAN,Politician,Político(a)
+CAREER_CRIMINAL,Criminal,Criminoso(a)
+CAREER_STREAMER,Streamer,Streamer
+TRAIT_ATHLETIC,Athletic,Atlético
+TRAIT_ATHLETIC_DESC,You enjoy exercise and physical activity.,Você gosta de exercícios e atividade física.
+TRAIT_BOOKWORM,Bookworm,Rato de Biblioteca
+TRAIT_BOOKWORM_DESC,You love reading and learning.,Você ama ler e aprender.
+TRAIT_CHARISMATIC,Charismatic,Carismático
+TRAIT_CHARISMATIC_DESC,People are naturally drawn to you.,As pessoas são naturalmente atraídas por você.
+TRAIT_CREATIVE,Creative,Criativo
+TRAIT_CREATIVE_DESC,You see the world differently.,Você vê o mundo de forma diferente.
+TRAIT_BRAVE,Brave,Corajoso
+TRAIT_BRAVE_DESC,You face challenges head-on.,Você enfrenta desafios de frente.
+TRAIT_COMPASSIONATE,Compassionate,Compassivo
+TRAIT_COMPASSIONATE_DESC,You care deeply about others.,Você se importa profundamente com os outros.
+TRAIT_AMBITIOUS,Ambitious,Ambicioso
+TRAIT_AMBITIOUS_DESC,You always want more from life.,Você sempre quer mais da vida.
+TRAIT_ROMANTIC,Romantic,Romântico
+TRAIT_ROMANTIC_DESC,You believe in true love.,Você acredita no amor verdadeiro.
+TRAIT_HARDWORKING,Hardworking,Trabalhador
+TRAIT_HARDWORKING_DESC,You never shy away from hard work.,Você nunca foge do trabalho duro.
+TRAIT_LAZY,Lazy,Preguiçoso
+TRAIT_LAZY_DESC,You prefer the easy way out.,Você prefere o caminho mais fácil.
+TRAIT_REBEL,Rebel,Rebelde
+TRAIT_REBEL_DESC,Rules are meant to be broken.,Regras foram feitas pra serem quebradas.
+TRAIT_SENSITIVE,Sensitive,Sensível
+TRAIT_SENSITIVE_DESC,You feel things deeply.,Você sente as coisas profundamente.
+TRAIT_DELINQUENT,Delinquent,Delinquente
+TRAIT_DELINQUENT_DESC,Trouble follows wherever you go.,Problemas seguem onde quer que vá.
+TRAIT_CORRUPT,Corrupt,Corrupto
+TRAIT_CORRUPT_DESC,You bend the rules for personal gain.,Você quebra as regras por ganho pessoal.
+TRAIT_OPTIMISTIC,Optimistic,Otimista
+TRAIT_OPTIMISTIC_DESC,You always see the bright side.,Você sempre vê o lado bom.
+TRAIT_PESSIMISTIC,Pessimistic,Pessimista
+TRAIT_PESSIMISTIC_DESC,You expect the worst.,Você espera o pior.
+TRAIT_INTROVERT,Introvert,Introvertido
+TRAIT_INTROVERT_DESC,You recharge in solitude.,Você recarrega na solidão.
+TRAIT_EXTROVERT,Extrovert,Extrovertido
+TRAIT_EXTROVERT_DESC,You thrive around people.,Você prospera perto de pessoas.
+TRAIT_LUCKY,Lucky,Sortudo
+TRAIT_LUCKY_DESC,Good things just happen to you.,Coisas boas simplesmente acontecem com você.
+TRAIT_UNLUCKY,Unlucky,Azarado
+TRAIT_UNLUCKY_DESC,Bad luck follows you around.,Azar te segue por aí.
+TRAIT_GENIUS,Genius,Gênio
+TRAIT_GENIUS_DESC,Your mind works faster than most.,Sua mente funciona mais rápido que a maioria.
+TRAIT_CLUMSY,Clumsy,Desajeitado
+TRAIT_CLUMSY_DESC,You trip over your own feet.,Você tropeça nos próprios pés.
+TRAIT_BEAUTIFUL,Beautiful,Bonito(a)
+TRAIT_BEAUTIFUL_DESC,Your looks turn heads.,Sua aparência chama atenção.
+TRAIT_FUNNY,Funny,Engraçado
+TRAIT_FUNNY_DESC,You make everyone laugh.,Você faz todo mundo rir.
+TRAIT_STUBBORN,Stubborn,Teimoso
+TRAIT_STUBBORN_DESC,Once you decide something there's no changing.,Uma vez que decide algo não muda.
+TRAIT_GREEDY,Greedy,Ganancioso
+TRAIT_GREEDY_DESC,You always want more money.,Você sempre quer mais dinheiro.
+TRAIT_GENEROUS,Generous,Generoso
+TRAIT_GENEROUS_DESC,You love sharing with others.,Você ama compartilhar com os outros.
+TRAIT_ANXIOUS,Anxious,Ansioso
+TRAIT_ANXIOUS_DESC,Worry is your constant companion.,Preocupação é sua companhia constante.
+TRAIT_CALM,Calm,Calmo
+TRAIT_CALM_DESC,Nothing seems to shake you.,Nada parece te abalar.
+TRAIT_MANIPULATIVE,Manipulative,Manipulador
+TRAIT_MANIPULATIVE_DESC,You know how to get what you want.,Você sabe como conseguir o que quer.
+TRAIT_HONEST,Honest,Honesto
+TRAIT_HONEST_DESC,You always tell the truth.,Você sempre fala a verdade.
+TRAIT_RISK_TAKER,Risk Taker,Aventureiro
+TRAIT_RISK_TAKER_DESC,You live for the thrill.,Você vive pela adrenalina.
+TRAIT_PERFECTIONIST,Perfectionist,Perfeccionista
+TRAIT_PERFECTIONIST_DESC,Nothing is ever good enough.,Nada é bom o suficiente.

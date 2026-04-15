@@ -1,0 +1,39 @@
+{
+  "BR": {
+    "male_first": [
+      "Miguel", "Arthur", "Heitor", "Bernardo", "Théo", "Davi", "Gabriel", "Samuel", "Pedro", "Lucas",
+      "Rafael", "Felipe", "Gustavo", "Mateus", "Leonardo", "Enzo", "Nicolas", "Bruno", "Vinícius", "Eduardo",
+      "Caio", "Diego", "Thiago", "Murilo", "Cauã", "João", "Guilherme", "Henrique", "Igor", "Otávio",
+      "Breno", "André", "Marcos", "Daniel", "Fernando", "Ricardo", "Rodrigo", "Leandro", "Alexandre", "Renato",
+      "Carlos", "Fábio", "Marcelo", "Roberto", "Sérgio", "Antônio", "Paulo", "José", "Luís", "Francisco",
+      "Raul", "Luan", "Pietro", "Augusto", "Lucca", "Emanuel", "Caleb", "Benício", "Lorenzo", "Isaac",
+      "Yuri", "Pablo", "Kevin", "Ryan", "Ian", "Renan", "Elias", "Noah", "Benjamin", "Danton",
+      "Vitor", "Tomás", "Nathan", "Anthony", "Levi", "Bryan", "Kaique", "Danilo", "Tales", "Ravi",
+      "Joaquim", "Valentim", "Bento", "Gael", "Ravi", "Heloísio", "Cícero", "Nelson", "Adriano", "Lúcio",
+      "Olavo", "Saulo", "Flávio", "Rogério", "Edson", "Wilson", "Valdir", "Vanderlei", "Sebastião", "Benedito"
+    ],
+    "female_first": [
+      "Helena", "Alice", "Laura", "Maria", "Valentina", "Sophia", "Isabella", "Manuela", "Júlia", "Heloísa",
+      "Luísa", "Lorena", "Lívia", "Giovanna", "Maria Luíza", "Lara", "Cecília", "Marina", "Isadora", "Beatriz",
+      "Ana", "Clara", "Gabriela", "Letícia", "Rafaela", "Camila", "Fernanda", "Mariana", "Bruna", "Juliana",
+      "Natália", "Vitória", "Larissa", "Bianca", "Carolina", "Amanda", "Débora", "Patrícia", "Priscila", "Renata",
+      "Tatiana", "Vanessa", "Aline", "Adriana", "Carla", "Cláudia", "Cristina", "Daniela", "Eliana", "Flávia",
+      "Luana", "Milena", "Rebeca", "Raissa", "Eloá", "Isis", "Antonella", "Emanuelly", "Melissa", "Nicole",
+      "Pietra", "Alícia", "Catarina", "Sarah", "Olívia", "Stella", "Agatha", "Maya", "Aurora", "Lavínia",
+      "Maria Clara", "Maria Eduarda", "Ana Beatriz", "Ana Luíza", "Ana Clara", "Maria Alice", "Maria Cecília", "Maria Júlia", "Ana Júlia", "Maria Fernanda",
+      "Vitória", "Yasmin", "Eduarda", "Déborah", "Simone", "Sandra", "Rosana", "Cíntia", "Denise", "Elisa",
+      "Teresa", "Rosa", "Joana", "Francisca", "Aparecida", "Conceição", "Luciana", "Mônica", "Valéria", "Sílvia"
+    ],
+    "last": [
+      "Silva", "Santos", "Oliveira", "Souza", "Rodrigues", "Ferreira", "Alves", "Pereira", "Lima", "Gomes",
+      "Costa", "Ribeiro", "Martins", "Carvalho", "Almeida", "Lopes", "Soares", "Fernandes", "Vieira", "Barbosa",
+      "Rocha", "Dias", "Nascimento", "Andrade", "Moreira", "Nunes", "Marques", "Machado", "Mendes", "Freitas",
+      "Cardoso", "Ramos", "Gonçalves", "Santana", "Teixeira", "Araújo", "Correia", "Pinto", "Monteiro", "Barros",
+      "Batista", "Campos", "Moura", "Azevedo", "Melo", "Brito", "Cunha", "Reis", "Duarte", "Henrique",
+      "Castro", "Medeiros", "Aguiar", "Fonseca", "Nogueira", "Pires", "Sales", "Miranda", "Sampaio", "Rezende",
+      "Tavares", "Coelho", "Vasconcelos", "Cruz", "Pessoa", "Amorim", "Cavalcanti", "Bezerra", "Farias", "Lacerda",
+      "Menezes", "Siqueira", "Amaral", "Borges", "Leite", "Figueiredo", "Guimarães", "Braga", "Assis", "Coutinho",
+      "Xavier", "Barreto", "Cordeiro", "Damasceno", "Prado", "Queiroz", "Porto", "Franco", "Guerra", "Pacheco"
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "events": [
+    {
+      "id": "child_school_start",
+      "phases": ["CHILD"],
+      "age_min": 5,
+      "age_max": 6,
+      "category": "school",
+      "weight": 90,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SCHOOL_START",
+      "choices": [
+        {
+          "text_key": "CHOICE_EXCITED",
+          "effects": {"intelligence": 3, "happiness": 3}
+        },
+        {
+          "text_key": "CHOICE_NERVOUS",
+          "effects": {"intelligence": 1, "happiness": -2}
+        }
+      ]
+    },
+    {
+      "id": "child_bully",
+      "phases": ["CHILD"],
+      "age_min": 6,
+      "age_max": 12,
+      "category": "social",
+      "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_BULLY",
+      "choices": [
+        {
+          "text_key": "CHOICE_STAND_UP",
+          "effects": {"charisma": 3, "temperament": 3},
+          "trait_chance": {"trait": "brave", "chance": 0.15}
+        },
+        {
+          "text_key": "CHOICE_TELL_TEACHER",
+          "effects": {"intelligence": 2, "happiness": -1}
+        },
+        {
+          "text_key": "CHOICE_RUN_AWAY",
+          "effects": {"happiness": -5, "temperament": -3}
+        }
+      ]
+    },
+    {
+      "id": "child_best_friend",
+      "phases": ["CHILD"],
+      "age_min": 6,
+      "age_max": 12,
+      "category": "social",
+      "weight": 70,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_BEST_FRIEND",
+      "choices": [
+        {
+          "text_key": "CHOICE_BE_FRIENDS",
+          "effects": {"happiness": 8, "charisma": 3}
+        },
+        {
+          "text_key": "CHOICE_STAY_ALONE",
+          "effects": {"intelligence": 2}
+        }
+      ]
+    },
+    {
+      "id": "child_test",
+      "phases": ["CHILD"],
+      "age_min": 7,
+      "age_max": 12,
+      "category": "school",
+      "weight": 65,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_TEST",
+      "choices": [
+        {
+          "text_key": "CHOICE_STUDY_HARD",
+          "effects": {"intelligence": 5, "happiness": -2}
+        },
+        {
+          "text_key": "CHOICE_WING_IT",
+          "effects": {"luck": 1}
+        },
+        {
+          "text_key": "CHOICE_CHEAT",
+          "effects": {"intelligence": 2},
+          "morality_effect": -5
+        }
+      ]
+    },
+    {
+      "id": "child_sport",
+      "phases": ["CHILD"],
+      "age_min": 6,
+      "age_max": 12,
+      "category": "health",
+      "weight": 55,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SPORT",
+      "choices": [
+        {
+          "text_key": "CHOICE_JOIN_TEAM",
+          "effects": {"health": 5, "charisma": 2},
+          "trait_chance": {"trait": "athletic", "chance": 0.1}
+        },
+        {
+          "text_key": "CHOICE_READ_BOOK",
+          "effects": {"intelligence": 5},
+          "trait_chance": {"trait": "bookworm", "chance": 0.1}
+        }
+      ]
+    },
+    {
+      "id": "child_talent_show",
+      "phases": ["CHILD"],
+      "age_min": 7,
+      "age_max": 12,
+      "category": "social",
+      "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_TALENT_SHOW",
+      "choices": [
+        {
+          "text_key": "CHOICE_PERFORM",
+          "effects": {"charisma": 5, "happiness": 3},
+          "trait_chance": {"trait": "creative", "chance": 0.1}
+        },
+        {
+          "text_key": "CHOICE_WATCH",
+          "effects": {"happiness": 1}
+        }
+      ]
+    },
+    {
+      "id": "child_stray_animal",
+      "phases": ["CHILD"],
+      "age_min": 6,
+      "age_max": 12,
+      "category": "family",
+      "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_STRAY_ANIMAL",
+      "choices": [
+        {
+          "text_key": "CHOICE_BRING_HOME",
+          "effects": {"happiness": 5},
+          "morality_effect": 5,
+          "trait_chance": {"trait": "compassionate", "chance": 0.1}
+        },
+        {
+          "text_key": "CHOICE_WALK_AWAY",
+          "effects": {}
+        }
+      ]
+    },
+    {
+      "id": "child_parents_fight",
+      "phases": ["CHILD"],
+      "age_min": 5,
+      "age_max": 12,
+      "category": "family",
+      "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_PARENTS_FIGHT",
+      "choices": [
+        {
+          "text_key": "CHOICE_HIDE",
+          "effects": {"happiness": -5, "mental_stability": -3}
+        },
+        {
+          "text_key": "CHOICE_TRY_HELP",
+          "effects": {"charisma": 2, "mental_stability": -1},
+          "relationship_effects": {"MOTHER": {"affection": 3}, "FATHER": {"affection": 3}}
+        }
+      ]
+    },
+    {
+      "id": "child_money_found",
+      "phases": ["CHILD"],
+      "age_min": 7,
+      "age_max": 12,
+      "category": "finance",
+      "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_MONEY_FOUND",
+      "choices": [
+        {
+          "text_key": "CHOICE_RETURN_IT",
+          "effects": {},
+          "morality_effect": 8
+        },
+        {
+          "text_key": "CHOICE_KEEP_IT",
+          "effects": {},
+          "morality_effect": -5,
+          "money_effect": 20
+        }
+      ]
+    }
+  ]
+}
