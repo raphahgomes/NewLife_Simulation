@@ -21,7 +21,8 @@ extends Control
 @onready var btn_class_mid: Button = %BtnClassMid
 @onready var btn_class_high: Button = %BtnClassHigh
 @onready var btn_both_parents: Button = %BtnBothParents
-@onready var btn_single_parent: Button = %BtnSingleParent
+@onready var btn_single_father: Button = %BtnSingleFather
+@onready var btn_single_mother: Button = %BtnSingleMother
 @onready var btn_orphan: Button = %BtnOrphan
 @onready var btn_sib_minus: Button = %BtnSibMinus
 @onready var btn_sib_plus: Button = %BtnSibPlus
@@ -59,7 +60,7 @@ const MAX_ATTR := 100
 var _selected_gender: String = "male"
 var _selected_country: String = "BR"
 var _selected_class: int = 1  # 0=low, 1=mid, 2=high
-var _selected_parents: int = 0  # 0=both, 1=single, 2=orphan
+var _selected_parents: int = 0  # 0=both, 1=father_only, 2=mother_only, 3=orphan
 var _sibling_count: int = 0
 var _names_data: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
@@ -124,7 +125,7 @@ func _style_ui() -> void:
 	_style_toggle_group([btn_male, btn_female])
 	_style_toggle_group([btn_brazil, btn_usa])
 	_style_toggle_group([btn_class_low, btn_class_mid, btn_class_high])
-	_style_toggle_group([btn_both_parents, btn_single_parent, btn_orphan])
+	_style_toggle_group([btn_both_parents, btn_single_father, btn_single_mother, btn_orphan])
 
 	# Random buttons
 	for btn in [btn_random_first, btn_random_last]:
@@ -200,7 +201,8 @@ func _localize_ui() -> void:
 	btn_class_high.text = tr("CLASS_HIGH")
 
 	btn_both_parents.text = tr("PARENTS_BOTH")
-	btn_single_parent.text = tr("PARENTS_SINGLE")
+	btn_single_father.text = tr("PARENTS_FATHER")
+	btn_single_mother.text = tr("PARENTS_MOTHER")
 	btn_orphan.text = tr("PARENTS_ORPHAN")
 
 	$ScrollContainer/MainMargin/MainVBox/HealthRow/LblHealth.text = "❤️ " + tr("HEALTH") + ":"
@@ -271,7 +273,7 @@ func _connect_signals() -> void:
 		)
 
 	# Parents toggle
-	var parent_btns := [btn_both_parents, btn_single_parent, btn_orphan]
+	var parent_btns := [btn_both_parents, btn_single_father, btn_single_mother, btn_orphan]
 	for i in parent_btns.size():
 		var idx := i
 		parent_btns[i].pressed.connect(func():
@@ -406,17 +408,20 @@ func _randomize_all() -> void:
 	btn_class_high.button_pressed = (_selected_class == 2)
 
 	# Parents
-	var parent_weights := [70, 20, 10]  # most likely both parents
+	var parent_weights := [60, 15, 15, 10]  # both, father, mother, orphan
 	var roll := _rng.randi_range(1, 100)
 	if roll <= parent_weights[0]:
 		_selected_parents = 0
 	elif roll <= parent_weights[0] + parent_weights[1]:
 		_selected_parents = 1
-	else:
+	elif roll <= parent_weights[0] + parent_weights[1] + parent_weights[2]:
 		_selected_parents = 2
+	else:
+		_selected_parents = 3
 	btn_both_parents.button_pressed = (_selected_parents == 0)
-	btn_single_parent.button_pressed = (_selected_parents == 1)
-	btn_orphan.button_pressed = (_selected_parents == 2)
+	btn_single_father.button_pressed = (_selected_parents == 1)
+	btn_single_mother.button_pressed = (_selected_parents == 2)
+	btn_orphan.button_pressed = (_selected_parents == 3)
 
 	# Siblings
 	_sibling_count = _rng.randi_range(0, 4)
@@ -472,7 +477,8 @@ func _update_summary() -> void:
 	var parents_text: String
 	match _selected_parents:
 		0: parents_text = tr("PARENTS_BOTH")
-		1: parents_text = tr("PARENTS_SINGLE")
+		1: parents_text = tr("PARENTS_FATHER")
+		2: parents_text = tr("PARENTS_MOTHER")
 		_: parents_text = tr("PARENTS_ORPHAN")
 
 	var text := "[b]" + first + " " + last + "[/b]\n"

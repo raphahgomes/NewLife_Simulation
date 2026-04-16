@@ -296,3 +296,37 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 22)
 value = 50.0
 show_percentage = true
+
+[node name="IntelligenceRow" type="HBoxContainer" parent="MainVBox/BottomSection/StatsPanel/StatsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblIntelligence" type="Label" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/IntelligenceRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(170, 0)
+text = "INTELLIGENCE"
+
+[node name="IntelligenceBar" type="ProgressBar" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/IntelligenceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 32)
+value = 50.0
+show_percentage = true
+
+[node name="BeautyRow" type="HBoxContainer" parent="MainVBox/BottomSection/StatsPanel/StatsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblBeauty" type="Label" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/BeautyRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(170, 0)
+text = "BEAUTY"
+
+[node name="BeautyBar" type="ProgressBar" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/BeautyRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 32)
+value = 50.0
+show_percentage = true

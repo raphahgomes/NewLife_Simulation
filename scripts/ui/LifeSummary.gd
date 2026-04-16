@@ -22,6 +22,104 @@ func _ready() -> void:
 
 	btn_new_life.text = tr("NEW_LIFE")
 	btn_new_life.pressed.connect(_on_new_life)
+	
+	_add_monetization_options(c)
+
+
+func _add_monetization_options(c: Character) -> void:
+	var hbox := HBoxContainer.new()
+	hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	hbox.add_theme_constant_override("separation", 20)
+	btn_new_life.get_parent().add_child(hbox)
+	btn_new_life.get_parent().move_child(hbox, btn_new_life.get_index())
+	
+	var btn_revive := Button.new()
+	var revive_label = "🎥 " + tr("REVIVE_AD")
+	if AdManager.has_premium:
+		revive_label = "💎 " + tr("REV_VIP_SKIP")
+	
+	btn_revive.text = revive_label
+	btn_revive.custom_minimum_size = Vector2(250, 60)
+	var style1 := ThemeSetup.make_flat_box(ThemeSetup.COLOR_HEALTH, 14, 16, 12)
+	btn_revive.add_theme_stylebox_override("normal", style1)
+	btn_revive.add_theme_font_size_override("font_size", 22)
+	btn_revive.add_theme_color_override("font_color", Color.WHITE)
+	hbox.add_child(btn_revive)
+	
+	btn_revive.pressed.connect(func():
+		btn_revive.disabled = true
+		AdManager.show_rewarded_ad("revive")
+	)
+
+	if not AdManager.has_premium:
+		var btn_premium := Button.new()
+		btn_premium.text = tr("BUY_PREMIUM")
+		btn_premium.custom_minimum_size = Vector2(300, 60)
+		var style_vip := ThemeSetup.make_flat_box(Color("#9c27b0"), 14, 16, 12)
+		btn_premium.add_theme_stylebox_override("normal", style_vip)
+		btn_premium.add_theme_font_size_override("font_size", 18)
+		btn_premium.add_theme_color_override("font_color", Color.WHITE)
+		hbox.add_child(btn_premium)
+		
+		btn_premium.pressed.connect(func():
+			AdManager.buy_premium()
+			btn_premium.queue_free()
+			btn_revive.text = "💎 " + tr("REV_VIP_SKIP")
+		)
+	
+	AdManager.rewarded_ad_completed.connect(func(reward_type: String):
+		if reward_type == "revive":
+			c.alive = true
+			c.health = 50
+			c.cause_of_death = ""
+			GameManager.save_game()
+			SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
+	)
+
+	# Check for children
+	var children: Array[Relationship] = []
+	for rel in c.relationships:
+		if rel is Relationship and rel.rel_type == Relationship.RelType.CHILD and rel.alive:
+			children.append(rel)
+			
+	if children.size() > 0:
+		var btn_legacy := Button.new()
+		btn_legacy.text = "👑 " + tr("PLAY_AS_CHILD")
+		btn_legacy.custom_minimum_size = Vector2(250, 60)
+		var style2 := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY_DARK, 14, 16, 12)
+		btn_legacy.add_theme_stylebox_override("normal", style2)
+		btn_legacy.add_theme_font_size_override("font_size", 22)
+		btn_legacy.add_theme_color_override("font_color", Color.WHITE)
+		hbox.add_child(btn_legacy)
+		
+		btn_legacy.pressed.connect(func():
+			_show_child_selection(c, children)
+		)
+
+func _show_child_selection(c: Character, children: Array[Relationship]) -> void:
+	var popup := AcceptDialog.new()
+	popup.title = tr("SELECT_CHILD")
+	popup.size = Vector2(400, 400)
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	popup.add_child(vbox)
+	
+	for child in children:
+		var btn := Button.new()
+		btn.text = child.person_name + " (" + str(child.person_age) + " " + tr("YEARS") + ")"
+		btn.custom_minimum_size = Vector2(0, 50)
+		var style3 := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 12, 16, 12)
+		btn.add_theme_stylebox_override("normal", style3)
+		btn.add_theme_font_size_override("font_size", 20)
+		vbox.add_child(btn)
+		btn.pressed.connect(func():
+			GameManager.start_legacy_life(c, child)
+			popup.queue_free()
+			SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
+		)
+	
+	add_child(popup)
+	popup.popup_centered()
 
 
 func _populate(c: Character) -> void:

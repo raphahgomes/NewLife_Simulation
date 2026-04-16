@@ -4,6 +4,7 @@
 
 # Exported builds
 export/
+exports/
 build/
 *.apk
 *.aab

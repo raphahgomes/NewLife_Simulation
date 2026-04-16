@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func _build_theme() -> Theme:
 	var t := Theme.new()
-	t.set_default_font_size(17)
+	t.set_default_font_size(24)
 
 	_setup_button(t)
 	_setup_label(t)

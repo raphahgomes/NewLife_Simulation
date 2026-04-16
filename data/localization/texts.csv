@@ -849,8 +849,9 @@ CLASS_LOW,Low,Baixa
 CLASS_MIDDLE,Middle,Média
 CLASS_HIGH,High,Alta
 PARENTS,Parents,Pais
-PARENTS_BOTH,Both,Ambos
-PARENTS_SINGLE,Single Parent,Pai/Mãe Solo
+PARENTS_BOTH,Both Parents,Ambos os Pais
+PARENTS_FATHER,Single Father,Pai Solo
+PARENTS_MOTHER,Single Mother,Mãe Solo
 PARENTS_ORPHAN,Orphan,Órfão
 SIBLINGS,Siblings,Irmãos
 TYPE_OR_RANDOM,Type or press 🎲,Digite ou pressione 🎲
@@ -901,3 +902,35 @@ PHASE_DESC_CHILD,You're a child. Time to learn and play!,Você é uma criança. 
 PHASE_DESC_TEEN,You're a teenager. The world awaits!,Você é adolescente. O mundo te espera!
 PHASE_DESC_ADULT,You're an adult. Build your life!,Você é adulto. Construa sua vida!
 PHASE_DESC_ELDER,You're an elder. Enjoy your legacy.,Você é idoso. Aproveite seu legado.
+REL_TALK,Talk,Conversar
+REL_SPEND_TIME,Spend Time Together,Passar Tempo Juntos
+REL_COMPLIMENT,Compliment,Elogiar
+REL_ARGUE,Argue,Discutir
+REL_GIFT,Give Gift,Dar Presente
+REL_ASK_MONEY,Ask for Money,Pedir Dinheiro
+REL_RESULT_TALK,You had a nice conversation with {name}.,Você teve uma boa conversa com {name}.
+REL_RESULT_SPEND_TIME,You spent quality time with {name}.,Você passou um tempo de qualidade com {name}.
+REL_RESULT_COMPLIMENT,You complimented {name}. They smiled!,Você elogiou {name}. Ela(e) sorriu!
+REL_RESULT_ARGUE,You argued with {name}. Things got heated.,Você discutiu com {name}. As coisas esquentaram.
+REL_RESULT_GIFT,You gave a gift to {name}. They loved it!,Você deu um presente para {name}. Adorou!
+REL_RESULT_ASK_MONEY_OK,{name} gave you ${amount}.,{name} te deu ${amount}.
+REL_RESULT_ASK_MONEY_NO,{name} refused to give you money.,{name} se recusou a te dar dinheiro.
+REL_NO_RELATIONSHIPS,You don't have any relationships yet.,Você ainda não tem relacionamentos.
+REL_CHOOSE_ACTION,Choose an action:,Escolha uma ação:
+REL_AFFECTION,Affection,Afeição
+REL_RESPECT,Respect,Respeito
+REL_TRUST,Trust,Confiança
+BACK,Back,Voltar
+
+INTELLIGENCE,Intelligence,Inteligência
+BEAUTY,Beauty,Beleza
+
+
+REVIVE_AD,Watch Ad to Revive (1 Year ago),Ver Anúncio para Voltar (1 Ano)
+PLAY_AS_CHILD,Continue as Child (Legacy),Continuar como Filho (Legado)
+SELECT_CHILD,Select child to continue:,Selecione o filho para continuar:
+
+
+BUY_PREMIUM,💎 Remove Ads (Skip Video & Revive),💎 Remover Anúncios (Reviver sem Vídeo)
+WATCH_AD_MONEY,📺 Watch Video (+),📺 Ver Vídeo (+)
+

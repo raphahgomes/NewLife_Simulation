@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="20" fill="#1A1D2E"/>
-  <text x="64" y="78" font-family="Arial, sans-serif" font-size="64" fill="#00BFA5" text-anchor="middle">NL</text>
+﻿<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="256" height="256" rx="60" fill="url(#bg_grad)"/>
+<path d="M80 80C80 68.9543 88.9543 60 100 60H156C167.046 60 176 68.9543 176 80V100C176 111.046 167.046 120 156 120H136L176 196H136L104 120H100V196H80V80Z" fill="white"/>
+<circle cx="128" cy="128" r="110" stroke="white" stroke-opacity="0.2" stroke-width="12"/>
+<defs>
+<linearGradient id="bg_grad" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00BFA5"/>
+<stop offset="1" stop-color="#004D40"/>
+</linearGradient>
+</defs>
 </svg>

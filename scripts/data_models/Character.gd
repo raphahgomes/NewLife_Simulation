@@ -64,6 +64,9 @@ enum Education { NONE, PRIMARY, SECONDARY, TECHNICAL, COLLEGE, POSTGRAD }
 # === Anti-repetition ===
 @export var seen_events: Array[String] = []
 
+# === Inventory / Assets ===
+@export var inventory: Array[Dictionary] = []
+
 # === Seed ===
 @export var world_seed: int = 0
 
@@ -163,6 +166,7 @@ func to_save_dict() -> Dictionary:
 		"debt": debt,
 		"credit_score": credit_score,
 		"assets_value": assets_value,
+		"inventory": inventory,
 		"social_class": social_class,
 		"traits": traits,
 		"current_career": current_career,
@@ -202,6 +206,12 @@ static func from_save_dict(d: Dictionary) -> Character:
 	c.debt = d.get("debt", 0.0)
 	c.credit_score = d.get("credit_score", 500)
 	c.assets_value = d.get("assets_value", 0.0)
+	
+	var inv_array: Array = d.get("inventory", [])
+	c.inventory = []
+	for i in inv_array:
+		c.inventory.append(i as Dictionary)
+		
 	c.social_class = d.get("social_class", SocialClass.MIDDLE)
 	c.traits = Array(d.get("traits", []), TYPE_STRING, "", null)
 	c.current_career = d.get("current_career", "")

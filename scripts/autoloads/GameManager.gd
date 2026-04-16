@@ -42,6 +42,41 @@ func start_new_life(seed_value: int = -1) -> void:
 	_trigger_events_for_year()
 
 
+func start_legacy_life(parent: Character, child_rel: Relationship) -> void:
+	var seed_value := randi()
+	_rng.seed = seed_value
+
+	character = Character.new()
+	character.world_seed = seed_value
+	character.first_name = child_rel.person_name
+	character.last_name = parent.last_name
+	character.gender = child_rel.person_gender
+	character.country = parent.country
+	character.age = child_rel.person_age
+	character.birth_year = parent.birth_year + parent.age - child_rel.person_age
+	
+	var passed_percentage := 0.5 # inherit 50%
+	character.money = maxf(0.0, parent.money * passed_percentage)
+	character.assets_value = parent.assets_value * passed_percentage
+
+	# Randomize basic stats
+	character.health = _rng.randi_range(60, 100)
+	character.happiness = _rng.randi_range(60, 100)
+	character.morality = _rng.randi_range(40, 90)
+	character.intelligence = _rng.randi_range(40, 90)
+	character.charisma = _rng.randi_range(40, 90)
+	character.appearance = _rng.randi_range(40, 90)
+	
+	character.life_phase = character.get_life_phase_for_age(character.age)
+	
+	is_game_active = true
+	_event_queue.clear()
+	_current_event = null
+
+	SaveManager.auto_save(character)
+	game_started.emit()
+
+
 func start_custom_life(config: Dictionary) -> void:
 	var seed_value := randi()
 	_rng.seed = seed_value
@@ -338,9 +373,9 @@ func _generate_custom_family(c: Character, parents_mode: int, sibling_count: int
 	var female_names: Array = lang_names.get("female_first", ["Maria"])
 	var last_names: Array = lang_names.get("last", [c.last_name])
 
-	# parents_mode: 0=both, 1=single, 2=orphan
-	if parents_mode <= 1:
-		# At least one parent
+	# parents_mode: 0=both, 1=father_only, 2=mother_only, 3=orphan
+	if parents_mode == 0:
+		# Both parents
 		var mother := Relationship.new()
 		mother.rel_type = Relationship.RelType.MOTHER
 		mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + last_names[_rng.randi_range(0, last_names.size() - 1)]
@@ -351,16 +386,38 @@ func _generate_custom_family(c: Character, parents_mode: int, sibling_count: int
 		mother.trust = _rng.randi_range(50, 90)
 		c.relationships.append(mother)
 
-		if parents_mode == 0:
-			var father := Relationship.new()
-			father.rel_type = Relationship.RelType.FATHER
-			father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
-			father.person_age = _rng.randi_range(22, 40)
-			father.person_gender = "male"
-			father.affection = _rng.randi_range(40, 90)
-			father.respect = _rng.randi_range(40, 80)
-			father.trust = _rng.randi_range(40, 85)
-			c.relationships.append(father)
+		var father := Relationship.new()
+		father.rel_type = Relationship.RelType.FATHER
+		father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
+		father.person_age = _rng.randi_range(22, 40)
+		father.person_gender = "male"
+		father.affection = _rng.randi_range(40, 90)
+		father.respect = _rng.randi_range(40, 80)
+		father.trust = _rng.randi_range(40, 85)
+		c.relationships.append(father)
+	elif parents_mode == 1:
+		# Father only
+		var father := Relationship.new()
+		father.rel_type = Relationship.RelType.FATHER
+		father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
+		father.person_age = _rng.randi_range(22, 40)
+		father.person_gender = "male"
+		father.affection = _rng.randi_range(50, 95)
+		father.respect = _rng.randi_range(40, 80)
+		father.trust = _rng.randi_range(50, 90)
+		c.relationships.append(father)
+	elif parents_mode == 2:
+		# Mother only
+		var mother := Relationship.new()
+		mother.rel_type = Relationship.RelType.MOTHER
+		mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + last_names[_rng.randi_range(0, last_names.size() - 1)]
+		mother.person_age = _rng.randi_range(20, 38)
+		mother.person_gender = "female"
+		mother.affection = _rng.randi_range(50, 95)
+		mother.respect = _rng.randi_range(40, 80)
+		mother.trust = _rng.randi_range(50, 90)
+		c.relationships.append(mother)
+	# parents_mode == 3: orphan — no parents
 
 	# Siblings
 	for i in sibling_count:

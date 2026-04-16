@@ -27,6 +27,8 @@ extends Control
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var social_bar: ProgressBar = %SocialBar
 @onready var morality_bar: ProgressBar = %MoralityBar
+@onready var intelligence_bar: ProgressBar = %IntelligenceBar
+@onready var beauty_bar: ProgressBar = %BeautyBar
 
 var _event_popup_scene: PackedScene = preload("res://scenes/popups/EventPopup.tscn")
 var _pause_menu_scene: PackedScene = preload("res://scenes/popups/PauseMenu.tscn")
@@ -40,12 +42,49 @@ func _ready() -> void:
 	_localize_ui()
 	_connect_signals()
 	_update_display()
+	_setup_monetization_button()
 
 	var start_age := 0
 	if GameManager.character:
 		start_age = GameManager.character.age
 	_add_year_separator(start_age)
 	_process_next_event()
+
+func _setup_monetization_button() -> void:
+	var mon_btn := Button.new()
+	if AdManager.has_premium:
+		mon_btn.text = "+$10k (VIP)"
+	else:
+		mon_btn.text = "🎥 " + tr("WATCH_AD_MONEY") + " (+$10k)"
+	
+	mon_btn.custom_minimum_size = Vector2(160, 45)
+	
+	var b_style := ThemeSetup.make_flat_box(Color("#4CAF50"), 10, 10, 8)
+	mon_btn.add_theme_stylebox_override("normal", b_style)
+	mon_btn.add_theme_font_size_override("font_size", 16)
+	mon_btn.add_theme_color_override("font_color", Color.WHITE)
+	
+	mon_btn.pressed.connect(func():
+		mon_btn.disabled = true
+		AdManager.show_rewarded_ad("money")
+	)
+
+	AdManager.rewarded_ad_completed.connect(func(reward_type: String):
+		if reward_type == "money":
+			GameManager.character.money += 10000
+			GameManager.save_game()
+			_update_money(GameManager.character)
+			_add_log_entry("💰 " + tr("WATCH_AD_MONEY") + ": +$10k!", "💰")
+			mon_btn.disabled = false
+			if AdManager.has_premium:
+				mon_btn.text = "+$10k (VIP)"
+	)
+
+	# Colocar na HeaderPanel -> TopRow
+	var top_row = $MainVBox/HeaderPanel/HeaderVBox/TopRow
+	top_row.add_child(mon_btn)
+	top_row.move_child(mon_btn, 2) # Fica após o título
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -70,28 +109,29 @@ func _on_achievement_unlocked(_id: String, text_key: String, icon: String) -> vo
 
 func _style_header() -> void:
 	var header_panel := $MainVBox/HeaderPanel
-	var header_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY, 0, 16, 10)
+	var header_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY, 0, 20, 14)
 	header_panel.add_theme_stylebox_override("panel", header_style)
 
 	var title_label := $MainVBox/HeaderPanel/HeaderVBox/TopRow/TitleLabel
-	title_label.add_theme_font_size_override("font_size", 20)
+	title_label.add_theme_font_size_override("font_size", 32)
 	title_label.add_theme_color_override("font_color", Color.WHITE)
 
-	btn_menu.add_theme_font_size_override("font_size", 24)
+	btn_menu.add_theme_font_size_override("font_size", 36)
 	btn_menu.add_theme_color_override("font_color", Color.WHITE)
 
-	avatar_label.add_theme_font_size_override("font_size", 32)
+	avatar_label.add_theme_font_size_override("font_size", 48)
+	avatar_label.custom_minimum_size = Vector2(64, 64)
 
-	char_name.add_theme_font_size_override("font_size", 20)
+	char_name.add_theme_font_size_override("font_size", 30)
 	char_name.add_theme_color_override("font_color", Color.WHITE)
 
-	phase_label.add_theme_font_size_override("font_size", 14)
+	phase_label.add_theme_font_size_override("font_size", 22)
 	phase_label.add_theme_color_override("font_color", Color(1, 1, 1, 0.8))
 
-	money_label.add_theme_font_size_override("font_size", 18)
+	money_label.add_theme_font_size_override("font_size", 28)
 	money_label.add_theme_color_override("font_color", Color.WHITE)
 
-	money_sub_label.add_theme_font_size_override("font_size", 11)
+	money_sub_label.add_theme_font_size_override("font_size", 18)
 	money_sub_label.add_theme_color_override("font_color", Color(1, 1, 1, 0.7))
 
 
@@ -102,33 +142,35 @@ func _style_nav_bar() -> void:
 
 	var nav_buttons := [btn_phase, btn_assets, btn_relationships, btn_activities]
 	for btn in nav_buttons:
+		btn.custom_minimum_size = Vector2(70, 70)
 		var circle := StyleBoxFlat.new()
 		circle.bg_color = ThemeSetup.PRIMARY
-		circle.set_corner_radius_all(25)
+		circle.set_corner_radius_all(35)
 		btn.add_theme_stylebox_override("normal", circle)
 		var hover := StyleBoxFlat.new()
 		hover.bg_color = ThemeSetup.PRIMARY.lightened(0.15)
-		hover.set_corner_radius_all(25)
+		hover.set_corner_radius_all(35)
 		btn.add_theme_stylebox_override("hover", hover)
 		var pressed := StyleBoxFlat.new()
 		pressed.bg_color = ThemeSetup.PRIMARY.darkened(0.2)
-		pressed.set_corner_radius_all(25)
+		pressed.set_corner_radius_all(35)
 		btn.add_theme_stylebox_override("pressed", pressed)
-		btn.add_theme_font_size_override("font_size", 22)
+		btn.add_theme_font_size_override("font_size", 32)
 
+	btn_age.custom_minimum_size = Vector2(90, 90)
 	var age_normal := StyleBoxFlat.new()
 	age_normal.bg_color = Color("#4CAF50")
-	age_normal.set_corner_radius_all(34)
+	age_normal.set_corner_radius_all(45)
 	btn_age.add_theme_stylebox_override("normal", age_normal)
 	var age_hover := StyleBoxFlat.new()
 	age_hover.bg_color = Color("#66BB6A")
-	age_hover.set_corner_radius_all(34)
+	age_hover.set_corner_radius_all(45)
 	btn_age.add_theme_stylebox_override("hover", age_hover)
 	var age_pressed := StyleBoxFlat.new()
 	age_pressed.bg_color = Color("#388E3C")
-	age_pressed.set_corner_radius_all(34)
+	age_pressed.set_corner_radius_all(45)
 	btn_age.add_theme_stylebox_override("pressed", age_pressed)
-	btn_age.add_theme_font_size_override("font_size", 32)
+	btn_age.add_theme_font_size_override("font_size", 42)
 	btn_age.add_theme_color_override("font_color", Color.WHITE)
 
 	var nav_labels := [lbl_phase,
@@ -137,28 +179,38 @@ func _style_nav_bar() -> void:
 		$MainVBox/BottomSection/NavBar/NavHBox/TabRelationships/LblRelationships,
 		$MainVBox/BottomSection/NavBar/NavHBox/TabActivities/LblActivities]
 	for lbl in nav_labels:
-		lbl.add_theme_font_size_override("font_size", 10)
+		lbl.add_theme_font_size_override("font_size", 16)
 		lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
 
 
 func _style_stats() -> void:
 	var stats_panel := $MainVBox/BottomSection/StatsPanel
-	var stats_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 0, 16, 8)
+	var stats_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 0, 20, 10)
 	stats_panel.add_theme_stylebox_override("panel", stats_style)
+
+	var bars := [happiness_bar, health_bar, social_bar, morality_bar, intelligence_bar, beauty_bar]
+	for bar in bars:
+		if bar:
+			bar.custom_minimum_size = Vector2(0, 32)
 
 	_color_bar(happiness_bar, ThemeSetup.COLOR_HAPPINESS)
 	_color_bar(health_bar, ThemeSetup.COLOR_HEALTH)
 	_color_bar(social_bar, ThemeSetup.COLOR_SOCIAL)
 	_color_bar(morality_bar, ThemeSetup.COLOR_MORALITY)
+	_color_bar(intelligence_bar, Color("#8E24AA")) # purple
+	_color_bar(beauty_bar, Color("#E91E63")) # pink
 
 	var stat_labels := [
 		$MainVBox/BottomSection/StatsPanel/StatsVBox/HappinessRow/LblHappiness,
 		$MainVBox/BottomSection/StatsPanel/StatsVBox/HealthRow/LblHealth,
 		$MainVBox/BottomSection/StatsPanel/StatsVBox/SocialRow/LblSocial,
-		$MainVBox/BottomSection/StatsPanel/StatsVBox/MoralityRow/LblMorality]
+		$MainVBox/BottomSection/StatsPanel/StatsVBox/MoralityRow/LblMorality,
+		$MainVBox/BottomSection/StatsPanel/StatsVBox/IntelligenceRow/LblIntelligence,
+		$MainVBox/BottomSection/StatsPanel/StatsVBox/BeautyRow/LblBeauty]
 	for lbl in stat_labels:
-		lbl.add_theme_font_size_override("font_size", 13)
+		lbl.add_theme_font_size_override("font_size", 20)
 		lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+		lbl.custom_minimum_size = Vector2(170, 0)
 
 
 func _localize_ui() -> void:
@@ -170,6 +222,8 @@ func _localize_ui() -> void:
 	$MainVBox/BottomSection/StatsPanel/StatsVBox/HealthRow/LblHealth.text = tr("HEALTH") + " ❤️"
 	$MainVBox/BottomSection/StatsPanel/StatsVBox/SocialRow/LblSocial.text = tr("SOCIAL") + " 👥"
 	$MainVBox/BottomSection/StatsPanel/StatsVBox/MoralityRow/LblMorality.text = tr("MORALITY") + " ⚖️"
+	$MainVBox/BottomSection/StatsPanel/StatsVBox/IntelligenceRow/LblIntelligence.text = tr("INTELLIGENCE") + " 🧠"
+	$MainVBox/BottomSection/StatsPanel/StatsVBox/BeautyRow/LblBeauty.text = tr("BEAUTY") + " ✨"
 	money_sub_label.text = tr("BANK_BALANCE")
 
 
@@ -194,7 +248,7 @@ func _connect_signals() -> void:
 	btn_age.pressed.connect(_on_advance_year)
 	btn_phase.pressed.connect(func(): _show_category_actions("social"))
 	btn_assets.pressed.connect(func(): _show_category_actions("finance"))
-	btn_relationships.pressed.connect(func(): _show_category_actions("family"))
+	btn_relationships.pressed.connect(_show_relationships_list)
 	btn_activities.pressed.connect(_show_activities_menu)
 
 	GameManager.character_died.connect(_on_character_died)
@@ -224,6 +278,8 @@ func _update_display() -> void:
 	_animate_bar(health_bar, c.health)
 	_animate_bar(social_bar, c.get_relationship_average())
 	_animate_bar(morality_bar, c.morality)
+	_animate_bar(intelligence_bar, c.intelligence)
+	_animate_bar(beauty_bar, c.appearance)
 
 
 func _update_avatar(c: Character) -> void:
@@ -268,7 +324,7 @@ func _add_year_separator(age: int) -> void:
 	var sep := Label.new()
 	sep.text = tr("AGE") + ": " + str(age)
 	sep.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	sep.add_theme_font_size_override("font_size", 16)
+	sep.add_theme_font_size_override("font_size", 24)
 	sep.add_theme_color_override("font_color", Color("#4CAF50"))
 	feed_vbox.add_child(sep)
 
@@ -279,7 +335,7 @@ func _add_log_entry(text: String, icon: String = "📌") -> void:
 	entry.fit_content = true
 	entry.scroll_active = false
 	entry.text = icon + "  " + text
-	entry.add_theme_font_size_override("normal_font_size", 14)
+	entry.add_theme_font_size_override("normal_font_size", 22)
 	entry.add_theme_color_override("default_color", Color("#333333"))
 
 	feed_vbox.add_child(entry)
@@ -424,34 +480,35 @@ func _show_activities_menu() -> void:
 	overlay.add_child(bg)
 
 	var panel := PanelContainer.new()
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
-	panel.grow_vertical = Control.GROW_DIRECTION_BOTH
+	panel.anchor_left = 0.03
+	panel.anchor_right = 0.97
+	panel.anchor_top = 0.06
+	panel.anchor_bottom = 0.94
 	var panel_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16)
 	panel.add_theme_stylebox_override("panel", panel_style)
 	overlay.add_child(panel)
 
 	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(320, 0)
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	panel.add_child(scroll)
 
 	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 8)
+	vbox.add_theme_constant_override("separation", 10)
 	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(vbox)
 
 	var title := Label.new()
 	title.text = tr("ACTIVITIES")
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.add_theme_font_size_override("font_size", 20)
+	title.add_theme_font_size_override("font_size", 28)
 	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
 	vbox.add_child(title)
 
 	# Phase info label
 	var phase_info := Label.new()
 	phase_info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	phase_info.add_theme_font_size_override("font_size", 12)
+	phase_info.add_theme_font_size_override("font_size", 18)
 	phase_info.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
 	vbox.add_child(phase_info)
 
@@ -461,13 +518,13 @@ func _show_activities_menu() -> void:
 	for act in activities:
 		var btn := Button.new()
 		btn.text = act["label"]
-		btn.custom_minimum_size = Vector2(0, 48)
+		btn.custom_minimum_size = Vector2(0, 68)
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var btn_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 12, 12, 8)
+		var btn_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 14, 16, 12)
 		btn.add_theme_stylebox_override("normal", btn_style)
-		var hover_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY.darkened(0.3), 12, 12, 8)
+		var hover_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY.darkened(0.3), 14, 16, 12)
 		btn.add_theme_stylebox_override("hover", hover_style)
-		btn.add_theme_font_size_override("font_size", 16)
+		btn.add_theme_font_size_override("font_size", 22)
 		btn.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
 
 		if act.has("disabled") and act["disabled"]:
@@ -488,11 +545,11 @@ func _show_activities_menu() -> void:
 
 	var btn_close := Button.new()
 	btn_close.text = "✕ " + tr("CLOSE")
-	btn_close.custom_minimum_size = Vector2(0, 42)
+	btn_close.custom_minimum_size = Vector2(0, 56)
 	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 12, 12, 8)
+	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12)
 	btn_close.add_theme_stylebox_override("normal", close_style)
-	btn_close.add_theme_font_size_override("font_size", 16)
+	btn_close.add_theme_font_size_override("font_size", 22)
 	btn_close.add_theme_color_override("font_color", Color.WHITE)
 	btn_close.pressed.connect(func(): overlay.queue_free())
 	vbox.add_child(btn_close)
@@ -598,3 +655,319 @@ func _get_phase_description(c: Character) -> String:
 		Character.LifePhase.ELDER:
 			return tr("PHASE_DESC_ELDER")
 	return ""
+
+
+# ── RELATIONSHIPS ──
+
+func _show_relationships_list() -> void:
+	var c := GameManager.character
+	if c == null:
+		return
+
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.5)
+	overlay.add_child(bg)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03
+	panel.anchor_right = 0.97
+	panel.anchor_top = 0.06
+	panel.anchor_bottom = 0.94
+	var panel_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16)
+	panel.add_theme_stylebox_override("panel", panel_style)
+	overlay.add_child(panel)
+
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
+
+	var title := Label.new()
+	title.text = "💕 " + tr("RELATIONSHIPS")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 28)
+	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox.add_child(title)
+
+	if c.relationships.is_empty():
+		var empty_label := Label.new()
+		empty_label.text = tr("REL_NO_RELATIONSHIPS")
+		empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		empty_label.add_theme_font_size_override("font_size", 20)
+		empty_label.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		vbox.add_child(empty_label)
+	else:
+		for rel in c.relationships:
+			if rel is Relationship:
+				var btn := Button.new()
+				var emoji := _get_rel_emoji(rel)
+				var type_str := tr(rel.get_type_name())
+				var status := "" if rel.alive else " 💀"
+				btn.text = emoji + " " + rel.person_name + " (" + type_str + ")" + status
+				btn.custom_minimum_size = Vector2(0, 72)
+				btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				btn.clip_text = false
+				var btn_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 14, 16, 12)
+				btn.add_theme_stylebox_override("normal", btn_style)
+				var hover_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY.darkened(0.3), 14, 16, 12)
+				btn.add_theme_stylebox_override("hover", hover_style)
+				btn.add_theme_font_size_override("font_size", 22)
+				btn.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+				btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+
+				if rel.alive:
+					var bound_rel := rel
+					btn.pressed.connect(func():
+						overlay.queue_free()
+						_show_person_actions(bound_rel)
+					)
+				else:
+					btn.disabled = true
+					btn.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
+
+				vbox.add_child(btn)
+
+				var bar := ProgressBar.new()
+				bar.value = rel.get_overall()
+				bar.custom_minimum_size = Vector2(0, 16)
+				bar.show_percentage = false
+				bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				bar.add_theme_stylebox_override("fill", ThemeSetup.make_bar_fill(ThemeSetup.COLOR_SOCIAL))
+				bar.add_theme_stylebox_override("background", ThemeSetup.make_bar_bg())
+				vbox.add_child(bar)
+
+	var sep := HSeparator.new()
+	vbox.add_child(sep)
+
+	var btn_close := Button.new()
+	btn_close.text = "✕ " + tr("CLOSE")
+	btn_close.custom_minimum_size = Vector2(0, 56)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12)
+	btn_close.add_theme_stylebox_override("normal", close_style)
+	btn_close.add_theme_font_size_override("font_size", 22)
+	btn_close.add_theme_color_override("font_color", Color.WHITE)
+	btn_close.pressed.connect(func(): overlay.queue_free())
+	vbox.add_child(btn_close)
+
+	bg.gui_input.connect(func(event_input: InputEvent):
+		if event_input is InputEventMouseButton and event_input.pressed:
+			overlay.queue_free()
+	)
+
+	add_child(overlay)
+
+
+func _show_person_actions(rel: Relationship) -> void:
+	var c := GameManager.character
+	if c == null:
+		return
+
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.5)
+	overlay.add_child(bg)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03
+	panel.anchor_right = 0.97
+	panel.anchor_top = 0.06
+	panel.anchor_bottom = 0.94
+	var panel_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16)
+	panel.add_theme_stylebox_override("panel", panel_style)
+	overlay.add_child(panel)
+
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
+
+	var emoji := _get_rel_emoji(rel)
+	var title := Label.new()
+	title.text = emoji + " " + rel.person_name
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 28)
+	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox.add_child(title)
+
+	var subtitle := Label.new()
+	subtitle.text = tr(rel.get_type_name()) + " • " + tr("AGE") + ": " + str(rel.person_age)
+	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	subtitle.add_theme_font_size_override("font_size", 20)
+	subtitle.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+	vbox.add_child(subtitle)
+
+	var stats := [
+		[tr("REL_AFFECTION"), rel.affection, ThemeSetup.COLOR_HAPPINESS],
+		[tr("REL_RESPECT"), rel.respect, ThemeSetup.COLOR_SOCIAL],
+		[tr("REL_TRUST"), rel.trust, ThemeSetup.COLOR_MORALITY]
+	]
+	for stat in stats:
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 8)
+		var lbl := Label.new()
+		lbl.text = stat[0]
+		lbl.custom_minimum_size = Vector2(140, 0)
+		lbl.add_theme_font_size_override("font_size", 18)
+		lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		row.add_child(lbl)
+		var bar := ProgressBar.new()
+		bar.value = stat[1]
+		bar.custom_minimum_size = Vector2(0, 24)
+		bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		bar.show_percentage = true
+		bar.add_theme_font_size_override("font_size", 16)
+		bar.add_theme_stylebox_override("fill", ThemeSetup.make_bar_fill(stat[2]))
+		bar.add_theme_stylebox_override("background", ThemeSetup.make_bar_bg())
+		row.add_child(bar)
+		vbox.add_child(row)
+
+	var sep1 := HSeparator.new()
+	vbox.add_child(sep1)
+
+	var choose := Label.new()
+	choose.text = tr("REL_CHOOSE_ACTION")
+	choose.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	choose.add_theme_font_size_override("font_size", 20)
+	choose.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+	vbox.add_child(choose)
+
+	var actions := [
+		{"label": "💬 " + tr("REL_TALK"), "effect": "talk"},
+		{"label": "🤗 " + tr("REL_SPEND_TIME"), "effect": "spend_time"},
+		{"label": "😊 " + tr("REL_COMPLIMENT"), "effect": "compliment"},
+		{"label": "😡 " + tr("REL_ARGUE"), "effect": "argue"},
+	]
+	if c.money >= 50:
+		actions.append({"label": "🎁 " + tr("REL_GIFT") + " ($50)", "effect": "gift"})
+	if rel.rel_type in [Relationship.RelType.FATHER, Relationship.RelType.MOTHER, Relationship.RelType.SPOUSE]:
+		actions.append({"label": "💰 " + tr("REL_ASK_MONEY"), "effect": "ask_money"})
+
+	for act in actions:
+		var btn := Button.new()
+		btn.text = act["label"]
+		btn.custom_minimum_size = Vector2(0, 64)
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var btn_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 14, 16, 12)
+		btn.add_theme_stylebox_override("normal", btn_style)
+		var hover_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY.darkened(0.3), 14, 16, 12)
+		btn.add_theme_stylebox_override("hover", hover_style)
+		btn.add_theme_font_size_override("font_size", 22)
+		btn.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+		var bound_effect: String = act["effect"]
+		btn.pressed.connect(func():
+			overlay.queue_free()
+			_apply_rel_action(rel, bound_effect)
+		)
+		vbox.add_child(btn)
+
+	var sep2 := HSeparator.new()
+	vbox.add_child(sep2)
+
+	var btn_back := Button.new()
+	btn_back.text = "← " + tr("BACK")
+	btn_back.custom_minimum_size = Vector2(0, 56)
+	btn_back.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var back_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY_DARK, 14, 16, 12)
+	btn_back.add_theme_stylebox_override("normal", back_style)
+	btn_back.add_theme_font_size_override("font_size", 22)
+	btn_back.add_theme_color_override("font_color", Color.WHITE)
+	btn_back.pressed.connect(func():
+		overlay.queue_free()
+		_show_relationships_list()
+	)
+	vbox.add_child(btn_back)
+
+	var btn_close := Button.new()
+	btn_close.text = "✕ " + tr("CLOSE")
+	btn_close.custom_minimum_size = Vector2(0, 56)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12)
+	btn_close.add_theme_stylebox_override("normal", close_style)
+	btn_close.add_theme_font_size_override("font_size", 22)
+	btn_close.add_theme_color_override("font_color", Color.WHITE)
+	btn_close.pressed.connect(func(): overlay.queue_free())
+	vbox.add_child(btn_close)
+
+	bg.gui_input.connect(func(event_input: InputEvent):
+		if event_input is InputEventMouseButton and event_input.pressed:
+			overlay.queue_free()
+	)
+
+	add_child(overlay)
+
+
+func _apply_rel_action(rel: Relationship, effect: String) -> void:
+	var c := GameManager.character
+	match effect:
+		"talk":
+			rel.modify_affection(5)
+			c.happiness = clampi(c.happiness + 3, 0, 100)
+			_add_log_entry(tr("REL_RESULT_TALK").replace("{name}", rel.person_name), "💬")
+		"spend_time":
+			rel.modify_affection(10)
+			rel.modify_respect(5)
+			c.happiness = clampi(c.happiness + 5, 0, 100)
+			_add_log_entry(tr("REL_RESULT_SPEND_TIME").replace("{name}", rel.person_name), "🤗")
+		"compliment":
+			rel.modify_affection(5)
+			rel.modify_trust(3)
+			c.happiness = clampi(c.happiness + 2, 0, 100)
+			_add_log_entry(tr("REL_RESULT_COMPLIMENT").replace("{name}", rel.person_name), "😊")
+		"argue":
+			rel.modify_affection(-10)
+			rel.modify_trust(-5)
+			c.happiness = clampi(c.happiness - 5, 0, 100)
+			_add_log_entry(tr("REL_RESULT_ARGUE").replace("{name}", rel.person_name), "😡")
+		"gift":
+			rel.modify_affection(15)
+			c.money -= 50
+			_add_log_entry(tr("REL_RESULT_GIFT").replace("{name}", rel.person_name), "🎁")
+		"ask_money":
+			if rel.affection > 40:
+				var amount := randi_range(20, 200)
+				c.money += amount
+				rel.modify_affection(-3)
+				_add_log_entry(tr("REL_RESULT_ASK_MONEY_OK").replace("{name}", rel.person_name).replace("{amount}", str(amount)), "💰")
+			else:
+				rel.modify_affection(-5)
+				_add_log_entry(tr("REL_RESULT_ASK_MONEY_NO").replace("{name}", rel.person_name), "😒")
+	_update_display()
+
+
+func _get_rel_emoji(rel: Relationship) -> String:
+	match rel.rel_type:
+		Relationship.RelType.FATHER: return "👨"
+		Relationship.RelType.MOTHER: return "👩"
+		Relationship.RelType.SIBLING:
+			return "👦" if rel.person_gender == "male" else "👧"
+		Relationship.RelType.SPOUSE: return "💑"
+		Relationship.RelType.CHILD: return "👶"
+		Relationship.RelType.FRIEND: return "🧑"
+		Relationship.RelType.ROMANTIC: return "💕"
+		Relationship.RelType.COWORKER: return "👔"
+		Relationship.RelType.BOSS: return "🧑‍💼"
+		Relationship.RelType.ENEMY: return "😠"
+		Relationship.RelType.GRANDPARENT:
+			return "👴" if rel.person_gender == "male" else "👵"
+		Relationship.RelType.UNCLE_AUNT:
+			return "🧔" if rel.person_gender == "male" else "👩"
+		Relationship.RelType.COUSIN: return "🧑"
+	return "👤"
