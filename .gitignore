@@ -29,3 +29,10 @@ sd_workspace/outputs/
 
 # Logs
 *.log
+
+# Arquivos sensíveis e de build
+*.keystore
+exports/
+.godot/
+*.aab
+*.apk

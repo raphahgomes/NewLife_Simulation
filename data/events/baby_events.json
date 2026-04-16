@@ -1,4 +1,4 @@
-﻿{
+{
   "events": [
     {
       "id": "baby_first_word",
@@ -25,7 +25,7 @@
     {
       "id": "baby_crawling",
       "phases": ["BABY"],
-      "age_min": 0,
+      "age_min": 1,
       "age_max": 1,
       "category": "health",
       "weight": 70,
@@ -383,3 +383,4 @@
     }
   ]
 }
+

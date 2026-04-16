@@ -1,10 +1,40 @@
 {
   "events": [
     {
+      "id": "teen_sneak_out",
+      "phases": ["TEEN"],
+      "age_min": 14,
+      "age_max": 17,
+      "category": "social",
+      "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_SNEAK_OUT",
+      "choices": [
+        {
+          "text_key": "CHOICE_SNEAK_OUT_SUCCESS",
+          "effects": {
+            "happiness": 15,
+            "intelligence": -2,
+            "charisma": 5
+          },
+          "trait_chance": {
+            "trait": "rebellious",
+            "chance": 0.2
+          }
+        },
+        {
+          "text_key": "CHOICE_STAY_HOME",
+          "effects": {
+            "intelligence": 2,
+            "happiness": -5,
+            "charisma": -2
+          }
+        }
+      ]
+    },
+    {
       "id": "teen_first_crush",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "social",
@@ -33,9 +63,7 @@
     },
     {
       "id": "teen_party_invite",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "social",
@@ -72,9 +100,7 @@
     },
     {
       "id": "teen_job_offer",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 15,
       "age_max": 17,
       "category": "finance",
@@ -103,9 +129,7 @@
     },
     {
       "id": "teen_exam_pressure",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 15,
       "age_max": 17,
       "category": "school",
@@ -143,9 +167,7 @@
     },
     {
       "id": "teen_drugs_offer",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "crime",
@@ -177,9 +199,7 @@
     },
     {
       "id": "teen_college_decision",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 17,
       "age_max": 17,
       "category": "school",
@@ -208,9 +228,7 @@
     },
     {
       "id": "teen_social_media",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "social",
@@ -235,9 +253,7 @@
     },
     {
       "id": "teen_volunteer",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "social",
@@ -265,9 +281,7 @@
     },
     {
       "id": "teen_breakup",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "social",
@@ -297,9 +311,7 @@
     },
     {
       "id": "teen_shoplifting",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "crime",
@@ -328,9 +340,7 @@
     },
     {
       "id": "teen_driving_lessons",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 16,
       "age_max": 17,
       "category": "social",
@@ -359,9 +369,7 @@
     },
     {
       "id": "teen_prom",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 16,
       "age_max": 17,
       "category": "social",
@@ -396,9 +404,7 @@
     },
     {
       "id": "teen_detention",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "school",
@@ -428,9 +434,7 @@
     },
     {
       "id": "teen_sports_tryout",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "health",
@@ -459,9 +463,7 @@
     },
     {
       "id": "teen_online_bullying",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "social",
@@ -498,9 +500,7 @@
     },
     {
       "id": "teen_identity_crisis",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "health",
@@ -537,9 +537,7 @@
     },
     {
       "id": "teen_gaming_addiction",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "health",
@@ -577,9 +575,7 @@
     },
     {
       "id": "teen_climate_activism",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "social",
@@ -607,9 +603,7 @@
     },
     {
       "id": "teen_mental_health",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "health",
@@ -640,9 +634,7 @@
     },
     {
       "id": "teen_tattoo_piercing",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 15,
       "age_max": 17,
       "category": "social",
@@ -671,9 +663,7 @@
     },
     {
       "id": "teen_internship",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 16,
       "age_max": 17,
       "category": "finance",
@@ -706,9 +696,7 @@
     },
     {
       "id": "teen_body_image",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "health",
@@ -753,9 +741,7 @@
     },
     {
       "id": "teen_secret_relationship",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 14,
       "age_max": 17,
       "category": "social",
@@ -789,9 +775,7 @@
     },
     {
       "id": "teen_graduation",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 17,
       "age_max": 17,
       "category": "school",
@@ -817,9 +801,7 @@
     },
     {
       "id": "teen_band",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "social",
@@ -849,9 +831,7 @@
     },
     {
       "id": "teen_peer_pressure",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 13,
       "age_max": 17,
       "category": "social",
@@ -883,9 +863,7 @@
     },
     {
       "id": "teen_scholarship",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 16,
       "age_max": 17,
       "category": "school",
@@ -913,9 +891,7 @@
     },
     {
       "id": "teen_part_time_stress",
-      "phases": [
-        "TEEN"
-      ],
+      "phases": ["TEEN"],
       "age_min": 15,
       "age_max": 17,
       "category": "finance",
@@ -946,10 +922,7 @@
     },
     {
       "id": "teen_possessive",
-      "phases": [
-        "TEEN",
-        "ADULT"
-      ],
+      "phases": ["TEEN", "ADULT"],
       "age_min": 14,
       "age_max": 25,
       "category": "social",
@@ -983,10 +956,7 @@
     },
     {
       "id": "teen_school_fight",
-      "phases": [
-        "CHILD",
-        "TEEN"
-      ],
+      "phases": ["CHILD", "TEEN"],
       "age_min": 10,
       "age_max": 18,
       "category": "health",
@@ -1016,10 +986,7 @@
     },
     {
       "id": "teen_possessive",
-      "phases": [
-        "TEEN",
-        "ADULT"
-      ],
+      "phases": ["TEEN", "ADULT"],
       "age_min": 14,
       "age_max": 25,
       "category": "social",
@@ -1053,10 +1020,7 @@
     },
     {
       "id": "teen_school_fight",
-      "phases": [
-        "CHILD",
-        "TEEN"
-      ],
+      "phases": ["CHILD", "TEEN"],
       "age_min": 10,
       "age_max": 18,
       "category": "health",
@@ -1080,6 +1044,38 @@
           "effects": {
             "health": 2,
             "charisma": -5
+          }
+        }
+      ]
+    },
+    {
+      "id": "teen_peer_pressure_smoking",
+      "phases": ["TEEN"],
+      "age_min": 15,
+      "age_max": 17,
+      "category": "social",
+      "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_PEER_PRESSURE",
+      "choices": [
+        {
+          "text_key": "CHOICE_SMOKE_DRINK",
+          "effects": {
+            "health": -10,
+            "charisma": 5,
+            "intelligence": -5
+          },
+          "trait_chance": {
+            "trait": "rebellious",
+            "chance": 0.3
+          }
+        },
+        {
+          "text_key": "CHOICE_SAY_NO",
+          "effects": {
+            "health": 5,
+            "charisma": -5,
+            "temperament": 5
           }
         }
       ]

@@ -1750,6 +1750,65 @@
           }
         }
       ]
+    },
+    {
+      "id": "adult_party_drugs",
+      "phases": [
+        "ADULT"
+      ],
+      "age_min": 18,
+      "age_max": 45,
+      "category": "social",
+      "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_PARTY_DRUGS",
+      "choices": [
+        {
+          "text_key": "CHOICE_TRY_SUBSTANCE",
+          "effects": {
+            "happiness": 15,
+            "health": -15,
+            "intelligence": -5
+          }
+        },
+        {
+          "text_key": "CHOICE_REFUSE_LEAVE",
+          "effects": {
+            "charisma": -5,
+            "temperament": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "adult_depression_alcohol",
+      "phases": [
+        "ADULT"
+      ],
+      "age_min": 21,
+      "age_max": 60,
+      "category": "health",
+      "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_DEPRESSION_ALCOHOL",
+      "choices": [
+        {
+          "text_key": "CHOICE_SEEK_REHAB",
+          "effects": {
+            "happiness": 20,
+            "health": 20,
+            "luck": 5
+          }
+        },
+        {
+          "text_key": "CHOICE_KEEP_DRINKING",
+          "effects": {
+            "health": -35,
+            "intelligence": -10,
+            "happiness": -15
+          }
+        }
+      ]
     }
   ]
 }

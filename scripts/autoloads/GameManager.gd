@@ -209,6 +209,24 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 		if followup_event != null:
 			_event_queue.push_front(followup_event)
 
+	# Check luck/chance based followup
+	var chance_followup: Dictionary = choice.get("chance_followup", {})
+	if not chance_followup.is_empty():
+		var base_chance: float = float(chance_followup.get("chance", 0.5))
+		# luck provides up to +30% chance. (50 is neutral luck, giving 0 adjustment)
+		var luck_bonus := (character.luck - 50) * 0.006 
+		var final_chance := clampf(base_chance + luck_bonus, 0.0, 1.0)
+		var event_to_push := ""
+		if _rng.randf() < final_chance:
+			event_to_push = chance_followup.get("success", "")
+		else:
+			event_to_push = chance_followup.get("failure", "")
+			
+		if event_to_push != "":
+			var ev := EventManager.get_event_by_id(event_to_push)
+			if ev != null:
+				_event_queue.push_front(ev)
+
 	return results
 
 
@@ -231,32 +249,62 @@ func _generate_character(seed_value: int) -> Character:
 
 	# Use sub-agent for name generation (loaded from JSON)
 	var names_data := _load_names()
-	var country: String = ["BR", "US"][_rng.randi_range(0, 1)]
-	c.country = country
-
-	var gender: String = ["male", "female"][_rng.randi_range(0, 1)]
-	c.gender = gender
-
-	var lang := "pt_BR" if country == "BR" else "en"
-	var gender_key := "male_first" if gender == "male" else "female_first"
-
-	if names_data.has(lang):
-		var lang_names: Dictionary = names_data[lang]
-		var first_names: Array = lang_names.get(gender_key, ["Alex"])
-		var last_names: Array = lang_names.get("last", ["Silva"])
-		c.first_name = first_names[_rng.randi_range(0, first_names.size() - 1)]
-		c.last_name = last_names[_rng.randi_range(0, last_names.size() - 1)]
+	
+	var is_preset = _rng.randf() < 0.05
+	
+	if is_preset:
+		var presets = [
+			{"fn":"Liana", "ln":"Ross", "g":"female", "co":"US", "ts":{"music":1.5}, "cha":95, "app":85, "int":60},
+			{"fn":"Karisson", "ln":"Ford", "g":"male", "co":"US", "ts":{"acting":1.5}, "cha":90, "app":80, "int":70},
+			{"fn":"Alberta", "ln":"Monteclaro", "g":"female", "co":"BR", "ts":{"science":1.5}, "cha":50, "app":60, "int":95},
+			{"fn":"Juliana", "ln":"Picos", "g":"female", "co":"BR", "ts":{"business":1.5}, "cha":95, "app":85, "int":75}
+		]
+		var p = presets[_rng.randi_range(0, presets.size() - 1)]
+		c.first_name = p["fn"]
+		c.last_name = p["ln"]
+		c.gender = p["g"]
+		c.country = p["co"]
+		c.health = clampi(_rng.randi_range(70, 100), 0, 100)
+		c.intelligence = clampi(p["int"] + _rng.randi_range(-5, 5), 0, 100)
+		c.charisma = clampi(p["cha"] + _rng.randi_range(-5, 5), 0, 100)
+		c.appearance = clampi(p["app"] + _rng.randi_range(-5, 5), 0, 100)
+		c.temperament = clampi(_rng.randi_range(40, 80), 0, 100)
+		c.luck = clampi(_rng.randi_range(70, 100), 0, 100)
+		c.talents = p["ts"]
 	else:
-		c.first_name = "Alex"
-		c.last_name = "Smith"
+		var country: String = ["BR", "US"][_rng.randi_range(0, 1)]
+		c.country = country
+		var gender: String = ["male", "female"][_rng.randi_range(0, 1)]
+		c.gender = gender
 
-	# Attributes with variance
-	c.health = clampi(_rng.randi_range(60, 100), 0, 100)
-	c.intelligence = clampi(_rng.randi_range(20, 80), 0, 100)
-	c.charisma = clampi(_rng.randi_range(20, 80), 0, 100)
-	c.appearance = clampi(_rng.randi_range(20, 80), 0, 100)
-	c.temperament = clampi(_rng.randi_range(20, 80), 0, 100)
-	c.luck = clampi(_rng.randi_range(10, 90), 0, 100)
+		var lang := "pt_BR" if country == "BR" else "en"
+		var gender_key := "male_first" if gender == "male" else "female_first"
+
+		if names_data.has(lang):
+			var lang_names: Dictionary = names_data[lang]
+			var first_names: Array = lang_names.get(gender_key, ["Alex"])
+			var last_names: Array = lang_names.get("last", ["Silva"])
+			c.first_name = first_names[_rng.randi_range(0, first_names.size() - 1)]
+			c.last_name = last_names[_rng.randi_range(0, last_names.size() - 1)]
+		else:
+			c.first_name = "Alex"
+			c.last_name = "Smith"
+
+		# Attributes with variance
+		c.health = clampi(_rng.randi_range(60, 100), 0, 100)
+		c.intelligence = clampi(_rng.randi_range(20, 80), 0, 100)
+		c.charisma = clampi(_rng.randi_range(20, 80), 0, 100)
+		c.appearance = clampi(_rng.randi_range(20, 80), 0, 100)
+		c.temperament = clampi(_rng.randi_range(20, 80), 0, 100)
+		c.luck = clampi(_rng.randi_range(10, 90), 0, 100)
+		
+		# Assign random talents
+		var available_talents = ["music", "sports", "science", "writing", "acting", "business", "art", "social"]
+		var num_talents = _rng.randi_range(1, 2)
+		for _i in range(num_talents):
+			var t = available_talents[_rng.randi_range(0, available_talents.size() - 1)]
+			c.talents[t] = _rng.randf_range(1.1, 1.5)
+
 	c.happiness = clampi(_rng.randi_range(50, 90), 0, 100)
 	c.morality = 50
 	c.mental_stability = clampi(_rng.randi_range(50, 85), 0, 100)

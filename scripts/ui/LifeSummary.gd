@@ -72,7 +72,7 @@ func _add_monetization_options(c: Character) -> void:
 			c.alive = true
 			c.health = 50
 			c.cause_of_death = ""
-			GameManager.save_game()
+			SaveManager.auto_save(c)
 			SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
 	)
 

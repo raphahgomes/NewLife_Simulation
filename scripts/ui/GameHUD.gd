@@ -72,7 +72,7 @@ func _setup_monetization_button() -> void:
 	AdManager.rewarded_ad_completed.connect(func(reward_type: String):
 		if reward_type == "money":
 			GameManager.character.money += 10000
-			GameManager.save_game()
+			SaveManager.auto_save(GameManager.character)
 			_update_money(GameManager.character)
 			_add_log_entry("💰 " + tr("WATCH_AD_MONEY") + ": +$10k!", "💰")
 			mon_btn.disabled = false
@@ -849,16 +849,23 @@ func _show_person_actions(rel: Relationship) -> void:
 	choose.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
 	vbox.add_child(choose)
 
-	var actions := [
-		{"label": "💬 " + tr("REL_TALK"), "effect": "talk"},
-		{"label": "🤗 " + tr("REL_SPEND_TIME"), "effect": "spend_time"},
-		{"label": "😊 " + tr("REL_COMPLIMENT"), "effect": "compliment"},
-		{"label": "😡 " + tr("REL_ARGUE"), "effect": "argue"},
-	]
-	if c.money >= 50:
-		actions.append({"label": "🎁 " + tr("REL_GIFT") + " ($50)", "effect": "gift"})
-	if rel.rel_type in [Relationship.RelType.FATHER, Relationship.RelType.MOTHER, Relationship.RelType.SPOUSE]:
-		actions.append({"label": "💰 " + tr("REL_ASK_MONEY"), "effect": "ask_money"})
+	var actions := []
+	if c.life_phase == Character.LifePhase.BABY:
+		actions = [
+			{"label": "😭 " + tr("REL_CRY"), "effect": "cry"},
+			{"label": "👶 " + tr("REL_PLAY_BABY"), "effect": "play_baby"}
+		]
+	else:
+		actions = [
+			{"label": "💬 " + tr("REL_TALK"), "effect": "talk"},
+			{"label": "🤗 " + tr("REL_SPEND_TIME"), "effect": "spend_time"},
+			{"label": "😊 " + tr("REL_COMPLIMENT"), "effect": "compliment"},
+			{"label": "😡 " + tr("REL_ARGUE"), "effect": "argue"},
+		]
+		if c.money >= 50:
+			actions.append({"label": "🎁 " + tr("REL_GIFT") + " ()", "effect": "gift"})
+		if rel.rel_type in [Relationship.RelType.FATHER, Relationship.RelType.MOTHER, Relationship.RelType.SPOUSE]:
+			actions.append({"label": "💰 " + tr("REL_ASK_MONEY"), "effect": "ask_money"})
 
 	for act in actions:
 		var btn := Button.new()
@@ -917,6 +924,14 @@ func _show_person_actions(rel: Relationship) -> void:
 func _apply_rel_action(rel: Relationship, effect: String) -> void:
 	var c := GameManager.character
 	match effect:
+		"cry":
+			rel.modify_affection(-2)
+			c.happiness = clampi(c.happiness - 2, 0, 100)
+			_add_log_entry(tr("REL_RESULT_CRY").replace("{name}", rel.person_name), "😭")
+		"play_baby":
+			rel.modify_affection(8)
+			c.happiness = clampi(c.happiness + 6, 0, 100)
+			_add_log_entry(tr("REL_RESULT_PLAY_BABY").replace("{name}", rel.person_name), "👶")
 		"talk":
 			rel.modify_affection(5)
 			c.happiness = clampi(c.happiness + 3, 0, 100)

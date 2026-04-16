@@ -1,4 +1,4 @@
-class_name Character
+﻿class_name Character
 extends Resource
 
 ## Character data model — holds all state for one life
@@ -40,6 +40,9 @@ enum LifePhase { BABY, CHILD, TEEN, ADULT, ELDER }
 # === Social Class ===
 enum SocialClass { LOW, MIDDLE, HIGH }
 @export var social_class: SocialClass = SocialClass.MIDDLE
+
+# === Talents ===
+@export var talents: Dictionary = {}
 
 # === Traits ===
 @export var traits: Array[String] = []

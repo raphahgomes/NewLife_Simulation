@@ -54,7 +54,7 @@ EVENT_BABY_PET_DESC,A criatura fofinha parece de boa... será?,A criatura fofinh
 CHOICE_PET_GENTLE,Gently pet it,Acariciar gentilmente
 CHOICE_PET_SCARED,Get scared,Ficar com medo
 EVENT_BABY_TANTRUM,You throw a massive tantrum!,Você faz uma birra épica no meio do shopping!
-EVENT_BABY_TANTRUM_DESC,Choro, ranho e gritaria, você é o caos!,Lágrimas e gritos por toda parte!
+EVENT_BABY_TANTRUM_DESC,"Choro, ranho e gritaria, você é o caos!","Lágrimas e gritos por toda parte!"
 CHOICE_CRY_MORE,Keep crying,Continuar chorando
 CHOICE_CALM_DOWN,Calm down,Se acalmar
 EVENT_BABY_SICK,You catch a nasty cold.,Você pegou uma virose pesada.
@@ -936,7 +936,7 @@ WATCH_AD_MONEY,📺 Watch Video (+),📺 Ver Vídeo (+)
 
 
 EVENT_ADULT_BETRAYAL,Your partner was caught kissing someone else!,Você pegou quem você ama no flagra beijando outra pessoa!
-EVENT_ADULT_BETRAYAL_DESC,It breaks your heart. What will you do?,Coração partido em mil pedaços. E aí, corno(a) manso(a) ou vai ter vingança?
+EVENT_ADULT_BETRAYAL_DESC,It breaks your heart. What will you do?,"Coração partido em mil pedaços. E aí, corno(a) manso(a) ou vai ter vingança?"
 CHOICE_FORGIVE,Forgive & Reconcile,Perdoar e Reconciliar (Manso)
 CHOICE_BREAKUP,Break up immediately,Terminar na hora
 CHOICE_REVENGE,Key their car,Riscar o carro inteiro (Vingança)
@@ -948,8 +948,8 @@ EVENT_ADULT_MEME,You did something stupid and became a meme.,Você fez algo est�
 EVENT_ADULT_MEME_DESC,People recognize you everywhere.,Vão te chamar de "Bora Bill" pra sempre.
 CHOICE_MILK_IT,Monetize the fame,Monetizar e ficar rico
 CHOICE_DELETE_APP,Delete social media,Deletar as redes chorando
-EVENT_TEEN_POSSESSIVE,Your date is being extremely possessive and toxic.,Seu par romântico tá agindo igual doido e super possessivo.
-EVENT_TEEN_POSSESSIVE_DESC,They check your phone 24/7.,Abrem teu celular enquanto você dorme. E aí?
+EVENT_TEEN_POSSESSIVE,Your date is being extremely possessive and toxic.,"Seu par romântico tá agindo igual doido, e super possessivo."
+EVENT_TEEN_POSSESSIVE_DESC,They check your phone 24/7.,"Abrem teu celular enquanto você dorme. E aí?"
 CHOICE_TALK_IT_OUT,Try to talk it out,Tentar conversar e perdoar
 CHOICE_FIGHT_BACK,Fight back verbally,Mandar pra aquele lugar (Brigar)
 CHOICE_GIVE_IN,Accept the toxicity,Aceitar a toxidade (Chorar)
@@ -959,7 +959,7 @@ CHOICE_DEFEND_SELF,Self Defense (Fight),Mão na cara (Defesa Pessoal)
 CHOICE_RUN_AWAY,Run like the wind,Correr igual o Flash
 
 EVENT_ADULT_BETRAYAL,Your partner was caught kissing someone else!,Você pegou quem você ama no flagra beijando outra pessoa!
-EVENT_ADULT_BETRAYAL_DESC,It breaks your heart. What will you do?,Coração partido em mil pedaços. E aí, corno(a) manso(a) ou vai ter vingança?
+EVENT_ADULT_BETRAYAL_DESC,It breaks your heart. What will you do?,"Coração partido em mil pedaços. E aí, corno(a) manso(a) ou vai ter vingança?"
 CHOICE_FORGIVE,Forgive & Reconcile,Perdoar e Reconciliar (Manso)
 CHOICE_BREAKUP,Break up immediately,Terminar na hora
 CHOICE_REVENGE,Key their car,Riscar o carro inteiro (Vingança)
@@ -971,8 +971,8 @@ EVENT_ADULT_MEME,You did something stupid and became a meme.,Você fez algo est�
 EVENT_ADULT_MEME_DESC,People recognize you everywhere.,Vão te chamar de "Bora Bill" pra sempre.
 CHOICE_MILK_IT,Monetize the fame,Monetizar e ficar rico
 CHOICE_DELETE_APP,Delete social media,Deletar as redes chorando
-EVENT_TEEN_POSSESSIVE,Your date is being extremely possessive and toxic.,Seu par romântico tá agindo igual doido e super possessivo.
-EVENT_TEEN_POSSESSIVE_DESC,They check your phone 24/7.,Abrem teu celular enquanto você dorme. E aí?
+EVENT_TEEN_POSSESSIVE,Your date is being extremely possessive and toxic.,"Seu par romântico tá agindo igual doido, e super possessivo."
+EVENT_TEEN_POSSESSIVE_DESC,They check your phone 24/7.,"Abrem teu celular enquanto você dorme. E aí?"
 CHOICE_TALK_IT_OUT,Try to talk it out,Tentar conversar e perdoar
 CHOICE_FIGHT_BACK,Fight back verbally,Mandar pra aquele lugar (Brigar)
 CHOICE_GIVE_IN,Accept the toxicity,Aceitar a toxidade (Chorar)
@@ -980,3 +980,29 @@ EVENT_TEEN_FIGHT,A tough guy challenges you to a street fight.,Um valentão te d
 EVENT_TEEN_FIGHT_DESC,Self defense or flight?,Vai usar defesa pessoal ou meter o pé?
 CHOICE_DEFEND_SELF,Self Defense (Fight),Mão na cara (Defesa Pessoal)
 CHOICE_RUN_AWAY,Run like the wind,Correr igual o Flash
+
+REL_CRY,Cry for Attention,Chorar e Fazer Manha
+REL_PLAY_BABY,Play together,Brincar Junto (Bebê)
+REL_RESULT_CRY,You cried for {name}.,Você chorou alto pra {name}...
+REL_RESULT_PLAY_BABY,You and {name} had fun!,Você e {name} brincaram muito!
+EVENT_NEIGHBOR_PET,The neighbor's dog got loose and is running towards you!,O cachorro do vizinho se soltou e está correndo na sua direção!
+CHOICE_PET_RUN,Try to run away,Tentar fugir
+CHOICE_PET_STAY,Stay perfectly still,Ficar parado
+EVENT_PET_ESCAPE,You ran fast enough and escaped the dog! Your heart is pounding.,Você correu o suficiente e escapou do cachorro! Seu coração está acelerado.
+CHOICE_PHEW,Phew!,Ufa!
+EVENT_PET_BITTEN,The dog caught up to you and bit your leg! You had to go to the hospital.,O cachorro te alcançou e mordeu sua perna! Você teve que ir ao hospital.
+CHOICE_OUCH,Ouch!,Ai!
+EVENT_PET_FRIENDS,"The dog stopped, sniffed you, and started waging its tail. You made a new friend!","O cachorro parou, te cheirou e começou a abanar o rabo. Você fez um novo amigo!"
+CHOICE_PET_HIM,Good boy!,Bom garoto!
+EVENT_TEEN_SNEAK_OUT,Você decide fugir escondido de casa para ir numa festa durante a noite.,You decide to sneak out of the house to go to a party at night.
+CHOICE_SNEAK_OUT_SUCCESS,Fugir secretamente,Sneak out secretly
+CHOICE_STAY_HOME,Ouvir os pais e ficar em casa,Listen to your parents and stay home
+EVENT_TEEN_PEER_PRESSURE,Na escola, colegas mais velhos oferecem para você provar cigarro e maconha atrás da quadra esportiva.,At school, older peers offer you a cigarette and marijuana behind the sports court.
+CHOICE_SMOKE_DRINK,Provar para se enturmar,Try it to fit in
+CHOICE_SAY_NO,Recusar e sair andando,Refuse and walk away
+EVENT_ADULT_PARTY_DRUGS,Em uma festa fechada, te oferecem uma mistura perigosa de drogas sintéticas e álcool. O ambiente está elétrico e todos estão consumindo.,At a private party, you are offered a dangerous mix of synthetic drugs and alcohol. The atmosphere is electric and everyone is consuming.
+CHOICE_TRY_SUBSTANCE,Pegar uma dose e aproveitar,Take a hit and enjoy
+CHOICE_REFUSE_LEAVE,Recusar e voltar para casa,Refuse and go home
+EVENT_ADULT_DEPRESSION_ALCOHOL,Você vem enfrentando um severo quadro de depressão. Recentemente o álcool se tornou sua válvula de escape e sua saúde está despencando depressa.,You have been facing a severe depression episode. Recently alcohol became your escape valve and your health is plummeting rapidly.
+CHOICE_SEEK_REHAB,Buscar médico e reabilitação,Seek doctor and rehab
+CHOICE_KEEP_DRINKING,Afogar as mágoas no bar,Drown your sorrows at the bar

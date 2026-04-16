@@ -1,4 +1,4 @@
-; Engine configuration file.
+﻿; Engine configuration file.
 ; It's best edited using the editor UI and not directly,
 ; since the parameters that go here are not all obvious.
 ;
@@ -9,6 +9,10 @@
 config_version=5
 
 [application]
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=true
 
 config/name="NewLife Simulation"
 config/description="A deep text-based life simulation game with rich events, moral choices, and long-term consequences."
