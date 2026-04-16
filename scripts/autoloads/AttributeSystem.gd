@@ -59,7 +59,7 @@ func apply_aging(character: Character) -> void:
 		happiness_target -= 3
 	if character.has_trait("anxious"):
 		happiness_target -= 5
-	if character.has_trait("empathetic"):
+	if character.has_trait("compassionate"):
 		happiness_target += 3
 
 	# Drift toward target slowly
@@ -69,28 +69,33 @@ func apply_aging(character: Character) -> void:
 		character.happiness = clampi(character.happiness + 2, 0, 100)
 
 
+var _traits_data: Dictionary = {}  # id -> effects dict
+
+func _load_traits_data() -> void:
+	if not _traits_data.is_empty():
+		return
+	var path := "res://data/traits/traits.json"
+	if not FileAccess.file_exists(path):
+		return
+	var file := FileAccess.open(path, FileAccess.READ)
+	var json_text := file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(json_text)
+	if parsed is Dictionary:
+		for trait_dict in parsed.get("traits", []):
+			var tid: String = trait_dict.get("id", "")
+			if tid != "":
+				_traits_data[tid] = trait_dict.get("effects", {})
+
+
 func _apply_trait_effects(character: Character) -> void:
+	_load_traits_data()
 	for trait_name in character.traits:
-		match trait_name:
-			"athletic":
-				character.health = clampi(character.health + 1, 0, 100)
-			"lazy":
-				character.health = clampi(character.health - 1, 0, 100)
-			"bookworm":
-				character.intelligence = clampi(character.intelligence + 1, 0, 100)
-			"disciplined":
-				character.school_performance = clampi(character.school_performance + 2, 0, 100)
-			"impulsive":
-				character.mental_stability = clampi(character.mental_stability - 1, 0, 100)
-			"anxious":
-				character.mental_stability = clampi(character.mental_stability - 1, 0, 100)
-			"brave":
-				character.temperament = clampi(character.temperament + 1, 0, 100)
-			"creative":
-				character.intelligence = clampi(character.intelligence + 1, 0, 100)
-			"narcissist":
-				character.charisma = clampi(character.charisma + 1, 0, 100)
-				character.morality = clampi(character.morality - 1, 0, 100)
+		var effects: Dictionary = _traits_data.get(trait_name, {})
+		for stat_name in effects:
+			# Apply a fraction of the effect each year (effects are per-year bonuses)
+			var amount: int = int(effects[stat_name])
+			modify_stat(character, stat_name, amount)
 
 
 ## Calculate the probability of success for a given stat check

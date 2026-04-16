@@ -7,16 +7,16 @@
       "age_max": 70,
       "category": "career",
       "weight": 80,
-      "conditions": {"has_career": true},
+      "conditions": { "has_career": true },
       "text_key": "EVENT_ELDER_RETIREMENT",
       "choices": [
         {
           "text_key": "CHOICE_RETIRE_HAPPY",
-          "effects": {"happiness": 8, "mental_stability": 5}
+          "effects": { "happiness": 8, "mental_stability": 5 }
         },
         {
           "text_key": "CHOICE_KEEP_WORKING",
-          "effects": {"happiness": -2, "health": -3},
+          "effects": { "happiness": -2, "health": -3 },
           "money_effect": 3000
         }
       ]
@@ -33,11 +33,11 @@
       "choices": [
         {
           "text_key": "CHOICE_CELEBRATE",
-          "effects": {"happiness": 10, "mental_stability": 5}
+          "effects": { "happiness": 10, "mental_stability": 5 }
         },
         {
           "text_key": "CHOICE_DISTANT",
-          "effects": {"happiness": 2}
+          "effects": { "happiness": 2 }
         }
       ]
     },
@@ -53,12 +53,12 @@
       "choices": [
         {
           "text_key": "CHOICE_TREATMENT",
-          "effects": {"health": 5},
+          "effects": { "health": 5 },
           "money_effect": -5000
         },
         {
           "text_key": "CHOICE_NATURAL",
-          "effects": {"health": -5, "mental_stability": 3}
+          "effects": { "health": -5, "mental_stability": 3 }
         }
       ]
     },
@@ -74,7 +74,7 @@
       "choices": [
         {
           "text_key": "CHOICE_FAMILY_EQUAL",
-          "effects": {"happiness": 3},
+          "effects": { "happiness": 3 },
           "morality_effect": 5
         },
         {
@@ -84,7 +84,7 @@
         },
         {
           "text_key": "CHOICE_CHARITY",
-          "effects": {"happiness": 5},
+          "effects": { "happiness": 5 },
           "morality_effect": 10
         }
       ]
@@ -101,11 +101,11 @@
       "choices": [
         {
           "text_key": "CHOICE_WRITE_MEMOIR",
-          "effects": {"intelligence": 2, "happiness": 5}
+          "effects": { "intelligence": 2, "happiness": 5 }
         },
         {
           "text_key": "CHOICE_QUIET_LIFE",
-          "effects": {"mental_stability": 5}
+          "effects": { "mental_stability": 5 }
         }
       ]
     },
@@ -121,11 +121,11 @@
       "choices": [
         {
           "text_key": "CHOICE_MOURN",
-          "effects": {"happiness": -8, "mental_stability": -3}
+          "effects": { "happiness": -8, "mental_stability": -3 }
         },
         {
           "text_key": "CHOICE_CELEBRATE_LIFE",
-          "effects": {"happiness": -2, "mental_stability": 3}
+          "effects": { "happiness": -2, "mental_stability": 3 }
         }
       ]
     },
@@ -141,11 +141,11 @@
       "choices": [
         {
           "text_key": "CHOICE_NEW_HOBBY",
-          "effects": {"happiness": 5, "intelligence": 2}
+          "effects": { "happiness": 5, "intelligence": 2 }
         },
         {
           "text_key": "CHOICE_REST",
-          "effects": {"health": 2}
+          "effects": { "health": 2 }
         }
       ]
     },
@@ -161,12 +161,12 @@
       "choices": [
         {
           "text_key": "CHOICE_FALL_FOR_IT",
-          "effects": {"happiness": -10},
+          "effects": { "happiness": -10 },
           "money_effect": -10000
         },
         {
           "text_key": "CHOICE_SUSPICIOUS",
-          "effects": {"intelligence": 2}
+          "effects": { "intelligence": 2 }
         }
       ]
     }

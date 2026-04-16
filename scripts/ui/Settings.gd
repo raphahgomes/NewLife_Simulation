@@ -48,8 +48,10 @@ func _on_sound_changed(value: float) -> void:
 	_save_settings()
 
 
-func _on_font_size_changed(_value: float) -> void:
-	# Font size will be applied through theme overrides
+func _on_font_size_changed(value: float) -> void:
+	var theme := get_tree().root.theme
+	if theme:
+		theme.set_default_font_size(int(value))
 	_save_settings()
 
 
@@ -85,3 +87,6 @@ func _load_settings() -> void:
 			sound_slider.value = data["sound_volume"]
 		if data.has("font_size"):
 			font_size_slider.value = data["font_size"]
+			var theme := get_tree().root.theme
+			if theme:
+				theme.set_default_font_size(int(data["font_size"]))

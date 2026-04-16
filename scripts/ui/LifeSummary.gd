@@ -28,7 +28,7 @@ func _populate(c: Character) -> void:
 	name_label.text = c.get_full_name()
 	life_span.text = str(c.birth_year) + " – " + str(c.birth_year + c.age) + " (" + str(c.age) + " " + tr("YEARS") + ")"
 
-	career_label.text = tr("CAREER") + ": " + (tr(c.current_career) if c.current_career != "" else tr("NONE"))
+	career_label.text = tr("CAREER") + ": " + (tr("CAREER_" + c.current_career.to_upper()) if c.current_career != "" else tr("NONE"))
 	wealth_label.text = tr("NET_WORTH") + ": $" + str(int(c.get_net_worth()))
 
 	var edu_names := {

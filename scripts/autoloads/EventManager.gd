@@ -63,8 +63,7 @@ func get_random_event(character: Character) -> EventData:
 	var candidates: Array = _events_by_phase.get(phase_name, [])
 
 	if candidates.is_empty():
-		# Fallback: try all events
-		candidates = _all_events
+		return null
 
 	# Filter by conditions and anti-repetition
 	var valid: Array[EventData] = []
@@ -88,6 +87,33 @@ func get_random_event(character: Character) -> EventData:
 		return null
 
 	# Weighted random selection
+	var roll := _rng.randi_range(0, total_weight - 1)
+	var cumulative: int = 0
+	for event in valid:
+		cumulative += event.weight
+		if roll < cumulative:
+			return event
+
+	return valid[valid.size() - 1]
+
+
+func get_random_event_by_category(character: Character, category: String) -> EventData:
+	var phase_name := character.get_phase_name()
+	var candidates: Array = _events_by_phase.get(phase_name, [])
+	if candidates.is_empty():
+		return null
+
+	var valid: Array[EventData] = []
+	var total_weight: int = 0
+	for event in candidates:
+		if event is EventData and event.category == category:
+			if event.matches_character(character):
+				valid.append(event)
+				total_weight += event.weight
+
+	if valid.is_empty():
+		return null
+
 	var roll := _rng.randi_range(0, total_weight - 1)
 	var cumulative: int = 0
 	for event in valid:

@@ -12,13 +12,13 @@
       "choices": [
         {
           "text_key": "CHOICE_MAMA",
-          "effects": {"happiness": 5},
-          "relationship_effects": {"MOTHER": {"affection": 10}}
+          "effects": { "happiness": 5 },
+          "relationship_effects": { "MOTHER": { "affection": 10 } }
         },
         {
           "text_key": "CHOICE_PAPA",
-          "effects": {"happiness": 5},
-          "relationship_effects": {"FATHER": {"affection": 10}}
+          "effects": { "happiness": 5 },
+          "relationship_effects": { "FATHER": { "affection": 10 } }
         }
       ]
     },
@@ -34,11 +34,11 @@
       "choices": [
         {
           "text_key": "CHOICE_EXPLORE",
-          "effects": {"intelligence": 3, "happiness": 2}
+          "effects": { "intelligence": 3, "happiness": 2 }
         },
         {
           "text_key": "CHOICE_STAY_SAFE",
-          "effects": {"health": 2}
+          "effects": { "health": 2 }
         }
       ]
     },
@@ -54,11 +54,11 @@
       "choices": [
         {
           "text_key": "CHOICE_PET_GENTLE",
-          "effects": {"charisma": 2, "happiness": 3}
+          "effects": { "charisma": 2, "happiness": 3 }
         },
         {
           "text_key": "CHOICE_PET_SCARED",
-          "effects": {"temperament": -2}
+          "effects": { "temperament": -2 }
         }
       ]
     },
@@ -74,12 +74,12 @@
       "choices": [
         {
           "text_key": "CHOICE_CRY_MORE",
-          "effects": {"temperament": -3},
-          "relationship_effects": {"MOTHER": {"affection": -2}}
+          "effects": { "temperament": -3 },
+          "relationship_effects": { "MOTHER": { "affection": -2 } }
         },
         {
           "text_key": "CHOICE_CALM_DOWN",
-          "effects": {"temperament": 3, "happiness": -2}
+          "effects": { "temperament": 3, "happiness": -2 }
         }
       ]
     },
@@ -95,11 +95,11 @@
       "choices": [
         {
           "text_key": "CHOICE_REST",
-          "effects": {"health": 5}
+          "effects": { "health": 5 }
         },
         {
           "text_key": "CHOICE_IGNORE",
-          "effects": {"health": -5}
+          "effects": { "health": -5 }
         }
       ]
     },
@@ -115,11 +115,11 @@
       "choices": [
         {
           "text_key": "CHOICE_PLAY_OTHERS",
-          "effects": {"charisma": 3, "happiness": 3}
+          "effects": { "charisma": 3, "happiness": 3 }
         },
         {
           "text_key": "CHOICE_PLAY_ALONE",
-          "effects": {"intelligence": 2}
+          "effects": { "intelligence": 2 }
         }
       ]
     },
@@ -135,11 +135,11 @@
       "choices": [
         {
           "text_key": "CHOICE_LAUGH",
-          "effects": {"happiness": 5, "charisma": 1}
+          "effects": { "happiness": 5, "charisma": 1 }
         },
         {
           "text_key": "CHOICE_STARE",
-          "effects": {"intelligence": 2}
+          "effects": { "intelligence": 2 }
         }
       ]
     }

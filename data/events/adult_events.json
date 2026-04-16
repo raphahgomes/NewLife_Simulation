@@ -7,16 +7,16 @@
       "age_max": 30,
       "category": "career",
       "weight": 70,
-      "conditions": {"no_career": true},
+      "conditions": { "no_career": true },
       "text_key": "EVENT_ADULT_JOB_INTERVIEW",
       "choices": [
         {
           "text_key": "CHOICE_CONFIDENT",
-          "effects": {"charisma": 3, "happiness": 5}
+          "effects": { "charisma": 3, "happiness": 5 }
         },
         {
           "text_key": "CHOICE_NERVOUS",
-          "effects": {"happiness": -2}
+          "effects": { "happiness": -2 }
         }
       ]
     },
@@ -27,17 +27,17 @@
       "age_max": 55,
       "category": "career",
       "weight": 40,
-      "conditions": {"has_career": true, "min_intelligence": 50},
+      "conditions": { "has_career": true, "min_intelligence": 50 },
       "text_key": "EVENT_ADULT_PROMOTION",
       "choices": [
         {
           "text_key": "CHOICE_ACCEPT",
-          "effects": {"happiness": 8},
+          "effects": { "happiness": 8 },
           "money_effect": 5000
         },
         {
           "text_key": "CHOICE_NEGOTIATE_MORE",
-          "effects": {"charisma": 2},
+          "effects": { "charisma": 2 },
           "money_effect": 8000
         }
       ]
@@ -54,16 +54,16 @@
       "choices": [
         {
           "text_key": "CHOICE_SAY_YES",
-          "effects": {"happiness": 10, "mental_stability": 5},
-          "trait_chance": {"trait": "romantic", "chance": 0.2}
+          "effects": { "happiness": 10, "mental_stability": 5 },
+          "trait_chance": { "trait": "romantic", "chance": 0.2 }
         },
         {
           "text_key": "CHOICE_SAY_NO",
-          "effects": {"happiness": -3}
+          "effects": { "happiness": -3 }
         },
         {
           "text_key": "CHOICE_NEED_TIME",
-          "effects": {"happiness": -1}
+          "effects": { "happiness": -1 }
         }
       ]
     },
@@ -79,12 +79,12 @@
       "choices": [
         {
           "text_key": "CHOICE_HAVE_CHILD",
-          "effects": {"happiness": 8, "mental_stability": 3},
+          "effects": { "happiness": 8, "mental_stability": 3 },
           "money_effect": -2000
         },
         {
           "text_key": "CHOICE_NOT_READY",
-          "effects": {"happiness": -2}
+          "effects": { "happiness": -2 }
         }
       ]
     },
@@ -95,21 +95,21 @@
       "age_max": 55,
       "category": "finance",
       "weight": 35,
-      "conditions": {"min_money": 10000},
+      "conditions": { "min_money": 10000 },
       "text_key": "EVENT_ADULT_BUY_HOUSE",
       "choices": [
         {
           "text_key": "CHOICE_BUY",
-          "effects": {"happiness": 8},
+          "effects": { "happiness": 8 },
           "money_effect": -50000
         },
         {
           "text_key": "CHOICE_RENT",
-          "effects": {"happiness": 1}
+          "effects": { "happiness": 1 }
         },
         {
           "text_key": "CHOICE_INVEST_INSTEAD",
-          "effects": {"intelligence": 2},
+          "effects": { "intelligence": 2 },
           "money_effect": 5000
         }
       ]
@@ -126,12 +126,12 @@
       "choices": [
         {
           "text_key": "CHOICE_SEE_DOCTOR",
-          "effects": {"health": 10},
+          "effects": { "health": 10 },
           "money_effect": -500
         },
         {
           "text_key": "CHOICE_IGNORE_IT",
-          "effects": {"health": -10}
+          "effects": { "health": -10 }
         }
       ]
     },
@@ -142,18 +142,18 @@
       "age_max": 55,
       "category": "finance",
       "weight": 30,
-      "conditions": {"min_intelligence": 40},
+      "conditions": { "min_intelligence": 40 },
       "text_key": "EVENT_ADULT_BUSINESS",
       "choices": [
         {
           "text_key": "CHOICE_START_BUSINESS",
-          "effects": {"intelligence": 3, "happiness": 3},
+          "effects": { "intelligence": 3, "happiness": 3 },
           "money_effect": -10000,
-          "trait_chance": {"trait": "ambitious", "chance": 0.15}
+          "trait_chance": { "trait": "ambitious", "chance": 0.15 }
         },
         {
           "text_key": "CHOICE_PLAY_SAFE",
-          "effects": {"happiness": -1}
+          "effects": { "happiness": -1 }
         }
       ]
     },
@@ -169,16 +169,16 @@
       "choices": [
         {
           "text_key": "CHOICE_ACCEPT_AGING",
-          "effects": {"mental_stability": 5, "happiness": 2}
+          "effects": { "mental_stability": 5, "happiness": 2 }
         },
         {
           "text_key": "CHOICE_BIG_CHANGE",
-          "effects": {"happiness": 5, "mental_stability": -3},
+          "effects": { "happiness": 5, "mental_stability": -3 },
           "money_effect": -5000
         },
         {
           "text_key": "CHOICE_THERAPY",
-          "effects": {"mental_stability": 8},
+          "effects": { "mental_stability": 8 },
           "money_effect": -1000
         }
       ]
@@ -195,12 +195,12 @@
       "choices": [
         {
           "text_key": "CHOICE_FIGHT_CUSTODY",
-          "effects": {"happiness": -5, "mental_stability": -5},
+          "effects": { "happiness": -5, "mental_stability": -5 },
           "money_effect": -10000
         },
         {
           "text_key": "CHOICE_SETTLE",
-          "effects": {"happiness": -3},
+          "effects": { "happiness": -3 },
           "money_effect": -5000
         }
       ]
@@ -217,12 +217,12 @@
       "choices": [
         {
           "text_key": "CHOICE_HOSPITAL",
-          "effects": {"health": -15, "happiness": -5},
+          "effects": { "health": -15, "happiness": -5 },
           "money_effect": -3000
         },
         {
           "text_key": "CHOICE_WALK_AWAY",
-          "effects": {"health": -5, "luck": 3}
+          "effects": { "health": -5, "luck": 3 }
         }
       ]
     },
@@ -233,7 +233,7 @@
       "age_max": 60,
       "category": "crime",
       "weight": 15,
-      "conditions": {"min_intelligence": 50},
+      "conditions": { "min_intelligence": 50 },
       "text_key": "EVENT_ADULT_FRAUD_OPPORTUNITY",
       "choices": [
         {
@@ -241,7 +241,7 @@
           "effects": {},
           "money_effect": 50000,
           "morality_effect": -15,
-          "trait_chance": {"trait": "corrupt", "chance": 0.2}
+          "trait_chance": { "trait": "corrupt", "chance": 0.2 }
         },
         {
           "text_key": "CHOICE_REPORT_IT",
@@ -257,18 +257,18 @@
       "age_max": 60,
       "category": "social",
       "weight": 30,
-      "conditions": {"min_money": 5000},
+      "conditions": { "min_money": 5000 },
       "text_key": "EVENT_ADULT_CHARITY",
       "choices": [
         {
           "text_key": "CHOICE_DONATE_BIG",
-          "effects": {"happiness": 5},
+          "effects": { "happiness": 5 },
           "money_effect": -5000,
           "morality_effect": 8
         },
         {
           "text_key": "CHOICE_DONATE_SMALL",
-          "effects": {"happiness": 2},
+          "effects": { "happiness": 2 },
           "money_effect": -500,
           "morality_effect": 3
         },

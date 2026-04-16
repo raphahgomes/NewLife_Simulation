@@ -1,29 +1,229 @@
 {
   "careers": [
-    {"id": "fast_food", "name_key": "CAREER_FAST_FOOD", "min_education": "NONE", "salary_range": [12000, 20000], "min_age": 16, "required_stats": {}, "category": "service"},
-    {"id": "retail", "name_key": "CAREER_RETAIL", "min_education": "NONE", "salary_range": [14000, 22000], "min_age": 16, "required_stats": {"charisma": 20}, "category": "service"},
-    {"id": "janitor", "name_key": "CAREER_JANITOR", "min_education": "NONE", "salary_range": [15000, 24000], "min_age": 18, "required_stats": {}, "category": "service"},
-    {"id": "driver", "name_key": "CAREER_DRIVER", "min_education": "NONE", "salary_range": [18000, 30000], "min_age": 18, "required_stats": {}, "category": "transport"},
-    {"id": "mechanic", "name_key": "CAREER_MECHANIC", "min_education": "TECHNICAL", "salary_range": [22000, 40000], "min_age": 18, "required_stats": {"intelligence": 30}, "category": "trades"},
-    {"id": "electrician", "name_key": "CAREER_ELECTRICIAN", "min_education": "TECHNICAL", "salary_range": [25000, 45000], "min_age": 18, "required_stats": {"intelligence": 35}, "category": "trades"},
-    {"id": "nurse", "name_key": "CAREER_NURSE", "min_education": "TECHNICAL", "salary_range": [30000, 55000], "min_age": 20, "required_stats": {"intelligence": 40, "charisma": 30}, "category": "healthcare"},
-    {"id": "teacher", "name_key": "CAREER_TEACHER", "min_education": "COLLEGE", "salary_range": [28000, 50000], "min_age": 22, "required_stats": {"intelligence": 50, "charisma": 40}, "category": "education"},
-    {"id": "accountant", "name_key": "CAREER_ACCOUNTANT", "min_education": "COLLEGE", "salary_range": [35000, 65000], "min_age": 22, "required_stats": {"intelligence": 55}, "category": "business"},
-    {"id": "programmer", "name_key": "CAREER_PROGRAMMER", "min_education": "COLLEGE", "salary_range": [40000, 90000], "min_age": 20, "required_stats": {"intelligence": 60}, "category": "tech"},
-    {"id": "marketing", "name_key": "CAREER_MARKETING", "min_education": "COLLEGE", "salary_range": [32000, 70000], "min_age": 22, "required_stats": {"charisma": 50}, "category": "business"},
-    {"id": "police", "name_key": "CAREER_POLICE", "min_education": "SECONDARY", "salary_range": [30000, 55000], "min_age": 21, "required_stats": {"health": 50, "temperament": 40}, "category": "law"},
-    {"id": "firefighter", "name_key": "CAREER_FIREFIGHTER", "min_education": "SECONDARY", "salary_range": [28000, 52000], "min_age": 18, "required_stats": {"health": 60}, "category": "public_service"},
-    {"id": "journalist", "name_key": "CAREER_JOURNALIST", "min_education": "COLLEGE", "salary_range": [25000, 60000], "min_age": 22, "required_stats": {"intelligence": 50, "charisma": 45}, "category": "media"},
-    {"id": "lawyer", "name_key": "CAREER_LAWYER", "min_education": "POSTGRAD", "salary_range": [50000, 150000], "min_age": 25, "required_stats": {"intelligence": 70, "charisma": 55}, "category": "law"},
-    {"id": "doctor", "name_key": "CAREER_DOCTOR", "min_education": "POSTGRAD", "salary_range": [70000, 200000], "min_age": 26, "required_stats": {"intelligence": 75}, "category": "healthcare"},
-    {"id": "engineer", "name_key": "CAREER_ENGINEER", "min_education": "COLLEGE", "salary_range": [45000, 100000], "min_age": 22, "required_stats": {"intelligence": 65}, "category": "tech"},
-    {"id": "artist", "name_key": "CAREER_ARTIST", "min_education": "NONE", "salary_range": [8000, 80000], "min_age": 18, "required_stats": {"charisma": 40}, "category": "creative"},
-    {"id": "musician", "name_key": "CAREER_MUSICIAN", "min_education": "NONE", "salary_range": [8000, 100000], "min_age": 16, "required_stats": {"charisma": 45}, "category": "creative"},
-    {"id": "athlete", "name_key": "CAREER_ATHLETE", "min_education": "NONE", "salary_range": [15000, 500000], "min_age": 18, "required_stats": {"health": 70, "appearance": 40}, "category": "sports"},
-    {"id": "chef", "name_key": "CAREER_CHEF", "min_education": "TECHNICAL", "salary_range": [20000, 60000], "min_age": 18, "required_stats": {"intelligence": 35}, "category": "service"},
-    {"id": "real_estate", "name_key": "CAREER_REAL_ESTATE", "min_education": "SECONDARY", "salary_range": [25000, 100000], "min_age": 21, "required_stats": {"charisma": 50}, "category": "business"},
-    {"id": "politician", "name_key": "CAREER_POLITICIAN", "min_education": "COLLEGE", "salary_range": [40000, 120000], "min_age": 25, "required_stats": {"charisma": 65, "intelligence": 55}, "category": "government"},
-    {"id": "criminal", "name_key": "CAREER_CRIMINAL", "min_education": "NONE", "salary_range": [5000, 200000], "min_age": 16, "required_stats": {"temperament": 30}, "category": "crime"},
-    {"id": "streamer", "name_key": "CAREER_STREAMER", "min_education": "NONE", "salary_range": [5000, 150000], "min_age": 16, "required_stats": {"charisma": 55}, "category": "media"}
+    {
+      "id": "fast_food",
+      "name_key": "CAREER_FAST_FOOD",
+      "min_education": "NONE",
+      "salary_range": [12000, 20000],
+      "min_age": 16,
+      "required_stats": {},
+      "category": "service"
+    },
+    {
+      "id": "retail",
+      "name_key": "CAREER_RETAIL",
+      "min_education": "NONE",
+      "salary_range": [14000, 22000],
+      "min_age": 16,
+      "required_stats": { "charisma": 20 },
+      "category": "service"
+    },
+    {
+      "id": "janitor",
+      "name_key": "CAREER_JANITOR",
+      "min_education": "NONE",
+      "salary_range": [15000, 24000],
+      "min_age": 18,
+      "required_stats": {},
+      "category": "service"
+    },
+    {
+      "id": "driver",
+      "name_key": "CAREER_DRIVER",
+      "min_education": "NONE",
+      "salary_range": [18000, 30000],
+      "min_age": 18,
+      "required_stats": {},
+      "category": "transport"
+    },
+    {
+      "id": "mechanic",
+      "name_key": "CAREER_MECHANIC",
+      "min_education": "TECHNICAL",
+      "salary_range": [22000, 40000],
+      "min_age": 18,
+      "required_stats": { "intelligence": 30 },
+      "category": "trades"
+    },
+    {
+      "id": "electrician",
+      "name_key": "CAREER_ELECTRICIAN",
+      "min_education": "TECHNICAL",
+      "salary_range": [25000, 45000],
+      "min_age": 18,
+      "required_stats": { "intelligence": 35 },
+      "category": "trades"
+    },
+    {
+      "id": "nurse",
+      "name_key": "CAREER_NURSE",
+      "min_education": "TECHNICAL",
+      "salary_range": [30000, 55000],
+      "min_age": 20,
+      "required_stats": { "intelligence": 40, "charisma": 30 },
+      "category": "healthcare"
+    },
+    {
+      "id": "teacher",
+      "name_key": "CAREER_TEACHER",
+      "min_education": "COLLEGE",
+      "salary_range": [28000, 50000],
+      "min_age": 22,
+      "required_stats": { "intelligence": 50, "charisma": 40 },
+      "category": "education"
+    },
+    {
+      "id": "accountant",
+      "name_key": "CAREER_ACCOUNTANT",
+      "min_education": "COLLEGE",
+      "salary_range": [35000, 65000],
+      "min_age": 22,
+      "required_stats": { "intelligence": 55 },
+      "category": "business"
+    },
+    {
+      "id": "programmer",
+      "name_key": "CAREER_PROGRAMMER",
+      "min_education": "COLLEGE",
+      "salary_range": [40000, 90000],
+      "min_age": 20,
+      "required_stats": { "intelligence": 60 },
+      "category": "tech"
+    },
+    {
+      "id": "marketing",
+      "name_key": "CAREER_MARKETING",
+      "min_education": "COLLEGE",
+      "salary_range": [32000, 70000],
+      "min_age": 22,
+      "required_stats": { "charisma": 50 },
+      "category": "business"
+    },
+    {
+      "id": "police",
+      "name_key": "CAREER_POLICE",
+      "min_education": "SECONDARY",
+      "salary_range": [30000, 55000],
+      "min_age": 21,
+      "required_stats": { "health": 50, "temperament": 40 },
+      "category": "law"
+    },
+    {
+      "id": "firefighter",
+      "name_key": "CAREER_FIREFIGHTER",
+      "min_education": "SECONDARY",
+      "salary_range": [28000, 52000],
+      "min_age": 18,
+      "required_stats": { "health": 60 },
+      "category": "public_service"
+    },
+    {
+      "id": "journalist",
+      "name_key": "CAREER_JOURNALIST",
+      "min_education": "COLLEGE",
+      "salary_range": [25000, 60000],
+      "min_age": 22,
+      "required_stats": { "intelligence": 50, "charisma": 45 },
+      "category": "media"
+    },
+    {
+      "id": "lawyer",
+      "name_key": "CAREER_LAWYER",
+      "min_education": "POSTGRAD",
+      "salary_range": [50000, 150000],
+      "min_age": 25,
+      "required_stats": { "intelligence": 70, "charisma": 55 },
+      "category": "law"
+    },
+    {
+      "id": "doctor",
+      "name_key": "CAREER_DOCTOR",
+      "min_education": "POSTGRAD",
+      "salary_range": [70000, 200000],
+      "min_age": 26,
+      "required_stats": { "intelligence": 75 },
+      "category": "healthcare"
+    },
+    {
+      "id": "engineer",
+      "name_key": "CAREER_ENGINEER",
+      "min_education": "COLLEGE",
+      "salary_range": [45000, 100000],
+      "min_age": 22,
+      "required_stats": { "intelligence": 65 },
+      "category": "tech"
+    },
+    {
+      "id": "artist",
+      "name_key": "CAREER_ARTIST",
+      "min_education": "NONE",
+      "salary_range": [8000, 80000],
+      "min_age": 18,
+      "required_stats": { "charisma": 40 },
+      "category": "creative"
+    },
+    {
+      "id": "musician",
+      "name_key": "CAREER_MUSICIAN",
+      "min_education": "NONE",
+      "salary_range": [8000, 100000],
+      "min_age": 16,
+      "required_stats": { "charisma": 45 },
+      "category": "creative"
+    },
+    {
+      "id": "athlete",
+      "name_key": "CAREER_ATHLETE",
+      "min_education": "NONE",
+      "salary_range": [15000, 500000],
+      "min_age": 18,
+      "required_stats": { "health": 70, "appearance": 40 },
+      "category": "sports"
+    },
+    {
+      "id": "chef",
+      "name_key": "CAREER_CHEF",
+      "min_education": "TECHNICAL",
+      "salary_range": [20000, 60000],
+      "min_age": 18,
+      "required_stats": { "intelligence": 35 },
+      "category": "service"
+    },
+    {
+      "id": "real_estate",
+      "name_key": "CAREER_REAL_ESTATE",
+      "min_education": "SECONDARY",
+      "salary_range": [25000, 100000],
+      "min_age": 21,
+      "required_stats": { "charisma": 50 },
+      "category": "business"
+    },
+    {
+      "id": "politician",
+      "name_key": "CAREER_POLITICIAN",
+      "min_education": "COLLEGE",
+      "salary_range": [40000, 120000],
+      "min_age": 25,
+      "required_stats": { "charisma": 65, "intelligence": 55 },
+      "category": "government"
+    },
+    {
+      "id": "criminal",
+      "name_key": "CAREER_CRIMINAL",
+      "min_education": "NONE",
+      "salary_range": [5000, 200000],
+      "min_age": 16,
+      "required_stats": { "temperament": 30 },
+      "category": "crime"
+    },
+    {
+      "id": "streamer",
+      "name_key": "CAREER_STREAMER",
+      "min_education": "NONE",
+      "salary_range": [5000, 150000],
+      "min_age": 16,
+      "required_stats": { "charisma": 55 },
+      "category": "media"
+    }
   ]
 }

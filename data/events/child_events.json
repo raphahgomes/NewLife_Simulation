@@ -12,11 +12,11 @@
       "choices": [
         {
           "text_key": "CHOICE_EXCITED",
-          "effects": {"intelligence": 3, "happiness": 3}
+          "effects": { "intelligence": 3, "happiness": 3 }
         },
         {
           "text_key": "CHOICE_NERVOUS",
-          "effects": {"intelligence": 1, "happiness": -2}
+          "effects": { "intelligence": 1, "happiness": -2 }
         }
       ]
     },
@@ -32,16 +32,16 @@
       "choices": [
         {
           "text_key": "CHOICE_STAND_UP",
-          "effects": {"charisma": 3, "temperament": 3},
-          "trait_chance": {"trait": "brave", "chance": 0.15}
+          "effects": { "charisma": 3, "temperament": 3 },
+          "trait_chance": { "trait": "brave", "chance": 0.15 }
         },
         {
           "text_key": "CHOICE_TELL_TEACHER",
-          "effects": {"intelligence": 2, "happiness": -1}
+          "effects": { "intelligence": 2, "happiness": -1 }
         },
         {
           "text_key": "CHOICE_RUN_AWAY",
-          "effects": {"happiness": -5, "temperament": -3}
+          "effects": { "happiness": -5, "temperament": -3 }
         }
       ]
     },
@@ -57,11 +57,11 @@
       "choices": [
         {
           "text_key": "CHOICE_BE_FRIENDS",
-          "effects": {"happiness": 8, "charisma": 3}
+          "effects": { "happiness": 8, "charisma": 3 }
         },
         {
           "text_key": "CHOICE_STAY_ALONE",
-          "effects": {"intelligence": 2}
+          "effects": { "intelligence": 2 }
         }
       ]
     },
@@ -77,15 +77,15 @@
       "choices": [
         {
           "text_key": "CHOICE_STUDY_HARD",
-          "effects": {"intelligence": 5, "happiness": -2}
+          "effects": { "intelligence": 5, "happiness": -2 }
         },
         {
           "text_key": "CHOICE_WING_IT",
-          "effects": {"luck": 1}
+          "effects": { "luck": 1 }
         },
         {
           "text_key": "CHOICE_CHEAT",
-          "effects": {"intelligence": 2},
+          "effects": { "intelligence": 2 },
           "morality_effect": -5
         }
       ]
@@ -102,13 +102,13 @@
       "choices": [
         {
           "text_key": "CHOICE_JOIN_TEAM",
-          "effects": {"health": 5, "charisma": 2},
-          "trait_chance": {"trait": "athletic", "chance": 0.1}
+          "effects": { "health": 5, "charisma": 2 },
+          "trait_chance": { "trait": "athletic", "chance": 0.1 }
         },
         {
           "text_key": "CHOICE_READ_BOOK",
-          "effects": {"intelligence": 5},
-          "trait_chance": {"trait": "bookworm", "chance": 0.1}
+          "effects": { "intelligence": 5 },
+          "trait_chance": { "trait": "bookworm", "chance": 0.1 }
         }
       ]
     },
@@ -124,12 +124,12 @@
       "choices": [
         {
           "text_key": "CHOICE_PERFORM",
-          "effects": {"charisma": 5, "happiness": 3},
-          "trait_chance": {"trait": "creative", "chance": 0.1}
+          "effects": { "charisma": 5, "happiness": 3 },
+          "trait_chance": { "trait": "creative", "chance": 0.1 }
         },
         {
           "text_key": "CHOICE_WATCH",
-          "effects": {"happiness": 1}
+          "effects": { "happiness": 1 }
         }
       ]
     },
@@ -145,9 +145,9 @@
       "choices": [
         {
           "text_key": "CHOICE_BRING_HOME",
-          "effects": {"happiness": 5},
+          "effects": { "happiness": 5 },
           "morality_effect": 5,
-          "trait_chance": {"trait": "compassionate", "chance": 0.1}
+          "trait_chance": { "trait": "compassionate", "chance": 0.1 }
         },
         {
           "text_key": "CHOICE_WALK_AWAY",
@@ -167,12 +167,15 @@
       "choices": [
         {
           "text_key": "CHOICE_HIDE",
-          "effects": {"happiness": -5, "mental_stability": -3}
+          "effects": { "happiness": -5, "mental_stability": -3 }
         },
         {
           "text_key": "CHOICE_TRY_HELP",
-          "effects": {"charisma": 2, "mental_stability": -1},
-          "relationship_effects": {"MOTHER": {"affection": 3}, "FATHER": {"affection": 3}}
+          "effects": { "charisma": 2, "mental_stability": -1 },
+          "relationship_effects": {
+            "MOTHER": { "affection": 3 },
+            "FATHER": { "affection": 3 }
+          }
         }
       ]
     },

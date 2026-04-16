@@ -1,37 +1,235 @@
 {
   "traits": [
-    {"id": "athletic", "name_key": "TRAIT_ATHLETIC", "description_key": "TRAIT_ATHLETIC_DESC", "category": "physical", "effects": {"health": 3, "appearance": 1}},
-    {"id": "bookworm", "name_key": "TRAIT_BOOKWORM", "description_key": "TRAIT_BOOKWORM_DESC", "category": "mental", "effects": {"intelligence": 3}},
-    {"id": "charismatic", "name_key": "TRAIT_CHARISMATIC", "description_key": "TRAIT_CHARISMATIC_DESC", "category": "social", "effects": {"charisma": 3}},
-    {"id": "creative", "name_key": "TRAIT_CREATIVE", "description_key": "TRAIT_CREATIVE_DESC", "category": "mental", "effects": {"intelligence": 1, "happiness": 2}},
-    {"id": "brave", "name_key": "TRAIT_BRAVE", "description_key": "TRAIT_BRAVE_DESC", "category": "personality", "effects": {"temperament": 2}},
-    {"id": "compassionate", "name_key": "TRAIT_COMPASSIONATE", "description_key": "TRAIT_COMPASSIONATE_DESC", "category": "social", "effects": {"charisma": 2, "morality": 2}},
-    {"id": "ambitious", "name_key": "TRAIT_AMBITIOUS", "description_key": "TRAIT_AMBITIOUS_DESC", "category": "personality", "effects": {"intelligence": 1}},
-    {"id": "romantic", "name_key": "TRAIT_ROMANTIC", "description_key": "TRAIT_ROMANTIC_DESC", "category": "social", "effects": {"charisma": 1, "happiness": 1}},
-    {"id": "hardworking", "name_key": "TRAIT_HARDWORKING", "description_key": "TRAIT_HARDWORKING_DESC", "category": "personality", "effects": {"intelligence": 2}},
-    {"id": "lazy", "name_key": "TRAIT_LAZY", "description_key": "TRAIT_LAZY_DESC", "category": "personality", "effects": {"health": -2, "intelligence": -1}},
-    {"id": "rebel", "name_key": "TRAIT_REBEL", "description_key": "TRAIT_REBEL_DESC", "category": "personality", "effects": {"temperament": -2}},
-    {"id": "sensitive", "name_key": "TRAIT_SENSITIVE", "description_key": "TRAIT_SENSITIVE_DESC", "category": "personality", "effects": {"mental_stability": -1, "charisma": 1}},
-    {"id": "delinquent", "name_key": "TRAIT_DELINQUENT", "description_key": "TRAIT_DELINQUENT_DESC", "category": "personality", "effects": {"morality": -3}},
-    {"id": "corrupt", "name_key": "TRAIT_CORRUPT", "description_key": "TRAIT_CORRUPT_DESC", "category": "personality", "effects": {"morality": -5}},
-    {"id": "optimistic", "name_key": "TRAIT_OPTIMISTIC", "description_key": "TRAIT_OPTIMISTIC_DESC", "category": "personality", "effects": {"happiness": 3, "mental_stability": 1}},
-    {"id": "pessimistic", "name_key": "TRAIT_PESSIMISTIC", "description_key": "TRAIT_PESSIMISTIC_DESC", "category": "personality", "effects": {"happiness": -2, "mental_stability": -1}},
-    {"id": "introvert", "name_key": "TRAIT_INTROVERT", "description_key": "TRAIT_INTROVERT_DESC", "category": "social", "effects": {"charisma": -2, "intelligence": 2}},
-    {"id": "extrovert", "name_key": "TRAIT_EXTROVERT", "description_key": "TRAIT_EXTROVERT_DESC", "category": "social", "effects": {"charisma": 3, "happiness": 1}},
-    {"id": "lucky", "name_key": "TRAIT_LUCKY", "description_key": "TRAIT_LUCKY_DESC", "category": "special", "effects": {"luck": 5}},
-    {"id": "unlucky", "name_key": "TRAIT_UNLUCKY", "description_key": "TRAIT_UNLUCKY_DESC", "category": "special", "effects": {"luck": -5}},
-    {"id": "genius", "name_key": "TRAIT_GENIUS", "description_key": "TRAIT_GENIUS_DESC", "category": "mental", "effects": {"intelligence": 5}},
-    {"id": "clumsy", "name_key": "TRAIT_CLUMSY", "description_key": "TRAIT_CLUMSY_DESC", "category": "physical", "effects": {"health": -1, "appearance": -1}},
-    {"id": "beautiful", "name_key": "TRAIT_BEAUTIFUL", "description_key": "TRAIT_BEAUTIFUL_DESC", "category": "physical", "effects": {"appearance": 5, "charisma": 2}},
-    {"id": "funny", "name_key": "TRAIT_FUNNY", "description_key": "TRAIT_FUNNY_DESC", "category": "social", "effects": {"charisma": 3, "happiness": 1}},
-    {"id": "stubborn", "name_key": "TRAIT_STUBBORN", "description_key": "TRAIT_STUBBORN_DESC", "category": "personality", "effects": {"temperament": 2, "charisma": -1}},
-    {"id": "greedy", "name_key": "TRAIT_GREEDY", "description_key": "TRAIT_GREEDY_DESC", "category": "personality", "effects": {"morality": -2}},
-    {"id": "generous", "name_key": "TRAIT_GENEROUS", "description_key": "TRAIT_GENEROUS_DESC", "category": "social", "effects": {"charisma": 2, "morality": 3}},
-    {"id": "anxious", "name_key": "TRAIT_ANXIOUS", "description_key": "TRAIT_ANXIOUS_DESC", "category": "mental", "effects": {"mental_stability": -3}},
-    {"id": "calm", "name_key": "TRAIT_CALM", "description_key": "TRAIT_CALM_DESC", "category": "personality", "effects": {"mental_stability": 3, "temperament": 2}},
-    {"id": "manipulative", "name_key": "TRAIT_MANIPULATIVE", "description_key": "TRAIT_MANIPULATIVE_DESC", "category": "social", "effects": {"charisma": 2, "morality": -3}},
-    {"id": "honest", "name_key": "TRAIT_HONEST", "description_key": "TRAIT_HONEST_DESC", "category": "personality", "effects": {"morality": 3, "charisma": 1}},
-    {"id": "risk_taker", "name_key": "TRAIT_RISK_TAKER", "description_key": "TRAIT_RISK_TAKER_DESC", "category": "personality", "effects": {"luck": 2, "health": -1}},
-    {"id": "perfectionist", "name_key": "TRAIT_PERFECTIONIST", "description_key": "TRAIT_PERFECTIONIST_DESC", "category": "mental", "effects": {"intelligence": 2, "mental_stability": -2}}
+    {
+      "id": "athletic",
+      "name_key": "TRAIT_ATHLETIC",
+      "description_key": "TRAIT_ATHLETIC_DESC",
+      "category": "physical",
+      "effects": { "health": 3, "appearance": 1 }
+    },
+    {
+      "id": "bookworm",
+      "name_key": "TRAIT_BOOKWORM",
+      "description_key": "TRAIT_BOOKWORM_DESC",
+      "category": "mental",
+      "effects": { "intelligence": 3 }
+    },
+    {
+      "id": "charismatic",
+      "name_key": "TRAIT_CHARISMATIC",
+      "description_key": "TRAIT_CHARISMATIC_DESC",
+      "category": "social",
+      "effects": { "charisma": 3 }
+    },
+    {
+      "id": "creative",
+      "name_key": "TRAIT_CREATIVE",
+      "description_key": "TRAIT_CREATIVE_DESC",
+      "category": "mental",
+      "effects": { "intelligence": 1, "happiness": 2 }
+    },
+    {
+      "id": "brave",
+      "name_key": "TRAIT_BRAVE",
+      "description_key": "TRAIT_BRAVE_DESC",
+      "category": "personality",
+      "effects": { "temperament": 2 }
+    },
+    {
+      "id": "compassionate",
+      "name_key": "TRAIT_COMPASSIONATE",
+      "description_key": "TRAIT_COMPASSIONATE_DESC",
+      "category": "social",
+      "effects": { "charisma": 2, "morality": 2 }
+    },
+    {
+      "id": "ambitious",
+      "name_key": "TRAIT_AMBITIOUS",
+      "description_key": "TRAIT_AMBITIOUS_DESC",
+      "category": "personality",
+      "effects": { "intelligence": 1 }
+    },
+    {
+      "id": "romantic",
+      "name_key": "TRAIT_ROMANTIC",
+      "description_key": "TRAIT_ROMANTIC_DESC",
+      "category": "social",
+      "effects": { "charisma": 1, "happiness": 1 }
+    },
+    {
+      "id": "hardworking",
+      "name_key": "TRAIT_HARDWORKING",
+      "description_key": "TRAIT_HARDWORKING_DESC",
+      "category": "personality",
+      "effects": { "intelligence": 2 }
+    },
+    {
+      "id": "lazy",
+      "name_key": "TRAIT_LAZY",
+      "description_key": "TRAIT_LAZY_DESC",
+      "category": "personality",
+      "effects": { "health": -2, "intelligence": -1 }
+    },
+    {
+      "id": "rebel",
+      "name_key": "TRAIT_REBEL",
+      "description_key": "TRAIT_REBEL_DESC",
+      "category": "personality",
+      "effects": { "temperament": -2 }
+    },
+    {
+      "id": "sensitive",
+      "name_key": "TRAIT_SENSITIVE",
+      "description_key": "TRAIT_SENSITIVE_DESC",
+      "category": "personality",
+      "effects": { "mental_stability": -1, "charisma": 1 }
+    },
+    {
+      "id": "delinquent",
+      "name_key": "TRAIT_DELINQUENT",
+      "description_key": "TRAIT_DELINQUENT_DESC",
+      "category": "personality",
+      "effects": { "morality": -3 }
+    },
+    {
+      "id": "corrupt",
+      "name_key": "TRAIT_CORRUPT",
+      "description_key": "TRAIT_CORRUPT_DESC",
+      "category": "personality",
+      "effects": { "morality": -5 }
+    },
+    {
+      "id": "optimistic",
+      "name_key": "TRAIT_OPTIMISTIC",
+      "description_key": "TRAIT_OPTIMISTIC_DESC",
+      "category": "personality",
+      "effects": { "happiness": 3, "mental_stability": 1 }
+    },
+    {
+      "id": "pessimistic",
+      "name_key": "TRAIT_PESSIMISTIC",
+      "description_key": "TRAIT_PESSIMISTIC_DESC",
+      "category": "personality",
+      "effects": { "happiness": -2, "mental_stability": -1 }
+    },
+    {
+      "id": "introvert",
+      "name_key": "TRAIT_INTROVERT",
+      "description_key": "TRAIT_INTROVERT_DESC",
+      "category": "social",
+      "effects": { "charisma": -2, "intelligence": 2 }
+    },
+    {
+      "id": "extrovert",
+      "name_key": "TRAIT_EXTROVERT",
+      "description_key": "TRAIT_EXTROVERT_DESC",
+      "category": "social",
+      "effects": { "charisma": 3, "happiness": 1 }
+    },
+    {
+      "id": "lucky",
+      "name_key": "TRAIT_LUCKY",
+      "description_key": "TRAIT_LUCKY_DESC",
+      "category": "special",
+      "effects": { "luck": 5 }
+    },
+    {
+      "id": "unlucky",
+      "name_key": "TRAIT_UNLUCKY",
+      "description_key": "TRAIT_UNLUCKY_DESC",
+      "category": "special",
+      "effects": { "luck": -5 }
+    },
+    {
+      "id": "genius",
+      "name_key": "TRAIT_GENIUS",
+      "description_key": "TRAIT_GENIUS_DESC",
+      "category": "mental",
+      "effects": { "intelligence": 5 }
+    },
+    {
+      "id": "clumsy",
+      "name_key": "TRAIT_CLUMSY",
+      "description_key": "TRAIT_CLUMSY_DESC",
+      "category": "physical",
+      "effects": { "health": -1, "appearance": -1 }
+    },
+    {
+      "id": "beautiful",
+      "name_key": "TRAIT_BEAUTIFUL",
+      "description_key": "TRAIT_BEAUTIFUL_DESC",
+      "category": "physical",
+      "effects": { "appearance": 5, "charisma": 2 }
+    },
+    {
+      "id": "funny",
+      "name_key": "TRAIT_FUNNY",
+      "description_key": "TRAIT_FUNNY_DESC",
+      "category": "social",
+      "effects": { "charisma": 3, "happiness": 1 }
+    },
+    {
+      "id": "stubborn",
+      "name_key": "TRAIT_STUBBORN",
+      "description_key": "TRAIT_STUBBORN_DESC",
+      "category": "personality",
+      "effects": { "temperament": 2, "charisma": -1 }
+    },
+    {
+      "id": "greedy",
+      "name_key": "TRAIT_GREEDY",
+      "description_key": "TRAIT_GREEDY_DESC",
+      "category": "personality",
+      "effects": { "morality": -2 }
+    },
+    {
+      "id": "generous",
+      "name_key": "TRAIT_GENEROUS",
+      "description_key": "TRAIT_GENEROUS_DESC",
+      "category": "social",
+      "effects": { "charisma": 2, "morality": 3 }
+    },
+    {
+      "id": "anxious",
+      "name_key": "TRAIT_ANXIOUS",
+      "description_key": "TRAIT_ANXIOUS_DESC",
+      "category": "mental",
+      "effects": { "mental_stability": -3 }
+    },
+    {
+      "id": "calm",
+      "name_key": "TRAIT_CALM",
+      "description_key": "TRAIT_CALM_DESC",
+      "category": "personality",
+      "effects": { "mental_stability": 3, "temperament": 2 }
+    },
+    {
+      "id": "manipulative",
+      "name_key": "TRAIT_MANIPULATIVE",
+      "description_key": "TRAIT_MANIPULATIVE_DESC",
+      "category": "social",
+      "effects": { "charisma": 2, "morality": -3 }
+    },
+    {
+      "id": "honest",
+      "name_key": "TRAIT_HONEST",
+      "description_key": "TRAIT_HONEST_DESC",
+      "category": "personality",
+      "effects": { "morality": 3, "charisma": 1 }
+    },
+    {
+      "id": "risk_taker",
+      "name_key": "TRAIT_RISK_TAKER",
+      "description_key": "TRAIT_RISK_TAKER_DESC",
+      "category": "personality",
+      "effects": { "luck": 2, "health": -1 }
+    },
+    {
+      "id": "perfectionist",
+      "name_key": "TRAIT_PERFECTIONIST",
+      "description_key": "TRAIT_PERFECTIONIST_DESC",
+      "category": "mental",
+      "effects": { "intelligence": 2, "mental_stability": -2 }
+    }
   ]
 }

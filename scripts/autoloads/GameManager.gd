@@ -16,10 +16,11 @@ var current_year_events: Array[EventData] = []
 var _event_queue: Array[EventData] = []
 var _current_event: EventData = null
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
+var _careers_data: Array = []
 
 
 func _ready() -> void:
-	pass
+	_load_careers()
 
 
 # === Game Flow ===
@@ -62,8 +63,17 @@ func advance_year() -> void:
 	# Apply natural aging
 	AttributeSystem.apply_aging(character)
 
+	# Process education progression
+	_process_education()
+
+	# Process career progression
+	_process_career_progression()
+
 	# Apply career income/expenses
 	_process_finances()
+
+	# Process relationships (romance, family deaths, etc.)
+	_process_relationships()
 
 	# Check for death
 	if _check_death():
@@ -115,12 +125,22 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 		_apply_relationship_effects(rel_type_name, rel_changes)
 
 	# Trait chances
-	var trait_chances: Dictionary = choice.get("trait_chance", {})
-	for trait_name in trait_chances:
-		var chance: float = trait_chances[trait_name]
-		if _rng.randf() < chance:
-			character.add_trait(trait_name)
-			results["new_trait"] = trait_name
+	var trait_chance_data = choice.get("trait_chance", {})
+	if trait_chance_data is Dictionary:
+		if trait_chance_data.has("trait") and trait_chance_data.has("chance"):
+			# Format: {"trait": "brave", "chance": 0.15}
+			var t_name: String = trait_chance_data["trait"]
+			var t_chance: float = float(trait_chance_data["chance"])
+			if _rng.randf() < t_chance:
+				character.add_trait(t_name)
+				results["new_trait"] = t_name
+		else:
+			# Format: {"trait_name": chance}
+			for trait_name in trait_chance_data:
+				var chance: float = float(trait_chance_data[trait_name])
+				if _rng.randf() < chance:
+					character.add_trait(trait_name)
+					results["new_trait"] = trait_name
 
 	# Log event
 	character.add_event_log(event.text_key, event.category)
@@ -196,12 +216,15 @@ func _generate_character(seed_value: int) -> Character:
 		c.social_class = Character.SocialClass.LOW
 		c.money = _rng.randf_range(0, 5000)
 
-	# Initial traits (1–2)
+	# Initial traits (1–2) — use valid IDs from traits.json
 	var all_traits: Array[String] = [
-		"introvert", "extrovert", "brave", "timid", "creative",
-		"disciplined", "lazy", "impulsive", "empathetic", "narcissist",
-		"athletic", "bookworm", "dreamer", "pragmatic", "risk_prone",
-		"anxious", "aggressive", "observant", "charismatic_born", "unlucky"
+		"introvert", "extrovert", "brave", "creative",
+		"lazy", "athletic", "bookworm", "anxious",
+		"charismatic", "compassionate", "ambitious", "romantic",
+		"hardworking", "rebel", "sensitive", "optimistic",
+		"pessimistic", "lucky", "unlucky", "genius",
+		"clumsy", "beautiful", "funny", "calm",
+		"stubborn", "generous", "honest", "risk_taker"
 	]
 	var num_traits := _rng.randi_range(1, 2)
 	var available := all_traits.duplicate()
@@ -244,7 +267,7 @@ func _generate_family(c: Character) -> void:
 	# Mother
 	var mother := Relationship.new()
 	mother.rel_type = Relationship.RelType.MOTHER
-	var mother_last := last_names[_rng.randi_range(0, last_names.size() - 1)]
+	var mother_last: String = last_names[_rng.randi_range(0, last_names.size() - 1)]
 	mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + mother_last
 	mother.person_age = _rng.randi_range(20, 38)
 	mother.person_gender = "female"
@@ -258,7 +281,7 @@ func _generate_family(c: Character) -> void:
 	for i in num_siblings:
 		var sib := Relationship.new()
 		sib.rel_type = Relationship.RelType.SIBLING
-		var sib_gender: String = ["male", "female"][_rng.randi_range(0, 1)]
+		var sib_gender: String = ["male", "female"][_rng.randi_range(0, 1)] as String
 		sib.person_gender = sib_gender
 		var sib_names: Array = male_names if sib_gender == "male" else female_names
 		sib.person_name = sib_names[_rng.randi_range(0, sib_names.size() - 1)] + " " + c.last_name
@@ -313,6 +336,7 @@ func _trigger_events_for_year() -> void:
 		if event != null:
 			current_year_events.append(event)
 			_event_queue.append(event)
+			event_triggered.emit(event)
 
 
 func _process_finances() -> void:
@@ -373,13 +397,13 @@ func _check_death() -> bool:
 
 func _determine_cause_of_death() -> String:
 	if character.health < 20:
-		return "illness"
+		return "ILLNESS"
 	elif character.age > 85:
-		return "old_age"
+		return "OLD_AGE"
 	elif character.mental_stability < 15:
-		return "complications"
+		return "COMPLICATIONS"
 	else:
-		return "natural_causes"
+		return "NATURAL_CAUSES"
 
 
 func _apply_relationship_effects(rel_type_name: String, changes: Dictionary) -> void:
@@ -391,4 +415,264 @@ func _apply_relationship_effects(rel_type_name: String, changes: Dictionary) -> 
 				rel.modify_respect(int(changes["respect"]))
 			if changes.has("trust"):
 				rel.modify_trust(int(changes["trust"]))
+
+
+# === Career System ===
+
+func _load_careers() -> void:
+	var path := "res://data/careers/careers.json"
+	if not FileAccess.file_exists(path):
+		return
+	var file := FileAccess.open(path, FileAccess.READ)
+	var json_text := file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(json_text)
+	if parsed is Dictionary:
+		_careers_data = parsed.get("careers", [])
+
+
+func get_available_careers() -> Array:
+	var available: Array = []
+	for career in _careers_data:
+		if _can_pursue_career(career):
+			available.append(career)
+	return available
+
+
+func _can_pursue_career(career: Dictionary) -> bool:
+	if character == null:
+		return false
+	if character.age < career.get("min_age", 100):
+		return false
+
+	# Check education requirement
+	var edu_map := {
+		"NONE": Character.Education.NONE,
+		"PRIMARY": Character.Education.PRIMARY,
+		"SECONDARY": Character.Education.SECONDARY,
+		"TECHNICAL": Character.Education.TECHNICAL,
+		"COLLEGE": Character.Education.COLLEGE,
+		"POSTGRAD": Character.Education.POSTGRAD
+	}
+	var min_edu_name: String = career.get("min_education", "NONE")
+	var min_edu: int = edu_map.get(min_edu_name, 0)
+	if character.education < min_edu:
+		return false
+
+	# Check required stats
+	var req_stats: Dictionary = career.get("required_stats", {})
+	for stat_name in req_stats:
+		var req_val: int = int(req_stats[stat_name])
+		var char_val: int = _get_character_stat(stat_name)
+		if char_val < req_val:
+			return false
+
+	return true
+
+
+func _get_character_stat(stat_name: String) -> int:
+	match stat_name:
+		"health": return character.health
+		"intelligence": return character.intelligence
+		"charisma": return character.charisma
+		"appearance": return character.appearance
+		"temperament": return character.temperament
+		"luck": return character.luck
+		"happiness": return character.happiness
+		"morality": return character.morality
+		"mental_stability": return character.mental_stability
+	return 0
+
+
+func hire_career(career_id: String) -> bool:
+	for career in _careers_data:
+		if career.get("id", "") == career_id and _can_pursue_career(career):
+			character.current_career = career_id
+			character.career_years = 0
+			character.career_level = 0
+			var salary_range: Array = career.get("salary_range", [20000, 30000])
+			character.salary = _rng.randf_range(float(salary_range[0]), float(salary_range[0]) + (float(salary_range[1]) - float(salary_range[0])) * 0.3)
+			character.add_event_log("EVENT_CAREER_HIRED", "career")
+			return true
+	return false
+
+
+func _process_career_progression() -> void:
+	if character.current_career == "" or character.salary <= 0:
+		return
+
+	character.career_years += 1
+
+	# Promotion chance every 3–5 years based on intelligence + charisma
+	if character.career_years >= 3 and character.career_level < 3:
+		var promo_chance := 0.1 + (character.intelligence + character.charisma) / 600.0
+		if character.has_trait("ambitious"):
+			promo_chance += 0.1
+		if character.has_trait("hardworking"):
+			promo_chance += 0.08
+		if character.has_trait("lazy"):
+			promo_chance -= 0.1
+
+		if _rng.randf() < promo_chance:
+			character.career_level += 1
+			character.career_years = 0
+			var raise_pct := 0.15 + character.career_level * 0.1
+			character.salary *= (1.0 + raise_pct)
+			character.add_event_log("EVENT_PROMOTION", "career")
+
+	# Small annual raise
+	character.salary *= 1.03
+
+
+# === Education System ===
+
+func _process_education() -> void:
+	match character.life_phase:
+		Character.LifePhase.CHILD:
+			if character.age == 6 and character.education < Character.Education.PRIMARY:
+				character.education = Character.Education.PRIMARY
+				character.add_event_log("EVENT_START_SCHOOL", "school")
+		Character.LifePhase.TEEN:
+			if character.age == 13 and character.education < Character.Education.SECONDARY:
+				character.education = Character.Education.SECONDARY
+				character.add_event_log("EVENT_START_SECONDARY", "school")
+		Character.LifePhase.ADULT:
+			# College/Technical at 18 based on school_performance
+			if character.age == 18 and character.education == Character.Education.SECONDARY:
+				if character.school_performance >= 60:
+					character.education = Character.Education.COLLEGE
+					character.add_event_log("EVENT_START_COLLEGE", "school")
+				elif character.school_performance >= 35:
+					character.education = Character.Education.TECHNICAL
+					character.add_event_log("EVENT_START_TECHNICAL", "school")
+			# Postgrad at 23 if college + high intelligence
+			if character.age == 23 and character.education == Character.Education.COLLEGE:
+				if character.intelligence >= 65 and character.school_performance >= 70:
+					character.education = Character.Education.POSTGRAD
+					character.add_event_log("EVENT_START_POSTGRAD", "school")
+
+	# School performance changes
+	if character.life_phase in [Character.LifePhase.CHILD, Character.LifePhase.TEEN]:
+		var change := _rng.randi_range(-3, 5)
+		if character.has_trait("bookworm"):
+			change += 3
+		if character.has_trait("lazy"):
+			change -= 3
+		if character.has_trait("genius"):
+			change += 4
+		character.school_performance = clampi(character.school_performance + change, 0, 100)
+
+
+# === Romance / Marriage / Children ===
+
+func _process_relationships() -> void:
+	# Auto-try career when turning 18 with no career
+	if character.age == 18 and character.current_career == "":
+		_try_auto_career()
+
+	# Chance for romance events in teen/adult phases
+	if character.life_phase == Character.LifePhase.ADULT:
+		_process_romance()
+
+	# Age-related death for parents
+	for rel in character.relationships:
+		if rel is Relationship and rel.alive:
+			if rel.rel_type in [Relationship.RelType.FATHER, Relationship.RelType.MOTHER, Relationship.RelType.GRANDPARENT]:
+				if rel.person_age > 70:
+					var death_chance := 0.02 + (rel.person_age - 70) * 0.015
+					if _rng.randf() < death_chance:
+						rel.alive = false
+						character.happiness = clampi(character.happiness - 15, 0, 100)
+						character.mental_stability = clampi(character.mental_stability - 10, 0, 100)
+						character.add_event_log("EVENT_RELATIVE_DIED", "family")
+
+
+func _process_romance() -> void:
+	# Check if already has a spouse
+	var has_spouse := false
+	for rel in character.relationships:
+		if rel is Relationship and rel.rel_type == Relationship.RelType.SPOUSE and rel.alive:
+			has_spouse = true
 			break
+
+	if not has_spouse and character.age >= 20:
+		# Chance to meet a romantic partner
+		var romance_chance := 0.08 + character.charisma / 500.0
+		if character.has_trait("romantic"):
+			romance_chance += 0.05
+		if character.has_trait("introvert"):
+			romance_chance -= 0.03
+		if _rng.randf() < romance_chance:
+			_create_romantic_partner()
+
+
+func _create_romantic_partner() -> void:
+	var names_data := _load_names()
+	var lang := "pt_BR" if character.country == "BR" else "en"
+	var lang_names: Dictionary = names_data.get(lang, {})
+	var partner_gender := "female" if character.gender == "male" else "male"
+	var name_list: Array = lang_names.get("male_first" if partner_gender == "male" else "female_first", ["Alex"])
+	var last_names: Array = lang_names.get("last", ["Silva"])
+
+	var partner := Relationship.new()
+	partner.rel_type = Relationship.RelType.ROMANTIC
+	partner.person_gender = partner_gender
+	partner.person_name = name_list[_rng.randi_range(0, name_list.size() - 1)] + " " + last_names[_rng.randi_range(0, last_names.size() - 1)]
+	partner.person_age = character.age + _rng.randi_range(-5, 5)
+	partner.affection = _rng.randi_range(40, 70)
+	partner.respect = _rng.randi_range(40, 70)
+	partner.trust = _rng.randi_range(40, 70)
+	character.relationships.append(partner)
+	character.add_event_log("EVENT_MET_PARTNER", "social")
+
+
+func try_marry() -> bool:
+	for rel in character.relationships:
+		if rel is Relationship and rel.rel_type == Relationship.RelType.ROMANTIC and rel.alive:
+			if rel.get_overall() >= 60:
+				rel.rel_type = Relationship.RelType.SPOUSE
+				character.happiness = clampi(character.happiness + 15, 0, 100)
+				character.add_event_log("EVENT_GOT_MARRIED", "family")
+				return true
+	return false
+
+
+func try_have_child() -> bool:
+	var has_spouse := false
+	for rel in character.relationships:
+		if rel is Relationship and rel.rel_type == Relationship.RelType.SPOUSE and rel.alive:
+			has_spouse = true
+			break
+	if not has_spouse:
+		return false
+	if character.age < 20 or character.age > 50:
+		return false
+
+	var names_data := _load_names()
+	var lang := "pt_BR" if character.country == "BR" else "en"
+	var lang_names: Dictionary = names_data.get(lang, {})
+	var child_gender: String = ["male", "female"][_rng.randi_range(0, 1)]
+	var name_list: Array = lang_names.get("male_first" if child_gender == "male" else "female_first", ["Alex"])
+
+	var child := Relationship.new()
+	child.rel_type = Relationship.RelType.CHILD
+	child.person_gender = child_gender
+	child.person_name = name_list[_rng.randi_range(0, name_list.size() - 1)] + " " + character.last_name
+	child.person_age = 0
+	child.affection = _rng.randi_range(70, 95)
+	child.respect = _rng.randi_range(50, 70)
+	child.trust = _rng.randi_range(60, 85)
+	character.relationships.append(child)
+	character.happiness = clampi(character.happiness + 10, 0, 100)
+	character.money -= 2000
+	character.add_event_log("EVENT_HAD_CHILD", "family")
+	return true
+
+
+func _try_auto_career() -> void:
+	var available := get_available_careers()
+	if available.is_empty():
+		return
+	# Pick a random available career (weighted toward matching stats)
+	var best_career: Dictionary = available[_rng.randi_range(0, available.size() - 1)]
+	hire_career(best_career.get("id", ""))

@@ -16,60 +16,69 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.12, 0.15, 0.2, 1)
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102, 0.114, 0.18, 1)
 
 [node name="CenterContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -300.0
-offset_right = 200.0
-offset_bottom = 300.0
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 16
+
+[node name="Spacer1" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="LogoEmoji" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "🌱"
+horizontal_alignment = 1
 
 [node name="Title" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "NewLife"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Subtitle" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "SIMULATION"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="CenterContainer"]
+[node name="Spacer2" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-custom_minimum_size = Vector2(0, 40)
 
 [node name="BtnNewLife" type="Button" parent="CenterContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-custom_minimum_size = Vector2(0, 56)
 text = "NEW_LIFE"
 
 [node name="BtnContinue" type="Button" parent="CenterContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-custom_minimum_size = Vector2(0, 56)
 text = "CONTINUE"
 
 [node name="BtnPastLives" type="Button" parent="CenterContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-custom_minimum_size = Vector2(0, 56)
 text = "PAST_LIVES"
 
 [node name="BtnSettings" type="Button" parent="CenterContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-custom_minimum_size = Vector2(0, 56)
 text = "SETTINGS"
 
 [node name="Version" type="Label" parent="."]
@@ -79,6 +88,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "v0.1.0-alpha"
 horizontal_alignment = 1
 vertical_alignment = 2

@@ -46,21 +46,27 @@ EVENT_BABY_FIRST_WORD_DESC,A milestone moment — what will it be?,Um momento ma
 CHOICE_MAMA,""Mama!"",""Mamãe!""
 CHOICE_PAPA,""Dada!"",""Papai!""
 EVENT_BABY_CRAWLING,Your baby starts crawling around the house.,Seu bebê começa a engatinhar pela casa.
+EVENT_BABY_CRAWLING_DESC,They're eager to discover the world around them.,Está ansioso para descobrir o mundo ao redor.
 CHOICE_EXPLORE,Let them explore,Deixe explorar
 CHOICE_STAY_SAFE,Keep them safe,Manter seguro
 EVENT_BABY_PET,A neighbor's pet approaches your baby.,Um animal de estimação do vizinho se aproxima do bebê.
+EVENT_BABY_PET_DESC,The fluffy creature seems friendly.,A criatura fofinha parece amigável.
 CHOICE_PET_GENTLE,Gently pet it,Acariciar gentilmente
 CHOICE_PET_SCARED,Get scared,Ficar com medo
 EVENT_BABY_TANTRUM,Your baby throws a massive tantrum!,Seu bebê faz uma birra enorme!
+EVENT_BABY_TANTRUM_DESC,Tears and screams everywhere!,Lágrimas e gritos por toda parte!
 CHOICE_CRY_MORE,Keep crying,Continuar chorando
 CHOICE_CALM_DOWN,Calm down,Se acalmar
 EVENT_BABY_SICK,Your baby catches a cold.,Seu bebê pegou um resfriado.
+EVENT_BABY_SICK_DESC,A runny nose and a slight fever.,Nariz escorrendo e uma febre leve.
 CHOICE_REST,Rest and recover,Descansar e recuperar
 CHOICE_IGNORE,Ignore it,Ignorar
 EVENT_BABY_PLAYGROUND,Time to visit the playground!,Hora de ir ao parquinho!
+EVENT_BABY_PLAYGROUND_DESC,The sun is shining and kids are playing.,O sol está brilhando e as crianças estão brincando.
 CHOICE_PLAY_OTHERS,Play with other kids,Brincar com outras crianças
 CHOICE_PLAY_ALONE,Play alone,Brincar sozinho
 EVENT_BABY_FUNNY_FACE,Someone makes funny faces at you!,Alguém faz caretas pra você!
+EVENT_BABY_FUNNY_FACE_DESC,Silly expressions that make you giggle.,Expressões bobas que te fazem rir.
 CHOICE_LAUGH,Laugh out loud,Rir muito
 CHOICE_STARE,Stare confused,Olhar confuso
 EVENT_CHILD_SCHOOL_START,It's your first day of school!,É seu primeiro dia de aula!
@@ -318,3 +324,18 @@ TRAIT_RISK_TAKER,Risk Taker,Aventureiro
 TRAIT_RISK_TAKER_DESC,You live for the thrill.,Você vive pela adrenalina.
 TRAIT_PERFECTIONIST,Perfectionist,Perfeccionista
 TRAIT_PERFECTIONIST_DESC,Nothing is ever good enough.,Nada é bom o suficiente.
+EVENT_CAREER_HIRED,You got hired for a new job!,Você foi contratado para um novo emprego!
+EVENT_PROMOTION,You got promoted at work!,Você foi promovido no trabalho!
+EVENT_START_SCHOOL,You started primary school!,Você começou o ensino fundamental!
+EVENT_START_SECONDARY,You started secondary school!,Você começou o ensino médio!
+EVENT_START_COLLEGE,You started college!,Você começou a faculdade!
+EVENT_START_TECHNICAL,You started technical school!,Você começou o curso técnico!
+EVENT_START_POSTGRAD,You started postgraduate studies!,Você começou a pós-graduação!
+EVENT_MET_PARTNER,You met someone special!,Você conheceu alguém especial!
+EVENT_GOT_MARRIED,You got married!,Você se casou!
+EVENT_HAD_CHILD,You had a child!,Você teve um filho!
+EVENT_RELATIVE_DIED,A family member passed away.,Um familiar faleceu.
+EVENT_DEATH,You have died.,Você morreu.
+NO_EVENTS_AVAILABLE,Nothing to do right now.,Nada para fazer agora.
+ILLNESS,Illness,Doença
+COMPLICATIONS,Complications,Complicações

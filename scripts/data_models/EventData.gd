@@ -29,10 +29,13 @@ static func from_dict(d: Dictionary) -> EventData:
 	e.id = d.get("id", "")
 	var raw_phases: Array = d.get("phases", d.get("phase", []))
 	e.phases = Array(raw_phases, TYPE_STRING, "", null)
-	var age_range: Array = d.get("age_range", [0, 100])
+	var age_range: Array = d.get("age_range", [])
 	if age_range.size() >= 2:
 		e.age_min = int(age_range[0])
 		e.age_max = int(age_range[1])
+	else:
+		e.age_min = int(d.get("age_min", 0))
+		e.age_max = int(d.get("age_max", 100))
 	e.category = d.get("category", "")
 	e.weight = d.get("weight", 10)
 	e.conditions = d.get("conditions", {})
@@ -85,7 +88,11 @@ func matches_character(character: Character) -> bool:
 					for t in val:
 						if character.has_trait(t): return false
 			"has_career":
-				if character.current_career != val: return false
+				if val is bool:
+					if val and character.current_career == "": return false
+					if not val and character.current_career != "": return false
+				else:
+					if character.current_career != val: return false
 			"no_career":
 				if val and character.current_career != "": return false
 			"min_education":
