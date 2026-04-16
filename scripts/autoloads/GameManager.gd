@@ -593,7 +593,7 @@ func _process_relationships() -> void:
 		if rel is Relationship and rel.alive:
 			if rel.rel_type in [Relationship.RelType.FATHER, Relationship.RelType.MOTHER, Relationship.RelType.GRANDPARENT]:
 				if rel.person_age > 70:
-					var death_chance := 0.02 + (rel.person_age - 70) * 0.015
+					var death_chance: float = 0.02 + (rel.person_age - 70) * 0.015
 					if _rng.randf() < death_chance:
 						rel.alive = false
 						character.happiness = clampi(character.happiness - 15, 0, 100)
