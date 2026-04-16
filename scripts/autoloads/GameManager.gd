@@ -42,6 +42,21 @@ func start_new_life(seed_value: int = -1) -> void:
 	_trigger_events_for_year()
 
 
+func start_custom_life(config: Dictionary) -> void:
+	var seed_value := randi()
+	_rng.seed = seed_value
+
+	character = _generate_custom_character(config, seed_value)
+	is_game_active = true
+	_event_queue.clear()
+	_current_event = null
+
+	SaveManager.auto_save(character)
+	game_started.emit()
+
+	_trigger_events_for_year()
+
+
 func advance_year() -> void:
 	if not is_game_active or character == null or not character.alive:
 		return
@@ -249,6 +264,117 @@ func _generate_character(seed_value: int) -> Character:
 	c.life_phase = Character.LifePhase.BABY
 
 	return c
+
+
+func _generate_custom_character(config: Dictionary, seed_value: int) -> Character:
+	var c := Character.new()
+	c.world_seed = seed_value
+
+	c.first_name = config.get("first_name", "Alex")
+	c.last_name = config.get("last_name", "Silva")
+	c.gender = config.get("gender", "male")
+	c.country = config.get("country", "BR")
+
+	# Attributes from config
+	c.health = clampi(config.get("health", 50), 0, 100)
+	c.intelligence = clampi(config.get("intelligence", 50), 0, 100)
+	c.charisma = clampi(config.get("charisma", 50), 0, 100)
+	c.appearance = clampi(config.get("appearance", 50), 0, 100)
+	c.temperament = clampi(config.get("temperament", 50), 0, 100)
+	c.luck = clampi(config.get("luck", 50), 0, 100)
+	c.happiness = clampi(_rng.randi_range(50, 90), 0, 100)
+	c.morality = 50
+	c.mental_stability = clampi(_rng.randi_range(50, 85), 0, 100)
+
+	# Social class from config
+	var social_class_idx: int = config.get("social_class", 1)
+	match social_class_idx:
+		0:
+			c.social_class = Character.SocialClass.LOW
+			c.money = _rng.randf_range(0, 5000)
+		1:
+			c.social_class = Character.SocialClass.MIDDLE
+			c.money = _rng.randf_range(5000, 50000)
+		_:
+			c.social_class = Character.SocialClass.HIGH
+			c.money = _rng.randf_range(50000, 200000)
+
+	# Initial traits (1–2)
+	var all_traits: Array[String] = [
+		"introvert", "extrovert", "brave", "creative",
+		"lazy", "athletic", "bookworm", "anxious",
+		"charismatic", "compassionate", "ambitious", "romantic",
+		"hardworking", "rebel", "sensitive", "optimistic",
+		"pessimistic", "lucky", "unlucky", "genius",
+		"clumsy", "beautiful", "funny", "calm",
+		"stubborn", "generous", "honest", "risk_taker"
+	]
+	var num_traits := _rng.randi_range(1, 2)
+	var available := all_traits.duplicate()
+	for i in num_traits:
+		if available.is_empty():
+			break
+		var idx := _rng.randi_range(0, available.size() - 1)
+		c.traits.append(available[idx])
+		available.remove_at(idx)
+
+	# Generate family with custom settings
+	var parents_mode: int = config.get("parents", 0)
+	var sibling_count: int = config.get("siblings", 0)
+	_generate_custom_family(c, parents_mode, sibling_count)
+
+	c.birth_year = 2026
+	c.age = 0
+	c.life_phase = Character.LifePhase.BABY
+
+	return c
+
+
+func _generate_custom_family(c: Character, parents_mode: int, sibling_count: int) -> void:
+	var names_data := _load_names()
+	var lang := "pt_BR" if c.country == "BR" else "en"
+	var lang_names: Dictionary = names_data.get(lang, {})
+	var male_names: Array = lang_names.get("male_first", ["Carlos"])
+	var female_names: Array = lang_names.get("female_first", ["Maria"])
+	var last_names: Array = lang_names.get("last", [c.last_name])
+
+	# parents_mode: 0=both, 1=single, 2=orphan
+	if parents_mode <= 1:
+		# At least one parent
+		var mother := Relationship.new()
+		mother.rel_type = Relationship.RelType.MOTHER
+		mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + last_names[_rng.randi_range(0, last_names.size() - 1)]
+		mother.person_age = _rng.randi_range(20, 38)
+		mother.person_gender = "female"
+		mother.affection = _rng.randi_range(50, 95)
+		mother.respect = _rng.randi_range(40, 80)
+		mother.trust = _rng.randi_range(50, 90)
+		c.relationships.append(mother)
+
+		if parents_mode == 0:
+			var father := Relationship.new()
+			father.rel_type = Relationship.RelType.FATHER
+			father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
+			father.person_age = _rng.randi_range(22, 40)
+			father.person_gender = "male"
+			father.affection = _rng.randi_range(40, 90)
+			father.respect = _rng.randi_range(40, 80)
+			father.trust = _rng.randi_range(40, 85)
+			c.relationships.append(father)
+
+	# Siblings
+	for i in sibling_count:
+		var sib := Relationship.new()
+		sib.rel_type = Relationship.RelType.SIBLING
+		var sib_gender: String = ["male", "female"][_rng.randi_range(0, 1)]
+		sib.person_gender = sib_gender
+		var sib_names: Array = male_names if sib_gender == "male" else female_names
+		sib.person_name = sib_names[_rng.randi_range(0, sib_names.size() - 1)] + " " + c.last_name
+		sib.person_age = _rng.randi_range(1, 15)
+		sib.affection = _rng.randi_range(30, 80)
+		sib.respect = _rng.randi_range(30, 70)
+		sib.trust = _rng.randi_range(30, 75)
+		c.relationships.append(sib)
 
 
 func _generate_family(c: Character) -> void:

@@ -2,47 +2,88 @@
   "events": [
     {
       "id": "baby_first_word",
-      "phases": ["BABY"], "age_min": 1, "age_max": 2, "category": "family", "weight": 80,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 2,
+      "category": "family",
+      "weight": 80,
       "conditions": {},
       "text_key": "EVENT_BABY_FIRST_WORD",
       "choices": [
-        { "text_key": "CHOICE_MAMA", "effects": { "happiness": 5 }, "relationship_effects": { "MOTHER": { "affection": 10 } } },
-        { "text_key": "CHOICE_PAPA", "effects": { "happiness": 5 }, "relationship_effects": { "FATHER": { "affection": 10 } } }
+        {
+          "text_key": "CHOICE_MAMA",
+          "effects": { "happiness": 5 },
+          "relationship_effects": { "MOTHER": { "affection": 10 } }
+        },
+        {
+          "text_key": "CHOICE_PAPA",
+          "effects": { "happiness": 5 },
+          "relationship_effects": { "FATHER": { "affection": 10 } }
+        }
       ]
     },
     {
       "id": "baby_crawling",
-      "phases": ["BABY"], "age_min": 0, "age_max": 1, "category": "health", "weight": 70,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 1,
+      "category": "health",
+      "weight": 70,
       "conditions": {},
       "text_key": "EVENT_BABY_CRAWLING",
       "choices": [
-        { "text_key": "CHOICE_EXPLORE", "effects": { "intelligence": 3, "happiness": 2 } },
+        {
+          "text_key": "CHOICE_EXPLORE",
+          "effects": { "intelligence": 3, "happiness": 2 }
+        },
         { "text_key": "CHOICE_STAY_SAFE", "effects": { "health": 2 } }
       ]
     },
     {
       "id": "baby_pet_encounter",
-      "phases": ["BABY"], "age_min": 1, "age_max": 3, "category": "social", "weight": 50,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 3,
+      "category": "social",
+      "weight": 50,
       "conditions": {},
       "text_key": "EVENT_BABY_PET",
       "choices": [
-        { "text_key": "CHOICE_PET_GENTLE", "effects": { "charisma": 2, "happiness": 3 } },
+        {
+          "text_key": "CHOICE_PET_GENTLE",
+          "effects": { "charisma": 2, "happiness": 3 }
+        },
         { "text_key": "CHOICE_PET_SCARED", "effects": { "temperament": -2 } }
       ]
     },
     {
       "id": "baby_tantrum",
-      "phases": ["BABY"], "age_min": 1, "age_max": 4, "category": "family", "weight": 60,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 4,
+      "category": "family",
+      "weight": 60,
       "conditions": {},
       "text_key": "EVENT_BABY_TANTRUM",
       "choices": [
-        { "text_key": "CHOICE_CRY_MORE", "effects": { "temperament": -3 }, "relationship_effects": { "MOTHER": { "affection": -2 } } },
-        { "text_key": "CHOICE_CALM_DOWN", "effects": { "temperament": 3, "happiness": -2 } }
+        {
+          "text_key": "CHOICE_CRY_MORE",
+          "effects": { "temperament": -3 },
+          "relationship_effects": { "MOTHER": { "affection": -2 } }
+        },
+        {
+          "text_key": "CHOICE_CALM_DOWN",
+          "effects": { "temperament": 3, "happiness": -2 }
+        }
       ]
     },
     {
       "id": "baby_sick",
-      "phases": ["BABY"], "age_min": 0, "age_max": 3, "category": "health", "weight": 40,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 3,
+      "category": "health",
+      "weight": 40,
       "conditions": {},
       "text_key": "EVENT_BABY_SICK",
       "choices": [
@@ -52,87 +93,168 @@
     },
     {
       "id": "baby_playground",
-      "phases": ["BABY"], "age_min": 2, "age_max": 4, "category": "social", "weight": 55,
+      "phases": ["BABY"],
+      "age_min": 2,
+      "age_max": 4,
+      "category": "social",
+      "weight": 55,
       "conditions": {},
       "text_key": "EVENT_BABY_PLAYGROUND",
       "choices": [
-        { "text_key": "CHOICE_PLAY_OTHERS", "effects": { "charisma": 3, "happiness": 3 } },
+        {
+          "text_key": "CHOICE_PLAY_OTHERS",
+          "effects": { "charisma": 3, "happiness": 3 }
+        },
         { "text_key": "CHOICE_PLAY_ALONE", "effects": { "intelligence": 2 } }
       ]
     },
     {
       "id": "baby_funny_face",
-      "phases": ["BABY"], "age_min": 0, "age_max": 2, "category": "family", "weight": 65,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 2,
+      "category": "family",
+      "weight": 65,
       "conditions": {},
       "text_key": "EVENT_BABY_FUNNY_FACE",
       "choices": [
-        { "text_key": "CHOICE_LAUGH", "effects": { "happiness": 5, "charisma": 1 } },
+        {
+          "text_key": "CHOICE_LAUGH",
+          "effects": { "happiness": 5, "charisma": 1 }
+        },
         { "text_key": "CHOICE_STARE", "effects": { "intelligence": 2 } }
       ]
     },
     {
       "id": "baby_first_steps",
-      "phases": ["BABY"], "age_min": 0, "age_max": 2, "category": "health", "weight": 75,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 2,
+      "category": "health",
+      "weight": 75,
       "conditions": {},
       "text_key": "EVENT_BABY_FIRST_STEPS",
       "choices": [
-        { "text_key": "CHOICE_WALK_BRAVELY", "effects": { "health": 3, "happiness": 5 }, "trait_chance": { "trait": "brave", "chance": 0.05 } },
+        {
+          "text_key": "CHOICE_WALK_BRAVELY",
+          "effects": { "health": 3, "happiness": 5 },
+          "trait_chance": { "trait": "brave", "chance": 0.05 }
+        },
         { "text_key": "CHOICE_FALL_CRY", "effects": { "happiness": -2 } }
       ]
     },
     {
       "id": "baby_teething",
-      "phases": ["BABY"], "age_min": 0, "age_max": 2, "category": "health", "weight": 55,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 2,
+      "category": "health",
+      "weight": 55,
       "conditions": {},
       "text_key": "EVENT_BABY_TEETHING",
       "choices": [
-        { "text_key": "CHOICE_CHEW_TOY", "effects": { "health": 2, "happiness": 1 } },
-        { "text_key": "CHOICE_CRY_ALL_NIGHT", "effects": { "happiness": -3, "temperament": -2 }, "relationship_effects": { "MOTHER": { "affection": -1 } } }
+        {
+          "text_key": "CHOICE_CHEW_TOY",
+          "effects": { "health": 2, "happiness": 1 }
+        },
+        {
+          "text_key": "CHOICE_CRY_ALL_NIGHT",
+          "effects": { "happiness": -3, "temperament": -2 },
+          "relationship_effects": { "MOTHER": { "affection": -1 } }
+        }
       ]
     },
     {
       "id": "baby_night_terror",
-      "phases": ["BABY"], "age_min": 1, "age_max": 3, "category": "health", "weight": 35,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 3,
+      "category": "health",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_BABY_NIGHT_TERROR",
       "choices": [
-        { "text_key": "CHOICE_COMFORT_PARENT", "effects": { "happiness": 2, "mental_stability": 2 }, "relationship_effects": { "MOTHER": { "affection": 3 } } },
-        { "text_key": "CHOICE_SCREAM_LOUD", "effects": { "happiness": -3, "mental_stability": -2 } }
+        {
+          "text_key": "CHOICE_COMFORT_PARENT",
+          "effects": { "happiness": 2, "mental_stability": 2 },
+          "relationship_effects": { "MOTHER": { "affection": 3 } }
+        },
+        {
+          "text_key": "CHOICE_SCREAM_LOUD",
+          "effects": { "happiness": -3, "mental_stability": -2 }
+        }
       ]
     },
     {
       "id": "baby_bath_time",
-      "phases": ["BABY"], "age_min": 0, "age_max": 3, "category": "family", "weight": 50,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 3,
+      "category": "family",
+      "weight": 50,
       "conditions": {},
       "text_key": "EVENT_BABY_BATH_TIME",
       "choices": [
-        { "text_key": "CHOICE_SPLASH_AROUND", "effects": { "happiness": 4, "charisma": 1 } },
-        { "text_key": "CHOICE_HATE_WATER", "effects": { "happiness": -3, "temperament": -1 } }
+        {
+          "text_key": "CHOICE_SPLASH_AROUND",
+          "effects": { "happiness": 4, "charisma": 1 }
+        },
+        {
+          "text_key": "CHOICE_HATE_WATER",
+          "effects": { "happiness": -3, "temperament": -1 }
+        }
       ]
     },
     {
       "id": "baby_first_birthday",
-      "phases": ["BABY"], "age_min": 1, "age_max": 1, "category": "family", "weight": 90,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 1,
+      "category": "family",
+      "weight": 90,
       "conditions": {},
       "text_key": "EVENT_BABY_FIRST_BIRTHDAY",
       "choices": [
-        { "text_key": "CHOICE_SMASH_CAKE", "effects": { "happiness": 8, "charisma": 2 } },
-        { "text_key": "CHOICE_SHY_PARTY", "effects": { "happiness": 3 }, "trait_chance": { "trait": "introvert", "chance": 0.05 } }
+        {
+          "text_key": "CHOICE_SMASH_CAKE",
+          "effects": { "happiness": 8, "charisma": 2 }
+        },
+        {
+          "text_key": "CHOICE_SHY_PARTY",
+          "effects": { "happiness": 3 },
+          "trait_chance": { "trait": "introvert", "chance": 0.05 }
+        }
       ]
     },
     {
       "id": "baby_daycare",
-      "phases": ["BABY"], "age_min": 1, "age_max": 3, "category": "social", "weight": 45,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 3,
+      "category": "social",
+      "weight": 45,
       "conditions": {},
       "text_key": "EVENT_BABY_DAYCARE",
       "choices": [
-        { "text_key": "CHOICE_ENJOY_DAYCARE", "effects": { "charisma": 3, "intelligence": 2 }, "trait_chance": { "trait": "extrovert", "chance": 0.05 } },
-        { "text_key": "CHOICE_CRY_FOR_MOM", "effects": { "happiness": -4 }, "relationship_effects": { "MOTHER": { "affection": 5 } } }
+        {
+          "text_key": "CHOICE_ENJOY_DAYCARE",
+          "effects": { "charisma": 3, "intelligence": 2 },
+          "trait_chance": { "trait": "extrovert", "chance": 0.05 }
+        },
+        {
+          "text_key": "CHOICE_CRY_FOR_MOM",
+          "effects": { "happiness": -4 },
+          "relationship_effects": { "MOTHER": { "affection": 5 } }
+        }
       ]
     },
     {
       "id": "baby_food_allergy",
-      "phases": ["BABY"], "age_min": 0, "age_max": 3, "category": "health", "weight": 25,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 3,
+      "category": "health",
+      "weight": 25,
       "conditions": {},
       "text_key": "EVENT_BABY_FOOD_ALLERGY",
       "choices": [
@@ -142,61 +264,120 @@
     },
     {
       "id": "baby_learning_colors",
-      "phases": ["BABY"], "age_min": 2, "age_max": 3, "category": "family", "weight": 50,
+      "phases": ["BABY"],
+      "age_min": 2,
+      "age_max": 3,
+      "category": "family",
+      "weight": 50,
       "conditions": {},
       "text_key": "EVENT_BABY_LEARNING_COLORS",
       "choices": [
-        { "text_key": "CHOICE_FAST_LEARNER", "effects": { "intelligence": 4, "happiness": 2 }, "trait_chance": { "trait": "genius", "chance": 0.03 } },
-        { "text_key": "CHOICE_PREFER_PLAYING", "effects": { "happiness": 3, "charisma": 1 } }
+        {
+          "text_key": "CHOICE_FAST_LEARNER",
+          "effects": { "intelligence": 4, "happiness": 2 },
+          "trait_chance": { "trait": "genius", "chance": 0.03 }
+        },
+        {
+          "text_key": "CHOICE_PREFER_PLAYING",
+          "effects": { "happiness": 3, "charisma": 1 }
+        }
       ]
     },
     {
       "id": "baby_toy_sharing",
-      "phases": ["BABY"], "age_min": 2, "age_max": 3, "category": "social", "weight": 40,
+      "phases": ["BABY"],
+      "age_min": 2,
+      "age_max": 3,
+      "category": "social",
+      "weight": 40,
       "conditions": {},
       "text_key": "EVENT_BABY_TOY_SHARING",
       "choices": [
-        { "text_key": "CHOICE_SHARE_TOY", "effects": { "charisma": 3, "happiness": 2 }, "morality_effect": 3, "trait_chance": { "trait": "generous", "chance": 0.05 } },
-        { "text_key": "CHOICE_KEEP_TOY", "effects": { "happiness": 1, "temperament": -2 } }
+        {
+          "text_key": "CHOICE_SHARE_TOY",
+          "effects": { "charisma": 3, "happiness": 2 },
+          "morality_effect": 3,
+          "trait_chance": { "trait": "generous", "chance": 0.05 }
+        },
+        {
+          "text_key": "CHOICE_KEEP_TOY",
+          "effects": { "happiness": 1, "temperament": -2 }
+        }
       ]
     },
     {
       "id": "baby_nursery_rhymes",
-      "phases": ["BABY"], "age_min": 1, "age_max": 3, "category": "family", "weight": 55,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 3,
+      "category": "family",
+      "weight": 55,
       "conditions": {},
       "text_key": "EVENT_BABY_NURSERY_RHYMES",
       "choices": [
-        { "text_key": "CHOICE_SING_ALONG", "effects": { "happiness": 4, "intelligence": 2 }, "trait_chance": { "trait": "creative", "chance": 0.05 } },
+        {
+          "text_key": "CHOICE_SING_ALONG",
+          "effects": { "happiness": 4, "intelligence": 2 },
+          "trait_chance": { "trait": "creative", "chance": 0.05 }
+        },
         { "text_key": "CHOICE_FALL_ASLEEP", "effects": { "health": 3 } }
       ]
     },
     {
       "id": "baby_first_haircut",
-      "phases": ["BABY"], "age_min": 1, "age_max": 3, "category": "family", "weight": 40,
+      "phases": ["BABY"],
+      "age_min": 1,
+      "age_max": 3,
+      "category": "family",
+      "weight": 40,
       "conditions": {},
       "text_key": "EVENT_BABY_FIRST_HAIRCUT",
       "choices": [
-        { "text_key": "CHOICE_SIT_STILL", "effects": { "temperament": 3 }, "trait_chance": { "trait": "calm", "chance": 0.05 } },
-        { "text_key": "CHOICE_SCREAM_SCISSORS", "effects": { "temperament": -3, "happiness": -2 } }
+        {
+          "text_key": "CHOICE_SIT_STILL",
+          "effects": { "temperament": 3 },
+          "trait_chance": { "trait": "calm", "chance": 0.05 }
+        },
+        {
+          "text_key": "CHOICE_SCREAM_SCISSORS",
+          "effects": { "temperament": -3, "happiness": -2 }
+        }
       ]
     },
     {
       "id": "baby_sibling_born",
-      "phases": ["BABY"], "age_min": 2, "age_max": 3, "category": "family", "weight": 30,
+      "phases": ["BABY"],
+      "age_min": 2,
+      "age_max": 3,
+      "category": "family",
+      "weight": 30,
       "conditions": {},
       "text_key": "EVENT_BABY_SIBLING_BORN",
       "choices": [
-        { "text_key": "CHOICE_EXCITED_SIBLING", "effects": { "happiness": 5, "charisma": 2 } },
-        { "text_key": "CHOICE_JEALOUS_SIBLING", "effects": { "happiness": -4, "temperament": -3 } }
+        {
+          "text_key": "CHOICE_EXCITED_SIBLING",
+          "effects": { "happiness": 5, "charisma": 2 }
+        },
+        {
+          "text_key": "CHOICE_JEALOUS_SIBLING",
+          "effects": { "happiness": -4, "temperament": -3 }
+        }
       ]
     },
     {
       "id": "baby_grandparent_visit",
-      "phases": ["BABY"], "age_min": 0, "age_max": 3, "category": "family", "weight": 45,
+      "phases": ["BABY"],
+      "age_min": 0,
+      "age_max": 3,
+      "category": "family",
+      "weight": 45,
       "conditions": {},
       "text_key": "EVENT_BABY_GRANDPARENT_VISIT",
       "choices": [
-        { "text_key": "CHOICE_HUG_GRANDMA", "effects": { "happiness": 5, "charisma": 1 } },
+        {
+          "text_key": "CHOICE_HUG_GRANDMA",
+          "effects": { "happiness": 5, "charisma": 1 }
+        },
         { "text_key": "CHOICE_SHY_GRANDPA", "effects": { "happiness": 1 } }
       ]
     }

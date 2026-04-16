@@ -831,3 +831,73 @@ BANK_BALANCE,Bank Balance,Saldo Bancário
 HAPPINESS,Happiness,Felicidade
 MORALITY,Morality,Moralidade
 CLOSE,Close,Fechar
+NEW_LIFE_SETUP,New Life Setup,Criar Nova Vida
+SECTION_IDENTITY,Identity,Identidade
+SECTION_FAMILY,Family,Família
+SECTION_ATTRIBUTES,Attributes,Atributos
+SECTION_SUMMARY,Summary,Resumo
+FIRST_NAME,First Name,Nome
+LAST_NAME,Last Name,Sobrenome
+GENDER,Gender,Gênero
+COUNTRY,Country,País
+MALE,Male,Masculino
+FEMALE,Female,Feminino
+BRAZIL,Brazil,Brasil
+USA,United States,Estados Unidos
+SOCIAL_CLASS,Social Class,Classe Social
+CLASS_LOW,Low,Baixa
+CLASS_MIDDLE,Middle,Média
+CLASS_HIGH,High,Alta
+PARENTS,Parents,Pais
+PARENTS_BOTH,Both,Ambos
+PARENTS_SINGLE,Single Parent,Pai/Mãe Solo
+PARENTS_ORPHAN,Orphan,Órfão
+SIBLINGS,Siblings,Irmãos
+TYPE_OR_RANDOM,Type or press 🎲,Digite ou pressione 🎲
+INTELLIGENCE,Intelligence,Inteligência
+CHARISMA,Charisma,Carisma
+APPEARANCE,Appearance,Aparência
+LUCK,Luck,Sorte
+TEMPERAMENT,Temperament,Temperamento
+POINTS_REMAINING,Points Remaining,Pontos Restantes
+RANDOMIZE_ALL,🎲 All Random,🎲 Tudo Aleatório
+START_LIFE,🌱 START LIFE,🌱 COMEÇAR VIDA
+ACT_SLEEP,Sleep,Dormir
+ACT_CRY,Cry,Chorar
+ACT_PLAY_BABY,Play with Toys,Brincar com Brinquedos
+ACT_SCHOOL,School,Escola
+ACT_PLAY,Play,Brincar
+ACT_FAMILY_TIME,Family Time,Tempo em Família
+ACT_HOBBIES,Hobbies,Hobbies
+ACT_SPORTS,Sports,Esportes
+ACT_READ,Read,Ler
+ACT_WORK,Work,Trabalhar
+ACT_DATING,Dating,Namoro
+ACT_SOCIAL,Social Life,Vida Social
+ACT_GYM,Gym,Academia
+ACT_PART_TIME,Part-time Job,Trabalho Meio Período
+ACT_CRIME,Crime,Crime
+ACT_DRIVE,Drive,Dirigir
+ACT_JOB_SEARCH,Job Search,Buscar Emprego
+ACT_STUDY,Study,Estudar
+ACT_MARRIAGE,Marriage,Casamento
+ACT_HAVE_CHILD,Have a Child,Ter um Filho
+ACT_DOCTOR,Doctor,Médico
+ACT_TRAVEL,Travel,Viajar
+ACT_BUY_HOUSE,Buy House,Comprar Casa
+ACT_BUY_CAR,Buy Car,Comprar Carro
+ACT_INVEST,Invest,Investir
+ACT_NIGHTLIFE,Nightlife,Vida Noturna
+ACT_MEDITATE,Meditate,Meditar
+ACT_RETIREMENT,Retirement,Aposentadoria
+ACT_MEDICINE,Medicine,Medicamentos
+ACT_GARDEN,Garden,Jardinagem
+ACT_WILL,Write Will,Escrever Testamento
+TOO_YOUNG,You're too young for this,Você é muito novo para isso
+NEED_AGE_13,You need to be at least 13,Precisa ter pelo menos 13 anos
+NEED_AGE_16,You need to be at least 16,Precisa ter pelo menos 16 anos
+PHASE_DESC_BABY,You're a baby. Life happens around you.,Você é um bebê. A vida acontece ao seu redor.
+PHASE_DESC_CHILD,You're a child. Time to learn and play!,Você é uma criança. Hora de aprender e brincar!
+PHASE_DESC_TEEN,You're a teenager. The world awaits!,Você é adolescente. O mundo te espera!
+PHASE_DESC_ADULT,You're an adult. Build your life!,Você é adulto. Construa sua vida!
+PHASE_DESC_ELDER,You're an elder. Enjoy your legacy.,Você é idoso. Aproveite seu legado.

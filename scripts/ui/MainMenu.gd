@@ -52,8 +52,7 @@ func _style_new_life_button() -> void:
 
 
 func _on_new_life() -> void:
-	GameManager.start_new_life()
-	SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
+	SceneTransition.change_scene("res://scenes/screens/NewLifeSetup.tscn")
 
 
 func _on_continue() -> void:

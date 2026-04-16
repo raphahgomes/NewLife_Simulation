@@ -431,10 +431,15 @@ func _show_activities_menu() -> void:
 	panel.add_theme_stylebox_override("panel", panel_style)
 	overlay.add_child(panel)
 
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(320, 0)
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+
 	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 10)
-	vbox.custom_minimum_size = Vector2(280, 0)
-	panel.add_child(vbox)
+	vbox.add_theme_constant_override("separation", 8)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
 
 	var title := Label.new()
 	title.text = tr("ACTIVITIES")
@@ -443,35 +448,48 @@ func _show_activities_menu() -> void:
 	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
 	vbox.add_child(title)
 
-	var activities := []
-	if c.age < 18:
-		activities.append({"label": "📚 " + tr("SCHOOL"), "category": "school"})
-	else:
-		activities.append({"label": "💼 " + tr("WORK"), "category": "school"})
-	activities.append({"label": "❤️ " + tr("HEALTH"), "category": "health"})
-	if c.age >= 13:
-		activities.append({"label": "🔪 " + tr("CRIME"), "category": "crime"})
+	# Phase info label
+	var phase_info := Label.new()
+	phase_info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	phase_info.add_theme_font_size_override("font_size", 12)
+	phase_info.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+	vbox.add_child(phase_info)
+
+	var activities := _get_phase_activities(c)
+	phase_info.text = _get_phase_description(c)
 
 	for act in activities:
 		var btn := Button.new()
 		btn.text = act["label"]
 		btn.custom_minimum_size = Vector2(0, 48)
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var btn_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 12, 12, 8)
 		btn.add_theme_stylebox_override("normal", btn_style)
 		var hover_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY.darkened(0.3), 12, 12, 8)
 		btn.add_theme_stylebox_override("hover", hover_style)
 		btn.add_theme_font_size_override("font_size", 16)
 		btn.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
-		var cat: String = act["category"]
-		btn.pressed.connect(func():
-			overlay.queue_free()
-			_show_category_actions(cat)
-		)
+
+		if act.has("disabled") and act["disabled"]:
+			btn.disabled = true
+			btn.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
+			btn.tooltip_text = act.get("tooltip", "")
+		else:
+			var cat: String = act["category"]
+			btn.pressed.connect(func():
+				overlay.queue_free()
+				_show_category_actions(cat)
+			)
 		vbox.add_child(btn)
+
+	# Separator
+	var sep := HSeparator.new()
+	vbox.add_child(sep)
 
 	var btn_close := Button.new()
 	btn_close.text = "✕ " + tr("CLOSE")
 	btn_close.custom_minimum_size = Vector2(0, 42)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 12, 12, 8)
 	btn_close.add_theme_stylebox_override("normal", close_style)
 	btn_close.add_theme_font_size_override("font_size", 16)
@@ -485,3 +503,98 @@ func _show_activities_menu() -> void:
 	)
 
 	add_child(overlay)
+
+
+func _get_phase_activities(c: Character) -> Array:
+	var activities := []
+
+	match c.life_phase:
+		Character.LifePhase.BABY:
+			# Babies have almost no actions — life just happens
+			activities.append({"label": "😴 " + tr("ACT_SLEEP"), "category": "health"})
+			activities.append({"label": "😭 " + tr("ACT_CRY"), "category": "social"})
+			activities.append({"label": "🧸 " + tr("ACT_PLAY_BABY"), "category": "social", "disabled": c.age < 1, "tooltip": tr("TOO_YOUNG")})
+
+		Character.LifePhase.CHILD:
+			# Children: school, play, family
+			activities.append({"label": "📚 " + tr("ACT_SCHOOL"), "category": "school"})
+			activities.append({"label": "🎮 " + tr("ACT_PLAY"), "category": "social"})
+			activities.append({"label": "👨‍👩‍👧 " + tr("ACT_FAMILY_TIME"), "category": "family"})
+			activities.append({"label": "🎨 " + tr("ACT_HOBBIES"), "category": "social"})
+			activities.append({"label": "⚽ " + tr("ACT_SPORTS"), "category": "health"})
+			activities.append({"label": "📖 " + tr("ACT_READ"), "category": "school"})
+			# Locked items for kids
+			activities.append({"label": "🔒 " + tr("ACT_WORK"), "category": "school", "disabled": true, "tooltip": tr("NEED_AGE_16")})
+			activities.append({"label": "🔒 " + tr("ACT_DATING"), "category": "social", "disabled": true, "tooltip": tr("NEED_AGE_13")})
+
+		Character.LifePhase.TEEN:
+			# Teens: school, social, part-time job, dating, small crimes
+			activities.append({"label": "📚 " + tr("ACT_SCHOOL"), "category": "school"})
+			activities.append({"label": "👫 " + tr("ACT_SOCIAL"), "category": "social"})
+			activities.append({"label": "💕 " + tr("ACT_DATING"), "category": "social"})
+			activities.append({"label": "⚽ " + tr("ACT_SPORTS"), "category": "health"})
+			activities.append({"label": "🎨 " + tr("ACT_HOBBIES"), "category": "social"})
+			activities.append({"label": "📖 " + tr("ACT_READ"), "category": "school"})
+			activities.append({"label": "💪 " + tr("ACT_GYM"), "category": "health"})
+			activities.append({"label": "👨‍👩‍👧 " + tr("ACT_FAMILY_TIME"), "category": "family"})
+			if c.age >= 16:
+				activities.append({"label": "💼 " + tr("ACT_PART_TIME"), "category": "finance"})
+			else:
+				activities.append({"label": "🔒 " + tr("ACT_PART_TIME"), "category": "finance", "disabled": true, "tooltip": tr("NEED_AGE_16")})
+			activities.append({"label": "🔪 " + tr("ACT_CRIME"), "category": "crime"})
+			activities.append({"label": "🔒 " + tr("ACT_DRIVE"), "category": "social", "disabled": c.age < 16, "tooltip": tr("NEED_AGE_16")})
+
+		Character.LifePhase.ADULT:
+			# Adults: full range of actions
+			if c.current_career != "":
+				activities.append({"label": "💼 " + tr("ACT_WORK"), "category": "finance"})
+			else:
+				activities.append({"label": "🔍 " + tr("ACT_JOB_SEARCH"), "category": "finance"})
+			if c.education < Character.Education.POSTGRAD and c.age <= 35:
+				activities.append({"label": "🎓 " + tr("ACT_STUDY"), "category": "school"})
+			activities.append({"label": "👫 " + tr("ACT_SOCIAL"), "category": "social"})
+			activities.append({"label": "💕 " + tr("ACT_DATING"), "category": "social"})
+			activities.append({"label": "💍 " + tr("ACT_MARRIAGE"), "category": "family"})
+			activities.append({"label": "👶 " + tr("ACT_HAVE_CHILD"), "category": "family"})
+			activities.append({"label": "💪 " + tr("ACT_GYM"), "category": "health"})
+			activities.append({"label": "🏥 " + tr("ACT_DOCTOR"), "category": "health"})
+			activities.append({"label": "🎨 " + tr("ACT_HOBBIES"), "category": "social"})
+			activities.append({"label": "✈️ " + tr("ACT_TRAVEL"), "category": "social"})
+			activities.append({"label": "🏠 " + tr("ACT_BUY_HOUSE"), "category": "finance"})
+			activities.append({"label": "🚗 " + tr("ACT_BUY_CAR"), "category": "finance"})
+			activities.append({"label": "💰 " + tr("ACT_INVEST"), "category": "finance"})
+			activities.append({"label": "👨‍👩‍👧 " + tr("ACT_FAMILY_TIME"), "category": "family"})
+			activities.append({"label": "🔪 " + tr("ACT_CRIME"), "category": "crime"})
+			activities.append({"label": "🍺 " + tr("ACT_NIGHTLIFE"), "category": "social"})
+			activities.append({"label": "🧘 " + tr("ACT_MEDITATE"), "category": "health"})
+
+		Character.LifePhase.ELDER:
+			# Elders: retirement, health focus, legacy
+			activities.append({"label": "🏖️ " + tr("ACT_RETIREMENT"), "category": "social"})
+			activities.append({"label": "🏥 " + tr("ACT_DOCTOR"), "category": "health"})
+			activities.append({"label": "💊 " + tr("ACT_MEDICINE"), "category": "health"})
+			activities.append({"label": "👨‍👩‍👧 " + tr("ACT_FAMILY_TIME"), "category": "family"})
+			activities.append({"label": "🧘 " + tr("ACT_MEDITATE"), "category": "health"})
+			activities.append({"label": "🎨 " + tr("ACT_HOBBIES"), "category": "social"})
+			activities.append({"label": "✈️ " + tr("ACT_TRAVEL"), "category": "social"})
+			activities.append({"label": "📖 " + tr("ACT_READ"), "category": "school"})
+			activities.append({"label": "🏠 " + tr("ACT_GARDEN"), "category": "health"})
+			activities.append({"label": "📝 " + tr("ACT_WILL"), "category": "finance"})
+			activities.append({"label": "💰 " + tr("ACT_INVEST"), "category": "finance"})
+
+	return activities
+
+
+func _get_phase_description(c: Character) -> String:
+	match c.life_phase:
+		Character.LifePhase.BABY:
+			return tr("PHASE_DESC_BABY")
+		Character.LifePhase.CHILD:
+			return tr("PHASE_DESC_CHILD")
+		Character.LifePhase.TEEN:
+			return tr("PHASE_DESC_TEEN")
+		Character.LifePhase.ADULT:
+			return tr("PHASE_DESC_ADULT")
+		Character.LifePhase.ELDER:
+			return tr("PHASE_DESC_ELDER")
+	return ""
