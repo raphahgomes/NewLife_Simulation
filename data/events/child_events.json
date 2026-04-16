@@ -2,204 +2,257 @@
   "events": [
     {
       "id": "child_school_start",
-      "phases": ["CHILD"],
-      "age_min": 5,
-      "age_max": 6,
-      "category": "school",
-      "weight": 90,
+      "phases": ["CHILD"], "age_min": 5, "age_max": 6, "category": "school", "weight": 90,
       "conditions": {},
       "text_key": "EVENT_CHILD_SCHOOL_START",
       "choices": [
-        {
-          "text_key": "CHOICE_EXCITED",
-          "effects": { "intelligence": 3, "happiness": 3 }
-        },
-        {
-          "text_key": "CHOICE_NERVOUS",
-          "effects": { "intelligence": 1, "happiness": -2 }
-        }
+        { "text_key": "CHOICE_EXCITED", "effects": { "intelligence": 3, "happiness": 3 } },
+        { "text_key": "CHOICE_NERVOUS", "effects": { "intelligence": 1, "happiness": -2 } }
       ]
     },
     {
       "id": "child_bully",
-      "phases": ["CHILD"],
-      "age_min": 6,
-      "age_max": 12,
-      "category": "social",
-      "weight": 50,
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "social", "weight": 50,
       "conditions": {},
       "text_key": "EVENT_CHILD_BULLY",
       "choices": [
-        {
-          "text_key": "CHOICE_STAND_UP",
-          "effects": { "charisma": 3, "temperament": 3 },
-          "trait_chance": { "trait": "brave", "chance": 0.15 }
-        },
-        {
-          "text_key": "CHOICE_TELL_TEACHER",
-          "effects": { "intelligence": 2, "happiness": -1 }
-        },
-        {
-          "text_key": "CHOICE_RUN_AWAY",
-          "effects": { "happiness": -5, "temperament": -3 }
-        }
+        { "text_key": "CHOICE_STAND_UP", "effects": { "charisma": 3, "temperament": 3 }, "trait_chance": { "trait": "brave", "chance": 0.15 } },
+        { "text_key": "CHOICE_TELL_TEACHER", "effects": { "intelligence": 2, "happiness": -1 } },
+        { "text_key": "CHOICE_RUN_AWAY", "effects": { "happiness": -5, "temperament": -3 } }
       ]
     },
     {
       "id": "child_best_friend",
-      "phases": ["CHILD"],
-      "age_min": 6,
-      "age_max": 12,
-      "category": "social",
-      "weight": 70,
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "social", "weight": 70,
       "conditions": {},
       "text_key": "EVENT_CHILD_BEST_FRIEND",
       "choices": [
-        {
-          "text_key": "CHOICE_BE_FRIENDS",
-          "effects": { "happiness": 8, "charisma": 3 }
-        },
-        {
-          "text_key": "CHOICE_STAY_ALONE",
-          "effects": { "intelligence": 2 }
-        }
+        { "text_key": "CHOICE_BE_FRIENDS", "effects": { "happiness": 8, "charisma": 3 } },
+        { "text_key": "CHOICE_STAY_ALONE", "effects": { "intelligence": 2 } }
       ]
     },
     {
       "id": "child_test",
-      "phases": ["CHILD"],
-      "age_min": 7,
-      "age_max": 12,
-      "category": "school",
-      "weight": 65,
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "school", "weight": 65,
       "conditions": {},
       "text_key": "EVENT_CHILD_TEST",
       "choices": [
-        {
-          "text_key": "CHOICE_STUDY_HARD",
-          "effects": { "intelligence": 5, "happiness": -2 }
-        },
-        {
-          "text_key": "CHOICE_WING_IT",
-          "effects": { "luck": 1 }
-        },
-        {
-          "text_key": "CHOICE_CHEAT",
-          "effects": { "intelligence": 2 },
-          "morality_effect": -5
-        }
+        { "text_key": "CHOICE_STUDY_HARD", "effects": { "intelligence": 5, "happiness": -2 } },
+        { "text_key": "CHOICE_WING_IT", "effects": { "luck": 1 } },
+        { "text_key": "CHOICE_CHEAT", "effects": { "intelligence": 2 }, "morality_effect": -5 }
       ]
     },
     {
       "id": "child_sport",
-      "phases": ["CHILD"],
-      "age_min": 6,
-      "age_max": 12,
-      "category": "health",
-      "weight": 55,
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "health", "weight": 55,
       "conditions": {},
       "text_key": "EVENT_CHILD_SPORT",
       "choices": [
-        {
-          "text_key": "CHOICE_JOIN_TEAM",
-          "effects": { "health": 5, "charisma": 2 },
-          "trait_chance": { "trait": "athletic", "chance": 0.1 }
-        },
-        {
-          "text_key": "CHOICE_READ_BOOK",
-          "effects": { "intelligence": 5 },
-          "trait_chance": { "trait": "bookworm", "chance": 0.1 }
-        }
+        { "text_key": "CHOICE_JOIN_TEAM", "effects": { "health": 5, "charisma": 2 }, "trait_chance": { "trait": "athletic", "chance": 0.1 } },
+        { "text_key": "CHOICE_READ_BOOK", "effects": { "intelligence": 5 }, "trait_chance": { "trait": "bookworm", "chance": 0.1 } }
       ]
     },
     {
       "id": "child_talent_show",
-      "phases": ["CHILD"],
-      "age_min": 7,
-      "age_max": 12,
-      "category": "social",
-      "weight": 40,
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "social", "weight": 40,
       "conditions": {},
       "text_key": "EVENT_CHILD_TALENT_SHOW",
       "choices": [
-        {
-          "text_key": "CHOICE_PERFORM",
-          "effects": { "charisma": 5, "happiness": 3 },
-          "trait_chance": { "trait": "creative", "chance": 0.1 }
-        },
-        {
-          "text_key": "CHOICE_WATCH",
-          "effects": { "happiness": 1 }
-        }
+        { "text_key": "CHOICE_PERFORM", "effects": { "charisma": 5, "happiness": 3 }, "trait_chance": { "trait": "creative", "chance": 0.1 } },
+        { "text_key": "CHOICE_WATCH", "effects": { "happiness": 1 } }
       ]
     },
     {
       "id": "child_stray_animal",
-      "phases": ["CHILD"],
-      "age_min": 6,
-      "age_max": 12,
-      "category": "family",
-      "weight": 35,
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "family", "weight": 35,
       "conditions": {},
       "text_key": "EVENT_CHILD_STRAY_ANIMAL",
       "choices": [
-        {
-          "text_key": "CHOICE_BRING_HOME",
-          "effects": { "happiness": 5 },
-          "morality_effect": 5,
-          "trait_chance": { "trait": "compassionate", "chance": 0.1 }
-        },
-        {
-          "text_key": "CHOICE_WALK_AWAY",
-          "effects": {}
-        }
+        { "text_key": "CHOICE_BRING_HOME", "effects": { "happiness": 5 }, "morality_effect": 5, "trait_chance": { "trait": "compassionate", "chance": 0.1 } },
+        { "text_key": "CHOICE_WALK_AWAY", "effects": {} }
       ]
     },
     {
       "id": "child_parents_fight",
-      "phases": ["CHILD"],
-      "age_min": 5,
-      "age_max": 12,
-      "category": "family",
-      "weight": 30,
+      "phases": ["CHILD"], "age_min": 5, "age_max": 12, "category": "family", "weight": 30,
       "conditions": {},
       "text_key": "EVENT_CHILD_PARENTS_FIGHT",
       "choices": [
-        {
-          "text_key": "CHOICE_HIDE",
-          "effects": { "happiness": -5, "mental_stability": -3 }
-        },
-        {
-          "text_key": "CHOICE_TRY_HELP",
-          "effects": { "charisma": 2, "mental_stability": -1 },
-          "relationship_effects": {
-            "MOTHER": { "affection": 3 },
-            "FATHER": { "affection": 3 }
-          }
-        }
+        { "text_key": "CHOICE_HIDE", "effects": { "happiness": -5, "mental_stability": -3 } },
+        { "text_key": "CHOICE_TRY_HELP", "effects": { "charisma": 2, "mental_stability": -1 }, "relationship_effects": { "MOTHER": { "affection": 3 }, "FATHER": { "affection": 3 } } }
       ]
     },
     {
       "id": "child_money_found",
-      "phases": ["CHILD"],
-      "age_min": 7,
-      "age_max": 12,
-      "category": "finance",
-      "weight": 30,
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "finance", "weight": 30,
       "conditions": {},
       "text_key": "EVENT_CHILD_MONEY_FOUND",
       "choices": [
-        {
-          "text_key": "CHOICE_RETURN_IT",
-          "effects": {},
-          "morality_effect": 8
-        },
-        {
-          "text_key": "CHOICE_KEEP_IT",
-          "effects": {},
-          "morality_effect": -5,
-          "money_effect": 20
-        }
+        { "text_key": "CHOICE_RETURN_IT", "effects": {}, "morality_effect": 8 },
+        { "text_key": "CHOICE_KEEP_IT", "effects": {}, "morality_effect": -5, "money_effect": 20 }
+      ]
+    },
+    {
+      "id": "child_science_fair",
+      "phases": ["CHILD"], "age_min": 8, "age_max": 12, "category": "school", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SCIENCE_FAIR",
+      "choices": [
+        { "text_key": "CHOICE_BUILD_VOLCANO", "effects": { "intelligence": 5, "happiness": 3 }, "trait_chance": { "trait": "creative", "chance": 0.08 } },
+        { "text_key": "CHOICE_SKIP_FAIR", "effects": { "happiness": 1 } }
+      ]
+    },
+    {
+      "id": "child_music_lessons",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "social", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_MUSIC_LESSONS",
+      "choices": [
+        { "text_key": "CHOICE_PRACTICE_HARD", "effects": { "intelligence": 3, "happiness": 2 }, "trait_chance": { "trait": "creative", "chance": 0.1 } },
+        { "text_key": "CHOICE_QUIT_LESSONS", "effects": { "happiness": 2 } }
+      ]
+    },
+    {
+      "id": "child_summer_camp",
+      "phases": ["CHILD"], "age_min": 8, "age_max": 12, "category": "social", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SUMMER_CAMP",
+      "choices": [
+        { "text_key": "CHOICE_LOVE_CAMP", "effects": { "charisma": 4, "happiness": 5, "health": 2 } },
+        { "text_key": "CHOICE_HOMESICK", "effects": { "happiness": -3 }, "relationship_effects": { "MOTHER": { "affection": 5 } } }
+      ]
+    },
+    {
+      "id": "child_field_trip",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "school", "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIELD_TRIP",
+      "choices": [
+        { "text_key": "CHOICE_EXPLORE_MUSEUM", "effects": { "intelligence": 4, "happiness": 3 } },
+        { "text_key": "CHOICE_GOOF_AROUND", "effects": { "charisma": 2, "happiness": 4 } }
+      ]
+    },
+    {
+      "id": "child_homework_trouble",
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "school", "weight": 55,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_HOMEWORK_TROUBLE",
+      "choices": [
+        { "text_key": "CHOICE_ASK_PARENTS", "effects": { "intelligence": 3 }, "relationship_effects": { "FATHER": { "affection": 2 } } },
+        { "text_key": "CHOICE_GIVE_UP", "effects": { "happiness": -2, "intelligence": -1 }, "trait_chance": { "trait": "lazy", "chance": 0.05 } },
+        { "text_key": "CHOICE_FIGURE_IT_OUT", "effects": { "intelligence": 5 }, "trait_chance": { "trait": "hardworking", "chance": 0.08 } }
+      ]
+    },
+    {
+      "id": "child_new_kid",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "social", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_NEW_KID",
+      "choices": [
+        { "text_key": "CHOICE_WELCOME_THEM", "effects": { "charisma": 4, "happiness": 2 }, "morality_effect": 3 },
+        { "text_key": "CHOICE_IGNORE_THEM", "effects": {} },
+        { "text_key": "CHOICE_MAKE_FUN", "effects": { "charisma": -2 }, "morality_effect": -5 }
+      ]
+    },
+    {
+      "id": "child_dentist",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "health", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_DENTIST",
+      "choices": [
+        { "text_key": "CHOICE_BE_BRAVE_DENTIST", "effects": { "health": 3, "temperament": 2 }, "trait_chance": { "trait": "brave", "chance": 0.05 } },
+        { "text_key": "CHOICE_FREAK_OUT", "effects": { "happiness": -3 } }
+      ]
+    },
+    {
+      "id": "child_birthday_party",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "social", "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_BIRTHDAY_PARTY",
+      "choices": [
+        { "text_key": "CHOICE_BIG_PARTY", "effects": { "happiness": 8, "charisma": 3 }, "trait_chance": { "trait": "extrovert", "chance": 0.05 } },
+        { "text_key": "CHOICE_SMALL_PARTY", "effects": { "happiness": 5 } }
+      ]
+    },
+    {
+      "id": "child_swimming",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "health", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SWIMMING",
+      "choices": [
+        { "text_key": "CHOICE_DIVE_IN", "effects": { "health": 4, "happiness": 3 }, "trait_chance": { "trait": "athletic", "chance": 0.08 } },
+        { "text_key": "CHOICE_AFRAID_WATER", "effects": { "happiness": -2 }, "trait_chance": { "trait": "anxious", "chance": 0.05 } }
+      ]
+    },
+    {
+      "id": "child_video_games",
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "social", "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_VIDEO_GAMES",
+      "choices": [
+        { "text_key": "CHOICE_PLAY_ALL_DAY", "effects": { "happiness": 5, "intelligence": 1, "health": -2 } },
+        { "text_key": "CHOICE_LIMIT_TIME", "effects": { "happiness": 2, "intelligence": 2 } },
+        { "text_key": "CHOICE_NO_GAMES", "effects": { "happiness": -3, "health": 2 } }
+      ]
+    },
+    {
+      "id": "child_cooking",
+      "phases": ["CHILD"], "age_min": 8, "age_max": 12, "category": "family", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_COOKING",
+      "choices": [
+        { "text_key": "CHOICE_HELP_COOK", "effects": { "intelligence": 2, "happiness": 3 }, "relationship_effects": { "MOTHER": { "affection": 5 } } },
+        { "text_key": "CHOICE_MAKE_MESS", "effects": { "happiness": 4, "charisma": 1 } }
+      ]
+    },
+    {
+      "id": "child_sibling_rivalry",
+      "phases": ["CHILD"], "age_min": 5, "age_max": 12, "category": "family", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SIBLING_RIVALRY",
+      "choices": [
+        { "text_key": "CHOICE_MAKE_PEACE", "effects": { "charisma": 3 }, "morality_effect": 3 },
+        { "text_key": "CHOICE_FIGHT_BACK", "effects": { "temperament": -3 }, "morality_effect": -2 }
+      ]
+    },
+    {
+      "id": "child_lost_pet",
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "family", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_LOST_PET",
+      "choices": [
+        { "text_key": "CHOICE_SEARCH_EVERYWHERE", "effects": { "happiness": -3, "temperament": 2 }, "trait_chance": { "trait": "compassionate", "chance": 0.1 } },
+        { "text_key": "CHOICE_ACCEPT_LOSS", "effects": { "happiness": -5, "mental_stability": 2 } }
+      ]
+    },
+    {
+      "id": "child_nature_hike",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "health", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_NATURE_HIKE",
+      "choices": [
+        { "text_key": "CHOICE_ENJOY_NATURE", "effects": { "health": 4, "happiness": 4, "intelligence": 1 } },
+        { "text_key": "CHOICE_COMPLAIN_TIRED", "effects": { "happiness": -2 }, "trait_chance": { "trait": "lazy", "chance": 0.05 } }
+      ]
+    },
+    {
+      "id": "child_art_class",
+      "phases": ["CHILD"], "age_min": 6, "age_max": 12, "category": "school", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_ART_CLASS",
+      "choices": [
+        { "text_key": "CHOICE_PAINT_MASTERPIECE", "effects": { "intelligence": 2, "happiness": 4 }, "trait_chance": { "trait": "creative", "chance": 0.12 } },
+        { "text_key": "CHOICE_STICK_FIGURES", "effects": { "happiness": 2, "charisma": 1 } }
+      ]
+    },
+    {
+      "id": "child_library",
+      "phases": ["CHILD"], "age_min": 7, "age_max": 12, "category": "school", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_LIBRARY",
+      "choices": [
+        { "text_key": "CHOICE_READ_ADVENTURE", "effects": { "intelligence": 4, "happiness": 3 }, "trait_chance": { "trait": "bookworm", "chance": 0.1 } },
+        { "text_key": "CHOICE_COMIC_BOOKS", "effects": { "happiness": 3 } }
       ]
     }
   ]

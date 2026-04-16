@@ -63,4 +63,4 @@ func _populate(c: Character) -> void:
 
 func _on_new_life() -> void:
 	SaveManager.delete_auto_save()
-	get_tree().change_scene_to_file("res://scenes/screens/MainMenu.tscn")
+	SceneTransition.change_scene("res://scenes/screens/MainMenu.tscn")

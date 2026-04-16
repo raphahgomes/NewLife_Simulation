@@ -56,7 +56,7 @@ func _on_font_size_changed(value: float) -> void:
 
 
 func _on_back() -> void:
-	get_tree().change_scene_to_file("res://scenes/screens/MainMenu.tscn")
+	SceneTransition.change_scene("res://scenes/screens/MainMenu.tscn")
 
 
 func _save_settings() -> void:

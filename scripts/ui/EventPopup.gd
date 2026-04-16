@@ -18,6 +18,10 @@ func setup(event: EventData) -> void:
 func _ready() -> void:
 	if _event:
 		_populate()
+	# Fade-in animation
+	modulate.a = 0.0
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.25).set_ease(Tween.EASE_OUT)
 
 
 func _populate() -> void:
@@ -61,4 +65,7 @@ func _populate() -> void:
 
 func _on_choice_pressed(index: int) -> void:
 	choice_made.emit(index)
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.15)
+	await tween.finished
 	queue_free()

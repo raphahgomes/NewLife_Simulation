@@ -67,6 +67,18 @@ enum Education { NONE, PRIMARY, SECONDARY, TECHNICAL, COLLEGE, POSTGRAD }
 # === Seed ===
 @export var world_seed: int = 0
 
+# === Lifetime Statistics ===
+@export var statistics: Dictionary = {
+	"total_events": 0,
+	"total_choices": 0,
+	"max_money": 0.0,
+	"min_money": 0.0,
+	"careers_held": 0,
+	"promotions": 0,
+	"relationships_started": 0,
+	"traits_gained": 0,
+}
+
 # === Computed Properties ===
 
 func get_full_name() -> String:
@@ -161,7 +173,8 @@ func to_save_dict() -> Dictionary:
 		"relationships": rel_dicts,
 		"event_log": event_log,
 		"seen_events": seen_events,
-		"world_seed": world_seed
+		"world_seed": world_seed,
+		"statistics": statistics
 	}
 
 static func from_save_dict(d: Dictionary) -> Character:
@@ -199,6 +212,10 @@ static func from_save_dict(d: Dictionary) -> Character:
 	c.event_log = Array(d.get("event_log", []), TYPE_DICTIONARY, "", null)
 	c.seen_events = Array(d.get("seen_events", []), TYPE_STRING, "", null)
 	c.world_seed = d.get("world_seed", 0)
+	var saved_stats: Dictionary = d.get("statistics", {})
+	for key in c.statistics:
+		if saved_stats.has(key):
+			c.statistics[key] = saved_stats[key]
 	# Relationships loaded separately
 	var rel_dicts: Array = d.get("relationships", [])
 	for rd in rel_dicts:

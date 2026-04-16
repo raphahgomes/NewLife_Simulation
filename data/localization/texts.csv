@@ -339,3 +339,488 @@ EVENT_DEATH,You have died.,Você morreu.
 NO_EVENTS_AVAILABLE,Nothing to do right now.,Nada para fazer agora.
 ILLNESS,Illness,Doença
 COMPLICATIONS,Complications,Complicações
+EVENT_BABY_FIRST_STEPS,You take your first steps!,Você dá seus primeiros passos!
+EVENT_BABY_FIRST_STEPS_DESC,A wobbly but brave attempt at walking.,Uma tentativa cambaleante mas corajosa de andar.
+CHOICE_WALK_BRAVELY,Walk bravely,Andar corajosamente
+CHOICE_FALL_CRY,Fall and cry,Cair e chorar
+EVENT_BABY_TEETHING,Your teeth are coming in!,Seus dentes estão nascendo!
+EVENT_BABY_TEETHING_DESC,It hurts but it's part of growing up.,Dói mas faz parte de crescer.
+CHOICE_CHEW_TOY,Chew on a toy,Morder um brinquedo
+CHOICE_CRY_ALL_NIGHT,Cry all night,Chorar a noite toda
+EVENT_BABY_NIGHT_TERROR,You wake up screaming in the night!,Você acorda gritando de noite!
+EVENT_BABY_NIGHT_TERROR_DESC,A scary dream disturbs your sleep.,Um sonho assustador atrapalha seu sono.
+CHOICE_COMFORT_PARENT,Cuddle with parent,Aconchegar com os pais
+CHOICE_SCREAM_LOUD,Keep screaming,Continuar gritando
+EVENT_BABY_BATH_TIME,It's bath time!,Hora do banho!
+EVENT_BABY_BATH_TIME_DESC,The warm water is ready.,A água morna está pronta.
+CHOICE_SPLASH_AROUND,Splash around happily,Espirrar água feliz
+CHOICE_HATE_WATER,Hate the water,Odiar a água
+EVENT_BABY_FIRST_BIRTHDAY,It's your first birthday!,É seu primeiro aniversário!
+EVENT_BABY_FIRST_BIRTHDAY_DESC,Cake and presents everywhere!,Bolo e presentes por toda parte!
+CHOICE_SMASH_CAKE,Smash the cake,Destruir o bolo
+CHOICE_SHY_PARTY,Be shy at the party,Ficar tímido na festa
+EVENT_BABY_DAYCARE,You start going to daycare.,Você começa a ir para a creche.
+EVENT_BABY_DAYCARE_DESC,A new place with lots of other babies.,Um lugar novo com muitos outros bebês.
+CHOICE_ENJOY_DAYCARE,Enjoy making friends,Gostar de fazer amigos
+CHOICE_CRY_FOR_MOM,Cry for mommy,Chorar pela mamãe
+EVENT_BABY_FOOD_ALLERGY,You have an allergic reaction to food!,Você teve uma reação alérgica a comida!
+EVENT_BABY_FOOD_ALLERGY_DESC,Red spots appear on your skin.,Manchas vermelhas aparecem na sua pele.
+CHOICE_DOCTOR_VISIT,Go to the doctor,Ir ao médico
+CHOICE_WAIT_IT_OUT,Wait it out,Esperar passar
+EVENT_BABY_LEARNING_COLORS,Someone is teaching you colors!,Alguém está te ensinando as cores!
+EVENT_BABY_LEARNING_COLORS_DESC,Red blue green — so many colors!,Vermelho azul verde — tantas cores!
+CHOICE_FAST_LEARNER,Learn quickly,Aprender rápido
+CHOICE_PREFER_PLAYING,Prefer playing instead,Preferir brincar
+EVENT_BABY_TOY_SHARING,Another child wants your toy.,Outra criança quer seu brinquedo.
+EVENT_BABY_TOY_SHARING_DESC,Will you share?,Vai compartilhar?
+CHOICE_SHARE_TOY,Share the toy,Compartilhar o brinquedo
+CHOICE_KEEP_TOY,Keep the toy,Ficar com o brinquedo
+EVENT_BABY_NURSERY_RHYMES,Someone sings nursery rhymes to you!,Alguém canta cantigas de ninar pra você!
+EVENT_BABY_NURSERY_RHYMES_DESC,Sweet melodies fill the room.,Melodias doces enchem o quarto.
+CHOICE_SING_ALONG,Try to sing along,Tentar cantar junto
+CHOICE_FALL_ASLEEP,Fall asleep peacefully,Dormir tranquilamente
+EVENT_BABY_FIRST_HAIRCUT,Time for your first haircut!,Hora do seu primeiro corte de cabelo!
+EVENT_BABY_FIRST_HAIRCUT_DESC,The scissors look scary.,A tesoura parece assustadora.
+CHOICE_SIT_STILL,Sit still bravely,Ficar quieto corajosamente
+CHOICE_SCREAM_SCISSORS,Scream at the scissors,Gritar por causa da tesoura
+EVENT_BABY_SIBLING_BORN,A new baby brother or sister arrives!,Um novo irmãozinho ou irmãzinha chega!
+EVENT_BABY_SIBLING_BORN_DESC,You're no longer the only baby.,Você não é mais o único bebê.
+CHOICE_EXCITED_SIBLING,Be excited about sibling,Ficar animado com o irmão
+CHOICE_JEALOUS_SIBLING,Feel jealous,Sentir ciúmes
+EVENT_BABY_GRANDPARENT_VISIT,Grandparents come to visit!,Os avós vêm visitar!
+EVENT_BABY_GRANDPARENT_VISIT_DESC,They bring love and presents.,Eles trazem amor e presentes.
+CHOICE_HUG_GRANDMA,Hug grandma tight,Abraçar a vovó forte
+CHOICE_SHY_GRANDPA,Be shy around grandpa,Ficar tímido perto do vovô
+EVENT_CHILD_SCIENCE_FAIR,The school science fair is coming up!,A feira de ciências da escola está chegando!
+EVENT_CHILD_SCIENCE_FAIR_DESC,Time to show your creativity.,Hora de mostrar sua criatividade.
+CHOICE_BUILD_VOLCANO,Build a volcano,Construir um vulcão
+CHOICE_SKIP_FAIR,Skip the fair,Pular a feira
+EVENT_CHILD_MUSIC_LESSONS,Your parents sign you up for music lessons.,Seus pais te inscrevem em aulas de música.
+EVENT_CHILD_MUSIC_LESSONS_DESC,A new instrument awaits.,Um novo instrumento te espera.
+CHOICE_PRACTICE_HARD,Practice hard,Praticar bastante
+CHOICE_QUIT_LESSONS,Quit the lessons,Desistir das aulas
+EVENT_CHILD_SUMMER_CAMP,Summer camp time!,Hora do acampamento de verão!
+EVENT_CHILD_SUMMER_CAMP_DESC,A week away from home with other kids.,Uma semana longe de casa com outras crianças.
+CHOICE_LOVE_CAMP,Love every moment,Amar cada momento
+CHOICE_HOMESICK,Feel homesick,Sentir saudade de casa
+EVENT_CHILD_FIELD_TRIP,Your class is going on a field trip!,Sua turma vai fazer uma excursão!
+EVENT_CHILD_FIELD_TRIP_DESC,A day outside the classroom.,Um dia fora da sala de aula.
+CHOICE_EXPLORE_MUSEUM,Explore the museum,Explorar o museu
+CHOICE_GOOF_AROUND,Goof around with friends,Bagunçar com os amigos
+EVENT_CHILD_HOMEWORK_TROUBLE,You're struggling with homework.,Você está tendo dificuldade com a lição de casa.
+EVENT_CHILD_HOMEWORK_TROUBLE_DESC,The math problems are really hard.,Os problemas de matemática são muito difíceis.
+CHOICE_ASK_PARENTS,Ask parents for help,Pedir ajuda aos pais
+CHOICE_GIVE_UP,Give up,Desistir
+CHOICE_FIGURE_IT_OUT,Figure it out alone,Resolver sozinho
+EVENT_CHILD_NEW_KID,A new kid joins your class.,Um aluno novo entra na sua turma.
+EVENT_CHILD_NEW_KID_DESC,They look nervous and alone.,Parecem nervosos e sozinhos.
+CHOICE_WELCOME_THEM,Welcome them,Dar boas-vindas
+CHOICE_IGNORE_THEM,Ignore them,Ignorar
+CHOICE_MAKE_FUN,Make fun of them,Zombar deles
+EVENT_CHILD_DENTIST,Time for a dentist visit!,Hora de ir ao dentista!
+EVENT_CHILD_DENTIST_DESC,The drill sounds scary.,O barulho da broca é assustador.
+CHOICE_BE_BRAVE_DENTIST,Be brave,Ser corajoso
+CHOICE_FREAK_OUT,Freak out,Entrar em pânico
+EVENT_CHILD_BIRTHDAY_PARTY,Your birthday is coming up!,Seu aniversário está chegando!
+EVENT_CHILD_BIRTHDAY_PARTY_DESC,How do you want to celebrate?,Como quer comemorar?
+CHOICE_BIG_PARTY,Big party with everyone,Festa grande com todos
+CHOICE_SMALL_PARTY,Small party with close friends,Festa pequena com amigos próximos
+EVENT_CHILD_SWIMMING,Swimming lessons are available.,Aulas de natação estão disponíveis.
+EVENT_CHILD_SWIMMING_DESC,The pool looks deep.,A piscina parece funda.
+CHOICE_DIVE_IN,Dive right in,Mergulhar de cabeça
+CHOICE_AFRAID_WATER,Too afraid of water,Muito medo da água
+EVENT_CHILD_VIDEO_GAMES,You discover video games!,Você descobre videogames!
+EVENT_CHILD_VIDEO_GAMES_DESC,So many games to play!,Tantos jogos para jogar!
+CHOICE_PLAY_ALL_DAY,Play all day,Jogar o dia todo
+CHOICE_LIMIT_TIME,Play with time limits,Jogar com limite de tempo
+CHOICE_NO_GAMES,Not allowed to play,Não pode jogar
+EVENT_CHILD_COOKING,Your parent invites you to cook together.,Seu pai/mãe te convida para cozinhar junto.
+EVENT_CHILD_COOKING_DESC,Time in the kitchen!,Hora na cozinha!
+CHOICE_HELP_COOK,Help cook carefully,Ajudar a cozinhar com cuidado
+CHOICE_MAKE_MESS,Make a huge mess,Fazer uma bagunça enorme
+EVENT_CHILD_SIBLING_RIVALRY,You and your sibling are fighting again.,Você e seu irmão estão brigando de novo.
+EVENT_CHILD_SIBLING_RIVALRY_DESC,It's about who gets the remote.,É sobre quem fica com o controle.
+CHOICE_MAKE_PEACE,Make peace,Fazer as pazes
+CHOICE_FIGHT_BACK,Fight back,Revidar
+EVENT_CHILD_LOST_PET,Your pet has gone missing!,Seu animal de estimação desapareceu!
+EVENT_CHILD_LOST_PET_DESC,You haven't seen them since yesterday.,Não o vê desde ontem.
+CHOICE_SEARCH_EVERYWHERE,Search everywhere,Procurar em todo lugar
+CHOICE_ACCEPT_LOSS,Accept the loss,Aceitar a perda
+EVENT_CHILD_NATURE_HIKE,Your family goes on a nature hike.,Sua família faz uma trilha na natureza.
+EVENT_CHILD_NATURE_HIKE_DESC,The trail is long but beautiful.,A trilha é longa mas bonita.
+CHOICE_ENJOY_NATURE,Enjoy the adventure,Curtir a aventura
+CHOICE_COMPLAIN_TIRED,Complain about being tired,Reclamar de cansaço
+EVENT_CHILD_ART_CLASS,Art class is today!,Hoje é dia de aula de artes!
+EVENT_CHILD_ART_CLASS_DESC,Paints and brushes are ready.,Tintas e pincéis estão prontos.
+CHOICE_PAINT_MASTERPIECE,Paint a masterpiece,Pintar uma obra-prima
+CHOICE_STICK_FIGURES,Draw stick figures,Desenhar bonecos palito
+EVENT_CHILD_LIBRARY,You visit the library.,Você visita a biblioteca.
+EVENT_CHILD_LIBRARY_DESC,So many books to choose from!,Tantos livros para escolher!
+CHOICE_READ_ADVENTURE,Read an adventure book,Ler um livro de aventura
+CHOICE_COMIC_BOOKS,Read comic books,Ler quadrinhos
+EVENT_TEEN_DRIVING,You're old enough to learn to drive!,Você tem idade para aprender a dirigir!
+EVENT_TEEN_DRIVING_DESC,The road awaits.,A estrada espera.
+CHOICE_LEARN_DRIVE,Start driving lessons,Começar aulas de direção
+CHOICE_TOO_SCARED,Too scared to drive,Muito medo de dirigir
+EVENT_TEEN_PROM,Prom night is approaching!,A noite do baile está chegando!
+EVENT_TEEN_PROM_DESC,The biggest night of high school.,A maior noite do ensino médio.
+CHOICE_ASK_DATE,Ask someone to go with you,Convidar alguém para ir com você
+CHOICE_GO_ALONE,Go alone,Ir sozinho
+CHOICE_SKIP_PROM,Skip prom entirely,Não ir ao baile
+EVENT_TEEN_DETENTION,You got detention!,Você pegou detenção!
+EVENT_TEEN_DETENTION_DESC,Stuck after school for misbehaving.,Preso depois da aula por mau comportamento.
+CHOICE_ACCEPT_PUNISHMENT,Accept the punishment,Aceitar a punição
+CHOICE_SNEAK_OUT,Sneak out,Fugir escondido
+EVENT_TEEN_SPORTS_TRYOUT,Sports team tryouts are today!,As seleções do time de esporte são hoje!
+EVENT_TEEN_SPORTS_TRYOUT_DESC,Do you have what it takes?,Você tem o que é preciso?
+CHOICE_TRY_HARD,Give it your all,Dar o seu melhor
+CHOICE_NOT_INTERESTED,Not interested,Sem interesse
+EVENT_TEEN_CYBERBULLY,Someone is cyberbullying you online.,Alguém está te fazendo cyberbullying online.
+EVENT_TEEN_CYBERBULLY_DESC,Mean messages keep appearing.,Mensagens maldosas continuam aparecendo.
+CHOICE_REPORT_BLOCK,Report and block,Denunciar e bloquear
+CHOICE_FIGHT_ONLINE,Fight back online,Revidar online
+CHOICE_TELL_ADULT,Tell a trusted adult,Contar para um adulto de confiança
+EVENT_TEEN_IDENTITY,You're questioning who you really are.,Você está questionando quem você realmente é.
+EVENT_TEEN_IDENTITY_DESC,Identity is a complex journey.,Identidade é uma jornada complexa.
+CHOICE_EXPLORE_SELF,Explore your identity,Explorar sua identidade
+CHOICE_CONFORM,Conform to expectations,Se conformar às expectativas
+CHOICE_REBEL_IDENTITY,Rebel against norms,Rebelar contra as normas
+EVENT_TEEN_GAMING_ADDICTION,Video games are consuming your life.,Videogames estão consumindo sua vida.
+EVENT_TEEN_GAMING_ADDICTION_DESC,You play morning to night.,Você joga de manhã à noite.
+CHOICE_KEEP_GAMING,Keep gaming,Continuar jogando
+CHOICE_SET_LIMITS,Set time limits,Definir limites de tempo
+CHOICE_QUIT_GAMES,Quit gaming entirely,Parar de jogar completamente
+EVENT_TEEN_CLIMATE,There's a climate change protest nearby.,Há um protesto sobre mudanças climáticas perto.
+EVENT_TEEN_CLIMATE_DESC,Students are marching for the planet.,Estudantes estão marchando pelo planeta.
+CHOICE_JOIN_PROTEST,Join the protest,Participar do protesto
+CHOICE_NOT_MY_PROBLEM,Not my problem,Não é meu problema
+EVENT_TEEN_MENTAL_HEALTH,You've been feeling down for weeks.,Você está se sentindo pra baixo há semanas.
+EVENT_TEEN_MENTAL_HEALTH_DESC,Something doesn't feel right.,Algo não parece certo.
+CHOICE_SEEK_HELP,Seek professional help,Buscar ajuda profissional
+CHOICE_BOTTLE_UP,Keep it to yourself,Guardar pra si mesmo
+EVENT_TEEN_TATTOO,You want to get a piercing or tattoo.,Você quer fazer um piercing ou tatuagem.
+EVENT_TEEN_TATTOO_DESC,A form of self-expression.,Uma forma de autoexpressão.
+CHOICE_GET_PIERCING,Get a piercing,Fazer um piercing
+CHOICE_TOO_RISKY,Too risky,Muito arriscado
+EVENT_TEEN_INTERNSHIP,A company offers you a summer internship.,Uma empresa te oferece um estágio de verão.
+EVENT_TEEN_INTERNSHIP_DESC,Great experience but less free time.,Ótima experiência mas menos tempo livre.
+CHOICE_TAKE_INTERNSHIP,Take the internship,Aceitar o estágio
+CHOICE_ENJOY_SUMMER,Enjoy summer freedom,Curtir a liberdade do verão
+EVENT_TEEN_BODY_IMAGE,You're worried about how you look.,Você está preocupado com sua aparência.
+EVENT_TEEN_BODY_IMAGE_DESC,Social media doesn't help.,As redes sociais não ajudam.
+CHOICE_ACCEPT_BODY,Accept your body,Aceitar seu corpo
+CHOICE_START_EXERCISE,Start exercising,Começar a se exercitar
+CHOICE_FEEL_INSECURE,Feel insecure,Sentir-se inseguro
+EVENT_TEEN_SECRET_RELATIONSHIP,You're in a secret relationship.,Você está em um relacionamento secreto.
+EVENT_TEEN_SECRET_RELATIONSHIP_DESC,Your parents don't know.,Seus pais não sabem.
+CHOICE_KEEP_HIDING,Keep it hidden,Manter escondido
+CHOICE_TELL_PARENTS,Tell your parents,Contar para seus pais
+EVENT_TEEN_GRADUATION,High school graduation day!,Dia da formatura do ensino médio!
+EVENT_TEEN_GRADUATION_DESC,You made it through!,Você conseguiu!
+CHOICE_CELEBRATE_GRAD,Celebrate with everyone,Comemorar com todos
+CHOICE_RELIEF_GRAD,Feel relieved it's over,Sentir alívio que acabou
+EVENT_TEEN_BAND,You and friends want to start a band.,Você e amigos querem formar uma banda.
+EVENT_TEEN_BAND_DESC,Time to make some music!,Hora de fazer música!
+CHOICE_JOIN_BAND,Join the band,Entrar na banda
+CHOICE_SOLO_MUSIC,Go solo,Seguir solo
+EVENT_TEEN_PEER_PRESSURE,Your friends are pressuring you to do something wrong.,Seus amigos estão te pressionando a fazer algo errado.
+EVENT_TEEN_PEER_PRESSURE_DESC,Everyone's watching your decision.,Todos observam sua decisão.
+CHOICE_GIVE_IN,Give in to pressure,Ceder à pressão
+CHOICE_STAND_GROUND,Stand your ground,Manter sua posição
+EVENT_TEEN_SCHOLARSHIP,You qualify for a scholarship!,Você se qualifica para uma bolsa de estudos!
+EVENT_TEEN_SCHOLARSHIP_DESC,Good grades are paying off.,Boas notas estão valendo a pena.
+CHOICE_APPLY_SCHOLARSHIP,Apply for it,Se candidatar
+CHOICE_DONT_BOTHER,Don't bother,Não se incomodar
+EVENT_TEEN_WORK_STRESS,Your part-time job is stressing you out.,Seu trabalho de meio período está te estressando.
+EVENT_TEEN_WORK_STRESS_DESC,School and work is a tough balance.,Escola e trabalho é um equilíbrio difícil.
+CHOICE_PUSH_THROUGH,Push through,Aguentar firme
+CHOICE_QUIT_JOB,Quit the job,Largar o trabalho
+CHOICE_PREPARE_WELL,Prepare thoroughly,Preparar-se bem
+CHOICE_SKIP_INTERVIEW,Skip the interview,Faltar na entrevista
+EVENT_ADULT_MARRIAGE_PROPOSAL,You're thinking about proposing.,Você está pensando em pedir em casamento.
+EVENT_ADULT_MARRIAGE_PROPOSAL_DESC,Is it the right time?,É o momento certo?
+CHOICE_PROPOSE,Propose!,Peça em casamento!
+CHOICE_ACCEPT_PROMOTION,Accept the promotion,Aceitar a promoção
+CHOICE_DECLINE_PROMOTION,Decline politely,Recusar educadamente
+CHOICE_TRY_BABY,Try for a baby,Tentar ter um bebê
+CHOICE_NOT_YET,Not yet,Ainda não
+CHOICE_BUY_HOUSE,Buy the house,Comprar a casa
+CHOICE_KEEP_RENTING,Keep renting,Continuar alugando
+CHOICE_IGNORE_SYMPTOMS,Ignore the symptoms,Ignorar os sintomas
+EVENT_ADULT_BUSINESS_IDEA,You have an amazing business idea!,Você teve uma ideia de negócio incrível!
+EVENT_ADULT_BUSINESS_IDEA_DESC,It could change your life.,Pode mudar sua vida.
+CHOICE_DRASTIC_CHANGE,Make a drastic change,Fazer uma mudança drástica
+CHOICE_MUTUAL_DIVORCE,Mutual divorce,Divórcio consensual
+CHOICE_FIGHT_DIVORCE,Fight in court,Lutar na justiça
+CHOICE_SAVE_MARRIAGE,Try to save the marriage,Tentar salvar o casamento
+CHOICE_RECOVER_SLOWLY,Recover slowly,Recuperar devagar
+CHOICE_PUSH_RECOVERY,Push through recovery,Forçar a recuperação
+EVENT_ADULT_FRAUD,You discover a way to embezzle money.,Você descobre um jeito de desviar dinheiro.
+EVENT_ADULT_FRAUD_DESC,High risk but high reward.,Alto risco mas alta recompensa.
+CHOICE_STAY_HONEST,Stay honest,Permanecer honesto
+CHOICE_DONATE,Donate generously,Doar generosamente
+CHOICE_VOLUNTEER_TIME,Volunteer your time,Doar seu tempo
+CHOICE_DECLINE_CHARITY,Politely decline,Recusar educadamente
+EVENT_ADULT_APARTMENT,You need to find a place to live.,Você precisa encontrar um lugar para morar.
+EVENT_ADULT_APARTMENT_DESC,Where will you call home?,Onde vai chamar de lar?
+CHOICE_CHEAP_APARTMENT,Cheap apartment,Apartamento barato
+CHOICE_NICE_APARTMENT,Nice apartment,Apartamento bom
+CHOICE_STAY_WITH_PARENTS,Stay with parents,Ficar com os pais
+EVENT_ADULT_CAREER_CHANGE,You're tired of your current career.,Você está cansado da sua carreira atual.
+EVENT_ADULT_CAREER_CHANGE_DESC,Maybe it's time for something new.,Talvez seja hora de algo novo.
+CHOICE_CHANGE_CAREER,Change careers,Mudar de carreira
+CHOICE_STAY_CURRENT,Stay where you are,Ficar onde está
+EVENT_ADULT_TRAVEL,A travel opportunity appears!,Uma oportunidade de viagem aparece!
+EVENT_ADULT_TRAVEL_DESC,The world is waiting.,O mundo está esperando.
+CHOICE_INTERNATIONAL_TRIP,International trip,Viagem internacional
+CHOICE_LOCAL_VACATION,Local vacation,Férias locais
+CHOICE_SAVE_MONEY,Save the money,Economizar o dinheiro
+EVENT_ADULT_INVESTMENT,An investment opportunity comes your way.,Uma oportunidade de investimento aparece.
+EVENT_ADULT_INVESTMENT_DESC,Risk vs reward.,Risco vs recompensa.
+CHOICE_SAFE_INVESTMENT,Safe investment,Investimento seguro
+CHOICE_RISKY_INVESTMENT,Risky investment,Investimento arriscado
+CHOICE_NO_INVEST,Don't invest,Não investir
+EVENT_ADULT_GYM,You consider joining a gym.,Você considera entrar em uma academia.
+EVENT_ADULT_GYM_DESC,Time to get in shape?,Hora de entrar em forma?
+CHOICE_JOIN_GYM,Join the gym,Entrar na academia
+CHOICE_HOME_EXERCISE,Exercise at home,Exercitar em casa
+CHOICE_NO_EXERCISE,Skip exercise,Pular exercício
+EVENT_ADULT_PET,You're thinking about getting a pet.,Você está pensando em ter um animal de estimação.
+EVENT_ADULT_PET_DESC,A furry companion sounds nice.,Um companheiro peludo parece legal.
+CHOICE_ADOPT_DOG,Adopt a dog,Adotar um cachorro
+CHOICE_ADOPT_CAT,Adopt a cat,Adotar um gato
+CHOICE_NO_PETS,No pets for now,Sem pets por agora
+EVENT_ADULT_LAYOFF,You've been laid off from your job!,Você foi demitido do seu trabalho!
+EVENT_ADULT_LAYOFF_DESC,The company is downsizing.,A empresa está cortando funcionários.
+CHOICE_ACCEPT_LAYOFF,Accept it,Aceitar
+CHOICE_NEGOTIATE_SEVERANCE,Negotiate severance,Negociar rescisão
+CHOICE_SUE_COMPANY,Sue the company,Processar a empresa
+EVENT_ADULT_BURNOUT,You're completely burned out from work.,Você está completamente esgotado do trabalho.
+EVENT_ADULT_BURNOUT_DESC,Your mental health is suffering.,Sua saúde mental está sofrendo.
+CHOICE_TAKE_BREAK,Take a break,Tirar uma folga
+CHOICE_PUSH_THROUGH_WORK,Keep pushing,Continuar forçando
+CHOICE_QUIT_JOB_BURNOUT,Quit your job,Pedir demissão
+EVENT_ADULT_SIDE_HUSTLE,You have an idea for a side hustle.,Você tem uma ideia para uma renda extra.
+EVENT_ADULT_SIDE_HUSTLE_DESC,Extra income sounds appealing.,Renda extra parece atraente.
+CHOICE_START_SIDE_HUSTLE,Start the side hustle,Começar a renda extra
+CHOICE_FOCUS_MAIN_JOB,Focus on main job,Focar no trabalho principal
+EVENT_ADULT_NETWORKING,A professional networking event is tonight.,Um evento de networking profissional é hoje.
+EVENT_ADULT_NETWORKING_DESC,Meet people who can help your career.,Conhecer pessoas que podem ajudar sua carreira.
+CHOICE_NETWORK_ACTIVELY,Network actively,Fazer networking ativamente
+CHOICE_SKIP_NETWORKING,Skip the event,Pular o evento
+EVENT_ADULT_THERAPY,You consider starting therapy.,Você considera começar terapia.
+EVENT_ADULT_THERAPY_DESC,Your mental health needs attention.,Sua saúde mental precisa de atenção.
+CHOICE_START_THERAPY,Start therapy,Começar terapia
+CHOICE_SELF_HELP,Try self-help methods,Tentar métodos de autoajuda
+CHOICE_NO_THERAPY,Don't bother,Não se preocupar
+EVENT_ADULT_RENOVATION,Your home needs renovation.,Sua casa precisa de reforma.
+EVENT_ADULT_RENOVATION_DESC,Time to fix things up.,Hora de arrumar as coisas.
+CHOICE_FULL_RENOVATION,Full renovation,Reforma completa
+CHOICE_SMALL_FIXES,Small fixes only,Apenas pequenos reparos
+CHOICE_DIY,Do it yourself,Fazer você mesmo
+EVENT_ADULT_NEIGHBOR,You have a conflict with your neighbor.,Você tem um conflito com seu vizinho.
+EVENT_ADULT_NEIGHBOR_DESC,Things are getting tense.,As coisas estão ficando tensas.
+CHOICE_TALK_CALMLY,Talk calmly,Conversar calmamente
+CHOICE_ESCALATE,Escalate the conflict,Escalar o conflito
+CHOICE_IGNORE_NEIGHBOR,Ignore the situation,Ignorar a situação
+EVENT_ADULT_REUNION,Your high school reunion is coming up!,A reunião do ensino médio está chegando!
+EVENT_ADULT_REUNION_DESC,See old classmates after all these years.,Ver colegas antigos depois de tantos anos.
+CHOICE_ATTEND_REUNION,Attend the reunion,Ir à reunião
+CHOICE_SKIP_REUNION,Skip it,Não ir
+EVENT_ADULT_MARATHON,There's a marathon in your city.,Há uma maratona na sua cidade.
+EVENT_ADULT_MARATHON_DESC,Are you up for the challenge?,Você está pronto para o desafio?
+CHOICE_RUN_MARATHON,Run the full marathon,Correr a maratona inteira
+CHOICE_HALF_MARATHON,Run the half marathon,Correr a meia maratona
+CHOICE_SKIP_MARATHON,Skip it entirely,Pular completamente
+EVENT_ADULT_JURY_DUTY,You've been called for jury duty.,Você foi convocado para o júri.
+EVENT_ADULT_JURY_DUTY_DESC,Civic responsibility calls.,O dever cívico chama.
+CHOICE_SERVE_JURY,Serve on the jury,Servir no júri
+CHOICE_TRY_AVOID_JURY,Try to get out of it,Tentar escapar
+EVENT_ADULT_BREAKIN,Someone broke into your home!,Alguém invadiu sua casa!
+EVENT_ADULT_BREAKIN_DESC,You hear noises downstairs.,Você ouve barulhos lá embaixo.
+CHOICE_CALL_POLICE,Call the police,Chamar a polícia
+CHOICE_CONFRONT_BURGLAR,Confront the intruder,Confrontar o invasor
+EVENT_ADULT_GAMBLING,A friend invites you to a casino.,Um amigo te convida para um cassino.
+EVENT_ADULT_GAMBLING_DESC,Feeling lucky?,Sentindo sorte?
+CHOICE_GAMBLE_BIG,Gamble big,Apostar alto
+CHOICE_GAMBLE_SMALL,Gamble small,Apostar pouco
+CHOICE_NO_GAMBLING,Don't gamble,Não apostar
+EVENT_ADULT_MENTOR,Someone asks you to be their mentor.,Alguém pede para você ser mentor.
+EVENT_ADULT_MENTOR_DESC,Share your wisdom and experience.,Compartilhar sua sabedoria e experiência.
+CHOICE_BECOME_MENTOR,Become a mentor,Ser mentor
+CHOICE_TOO_BUSY,Too busy,Muito ocupado
+EVENT_ADULT_ADDICTION,You're developing an addiction.,Você está desenvolvendo um vício.
+EVENT_ADULT_ADDICTION_DESC,It's starting to affect your life.,Está começando a afetar sua vida.
+CHOICE_SEEK_REHAB,Seek rehabilitation,Buscar reabilitação
+CHOICE_DENY_PROBLEM,Deny the problem,Negar o problema
+EVENT_ADULT_COOKING,You discover a passion for cooking.,Você descobre uma paixão por cozinhar.
+EVENT_ADULT_COOKING_DESC,The kitchen becomes your sanctuary.,A cozinha se torna seu santuário.
+CHOICE_LEARN_COOKING,Take cooking classes,Fazer aulas de culinária
+CHOICE_ORDER_TAKEOUT,Stick with takeout,Continuar pedindo delivery
+EVENT_ADULT_TRAFFIC_TICKET,You got a traffic ticket!,Você levou uma multa de trânsito!
+EVENT_ADULT_TRAFFIC_TICKET_DESC,Flashing lights in your mirror.,Luzes piscando no seu retrovisor.
+CHOICE_PAY_FINE,Pay the fine,Pagar a multa
+CHOICE_CONTEST_TICKET,Contest the ticket,Contestar a multa
+EVENT_ADULT_VOLUNTEER_ABROAD,An organization needs volunteers abroad.,Uma organização precisa de voluntários no exterior.
+EVENT_ADULT_VOLUNTEER_ABROAD_DESC,A chance to make a difference.,Uma chance de fazer a diferença.
+CHOICE_GO_ABROAD,Volunteer abroad,Ser voluntário no exterior
+CHOICE_VOLUNTEER_LOCAL,Volunteer locally instead,Ser voluntário localmente
+CHOICE_DECLINE_VOLUNTEER,Decline the opportunity,Recusar a oportunidade
+EVENT_ADULT_INHERITANCE,A relative left you an inheritance.,Um parente te deixou uma herança.
+EVENT_ADULT_INHERITANCE_DESC,Unexpected money arrives.,Dinheiro inesperado chega.
+CHOICE_ACCEPT_INHERITANCE,Accept the inheritance,Aceitar a herança
+CHOICE_DONATE_INHERITANCE,Donate it to charity,Doar para caridade
+EVENT_ADULT_SOCIAL_FAME,Your social media is blowing up!,Suas redes sociais estão bombando!
+EVENT_ADULT_SOCIAL_FAME_DESC,You could become an influencer.,Você pode se tornar um influencer.
+CHOICE_PURSUE_FAME,Pursue fame,Buscar a fama
+CHOICE_STAY_PRIVATE,Stay private,Manter privacidade
+EVENT_ADULT_LAWSUIT,You're involved in a lawsuit!,Você está envolvido em um processo!
+EVENT_ADULT_LAWSUIT_DESC,Legal troubles ahead.,Problemas legais à frente.
+CHOICE_FIGHT_LAWSUIT,Fight in court,Lutar na justiça
+CHOICE_SETTLE_LAWSUIT,Settle out of court,Fazer acordo extrajudicial
+EVENT_ADULT_CHEATING,You discover your partner may be cheating.,Você descobre que seu parceiro pode estar traindo.
+EVENT_ADULT_CHEATING_DESC,Evidence is mounting up.,As evidências estão se acumulando.
+CHOICE_FORGIVE_PARTNER,Forgive them,Perdoar
+CHOICE_CONFRONT_LEAVE,Confront and leave,Confrontar e partir
+CHOICE_IGNORE_CHEATING,Ignore the signs,Ignorar os sinais
+EVENT_ADULT_NEW_SKILL,You want to learn something new.,Você quer aprender algo novo.
+EVENT_ADULT_NEW_SKILL_DESC,What skill will you pick up?,Qual habilidade vai aprender?
+CHOICE_LEARN_LANGUAGE,Learn a new language,Aprender um novo idioma
+CHOICE_LEARN_INSTRUMENT,Learn an instrument,Aprender um instrumento
+CHOICE_NO_TIME_SKILL,No time for that,Sem tempo para isso
+EVENT_ADULT_PREGNANCY_SCARE,There might be a baby on the way!,Pode ter um bebê a caminho!
+EVENT_ADULT_PREGNANCY_SCARE_DESC,Are you ready for this?,Está pronto pra isso?
+CHOICE_BE_READY,Embrace it,Abraçar a situação
+CHOICE_PANIC,Panic completely,Entrar em pânico
+EVENT_ADULT_DEBT,Debt collectors are calling.,Cobradores estão ligando.
+EVENT_ADULT_DEBT_DESC,Your finances are in trouble.,Suas finanças estão em problemas.
+CHOICE_PAYMENT_PLAN,Set up a payment plan,Montar um plano de pagamento
+CHOICE_IGNORE_DEBT,Ignore the calls,Ignorar as ligações
+CHOICE_BORROW_FRIENDS,Borrow from friends,Pedir emprestado a amigos
+EVENT_ADULT_DISASTER,A natural disaster strikes your area!,Um desastre natural atinge sua região!
+EVENT_ADULT_DISASTER_DESC,Things are chaotic.,As coisas estão caóticas.
+CHOICE_EVACUATE,Evacuate immediately,Evacuar imediatamente
+CHOICE_STAY_RIDE_OUT,Stay and ride it out,Ficar e aguentar
+CHOICE_HELP_OTHERS,Help others first,Ajudar os outros primeiro
+EVENT_ADULT_WEDDING,Time to plan your wedding!,Hora de planejar seu casamento!
+EVENT_ADULT_WEDDING_DESC,How grand will it be?,Quão grandioso será?
+CHOICE_BIG_WEDDING,Grand wedding,Casamento grandioso
+CHOICE_SMALL_WEDDING,Small intimate wedding,Casamento pequeno e íntimo
+CHOICE_COURTHOUSE,Courthouse wedding,Casamento no cartório
+CHOICE_HAPPY_RETIREMENT,Retire happily,Aposentar feliz
+CHOICE_MISS_WORK,Miss working,Sentir falta do trabalho
+CHOICE_SPOIL_GRANDCHILD,Spoil them rotten,Mimar muito
+CHOICE_WISE_GRANDPARENT,Be the wise grandparent,Ser o avô/avó sábio
+CHOICE_FIGHT_DECLINE,Fight the decline,Lutar contra o declínio
+CHOICE_FAIR_WILL,Divide equally,Dividir igualmente
+CHOICE_DONATE_ALL,Donate everything,Doar tudo
+CHOICE_QUIET_LEGACY,Live quietly,Viver tranquilamente
+CHOICE_MOURN_FRIEND,Mourn deeply,Lamentar profundamente
+CHOICE_TOO_OLD,Too old for that,Velho demais pra isso
+CHOICE_FALL_FOR_SCAM,Fall for the scam,Cair no golpe
+CHOICE_SPOT_SCAM,Spot the scam,Identificar o golpe
+EVENT_ELDER_BUCKET_LIST,You're making a bucket list.,Você está fazendo uma lista de desejos.
+EVENT_ELDER_BUCKET_LIST_DESC,What dreams remain?,Quais sonhos restam?
+CHOICE_TRAVEL_DREAM,Travel to your dream destination,Viajar para o destino dos sonhos
+CHOICE_SMALL_JOYS,Enjoy small daily joys,Curtir pequenas alegrias diárias
+CHOICE_TOO_LATE,Feel it's too late,Sentir que é tarde demais
+EVENT_ELDER_TEACHING,Young people want to learn from you.,Jovens querem aprender com você.
+EVENT_ELDER_TEACHING_DESC,Your experience is valuable.,Sua experiência é valiosa.
+CHOICE_TEACH_YOUTH,Teach the youth,Ensinar os jovens
+CHOICE_KEEP_KNOWLEDGE,Keep knowledge to yourself,Guardar conhecimento pra si
+EVENT_ELDER_SCREENING,Time for a health screening.,Hora de fazer um exame de saúde.
+EVENT_ELDER_SCREENING_DESC,Prevention is the best medicine.,Prevenção é o melhor remédio.
+CHOICE_REGULAR_CHECKUP,Get regular checkups,Fazer exames regulares
+CHOICE_SKIP_CHECKUP,Skip the checkup,Pular o exame
+EVENT_ELDER_DOWNSIZING,Your home is too big for you now.,Sua casa é grande demais pra você agora.
+EVENT_ELDER_DOWNSIZING_DESC,Time to consider your options.,Hora de considerar suas opções.
+CHOICE_MOVE_SMALLER,Move somewhere smaller,Mudar para um lugar menor
+CHOICE_STAY_HOME,Stay in your home,Ficar na sua casa
+CHOICE_ASSISTED_LIVING,Consider assisted living,Considerar moradia assistida
+EVENT_ELDER_TECHNOLOGY,Everyone uses technology except you.,Todo mundo usa tecnologia menos você.
+EVENT_ELDER_TECHNOLOGY_DESC,Smartphones and computers everywhere.,Smartphones e computadores por toda parte.
+CHOICE_LEARN_TECH,Learn to use technology,Aprender a usar tecnologia
+CHOICE_RESIST_TECH,Resist technology,Resistir à tecnologia
+EVENT_ELDER_FAMILY_REUNION,The whole family is gathering!,A família toda está se reunindo!
+EVENT_ELDER_FAMILY_REUNION_DESC,Everyone is coming to see you.,Todos estão vindo te ver.
+CHOICE_HOST_REUNION,Host the reunion,Ser o anfitrião
+CHOICE_ATTEND_QUIETLY,Attend quietly,Participar quieto
+CHOICE_TOO_TIRED,Too tired to go,Muito cansado para ir
+EVENT_ELDER_MEMORY_LOSS,You notice your memory isn't what it used to be.,Você percebe que sua memória não é mais a mesma.
+EVENT_ELDER_MEMORY_LOSS_DESC,Names and dates slip away.,Nomes e datas escapam.
+CHOICE_BRAIN_EXERCISES,Do brain exercises,Fazer exercícios mentais
+CHOICE_ACCEPT_MEMORY,Accept the changes,Aceitar as mudanças
+CHOICE_SEE_SPECIALIST,See a specialist,Consultar um especialista
+EVENT_ELDER_AWARD,Your community wants to honor you!,Sua comunidade quer te homenagear!
+EVENT_ELDER_AWARD_DESC,Years of contribution recognized.,Anos de contribuição reconhecidos.
+CHOICE_ACCEPT_HUMBLY,Accept humbly,Aceitar com humildade
+CHOICE_PROUD_SPEECH,Give a proud speech,Fazer um discurso orgulhoso
+EVENT_ELDER_GARDENING,You have time for a garden.,Você tem tempo para um jardim.
+EVENT_ELDER_GARDENING_DESC,The earth is calling you.,A terra está te chamando.
+CHOICE_START_GARDEN,Start a garden,Começar um jardim
+CHOICE_NO_GARDENING,Not for me,Não é pra mim
+EVENT_ELDER_PET,A friendly animal needs a home.,Um animal amigável precisa de um lar.
+EVENT_ELDER_PET_DESC,Companionship in your golden years.,Companhia nos seus anos dourados.
+CHOICE_GET_COMPANION_PET,Adopt a companion,Adotar um companheiro
+CHOICE_NO_ENERGY_PET,Not enough energy,Sem energia suficiente
+EVENT_ELDER_SPIRITUAL,You reflect on the meaning of life.,Você reflete sobre o sentido da vida.
+EVENT_ELDER_SPIRITUAL_DESC,A deep philosophical moment.,Um momento filosófico profundo.
+CHOICE_FIND_PEACE,Find inner peace,Encontrar paz interior
+CHOICE_QUESTION_FAITH,Question everything,Questionar tudo
+EVENT_ELDER_FALL,You take a bad fall.,Você sofre uma queda feia.
+EVENT_ELDER_FALL_DESC,Getting up isn't as easy as before.,Levantar não é tão fácil como antes.
+CHOICE_PHYSICAL_THERAPY,Go to physical therapy,Fazer fisioterapia
+CHOICE_REST_RECOVER,Rest and hope to recover,Descansar e esperar recuperar
+EVENT_ELDER_VOLUNTEER,You want to give back to the community.,Você quer retribuir à comunidade.
+EVENT_ELDER_VOLUNTEER_DESC,There's still so much you can do.,Ainda há muito que você pode fazer.
+CHOICE_REGULAR_VOLUNTEER,Volunteer regularly,Ser voluntário regularmente
+CHOICE_OCCASIONAL_HELP,Help occasionally,Ajudar ocasionalmente
+EVENT_ELDER_SPOUSE_DEATH,Your life partner has passed away.,Seu parceiro de vida faleceu.
+EVENT_ELDER_SPOUSE_DEATH_DESC,The hardest loss of all.,A perda mais difícil de todas.
+CHOICE_GRIEVE_DEEPLY,Grieve deeply,Lamentar profundamente
+CHOICE_CHERISH_MEMORIES,Cherish the memories,Valorizar as memórias
+CHOICE_LEAN_ON_FAMILY,Lean on family,Apoiar-se na família
+PAUSE_TITLE,Paused,Pausado
+PAUSE_RESUME,Resume,Continuar
+PAUSE_SAVE,Save Game,Salvar Jogo
+PAUSE_SETTINGS,Settings,Configurações
+PAUSE_MAIN_MENU,Main Menu,Menu Principal
+PAUSE_QUIT,Quit,Sair
+SAVE_SUCCESS,Game saved!,Jogo salvo!
+ACHIEVEMENT_UNLOCKED,Achievement Unlocked,Conquista Desbloqueada
+ACH_FIRST_STEPS,First Steps,Primeiros Passos
+ACH_SCHOOL_START,School Days,Dias de Escola
+ACH_TEENAGER,Teenage Dream,Sonho Adolescente
+ACH_ADULT_LIFE,Adulting,Vida Adulta
+ACH_MIDLIFE,Midlife,Meia-Idade
+ACH_ELDER,Golden Years,Anos Dourados
+ACH_CENTENARIAN,Centenarian,Centenário
+ACH_FIRST_JOB,First Job,Primeiro Emprego
+ACH_MARRIED,Tied the Knot,Casamento
+ACH_PARENT,It's a Family!,É Uma Família!
+ACH_RICH,Wealthy,Rico
+ACH_MILLIONAIRE,Millionaire,Milionário
+ACH_BROKE,Rock Bottom,Fundo do Poço
+ACH_GENIUS,Genius Mind,Mente Genial
+ACH_BEAUTIFUL,Stunning,Deslumbrante
+ACH_HEALTHY,Peak Health,Saúde Plena
+ACH_SAINT,Saint,Santo
+ACH_VILLAIN,Villain,Vilão
+ACH_EDUCATED,Scholar,Estudioso
+ACH_SOCIAL_BUTTERFLY,Social Butterfly,Borboleta Social
+ACH_DEPRESSED,Dark Times,Tempos Sombrios
+ACH_LUCKY,Born Lucky,Nascido com Sorte
+ACH_SURVIVOR,Survivor,Sobrevivente
+ACH_TRAIT_COLLECTOR,Trait Collector,Colecionador de Traços
+ACH_FIVE_LIVES,Reincarnation,Reencarnação
+STATS_TITLE,Statistics,Estatísticas
+NO_STATISTICS,No statistics available,Sem estatísticas disponíveis
+STAT_TOTAL_EVENTS,Total Events,Total de Eventos
+STAT_TOTAL_CHOICES,Total Choices,Total de Escolhas
+STAT_MAX_MONEY,Highest Wealth,Maior Riqueza
+STAT_MIN_MONEY,Lowest Wealth,Menor Riqueza
+STAT_CAREERS_HELD,Careers Held,Carreiras Exercidas
+STAT_PROMOTIONS,Promotions,Promoções
+STAT_RELATIONSHIPS,Relationships Started,Relacionamentos Iniciados
+STAT_TRAITS_GAINED,Traits Gained,Traços Adquiridos
+PAUSE_STATS,Statistics,Estatísticas

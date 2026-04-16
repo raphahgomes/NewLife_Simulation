@@ -53,7 +53,7 @@ func _style_new_life_button() -> void:
 
 func _on_new_life() -> void:
 	GameManager.start_new_life()
-	get_tree().change_scene_to_file("res://scenes/screens/GameHUD.tscn")
+	SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
 
 
 func _on_continue() -> void:
@@ -61,12 +61,12 @@ func _on_continue() -> void:
 	if character:
 		GameManager.character = character
 		GameManager.is_game_active = true
-		get_tree().change_scene_to_file("res://scenes/screens/GameHUD.tscn")
+		SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
 
 
 func _on_past_lives() -> void:
-	get_tree().change_scene_to_file("res://scenes/screens/PastLives.tscn")
+	SceneTransition.change_scene("res://scenes/screens/PastLives.tscn")
 
 
 func _on_settings() -> void:
-	get_tree().change_scene_to_file("res://scenes/screens/Settings.tscn")
+	SceneTransition.change_scene("res://scenes/screens/Settings.tscn")

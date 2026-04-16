@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2pausemenu01"]
+
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="1_script"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_script")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="CenterPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -280.0
+offset_right = 200.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnResume" type="Button" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="BtnSave" type="Button" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Game"
+
+[node name="BtnSettings" type="Button" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
+[node name="BtnStats" type="Button" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Statistics"
+
+[node name="BtnMainMenu" type="Button" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Main Menu"
+
+[node name="BtnQuit" type="Button" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="SaveFeedback" type="Label" parent="CenterPanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
+horizontal_alignment = 1

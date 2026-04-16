@@ -2,231 +2,290 @@
   "events": [
     {
       "id": "teen_first_crush",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 70,
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "social", "weight": 70,
       "conditions": {},
       "text_key": "EVENT_TEEN_FIRST_CRUSH",
       "choices": [
-        {
-          "text_key": "CHOICE_CONFESS",
-          "effects": { "charisma": 3, "happiness": 5 },
-          "trait_chance": { "trait": "romantic", "chance": 0.1 }
-        },
-        {
-          "text_key": "CHOICE_KEEP_SECRET",
-          "effects": { "happiness": -2 }
-        }
+        { "text_key": "CHOICE_CONFESS", "effects": { "charisma": 3, "happiness": 5 }, "trait_chance": { "trait": "romantic", "chance": 0.1 } },
+        { "text_key": "CHOICE_KEEP_SECRET", "effects": { "happiness": -2 } }
       ]
     },
     {
       "id": "teen_party_invite",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 60,
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "social", "weight": 60,
       "conditions": {},
       "text_key": "EVENT_TEEN_PARTY",
       "choices": [
-        {
-          "text_key": "CHOICE_GO_PARTY",
-          "effects": { "charisma": 3, "happiness": 5 }
-        },
-        {
-          "text_key": "CHOICE_STAY_HOME",
-          "effects": { "intelligence": 3 }
-        },
-        {
-          "text_key": "CHOICE_PARTY_DRINK",
-          "effects": { "charisma": 2, "health": -3 },
-          "morality_effect": -3,
-          "trait_chance": { "trait": "rebel", "chance": 0.1 }
-        }
+        { "text_key": "CHOICE_GO_PARTY", "effects": { "charisma": 3, "happiness": 5 } },
+        { "text_key": "CHOICE_STAY_HOME", "effects": { "intelligence": 3 } },
+        { "text_key": "CHOICE_PARTY_DRINK", "effects": { "charisma": 2, "health": -3 }, "morality_effect": -3, "trait_chance": { "trait": "rebel", "chance": 0.1 } }
       ]
     },
     {
       "id": "teen_job_offer",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "finance",
-      "weight": 50,
+      "phases": ["TEEN"], "age_min": 15, "age_max": 17, "category": "finance", "weight": 50,
       "conditions": {},
       "text_key": "EVENT_TEEN_FIRST_JOB",
       "choices": [
-        {
-          "text_key": "CHOICE_TAKE_JOB",
-          "effects": { "intelligence": 2 },
-          "money_effect": 500,
-          "trait_chance": { "trait": "hardworking", "chance": 0.15 }
-        },
-        {
-          "text_key": "CHOICE_DECLINE",
-          "effects": { "happiness": 2 }
-        }
+        { "text_key": "CHOICE_TAKE_JOB", "effects": { "intelligence": 2 }, "money_effect": 500, "trait_chance": { "trait": "hardworking", "chance": 0.15 } },
+        { "text_key": "CHOICE_DECLINE", "effects": { "happiness": 2 } }
       ]
     },
     {
       "id": "teen_exam_pressure",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "school",
-      "weight": 65,
+      "phases": ["TEEN"], "age_min": 15, "age_max": 17, "category": "school", "weight": 65,
       "conditions": {},
       "text_key": "EVENT_TEEN_EXAM_PRESSURE",
       "choices": [
-        {
-          "text_key": "CHOICE_STUDY_ALL_NIGHT",
-          "effects": { "intelligence": 5, "health": -3, "happiness": -3 }
-        },
-        {
-          "text_key": "CHOICE_BALANCED_STUDY",
-          "effects": { "intelligence": 3, "happiness": 1 }
-        },
-        {
-          "text_key": "CHOICE_SKIP_EXAM",
-          "effects": { "happiness": 2, "intelligence": -2 },
-          "trait_chance": { "trait": "lazy", "chance": 0.1 }
-        }
+        { "text_key": "CHOICE_STUDY_ALL_NIGHT", "effects": { "intelligence": 5, "health": -3, "happiness": -3 } },
+        { "text_key": "CHOICE_BALANCED_STUDY", "effects": { "intelligence": 3, "happiness": 1 } },
+        { "text_key": "CHOICE_SKIP_EXAM", "effects": { "happiness": 2, "intelligence": -2 }, "trait_chance": { "trait": "lazy", "chance": 0.1 } }
       ]
     },
     {
       "id": "teen_drugs_offer",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "crime",
-      "weight": 30,
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "crime", "weight": 30,
       "conditions": {},
       "text_key": "EVENT_TEEN_DRUGS",
       "choices": [
-        {
-          "text_key": "CHOICE_REFUSE",
-          "effects": { "morality": 5, "temperament": 3 },
-          "morality_effect": 5
-        },
-        {
-          "text_key": "CHOICE_TRY_ONCE",
-          "effects": { "health": -5, "happiness": 3 },
-          "morality_effect": -5,
-          "trait_chance": { "trait": "rebel", "chance": 0.15 }
-        }
+        { "text_key": "CHOICE_REFUSE", "effects": { "morality": 5, "temperament": 3 }, "morality_effect": 5 },
+        { "text_key": "CHOICE_TRY_ONCE", "effects": { "health": -5, "happiness": 3 }, "morality_effect": -5, "trait_chance": { "trait": "rebel", "chance": 0.15 } }
       ]
     },
     {
       "id": "teen_college_decision",
-      "phases": ["TEEN"],
-      "age_min": 17,
-      "age_max": 17,
-      "category": "school",
-      "weight": 90,
+      "phases": ["TEEN"], "age_min": 17, "age_max": 17, "category": "school", "weight": 90,
       "conditions": {},
       "text_key": "EVENT_TEEN_COLLEGE_DECISION",
       "choices": [
-        {
-          "text_key": "CHOICE_APPLY_COLLEGE",
-          "effects": { "intelligence": 3 }
-        },
-        {
-          "text_key": "CHOICE_TRADE_SCHOOL",
-          "effects": { "intelligence": 2 }
-        },
-        {
-          "text_key": "CHOICE_START_WORKING",
-          "effects": {},
-          "money_effect": 1000
-        }
+        { "text_key": "CHOICE_APPLY_COLLEGE", "effects": { "intelligence": 3 } },
+        { "text_key": "CHOICE_TRADE_SCHOOL", "effects": { "intelligence": 2 } },
+        { "text_key": "CHOICE_START_WORKING", "effects": {}, "money_effect": 1000 }
       ]
     },
     {
       "id": "teen_social_media",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 45,
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "social", "weight": 45,
       "conditions": {},
       "text_key": "EVENT_TEEN_SOCIAL_MEDIA",
       "choices": [
-        {
-          "text_key": "CHOICE_POST_OFTEN",
-          "effects": { "charisma": 2, "happiness": -2 }
-        },
-        {
-          "text_key": "CHOICE_STAY_OFFLINE",
-          "effects": { "mental_stability": 3 }
-        }
+        { "text_key": "CHOICE_POST_OFTEN", "effects": { "charisma": 2, "happiness": -2 } },
+        { "text_key": "CHOICE_STAY_OFFLINE", "effects": { "mental_stability": 3 } }
       ]
     },
     {
       "id": "teen_volunteer",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 35,
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "social", "weight": 35,
       "conditions": {},
       "text_key": "EVENT_TEEN_VOLUNTEER",
       "choices": [
-        {
-          "text_key": "CHOICE_VOLUNTEER",
-          "effects": { "charisma": 3, "happiness": 3 },
-          "morality_effect": 5,
-          "trait_chance": { "trait": "compassionate", "chance": 0.15 }
-        },
-        {
-          "text_key": "CHOICE_NO_TIME",
-          "effects": {}
-        }
+        { "text_key": "CHOICE_VOLUNTEER", "effects": { "charisma": 3, "happiness": 3 }, "morality_effect": 5, "trait_chance": { "trait": "compassionate", "chance": 0.15 } },
+        { "text_key": "CHOICE_NO_TIME", "effects": {} }
       ]
     },
     {
       "id": "teen_breakup",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 40,
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "social", "weight": 40,
       "conditions": {},
       "text_key": "EVENT_TEEN_BREAKUP",
       "choices": [
-        {
-          "text_key": "CHOICE_MOVE_ON",
-          "effects": { "temperament": 3, "happiness": -3 }
-        },
-        {
-          "text_key": "CHOICE_HEARTBROKEN",
-          "effects": { "happiness": -8, "mental_stability": -3 },
-          "trait_chance": { "trait": "sensitive", "chance": 0.1 }
-        }
+        { "text_key": "CHOICE_MOVE_ON", "effects": { "temperament": 3, "happiness": -3 } },
+        { "text_key": "CHOICE_HEARTBROKEN", "effects": { "happiness": -8, "mental_stability": -3 }, "trait_chance": { "trait": "sensitive", "chance": 0.1 } }
       ]
     },
     {
       "id": "teen_shoplifting",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "crime",
-      "weight": 25,
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "crime", "weight": 25,
       "conditions": {},
       "text_key": "EVENT_TEEN_SHOPLIFTING",
       "choices": [
-        {
-          "text_key": "CHOICE_SHOPLIFT",
-          "effects": { "happiness": 2 },
-          "morality_effect": -8,
-          "money_effect": 50,
-          "trait_chance": { "trait": "delinquent", "chance": 0.1 }
-        },
-        {
-          "text_key": "CHOICE_WALK_AWAY",
-          "effects": {},
-          "morality_effect": 3
-        }
+        { "text_key": "CHOICE_SHOPLIFT", "effects": { "happiness": 2 }, "morality_effect": -8, "money_effect": 50, "trait_chance": { "trait": "delinquent", "chance": 0.1 } },
+        { "text_key": "CHOICE_WALK_AWAY", "effects": {}, "morality_effect": 3 }
+      ]
+    },
+    {
+      "id": "teen_driving_lessons",
+      "phases": ["TEEN"], "age_min": 16, "age_max": 17, "category": "social", "weight": 55,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_DRIVING",
+      "choices": [
+        { "text_key": "CHOICE_LEARN_DRIVE", "effects": { "intelligence": 2, "happiness": 5 } },
+        { "text_key": "CHOICE_TOO_SCARED", "effects": { "happiness": -1 }, "trait_chance": { "trait": "anxious", "chance": 0.05 } }
+      ]
+    },
+    {
+      "id": "teen_prom",
+      "phases": ["TEEN"], "age_min": 16, "age_max": 17, "category": "social", "weight": 60,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_PROM",
+      "choices": [
+        { "text_key": "CHOICE_ASK_DATE", "effects": { "charisma": 4, "happiness": 6 }, "trait_chance": { "trait": "romantic", "chance": 0.08 } },
+        { "text_key": "CHOICE_GO_ALONE", "effects": { "happiness": 2 } },
+        { "text_key": "CHOICE_SKIP_PROM", "effects": { "intelligence": 2 } }
+      ]
+    },
+    {
+      "id": "teen_detention",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "school", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_DETENTION",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_PUNISHMENT", "effects": { "temperament": 3 }, "morality_effect": 2 },
+        { "text_key": "CHOICE_SNEAK_OUT", "effects": { "happiness": 3 }, "morality_effect": -5, "trait_chance": { "trait": "rebel", "chance": 0.1 } }
+      ]
+    },
+    {
+      "id": "teen_sports_tryout",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "health", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_SPORTS_TRYOUT",
+      "choices": [
+        { "text_key": "CHOICE_TRY_HARD", "effects": { "health": 5, "charisma": 3 }, "trait_chance": { "trait": "athletic", "chance": 0.12 } },
+        { "text_key": "CHOICE_NOT_INTERESTED", "effects": { "intelligence": 2 } }
+      ]
+    },
+    {
+      "id": "teen_online_bullying",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "social", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_CYBERBULLY",
+      "choices": [
+        { "text_key": "CHOICE_REPORT_BLOCK", "effects": { "intelligence": 2, "mental_stability": 2 } },
+        { "text_key": "CHOICE_FIGHT_ONLINE", "effects": { "happiness": -5, "mental_stability": -3 } },
+        { "text_key": "CHOICE_TELL_ADULT", "effects": { "mental_stability": 3 }, "relationship_effects": { "MOTHER": { "affection": 3 } } }
+      ]
+    },
+    {
+      "id": "teen_identity_crisis",
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "health", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_IDENTITY",
+      "choices": [
+        { "text_key": "CHOICE_EXPLORE_SELF", "effects": { "intelligence": 3, "mental_stability": 2 } },
+        { "text_key": "CHOICE_CONFORM", "effects": { "charisma": 2, "happiness": -2 } },
+        { "text_key": "CHOICE_REBEL_IDENTITY", "effects": { "happiness": 3, "temperament": -2 }, "trait_chance": { "trait": "rebel", "chance": 0.1 } }
+      ]
+    },
+    {
+      "id": "teen_gaming_addiction",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "health", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_GAMING_ADDICTION",
+      "choices": [
+        { "text_key": "CHOICE_KEEP_GAMING", "effects": { "happiness": 3, "health": -3, "intelligence": -2 }, "trait_chance": { "trait": "lazy", "chance": 0.08 } },
+        { "text_key": "CHOICE_SET_LIMITS", "effects": { "intelligence": 2, "health": 2 } },
+        { "text_key": "CHOICE_QUIT_GAMES", "effects": { "health": 3, "happiness": -3 } }
+      ]
+    },
+    {
+      "id": "teen_climate_activism",
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "social", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_CLIMATE",
+      "choices": [
+        { "text_key": "CHOICE_JOIN_PROTEST", "effects": { "charisma": 4, "happiness": 3 }, "morality_effect": 5, "trait_chance": { "trait": "compassionate", "chance": 0.08 } },
+        { "text_key": "CHOICE_NOT_MY_PROBLEM", "effects": {} }
+      ]
+    },
+    {
+      "id": "teen_mental_health",
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "health", "weight": 30,
+      "conditions": { "max_happiness": 40 },
+      "text_key": "EVENT_TEEN_MENTAL_HEALTH",
+      "choices": [
+        { "text_key": "CHOICE_SEEK_HELP", "effects": { "mental_stability": 8, "happiness": 5 } },
+        { "text_key": "CHOICE_BOTTLE_UP", "effects": { "mental_stability": -5 }, "trait_chance": { "trait": "anxious", "chance": 0.15 } }
+      ]
+    },
+    {
+      "id": "teen_tattoo_piercing",
+      "phases": ["TEEN"], "age_min": 15, "age_max": 17, "category": "social", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_TATTOO",
+      "choices": [
+        { "text_key": "CHOICE_GET_PIERCING", "effects": { "appearance": 1, "happiness": 3 }, "trait_chance": { "trait": "rebel", "chance": 0.08 } },
+        { "text_key": "CHOICE_TOO_RISKY", "effects": { "temperament": 1 } }
+      ]
+    },
+    {
+      "id": "teen_internship",
+      "phases": ["TEEN"], "age_min": 16, "age_max": 17, "category": "finance", "weight": 35,
+      "conditions": { "min_intelligence": 45 },
+      "text_key": "EVENT_TEEN_INTERNSHIP",
+      "choices": [
+        { "text_key": "CHOICE_TAKE_INTERNSHIP", "effects": { "intelligence": 4, "charisma": 2 }, "money_effect": 300, "trait_chance": { "trait": "ambitious", "chance": 0.1 } },
+        { "text_key": "CHOICE_ENJOY_SUMMER", "effects": { "happiness": 4, "health": 2 } }
+      ]
+    },
+    {
+      "id": "teen_body_image",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "health", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_BODY_IMAGE",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_BODY", "effects": { "mental_stability": 5, "happiness": 3 }, "trait_chance": { "trait": "calm", "chance": 0.05 } },
+        { "text_key": "CHOICE_START_EXERCISE", "effects": { "health": 5, "appearance": 2 }, "trait_chance": { "trait": "athletic", "chance": 0.08 } },
+        { "text_key": "CHOICE_FEEL_INSECURE", "effects": { "happiness": -5, "mental_stability": -3 }, "trait_chance": { "trait": "anxious", "chance": 0.1 } }
+      ]
+    },
+    {
+      "id": "teen_secret_relationship",
+      "phases": ["TEEN"], "age_min": 14, "age_max": 17, "category": "social", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_SECRET_RELATIONSHIP",
+      "choices": [
+        { "text_key": "CHOICE_KEEP_HIDING", "effects": { "happiness": 2, "mental_stability": -2 } },
+        { "text_key": "CHOICE_TELL_PARENTS", "effects": { "mental_stability": 3, "happiness": -1 }, "relationship_effects": { "MOTHER": { "trust": 5 }, "FATHER": { "trust": 5 } } }
+      ]
+    },
+    {
+      "id": "teen_graduation",
+      "phases": ["TEEN"], "age_min": 17, "age_max": 17, "category": "school", "weight": 85,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_GRADUATION",
+      "choices": [
+        { "text_key": "CHOICE_CELEBRATE_GRAD", "effects": { "happiness": 8, "charisma": 2 } },
+        { "text_key": "CHOICE_RELIEF_GRAD", "effects": { "happiness": 5, "mental_stability": 3 } }
+      ]
+    },
+    {
+      "id": "teen_band",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "social", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_BAND",
+      "choices": [
+        { "text_key": "CHOICE_JOIN_BAND", "effects": { "charisma": 4, "happiness": 4 }, "trait_chance": { "trait": "creative", "chance": 0.1 } },
+        { "text_key": "CHOICE_SOLO_MUSIC", "effects": { "intelligence": 2, "happiness": 2 } }
+      ]
+    },
+    {
+      "id": "teen_peer_pressure",
+      "phases": ["TEEN"], "age_min": 13, "age_max": 17, "category": "social", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_PEER_PRESSURE",
+      "choices": [
+        { "text_key": "CHOICE_GIVE_IN", "effects": { "charisma": 2, "happiness": 1 }, "morality_effect": -3 },
+        { "text_key": "CHOICE_STAND_GROUND", "effects": { "temperament": 4, "mental_stability": 3 }, "morality_effect": 3, "trait_chance": { "trait": "honest", "chance": 0.08 } }
+      ]
+    },
+    {
+      "id": "teen_scholarship",
+      "phases": ["TEEN"], "age_min": 16, "age_max": 17, "category": "school", "weight": 25,
+      "conditions": { "min_intelligence": 60 },
+      "text_key": "EVENT_TEEN_SCHOLARSHIP",
+      "choices": [
+        { "text_key": "CHOICE_APPLY_SCHOLARSHIP", "effects": { "intelligence": 3, "happiness": 5 }, "money_effect": 5000 },
+        { "text_key": "CHOICE_DONT_BOTHER", "effects": { "happiness": -1 } }
+      ]
+    },
+    {
+      "id": "teen_part_time_stress",
+      "phases": ["TEEN"], "age_min": 15, "age_max": 17, "category": "finance", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_TEEN_WORK_STRESS",
+      "choices": [
+        { "text_key": "CHOICE_PUSH_THROUGH", "effects": { "temperament": 3, "health": -2 }, "money_effect": 400, "trait_chance": { "trait": "hardworking", "chance": 0.1 } },
+        { "text_key": "CHOICE_QUIT_JOB", "effects": { "happiness": 3, "health": 2 } }
       ]
     }
   ]

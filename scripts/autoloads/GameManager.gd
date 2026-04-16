@@ -142,6 +142,12 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 					character.add_trait(trait_name)
 					results["new_trait"] = trait_name
 
+	# Update statistics
+	character.statistics["total_events"] += 1
+	character.statistics["total_choices"] += 1
+	if results.has("new_trait"):
+		character.statistics["traits_gained"] += 1
+
 	# Log event
 	character.add_event_log(event.text_key, event.category)
 	character.seen_events.append(event.id)
@@ -352,6 +358,12 @@ func _process_finances() -> void:
 		var expenses := annual_income * expense_ratio
 		character.money += annual_income - expenses
 
+	# Track money extremes
+	if character.money > character.statistics["max_money"]:
+		character.statistics["max_money"] = character.money
+	if character.money < character.statistics["min_money"]:
+		character.statistics["min_money"] = character.money
+
 	# Debt interest
 	if character.debt > 0:
 		character.debt *= 1.08  # 8% annual interest
@@ -490,6 +502,7 @@ func hire_career(career_id: String) -> bool:
 			character.current_career = career_id
 			character.career_years = 0
 			character.career_level = 0
+			character.statistics["careers_held"] += 1
 			var salary_range: Array = career.get("salary_range", [20000, 30000])
 			character.salary = _rng.randf_range(float(salary_range[0]), float(salary_range[0]) + (float(salary_range[1]) - float(salary_range[0])) * 0.3)
 			character.add_event_log("EVENT_CAREER_HIRED", "career")
@@ -516,6 +529,7 @@ func _process_career_progression() -> void:
 		if _rng.randf() < promo_chance:
 			character.career_level += 1
 			character.career_years = 0
+			character.statistics["promotions"] += 1
 			var raise_pct := 0.15 + character.career_level * 0.1
 			character.salary *= (1.0 + raise_pct)
 			character.add_event_log("EVENT_PROMOTION", "career")
@@ -623,6 +637,7 @@ func _create_romantic_partner() -> void:
 	partner.respect = _rng.randi_range(40, 70)
 	partner.trust = _rng.randi_range(40, 70)
 	character.relationships.append(partner)
+	character.statistics["relationships_started"] += 1
 	character.add_event_log("EVENT_MET_PARTNER", "social")
 
 

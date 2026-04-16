@@ -23,6 +23,9 @@ GameManager="*res://scripts/autoloads/GameManager.gd"
 AttributeSystem="*res://scripts/autoloads/AttributeSystem.gd"
 EventManager="*res://scripts/autoloads/EventManager.gd"
 SaveManager="*res://scripts/autoloads/SaveManager.gd"
+AudioManager="*res://scripts/autoloads/AudioManager.gd"
+AchievementManager="*res://scripts/autoloads/AchievementManager.gd"
+SceneTransition="*res://scripts/autoloads/SceneTransition.gd"
 
 [display]
 

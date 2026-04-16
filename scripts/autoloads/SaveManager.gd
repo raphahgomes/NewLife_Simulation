@@ -5,13 +5,17 @@ extends Node
 const SAVE_DIR := "user://saves/"
 const AUTO_SAVE_FILE := "autosave.json"
 const COMPLETED_LIVES_FILE := "user://completed_lives.json"
+const SETTINGS_FILE := "user://settings.json"
 const MAX_SAVE_SLOTS := 5
+
+var _settings_cache: Dictionary = {}
 
 
 func _ready() -> void:
 	# Ensure save directory exists
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
+	_load_settings_cache()
 
 
 # === Auto Save ===
@@ -158,3 +162,38 @@ func delete_slot(slot: int) -> void:
 	var path := SAVE_DIR + "slot_" + str(slot) + ".json"
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(path)
+
+
+# === Settings ===
+
+func save_setting(key: String, value: Variant) -> void:
+	_settings_cache[key] = value
+	_write_settings()
+
+
+func load_setting(key: String, default_value: Variant = null) -> Variant:
+	return _settings_cache.get(key, default_value)
+
+
+func _load_settings_cache() -> void:
+	if not FileAccess.file_exists(SETTINGS_FILE):
+		_settings_cache = {}
+		return
+	var file := FileAccess.open(SETTINGS_FILE, FileAccess.READ)
+	if file == null:
+		_settings_cache = {}
+		return
+	var json_text := file.get_as_text()
+	file.close()
+	var parsed = JSON.parse_string(json_text)
+	if parsed is Dictionary:
+		_settings_cache = parsed
+	else:
+		_settings_cache = {}
+
+
+func _write_settings() -> void:
+	var file := FileAccess.open(SETTINGS_FILE, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(_settings_cache, "\t"))
+		file.close()

@@ -21,6 +21,7 @@ extends Control
 @onready var btn_crime: Button = %BtnCrime
 
 var _event_popup_scene: PackedScene = preload("res://scenes/popups/EventPopup.tscn")
+var _pause_menu_scene: PackedScene = preload("res://scenes/popups/PauseMenu.tscn")
 var _current_year_logged: int = -1
 
 
@@ -37,6 +38,24 @@ func _ready() -> void:
 		start_age = GameManager.character.age
 	_add_year_separator(start_age)
 	_process_next_event()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_open_pause_menu()
+		get_viewport().set_input_as_handled()
+
+
+func _open_pause_menu() -> void:
+	if get_tree().paused:
+		return
+	var pause := _pause_menu_scene.instantiate()
+	pause.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(pause)
+
+
+func _on_achievement_unlocked(_id: String, text_key: String, icon: String) -> void:
+	_add_log_entry("🏆 " + tr("ACHIEVEMENT_UNLOCKED") + ": " + icon + " " + tr(text_key), "🏆")
 
 
 # ── STYLING ──
@@ -89,6 +108,13 @@ func _style_action_buttons() -> void:
 		btn.add_theme_font_size_override("font_size", 14)
 
 
+func _animate_bar(bar: ProgressBar, target: float) -> void:
+	if bar == null:
+		return
+	var tween := create_tween()
+	tween.tween_property(bar, "value", target, 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+
 # ── SIGNALS ──
 
 func _connect_signals() -> void:
@@ -103,6 +129,7 @@ func _connect_signals() -> void:
 	GameManager.character_died.connect(_on_character_died)
 	GameManager.year_advanced.connect(_on_year_advanced)
 	GameManager.phase_changed.connect(_on_phase_changed)
+	AchievementManager.achievement_unlocked.connect(_on_achievement_unlocked)
 
 
 func _localize_buttons() -> void:
@@ -133,11 +160,11 @@ func _update_display() -> void:
 	# Avatar
 	_update_avatar(c)
 
-	# Stats
-	if health_bar: health_bar.value = c.health
-	if happiness_bar: happiness_bar.value = c.happiness
-	if social_bar: social_bar.value = c.get_relationship_average()
-	if morality_bar: morality_bar.value = c.morality
+	# Stats (animated)
+	_animate_bar(health_bar, c.health)
+	_animate_bar(happiness_bar, c.happiness)
+	_animate_bar(social_bar, c.get_relationship_average())
+	_animate_bar(morality_bar, c.morality)
 
 	# Money
 	if money_label:
@@ -255,7 +282,7 @@ func _on_phase_changed(_new_phase: Character.LifePhase) -> void:
 
 
 func _on_character_died(_character: Character) -> void:
-	get_tree().change_scene_to_file("res://scenes/screens/LifeSummary.tscn")
+	SceneTransition.change_scene("res://scenes/screens/LifeSummary.tscn")
 
 
 func _process_next_event() -> void:
