@@ -1,4 +1,4 @@
-﻿extends Node
+extends Node
 
 ## AdManager — Central de Anúncios e Compras Embutidas (IAP)
 
@@ -50,4 +50,3 @@ func buy_premium() -> void:
 	has_premium = true
 	hide_banner()
 	premium_purchased.emit()
-

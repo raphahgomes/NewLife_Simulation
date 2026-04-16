@@ -2,47 +2,79 @@
   "events": [
     {
       "id": "adult_job_interview",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 55,
       "category": "work",
       "weight": 65,
-      "conditions": { "no_career": true },
+      "conditions": {
+        "no_career": true
+      },
       "text_key": "EVENT_ADULT_JOB_INTERVIEW",
       "choices": [
         {
           "text_key": "CHOICE_PREPARE_WELL",
-          "effects": { "intelligence": 2, "charisma": 2 },
-          "trait_chance": { "trait": "ambitious", "chance": 0.1 }
+          "effects": {
+            "intelligence": 2,
+            "charisma": 2
+          },
+          "trait_chance": {
+            "trait": "ambitious",
+            "chance": 0.1
+          }
         },
-        { "text_key": "CHOICE_WING_IT", "effects": { "charisma": 1 } },
-        { "text_key": "CHOICE_SKIP_INTERVIEW", "effects": { "happiness": -2 } }
+        {
+          "text_key": "CHOICE_WING_IT",
+          "effects": {
+            "charisma": 1
+          }
+        },
+        {
+          "text_key": "CHOICE_SKIP_INTERVIEW",
+          "effects": {
+            "happiness": -2
+          }
+        }
       ]
     },
     {
       "id": "adult_promotion",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 60,
       "category": "work",
       "weight": 55,
-      "conditions": { "has_career": true },
+      "conditions": {
+        "has_career": true
+      },
       "text_key": "EVENT_ADULT_PROMOTION",
       "choices": [
         {
           "text_key": "CHOICE_ACCEPT_PROMOTION",
-          "effects": { "happiness": 5, "charisma": 2 },
+          "effects": {
+            "happiness": 5,
+            "charisma": 2
+          },
           "money_effect": 3000
         },
         {
           "text_key": "CHOICE_DECLINE_PROMOTION",
-          "effects": { "happiness": 2, "health": 2 }
+          "effects": {
+            "happiness": 2,
+            "health": 2
+          }
         }
       ]
     },
     {
       "id": "adult_marriage_proposal",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 55,
       "category": "family",
@@ -52,15 +84,28 @@
       "choices": [
         {
           "text_key": "CHOICE_PROPOSE",
-          "effects": { "happiness": 8, "charisma": 2 },
-          "trait_chance": { "trait": "romantic", "chance": 0.15 }
+          "effects": {
+            "happiness": 8,
+            "charisma": 2
+          },
+          "trait_chance": {
+            "trait": "romantic",
+            "chance": 0.15
+          }
         },
-        { "text_key": "CHOICE_NOT_READY", "effects": { "happiness": -2 } }
+        {
+          "text_key": "CHOICE_NOT_READY",
+          "effects": {
+            "happiness": -2
+          }
+        }
       ]
     },
     {
       "id": "adult_have_child",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 45,
       "category": "family",
@@ -70,38 +115,56 @@
       "choices": [
         {
           "text_key": "CHOICE_TRY_BABY",
-          "effects": { "happiness": 8 },
+          "effects": {
+            "happiness": 8
+          },
           "money_effect": -2000
         },
-        { "text_key": "CHOICE_NOT_YET", "effects": {} }
+        {
+          "text_key": "CHOICE_NOT_YET",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_buy_house",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 25,
       "age_max": 55,
       "category": "finance",
       "weight": 40,
-      "conditions": { "min_money": 10000 },
+      "conditions": {
+        "min_money": 10000
+      },
       "text_key": "EVENT_ADULT_BUY_HOUSE",
       "choices": [
         {
           "text_key": "CHOICE_BUY_HOUSE",
-          "effects": { "happiness": 10 },
+          "effects": {
+            "happiness": 10
+          },
           "money_effect": -50000
         },
-        { "text_key": "CHOICE_KEEP_RENTING", "effects": {} },
+        {
+          "text_key": "CHOICE_KEEP_RENTING",
+          "effects": {}
+        },
         {
           "text_key": "CHOICE_INVEST_INSTEAD",
-          "effects": { "intelligence": 2 },
+          "effects": {
+            "intelligence": 2
+          },
           "money_effect": 3000
         }
       ]
     },
     {
       "id": "adult_health_scare",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 30,
       "age_max": 64,
       "category": "health",
@@ -111,34 +174,57 @@
       "choices": [
         {
           "text_key": "CHOICE_SEE_DOCTOR",
-          "effects": { "health": 5, "happiness": -2 },
+          "effects": {
+            "health": 5,
+            "happiness": -2
+          },
           "money_effect": -500
         },
-        { "text_key": "CHOICE_IGNORE_SYMPTOMS", "effects": { "health": -8 } }
+        {
+          "text_key": "CHOICE_IGNORE_SYMPTOMS",
+          "effects": {
+            "health": -8
+          }
+        }
       ]
     },
     {
       "id": "adult_business_idea",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 55,
       "category": "finance",
       "weight": 35,
-      "conditions": { "min_intelligence": 45 },
+      "conditions": {
+        "min_intelligence": 45
+      },
       "text_key": "EVENT_ADULT_BUSINESS_IDEA",
       "choices": [
         {
           "text_key": "CHOICE_START_BUSINESS",
-          "effects": { "intelligence": 3, "charisma": 2 },
+          "effects": {
+            "intelligence": 3,
+            "charisma": 2
+          },
           "money_effect": -5000,
-          "trait_chance": { "trait": "ambitious", "chance": 0.15 }
+          "trait_chance": {
+            "trait": "ambitious",
+            "chance": 0.15
+          }
         },
-        { "text_key": "CHOICE_PLAY_SAFE", "effects": {} }
+        {
+          "text_key": "CHOICE_PLAY_SAFE",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_midlife_crisis",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 38,
       "age_max": 55,
       "category": "health",
@@ -148,23 +234,34 @@
       "choices": [
         {
           "text_key": "CHOICE_NEW_HOBBY",
-          "effects": { "happiness": 5, "health": 2 }
+          "effects": {
+            "happiness": 5,
+            "health": 2
+          }
         },
         {
           "text_key": "CHOICE_DRASTIC_CHANGE",
-          "effects": { "happiness": 3, "temperament": -3 },
+          "effects": {
+            "happiness": 3,
+            "temperament": -3
+          },
           "money_effect": -3000
         },
         {
           "text_key": "CHOICE_THERAPY",
-          "effects": { "mental_stability": 5, "happiness": 3 },
+          "effects": {
+            "mental_stability": 5,
+            "happiness": 3
+          },
           "money_effect": -800
         }
       ]
     },
     {
       "id": "adult_divorce",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 25,
       "age_max": 60,
       "category": "family",
@@ -174,23 +271,34 @@
       "choices": [
         {
           "text_key": "CHOICE_MUTUAL_DIVORCE",
-          "effects": { "happiness": -5, "mental_stability": -3 },
+          "effects": {
+            "happiness": -5,
+            "mental_stability": -3
+          },
           "money_effect": -10000
         },
         {
           "text_key": "CHOICE_FIGHT_DIVORCE",
-          "effects": { "happiness": -8, "mental_stability": -5 },
+          "effects": {
+            "happiness": -8,
+            "mental_stability": -5
+          },
           "money_effect": -20000
         },
         {
           "text_key": "CHOICE_SAVE_MARRIAGE",
-          "effects": { "happiness": 3, "charisma": 2 }
+          "effects": {
+            "happiness": 3,
+            "charisma": 2
+          }
         }
       ]
     },
     {
       "id": "adult_car_accident",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 64,
       "category": "health",
@@ -200,19 +308,27 @@
       "choices": [
         {
           "text_key": "CHOICE_RECOVER_SLOWLY",
-          "effects": { "health": -10, "happiness": -5 },
+          "effects": {
+            "health": -10,
+            "happiness": -5
+          },
           "money_effect": -2000
         },
         {
           "text_key": "CHOICE_PUSH_RECOVERY",
-          "effects": { "health": -5, "temperament": 3 },
+          "effects": {
+            "health": -5,
+            "temperament": 3
+          },
           "money_effect": -3000
         }
       ]
     },
     {
       "id": "adult_fraud",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 60,
       "category": "crime",
@@ -222,47 +338,75 @@
       "choices": [
         {
           "text_key": "CHOICE_COMMIT_FRAUD",
-          "effects": { "intelligence": 1 },
+          "effects": {
+            "intelligence": 1
+          },
           "money_effect": 15000,
           "morality_effect": -15,
-          "trait_chance": { "trait": "dishonest", "chance": 0.15 }
+          "trait_chance": {
+            "trait": "dishonest",
+            "chance": 0.15
+          }
         },
         {
           "text_key": "CHOICE_STAY_HONEST",
-          "effects": { "morality": 5 },
+          "effects": {
+            "morality": 5
+          },
           "morality_effect": 5,
-          "trait_chance": { "trait": "honest", "chance": 0.1 }
+          "trait_chance": {
+            "trait": "honest",
+            "chance": 0.1
+          }
         }
       ]
     },
     {
       "id": "adult_charity",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 64,
       "category": "social",
       "weight": 35,
-      "conditions": { "min_money": 2000 },
+      "conditions": {
+        "min_money": 2000
+      },
       "text_key": "EVENT_ADULT_CHARITY",
       "choices": [
         {
           "text_key": "CHOICE_DONATE",
-          "effects": { "happiness": 5, "charisma": 2 },
+          "effects": {
+            "happiness": 5,
+            "charisma": 2
+          },
           "money_effect": -2000,
           "morality_effect": 8,
-          "trait_chance": { "trait": "generous", "chance": 0.12 }
+          "trait_chance": {
+            "trait": "generous",
+            "chance": 0.12
+          }
         },
         {
           "text_key": "CHOICE_VOLUNTEER_TIME",
-          "effects": { "happiness": 3, "charisma": 3 },
+          "effects": {
+            "happiness": 3,
+            "charisma": 3
+          },
           "morality_effect": 5
         },
-        { "text_key": "CHOICE_DECLINE_CHARITY", "effects": {} }
+        {
+          "text_key": "CHOICE_DECLINE_CHARITY",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_apartment_rental",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 30,
       "category": "finance",
@@ -272,90 +416,147 @@
       "choices": [
         {
           "text_key": "CHOICE_CHEAP_APARTMENT",
-          "effects": { "happiness": -1 },
+          "effects": {
+            "happiness": -1
+          },
           "money_effect": -500
         },
         {
           "text_key": "CHOICE_NICE_APARTMENT",
-          "effects": { "happiness": 4 },
+          "effects": {
+            "happiness": 4
+          },
           "money_effect": -2000
         },
         {
           "text_key": "CHOICE_STAY_WITH_PARENTS",
-          "effects": { "happiness": -2 },
-          "relationship_effects": { "MOTHER": { "affection": 2 } }
+          "effects": {
+            "happiness": -2
+          },
+          "relationship_effects": {
+            "MOTHER": {
+              "affection": 2
+            }
+          }
         }
       ]
     },
     {
       "id": "adult_career_change",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 25,
       "age_max": 50,
       "category": "work",
       "weight": 35,
-      "conditions": { "has_career": true },
+      "conditions": {
+        "has_career": true
+      },
       "text_key": "EVENT_ADULT_CAREER_CHANGE",
       "choices": [
         {
           "text_key": "CHOICE_CHANGE_CAREER",
-          "effects": { "happiness": 5, "intelligence": 3 },
+          "effects": {
+            "happiness": 5,
+            "intelligence": 3
+          },
           "money_effect": -2000
         },
-        { "text_key": "CHOICE_STAY_CURRENT", "effects": { "temperament": 2 } }
+        {
+          "text_key": "CHOICE_STAY_CURRENT",
+          "effects": {
+            "temperament": 2
+          }
+        }
       ]
     },
     {
       "id": "adult_travel",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 64,
       "category": "social",
       "weight": 40,
-      "conditions": { "min_money": 3000 },
+      "conditions": {
+        "min_money": 3000
+      },
       "text_key": "EVENT_ADULT_TRAVEL",
       "choices": [
         {
           "text_key": "CHOICE_INTERNATIONAL_TRIP",
-          "effects": { "happiness": 8, "charisma": 3, "intelligence": 2 },
+          "effects": {
+            "happiness": 8,
+            "charisma": 3,
+            "intelligence": 2
+          },
           "money_effect": -5000,
-          "trait_chance": { "trait": "adventurous", "chance": 0.1 }
+          "trait_chance": {
+            "trait": "adventurous",
+            "chance": 0.1
+          }
         },
         {
           "text_key": "CHOICE_LOCAL_VACATION",
-          "effects": { "happiness": 5, "health": 2 },
+          "effects": {
+            "happiness": 5,
+            "health": 2
+          },
           "money_effect": -1000
         },
-        { "text_key": "CHOICE_SAVE_MONEY", "effects": { "intelligence": 1 } }
+        {
+          "text_key": "CHOICE_SAVE_MONEY",
+          "effects": {
+            "intelligence": 1
+          }
+        }
       ]
     },
     {
       "id": "adult_investment",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 60,
       "category": "finance",
       "weight": 40,
-      "conditions": { "min_money": 5000 },
+      "conditions": {
+        "min_money": 5000
+      },
       "text_key": "EVENT_ADULT_INVESTMENT",
       "choices": [
         {
           "text_key": "CHOICE_SAFE_INVESTMENT",
-          "effects": { "intelligence": 2 },
+          "effects": {
+            "intelligence": 2
+          },
           "money_effect": 2000
         },
         {
           "text_key": "CHOICE_RISKY_INVESTMENT",
-          "effects": { "intelligence": 1 },
+          "effects": {
+            "intelligence": 1
+          },
           "money_effect": 8000,
-          "trait_chance": { "trait": "ambitious", "chance": 0.08 }
+          "trait_chance": {
+            "trait": "ambitious",
+            "chance": 0.08
+          }
         },
-        { "text_key": "CHOICE_NO_INVEST", "effects": {} }
+        {
+          "text_key": "CHOICE_NO_INVEST",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_gym",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 55,
       "category": "health",
@@ -365,17 +566,35 @@
       "choices": [
         {
           "text_key": "CHOICE_JOIN_GYM",
-          "effects": { "health": 5, "appearance": 3 },
+          "effects": {
+            "health": 5,
+            "appearance": 3
+          },
           "money_effect": -500,
-          "trait_chance": { "trait": "athletic", "chance": 0.1 }
+          "trait_chance": {
+            "trait": "athletic",
+            "chance": 0.1
+          }
         },
-        { "text_key": "CHOICE_HOME_EXERCISE", "effects": { "health": 3 } },
-        { "text_key": "CHOICE_NO_EXERCISE", "effects": { "health": -2 } }
+        {
+          "text_key": "CHOICE_HOME_EXERCISE",
+          "effects": {
+            "health": 3
+          }
+        },
+        {
+          "text_key": "CHOICE_NO_EXERCISE",
+          "effects": {
+            "health": -2
+          }
+        }
       ]
     },
     {
       "id": "adult_pet_adoption",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 60,
       "category": "family",
@@ -385,40 +604,63 @@
       "choices": [
         {
           "text_key": "CHOICE_ADOPT_DOG",
-          "effects": { "happiness": 6, "health": 2 },
+          "effects": {
+            "happiness": 6,
+            "health": 2
+          },
           "money_effect": -500,
-          "trait_chance": { "trait": "compassionate", "chance": 0.08 }
+          "trait_chance": {
+            "trait": "compassionate",
+            "chance": 0.08
+          }
         },
         {
           "text_key": "CHOICE_ADOPT_CAT",
-          "effects": { "happiness": 5 },
+          "effects": {
+            "happiness": 5
+          },
           "money_effect": -300
         },
-        { "text_key": "CHOICE_NO_PETS", "effects": {} }
+        {
+          "text_key": "CHOICE_NO_PETS",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_layoff",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 60,
       "category": "work",
       "weight": 25,
-      "conditions": { "has_career": true },
+      "conditions": {
+        "has_career": true
+      },
       "text_key": "EVENT_ADULT_LAYOFF",
       "choices": [
         {
           "text_key": "CHOICE_ACCEPT_LAYOFF",
-          "effects": { "happiness": -8, "mental_stability": -5 }
+          "effects": {
+            "happiness": -8,
+            "mental_stability": -5
+          }
         },
         {
           "text_key": "CHOICE_NEGOTIATE_SEVERANCE",
-          "effects": { "charisma": 3, "happiness": -3 },
+          "effects": {
+            "charisma": 3,
+            "happiness": -3
+          },
           "money_effect": 5000
         },
         {
           "text_key": "CHOICE_SUE_COMPANY",
-          "effects": { "happiness": -5 },
+          "effects": {
+            "happiness": -5
+          },
           "money_effect": 10000,
           "morality_effect": -2
         }
@@ -426,34 +668,53 @@
     },
     {
       "id": "adult_burnout",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 25,
       "age_max": 55,
       "category": "work",
       "weight": 30,
-      "conditions": { "has_career": true },
+      "conditions": {
+        "has_career": true
+      },
       "text_key": "EVENT_ADULT_BURNOUT",
       "choices": [
         {
           "text_key": "CHOICE_TAKE_BREAK",
-          "effects": { "mental_stability": 5, "health": 3, "happiness": 3 },
+          "effects": {
+            "mental_stability": 5,
+            "health": 3,
+            "happiness": 3
+          },
           "money_effect": -2000
         },
         {
           "text_key": "CHOICE_PUSH_THROUGH_WORK",
-          "effects": { "health": -5, "mental_stability": -5 },
+          "effects": {
+            "health": -5,
+            "mental_stability": -5
+          },
           "money_effect": 1000,
-          "trait_chance": { "trait": "hardworking", "chance": 0.08 }
+          "trait_chance": {
+            "trait": "hardworking",
+            "chance": 0.08
+          }
         },
         {
           "text_key": "CHOICE_QUIT_JOB_BURNOUT",
-          "effects": { "mental_stability": 3, "happiness": 2 }
+          "effects": {
+            "mental_stability": 3,
+            "happiness": 2
+          }
         }
       ]
     },
     {
       "id": "adult_side_hustle",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 50,
       "category": "finance",
@@ -463,16 +724,28 @@
       "choices": [
         {
           "text_key": "CHOICE_START_SIDE_HUSTLE",
-          "effects": { "intelligence": 3 },
+          "effects": {
+            "intelligence": 3
+          },
           "money_effect": 2000,
-          "trait_chance": { "trait": "ambitious", "chance": 0.1 }
+          "trait_chance": {
+            "trait": "ambitious",
+            "chance": 0.1
+          }
         },
-        { "text_key": "CHOICE_FOCUS_MAIN_JOB", "effects": { "health": 2 } }
+        {
+          "text_key": "CHOICE_FOCUS_MAIN_JOB",
+          "effects": {
+            "health": 2
+          }
+        }
       ]
     },
     {
       "id": "adult_networking",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 55,
       "category": "work",
@@ -482,67 +755,101 @@
       "choices": [
         {
           "text_key": "CHOICE_NETWORK_ACTIVELY",
-          "effects": { "charisma": 5, "intelligence": 1 },
-          "trait_chance": { "trait": "charismatic", "chance": 0.08 }
+          "effects": {
+            "charisma": 5,
+            "intelligence": 1
+          },
+          "trait_chance": {
+            "trait": "charismatic",
+            "chance": 0.08
+          }
         },
-        { "text_key": "CHOICE_SKIP_NETWORKING", "effects": {} }
+        {
+          "text_key": "CHOICE_SKIP_NETWORKING",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_therapy",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 64,
       "category": "health",
       "weight": 30,
-      "conditions": { "max_mental_stability": 45 },
+      "conditions": {
+        "max_mental_stability": 45
+      },
       "text_key": "EVENT_ADULT_THERAPY",
       "choices": [
         {
           "text_key": "CHOICE_START_THERAPY",
-          "effects": { "mental_stability": 10, "happiness": 5 },
+          "effects": {
+            "mental_stability": 10,
+            "happiness": 5
+          },
           "money_effect": -1200
         },
         {
           "text_key": "CHOICE_SELF_HELP",
-          "effects": { "mental_stability": 3, "intelligence": 2 }
+          "effects": {
+            "mental_stability": 3,
+            "intelligence": 2
+          }
         },
         {
           "text_key": "CHOICE_NO_THERAPY",
-          "effects": { "mental_stability": -3 }
+          "effects": {
+            "mental_stability": -3
+          }
         }
       ]
     },
     {
       "id": "adult_home_renovation",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 28,
       "age_max": 60,
       "category": "finance",
       "weight": 30,
-      "conditions": { "min_money": 8000 },
+      "conditions": {
+        "min_money": 8000
+      },
       "text_key": "EVENT_ADULT_RENOVATION",
       "choices": [
         {
           "text_key": "CHOICE_FULL_RENOVATION",
-          "effects": { "happiness": 6 },
+          "effects": {
+            "happiness": 6
+          },
           "money_effect": -15000
         },
         {
           "text_key": "CHOICE_SMALL_FIXES",
-          "effects": { "happiness": 2 },
+          "effects": {
+            "happiness": 2
+          },
           "money_effect": -2000
         },
         {
           "text_key": "CHOICE_DIY",
-          "effects": { "intelligence": 3, "happiness": 3 },
+          "effects": {
+            "intelligence": 3,
+            "happiness": 3
+          },
           "money_effect": -1000
         }
       ]
     },
     {
       "id": "adult_neighbor_conflict",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 64,
       "category": "social",
@@ -552,22 +859,35 @@
       "choices": [
         {
           "text_key": "CHOICE_TALK_CALMLY",
-          "effects": { "charisma": 3, "temperament": 2 }
+          "effects": {
+            "charisma": 3,
+            "temperament": 2
+          }
         },
         {
           "text_key": "CHOICE_ESCALATE",
-          "effects": { "happiness": -3, "temperament": -3 },
-          "trait_chance": { "trait": "aggressive", "chance": 0.08 }
+          "effects": {
+            "happiness": -3,
+            "temperament": -3
+          },
+          "trait_chance": {
+            "trait": "aggressive",
+            "chance": 0.08
+          }
         },
         {
           "text_key": "CHOICE_IGNORE_NEIGHBOR",
-          "effects": { "mental_stability": -1 }
+          "effects": {
+            "mental_stability": -1
+          }
         }
       ]
     },
     {
       "id": "adult_reunion",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 28,
       "age_max": 55,
       "category": "social",
@@ -577,36 +897,60 @@
       "choices": [
         {
           "text_key": "CHOICE_ATTEND_REUNION",
-          "effects": { "happiness": 5, "charisma": 2 }
+          "effects": {
+            "happiness": 5,
+            "charisma": 2
+          }
         },
-        { "text_key": "CHOICE_SKIP_REUNION", "effects": {} }
+        {
+          "text_key": "CHOICE_SKIP_REUNION",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_marathon",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 50,
       "category": "health",
       "weight": 25,
-      "conditions": { "min_health": 40 },
+      "conditions": {
+        "min_health": 40
+      },
       "text_key": "EVENT_ADULT_MARATHON",
       "choices": [
         {
           "text_key": "CHOICE_RUN_MARATHON",
-          "effects": { "health": 8, "temperament": 5 },
-          "trait_chance": { "trait": "athletic", "chance": 0.15 }
+          "effects": {
+            "health": 8,
+            "temperament": 5
+          },
+          "trait_chance": {
+            "trait": "athletic",
+            "chance": 0.15
+          }
         },
         {
           "text_key": "CHOICE_HALF_MARATHON",
-          "effects": { "health": 4, "happiness": 3 }
+          "effects": {
+            "health": 4,
+            "happiness": 3
+          }
         },
-        { "text_key": "CHOICE_SKIP_MARATHON", "effects": {} }
+        {
+          "text_key": "CHOICE_SKIP_MARATHON",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_jury_duty",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 21,
       "age_max": 64,
       "category": "social",
@@ -616,7 +960,10 @@
       "choices": [
         {
           "text_key": "CHOICE_SERVE_JURY",
-          "effects": { "intelligence": 3, "morality": 2 },
+          "effects": {
+            "intelligence": 3,
+            "morality": 2
+          },
           "morality_effect": 3
         },
         {
@@ -628,7 +975,9 @@
     },
     {
       "id": "adult_home_breakin",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 64,
       "category": "crime",
@@ -638,23 +987,33 @@
       "choices": [
         {
           "text_key": "CHOICE_CALL_POLICE",
-          "effects": { "happiness": -5 },
+          "effects": {
+            "happiness": -5
+          },
           "money_effect": -1000
         },
         {
           "text_key": "CHOICE_CONFRONT_BURGLAR",
-          "effects": { "health": -5, "temperament": 5 }
+          "effects": {
+            "health": -5,
+            "temperament": 5
+          }
         },
         {
           "text_key": "CHOICE_HIDE",
-          "effects": { "mental_stability": -5, "happiness": -3 },
+          "effects": {
+            "mental_stability": -5,
+            "happiness": -3
+          },
           "money_effect": -3000
         }
       ]
     },
     {
       "id": "adult_gambling",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 21,
       "age_max": 60,
       "category": "finance",
@@ -664,66 +1023,103 @@
       "choices": [
         {
           "text_key": "CHOICE_GAMBLE_BIG",
-          "effects": { "happiness": 3 },
+          "effects": {
+            "happiness": 3
+          },
           "money_effect": -5000,
-          "trait_chance": { "trait": "impulsive", "chance": 0.12 }
+          "trait_chance": {
+            "trait": "impulsive",
+            "chance": 0.12
+          }
         },
         {
           "text_key": "CHOICE_GAMBLE_SMALL",
-          "effects": { "happiness": 1 },
+          "effects": {
+            "happiness": 1
+          },
           "money_effect": -500
         },
         {
           "text_key": "CHOICE_NO_GAMBLING",
-          "effects": { "intelligence": 1 },
+          "effects": {
+            "intelligence": 1
+          },
           "morality_effect": 2
         }
       ]
     },
     {
       "id": "adult_mentor",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 30,
       "age_max": 60,
       "category": "work",
       "weight": 30,
-      "conditions": { "has_career": true },
+      "conditions": {
+        "has_career": true
+      },
       "text_key": "EVENT_ADULT_MENTOR",
       "choices": [
         {
           "text_key": "CHOICE_BECOME_MENTOR",
-          "effects": { "charisma": 4, "happiness": 3 },
+          "effects": {
+            "charisma": 4,
+            "happiness": 3
+          },
           "morality_effect": 5,
-          "trait_chance": { "trait": "compassionate", "chance": 0.08 }
+          "trait_chance": {
+            "trait": "compassionate",
+            "chance": 0.08
+          }
         },
-        { "text_key": "CHOICE_TOO_BUSY", "effects": {} }
+        {
+          "text_key": "CHOICE_TOO_BUSY",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_addiction",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 60,
       "category": "health",
       "weight": 15,
-      "conditions": { "max_mental_stability": 40 },
+      "conditions": {
+        "max_mental_stability": 40
+      },
       "text_key": "EVENT_ADULT_ADDICTION",
       "choices": [
         {
           "text_key": "CHOICE_SEEK_REHAB",
-          "effects": { "health": 5, "mental_stability": 8 },
+          "effects": {
+            "health": 5,
+            "mental_stability": 8
+          },
           "money_effect": -5000
         },
         {
           "text_key": "CHOICE_DENY_PROBLEM",
-          "effects": { "health": -10, "mental_stability": -8 },
-          "trait_chance": { "trait": "self_destructive", "chance": 0.15 }
+          "effects": {
+            "health": -10,
+            "mental_stability": -8
+          },
+          "trait_chance": {
+            "trait": "self_destructive",
+            "chance": 0.15
+          }
         }
       ]
     },
     {
       "id": "adult_cooking_hobby",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 60,
       "category": "social",
@@ -733,19 +1129,31 @@
       "choices": [
         {
           "text_key": "CHOICE_LEARN_COOKING",
-          "effects": { "intelligence": 2, "happiness": 4, "health": 2 },
-          "trait_chance": { "trait": "creative", "chance": 0.06 }
+          "effects": {
+            "intelligence": 2,
+            "happiness": 4,
+            "health": 2
+          },
+          "trait_chance": {
+            "trait": "creative",
+            "chance": 0.06
+          }
         },
         {
           "text_key": "CHOICE_ORDER_TAKEOUT",
-          "effects": { "happiness": 1, "health": -1 },
+          "effects": {
+            "happiness": 1,
+            "health": -1
+          },
           "money_effect": -300
         }
       ]
     },
     {
       "id": "adult_traffic_ticket",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 64,
       "category": "finance",
@@ -753,17 +1161,25 @@
       "conditions": {},
       "text_key": "EVENT_ADULT_TRAFFIC_TICKET",
       "choices": [
-        { "text_key": "CHOICE_PAY_FINE", "effects": {}, "money_effect": -300 },
+        {
+          "text_key": "CHOICE_PAY_FINE",
+          "effects": {},
+          "money_effect": -300
+        },
         {
           "text_key": "CHOICE_CONTEST_TICKET",
-          "effects": { "charisma": 2 },
+          "effects": {
+            "charisma": 2
+          },
           "money_effect": -100
         }
       ]
     },
     {
       "id": "adult_volunteer_abroad",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 45,
       "category": "social",
@@ -773,22 +1189,37 @@
       "choices": [
         {
           "text_key": "CHOICE_GO_ABROAD",
-          "effects": { "charisma": 5, "intelligence": 3, "happiness": 5 },
+          "effects": {
+            "charisma": 5,
+            "intelligence": 3,
+            "happiness": 5
+          },
           "money_effect": -3000,
           "morality_effect": 10,
-          "trait_chance": { "trait": "compassionate", "chance": 0.15 }
+          "trait_chance": {
+            "trait": "compassionate",
+            "chance": 0.15
+          }
         },
         {
           "text_key": "CHOICE_VOLUNTEER_LOCAL",
-          "effects": { "charisma": 2, "happiness": 2 },
+          "effects": {
+            "charisma": 2,
+            "happiness": 2
+          },
           "morality_effect": 5
         },
-        { "text_key": "CHOICE_DECLINE_VOLUNTEER", "effects": {} }
+        {
+          "text_key": "CHOICE_DECLINE_VOLUNTEER",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_inheritance",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 30,
       "age_max": 64,
       "category": "finance",
@@ -798,42 +1229,63 @@
       "choices": [
         {
           "text_key": "CHOICE_ACCEPT_INHERITANCE",
-          "effects": { "happiness": 3 },
+          "effects": {
+            "happiness": 3
+          },
           "money_effect": 20000
         },
         {
           "text_key": "CHOICE_DONATE_INHERITANCE",
-          "effects": { "happiness": 5 },
+          "effects": {
+            "happiness": 5
+          },
           "morality_effect": 10,
-          "trait_chance": { "trait": "generous", "chance": 0.15 }
+          "trait_chance": {
+            "trait": "generous",
+            "chance": 0.15
+          }
         }
       ]
     },
     {
       "id": "adult_social_media_fame",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 45,
       "category": "social",
       "weight": 20,
-      "conditions": { "min_charisma": 50 },
+      "conditions": {
+        "min_charisma": 50
+      },
       "text_key": "EVENT_ADULT_SOCIAL_FAME",
       "choices": [
         {
           "text_key": "CHOICE_PURSUE_FAME",
-          "effects": { "charisma": 5, "happiness": 3 },
+          "effects": {
+            "charisma": 5,
+            "happiness": 3
+          },
           "money_effect": 3000,
-          "trait_chance": { "trait": "charismatic", "chance": 0.1 }
+          "trait_chance": {
+            "trait": "charismatic",
+            "chance": 0.1
+          }
         },
         {
           "text_key": "CHOICE_STAY_PRIVATE",
-          "effects": { "mental_stability": 3 }
+          "effects": {
+            "mental_stability": 3
+          }
         }
       ]
     },
     {
       "id": "adult_lawsuit",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 25,
       "age_max": 64,
       "category": "finance",
@@ -843,19 +1295,26 @@
       "choices": [
         {
           "text_key": "CHOICE_FIGHT_LAWSUIT",
-          "effects": { "temperament": 3, "happiness": -5 },
+          "effects": {
+            "temperament": 3,
+            "happiness": -5
+          },
           "money_effect": -8000
         },
         {
           "text_key": "CHOICE_SETTLE_LAWSUIT",
-          "effects": { "happiness": -2 },
+          "effects": {
+            "happiness": -2
+          },
           "money_effect": -3000
         }
       ]
     },
     {
       "id": "adult_cheating_partner",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 25,
       "age_max": 55,
       "category": "family",
@@ -865,22 +1324,36 @@
       "choices": [
         {
           "text_key": "CHOICE_FORGIVE_PARTNER",
-          "effects": { "happiness": -5, "mental_stability": -3 },
-          "trait_chance": { "trait": "compassionate", "chance": 0.05 }
+          "effects": {
+            "happiness": -5,
+            "mental_stability": -3
+          },
+          "trait_chance": {
+            "trait": "compassionate",
+            "chance": 0.05
+          }
         },
         {
           "text_key": "CHOICE_CONFRONT_LEAVE",
-          "effects": { "happiness": -8, "temperament": 3 }
+          "effects": {
+            "happiness": -8,
+            "temperament": 3
+          }
         },
         {
           "text_key": "CHOICE_IGNORE_CHEATING",
-          "effects": { "mental_stability": -8, "happiness": -5 }
+          "effects": {
+            "mental_stability": -8,
+            "happiness": -5
+          }
         }
       ]
     },
     {
       "id": "adult_new_skill",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 55,
       "category": "social",
@@ -890,19 +1363,33 @@
       "choices": [
         {
           "text_key": "CHOICE_LEARN_LANGUAGE",
-          "effects": { "intelligence": 5, "charisma": 2 }
+          "effects": {
+            "intelligence": 5,
+            "charisma": 2
+          }
         },
         {
           "text_key": "CHOICE_LEARN_INSTRUMENT",
-          "effects": { "happiness": 4, "intelligence": 2 },
-          "trait_chance": { "trait": "creative", "chance": 0.08 }
+          "effects": {
+            "happiness": 4,
+            "intelligence": 2
+          },
+          "trait_chance": {
+            "trait": "creative",
+            "chance": 0.08
+          }
         },
-        { "text_key": "CHOICE_NO_TIME_SKILL", "effects": {} }
+        {
+          "text_key": "CHOICE_NO_TIME_SKILL",
+          "effects": {}
+        }
       ]
     },
     {
       "id": "adult_pregnancy_scare",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 40,
       "category": "family",
@@ -912,44 +1399,66 @@
       "choices": [
         {
           "text_key": "CHOICE_BE_READY",
-          "effects": { "happiness": 2, "mental_stability": 2 }
+          "effects": {
+            "happiness": 2,
+            "mental_stability": 2
+          }
         },
         {
           "text_key": "CHOICE_PANIC",
-          "effects": { "mental_stability": -5, "happiness": -3 },
-          "trait_chance": { "trait": "anxious", "chance": 0.08 }
+          "effects": {
+            "mental_stability": -5,
+            "happiness": -3
+          },
+          "trait_chance": {
+            "trait": "anxious",
+            "chance": 0.08
+          }
         }
       ]
     },
     {
       "id": "adult_debt_collector",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 20,
       "age_max": 60,
       "category": "finance",
       "weight": 20,
-      "conditions": { "max_money": 0 },
+      "conditions": {
+        "max_money": 0
+      },
       "text_key": "EVENT_ADULT_DEBT",
       "choices": [
         {
           "text_key": "CHOICE_PAYMENT_PLAN",
-          "effects": { "mental_stability": 2 },
+          "effects": {
+            "mental_stability": 2
+          },
           "money_effect": -1000
         },
         {
           "text_key": "CHOICE_IGNORE_DEBT",
-          "effects": { "mental_stability": -5, "happiness": -3 }
+          "effects": {
+            "mental_stability": -5,
+            "happiness": -3
+          }
         },
         {
           "text_key": "CHOICE_BORROW_FRIENDS",
-          "effects": { "charisma": -3 },
+          "effects": {
+            "charisma": -3
+          },
           "money_effect": 2000
         }
       ]
     },
     {
       "id": "adult_natural_disaster",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 18,
       "age_max": 64,
       "category": "health",
@@ -959,24 +1468,38 @@
       "choices": [
         {
           "text_key": "CHOICE_EVACUATE",
-          "effects": { "health": -2, "happiness": -5 },
+          "effects": {
+            "health": -2,
+            "happiness": -5
+          },
           "money_effect": -5000
         },
         {
           "text_key": "CHOICE_STAY_RIDE_OUT",
-          "effects": { "health": -8, "temperament": 5 }
+          "effects": {
+            "health": -8,
+            "temperament": 5
+          }
         },
         {
           "text_key": "CHOICE_HELP_OTHERS",
-          "effects": { "health": -3, "charisma": 5 },
+          "effects": {
+            "health": -3,
+            "charisma": 5
+          },
           "morality_effect": 10,
-          "trait_chance": { "trait": "brave", "chance": 0.15 }
+          "trait_chance": {
+            "trait": "brave",
+            "chance": 0.15
+          }
         }
       ]
     },
     {
       "id": "adult_wedding_planning",
-      "phases": ["ADULT"],
+      "phases": [
+        "ADULT"
+      ],
       "age_min": 22,
       "age_max": 50,
       "category": "family",
@@ -986,18 +1509,245 @@
       "choices": [
         {
           "text_key": "CHOICE_BIG_WEDDING",
-          "effects": { "happiness": 8, "charisma": 2 },
+          "effects": {
+            "happiness": 8,
+            "charisma": 2
+          },
           "money_effect": -15000
         },
         {
           "text_key": "CHOICE_SMALL_WEDDING",
-          "effects": { "happiness": 6 },
+          "effects": {
+            "happiness": 6
+          },
           "money_effect": -3000
         },
         {
           "text_key": "CHOICE_COURTHOUSE",
-          "effects": { "happiness": 4 },
+          "effects": {
+            "happiness": 4
+          },
           "money_effect": -200
+        }
+      ]
+    },
+    {
+      "id": "adult_betrayal",
+      "phases": [
+        "ADULT"
+      ],
+      "age_min": 20,
+      "age_max": 60,
+      "category": "social",
+      "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_BETRAYAL",
+      "choices": [
+        {
+          "text_key": "CHOICE_FORGIVE",
+          "effects": {
+            "morality": 5,
+            "happiness": -5
+          },
+          "relationship_effects": {
+            "PARTNER": {
+              "affection": 5
+            }
+          }
+        },
+        {
+          "text_key": "CHOICE_BREAKUP",
+          "effects": {
+            "happiness": -10,
+            "health": -3
+          },
+          "relationship_effects": {
+            "PARTNER": {
+              "affection": -100
+            }
+          }
+        },
+        {
+          "text_key": "CHOICE_REVENGE",
+          "effects": {
+            "morality": -10,
+            "happiness": 5,
+            "charisma": 2
+          },
+          "relationship_effects": {
+            "PARTNER": {
+              "affection": -50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "adult_accident",
+      "phases": [
+        "ADULT",
+        "ELDER"
+      ],
+      "age_min": 18,
+      "age_max": 90,
+      "category": "health",
+      "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_ACCIDENT",
+      "choices": [
+        {
+          "text_key": "CHOICE_AMBULANCE",
+          "effects": {
+            "health": 10,
+            "happiness": -3
+          },
+          "money_effect": -1500
+        },
+        {
+          "text_key": "CHOICE_IGNORE_INJURY",
+          "effects": {
+            "health": -25,
+            "intelligence": -3
+          }
+        }
+      ]
+    },
+    {
+      "id": "adult_memed",
+      "phases": [
+        "ADULT"
+      ],
+      "age_min": 18,
+      "age_max": 40,
+      "category": "social",
+      "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_MEME",
+      "choices": [
+        {
+          "text_key": "CHOICE_MILK_IT",
+          "effects": {
+            "charisma": 10,
+            "happiness": 5
+          },
+          "money_effect": 2000
+        },
+        {
+          "text_key": "CHOICE_DELETE_APP",
+          "effects": {
+            "health": 5,
+            "happiness": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "adult_betrayal",
+      "phases": [
+        "ADULT"
+      ],
+      "age_min": 20,
+      "age_max": 60,
+      "category": "social",
+      "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_BETRAYAL",
+      "choices": [
+        {
+          "text_key": "CHOICE_FORGIVE",
+          "effects": {
+            "morality": 5,
+            "happiness": -5
+          },
+          "relationship_effects": {
+            "PARTNER": {
+              "affection": 5
+            }
+          }
+        },
+        {
+          "text_key": "CHOICE_BREAKUP",
+          "effects": {
+            "happiness": -10,
+            "health": -3
+          },
+          "relationship_effects": {
+            "PARTNER": {
+              "affection": -100
+            }
+          }
+        },
+        {
+          "text_key": "CHOICE_REVENGE",
+          "effects": {
+            "morality": -10,
+            "happiness": 5,
+            "charisma": 2
+          },
+          "relationship_effects": {
+            "PARTNER": {
+              "affection": -50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "adult_accident",
+      "phases": [
+        "ADULT",
+        "ELDER"
+      ],
+      "age_min": 18,
+      "age_max": 90,
+      "category": "health",
+      "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_ACCIDENT",
+      "choices": [
+        {
+          "text_key": "CHOICE_AMBULANCE",
+          "effects": {
+            "health": 10,
+            "happiness": -3
+          },
+          "money_effect": -1500
+        },
+        {
+          "text_key": "CHOICE_IGNORE_INJURY",
+          "effects": {
+            "health": -25,
+            "intelligence": -3
+          }
+        }
+      ]
+    },
+    {
+      "id": "adult_memed",
+      "phases": [
+        "ADULT"
+      ],
+      "age_min": 18,
+      "age_max": 40,
+      "category": "social",
+      "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_ADULT_MEME",
+      "choices": [
+        {
+          "text_key": "CHOICE_MILK_IT",
+          "effects": {
+            "charisma": 10,
+            "happiness": 5
+          },
+          "money_effect": 2000
+        },
+        {
+          "text_key": "CHOICE_DELETE_APP",
+          "effects": {
+            "health": 5,
+            "happiness": -2
+          }
         }
       ]
     }
