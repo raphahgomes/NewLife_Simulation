@@ -43,12 +43,12 @@ var sfx_enabled: bool = true:
 
 # Music per life phase
 var _phase_music: Dictionary = {
-	"baby": "res://assets/sounds/music_baby.ogg",
-	"child": "res://assets/sounds/music_child.ogg",
-	"teen": "res://assets/sounds/music_teen.ogg",
-	"adult": "res://assets/sounds/music_adult.ogg",
-	"elder": "res://assets/sounds/music_elder.ogg",
-	"menu": "res://assets/sounds/music_menu.ogg",
+	"baby": "res://assets/sounds/music_baby.wav",
+	"child": "res://assets/sounds/music_child.wav",
+	"teen": "res://assets/sounds/music_teen.wav",
+	"adult": "res://assets/sounds/music_adult.wav",
+	"elder": "res://assets/sounds/music_elder.wav",
+	"menu": "res://assets/sounds/music_menu.wav",
 }
 
 # SFX paths
@@ -177,7 +177,7 @@ func _on_music_finished() -> void:
 func play_sfx(sfx_name: String) -> void:
 	if not sfx_enabled:
 		return
-	var path := "res://assets/sounds/sfx_%s.ogg" % sfx_name
+	var path := "res://assets/sounds/sfx_%s.wav" % sfx_name
 	if not ResourceLoader.exists(path):
 		return
 	var stream = _get_cached_sfx(path)
@@ -190,7 +190,7 @@ func play_sfx(sfx_name: String) -> void:
 func play_ui_sfx(sfx_name: String) -> void:
 	if not sfx_enabled:
 		return
-	var path := "res://assets/sounds/sfx_%s.ogg" % sfx_name
+	var path := "res://assets/sounds/sfx_%s.wav" % sfx_name
 	if not ResourceLoader.exists(path):
 		return
 	var stream = _get_cached_sfx(path)
