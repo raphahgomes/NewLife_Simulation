@@ -73,9 +73,15 @@ func _check_condition(condition: Dictionary, character: Character) -> bool:
 		"has_career":
 			return character.current_career != ""
 		"is_married":
-			return character.is_married
+			for rel in character.relationships:
+				if rel is Relationship and rel.rel_type == Relationship.RelType.SPOUSE:
+					return true
+			return false
 		"has_children":
-			return character.children.size() > 0
+			for rel in character.relationships:
+				if rel is Relationship and rel.rel_type == Relationship.RelType.CHILD:
+					return true
+			return false
 		"min_money":
 			return character.get_net_worth() >= int(value)
 		"max_money":
