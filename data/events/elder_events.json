@@ -2,228 +2,475 @@
   "events": [
     {
       "id": "elder_retirement",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "work", "weight": 80,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "work",
+      "weight": 80,
       "conditions": {},
       "text_key": "EVENT_ELDER_RETIREMENT",
       "choices": [
-        { "text_key": "CHOICE_HAPPY_RETIREMENT", "effects": { "happiness": 8, "health": 3 } },
-        { "text_key": "CHOICE_MISS_WORK", "effects": { "happiness": -3, "mental_stability": -2 } }
+        {
+          "text_key": "CHOICE_HAPPY_RETIREMENT",
+          "effects": { "happiness": 8, "health": 3 }
+        },
+        {
+          "text_key": "CHOICE_MISS_WORK",
+          "effects": { "happiness": -3, "mental_stability": -2 }
+        }
       ]
     },
     {
       "id": "elder_grandchild",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "family", "weight": 60,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "family",
+      "weight": 60,
       "conditions": {},
       "text_key": "EVENT_ELDER_GRANDCHILD",
       "choices": [
-        { "text_key": "CHOICE_SPOIL_GRANDCHILD", "effects": { "happiness": 10 }, "money_effect": -500 },
-        { "text_key": "CHOICE_WISE_GRANDPARENT", "effects": { "happiness": 6, "intelligence": 2 } }
+        {
+          "text_key": "CHOICE_SPOIL_GRANDCHILD",
+          "effects": { "happiness": 10 },
+          "money_effect": -500
+        },
+        {
+          "text_key": "CHOICE_WISE_GRANDPARENT",
+          "effects": { "happiness": 6, "intelligence": 2 }
+        }
       ]
     },
     {
       "id": "elder_health_decline",
-      "phases": ["ELDER"], "age_min": 68, "age_max": 100, "category": "health", "weight": 70,
+      "phases": ["ELDER"],
+      "age_min": 68,
+      "age_max": 100,
+      "category": "health",
+      "weight": 70,
       "conditions": {},
       "text_key": "EVENT_ELDER_HEALTH_DECLINE",
       "choices": [
-        { "text_key": "CHOICE_FIGHT_DECLINE", "effects": { "health": 3, "happiness": -2 }, "money_effect": -2000 },
-        { "text_key": "CHOICE_ACCEPT_AGING", "effects": { "mental_stability": 5, "happiness": 2 }, "trait_chance": { "trait": "wise", "chance": 0.1 } }
+        {
+          "text_key": "CHOICE_FIGHT_DECLINE",
+          "effects": { "health": 3, "happiness": -2 },
+          "money_effect": -2000
+        },
+        {
+          "text_key": "CHOICE_ACCEPT_AGING",
+          "effects": { "mental_stability": 5, "happiness": 2 },
+          "trait_chance": { "trait": "wise", "chance": 0.1 }
+        }
       ]
     },
     {
       "id": "elder_will",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "finance", "weight": 50,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "finance",
+      "weight": 50,
       "conditions": {},
       "text_key": "EVENT_ELDER_WILL",
       "choices": [
-        { "text_key": "CHOICE_FAIR_WILL", "effects": { "mental_stability": 5 }, "morality_effect": 5 },
-        { "text_key": "CHOICE_FAVORITE_CHILD", "effects": { "happiness": 2 }, "morality_effect": -3 },
-        { "text_key": "CHOICE_DONATE_ALL", "effects": { "happiness": 5 }, "morality_effect": 10, "trait_chance": { "trait": "generous", "chance": 0.2 } }
+        {
+          "text_key": "CHOICE_FAIR_WILL",
+          "effects": { "mental_stability": 5 },
+          "morality_effect": 5
+        },
+        {
+          "text_key": "CHOICE_FAVORITE_CHILD",
+          "effects": { "happiness": 2 },
+          "morality_effect": -3
+        },
+        {
+          "text_key": "CHOICE_DONATE_ALL",
+          "effects": { "happiness": 5 },
+          "morality_effect": 10,
+          "trait_chance": { "trait": "generous", "chance": 0.2 }
+        }
       ]
     },
     {
       "id": "elder_legacy",
-      "phases": ["ELDER"], "age_min": 70, "age_max": 100, "category": "social", "weight": 40,
+      "phases": ["ELDER"],
+      "age_min": 70,
+      "age_max": 100,
+      "category": "social",
+      "weight": 40,
       "conditions": {},
       "text_key": "EVENT_ELDER_LEGACY",
       "choices": [
-        { "text_key": "CHOICE_WRITE_MEMOIR", "effects": { "intelligence": 3, "happiness": 5 }, "trait_chance": { "trait": "creative", "chance": 0.08 } },
-        { "text_key": "CHOICE_QUIET_LEGACY", "effects": { "mental_stability": 3, "happiness": 3 } }
+        {
+          "text_key": "CHOICE_WRITE_MEMOIR",
+          "effects": { "intelligence": 3, "happiness": 5 },
+          "trait_chance": { "trait": "creative", "chance": 0.08 }
+        },
+        {
+          "text_key": "CHOICE_QUIET_LEGACY",
+          "effects": { "mental_stability": 3, "happiness": 3 }
+        }
       ]
     },
     {
       "id": "elder_friend_dies",
-      "phases": ["ELDER"], "age_min": 68, "age_max": 100, "category": "social", "weight": 50,
+      "phases": ["ELDER"],
+      "age_min": 68,
+      "age_max": 100,
+      "category": "social",
+      "weight": 50,
       "conditions": {},
       "text_key": "EVENT_ELDER_FRIEND_DIES",
       "choices": [
-        { "text_key": "CHOICE_MOURN_FRIEND", "effects": { "happiness": -8, "mental_stability": -3 } },
-        { "text_key": "CHOICE_CELEBRATE_LIFE", "effects": { "happiness": -2, "mental_stability": 3 }, "trait_chance": { "trait": "wise", "chance": 0.1 } }
+        {
+          "text_key": "CHOICE_MOURN_FRIEND",
+          "effects": { "happiness": -8, "mental_stability": -3 }
+        },
+        {
+          "text_key": "CHOICE_CELEBRATE_LIFE",
+          "effects": { "happiness": -2, "mental_stability": 3 },
+          "trait_chance": { "trait": "wise", "chance": 0.1 }
+        }
       ]
     },
     {
       "id": "elder_hobby",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "social", "weight": 45,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "social",
+      "weight": 45,
       "conditions": {},
       "text_key": "EVENT_ELDER_HOBBY",
       "choices": [
-        { "text_key": "CHOICE_NEW_HOBBY", "effects": { "happiness": 6, "intelligence": 2 } },
+        {
+          "text_key": "CHOICE_NEW_HOBBY",
+          "effects": { "happiness": 6, "intelligence": 2 }
+        },
         { "text_key": "CHOICE_TOO_OLD", "effects": { "happiness": -3 } }
       ]
     },
     {
       "id": "elder_scam",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "crime", "weight": 30,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "crime",
+      "weight": 30,
       "conditions": {},
       "text_key": "EVENT_ELDER_SCAM",
       "choices": [
-        { "text_key": "CHOICE_FALL_FOR_SCAM", "effects": { "happiness": -8, "mental_stability": -5 }, "money_effect": -10000 },
-        { "text_key": "CHOICE_SPOT_SCAM", "effects": { "intelligence": 3, "happiness": 2 } }
+        {
+          "text_key": "CHOICE_FALL_FOR_SCAM",
+          "effects": { "happiness": -8, "mental_stability": -5 },
+          "money_effect": -10000
+        },
+        {
+          "text_key": "CHOICE_SPOT_SCAM",
+          "effects": { "intelligence": 3, "happiness": 2 }
+        }
       ]
     },
     {
       "id": "elder_bucket_list",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 85, "category": "social", "weight": 40,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 85,
+      "category": "social",
+      "weight": 40,
       "conditions": { "min_money": 5000 },
       "text_key": "EVENT_ELDER_BUCKET_LIST",
       "choices": [
-        { "text_key": "CHOICE_TRAVEL_DREAM", "effects": { "happiness": 10, "health": -2 }, "money_effect": -8000, "trait_chance": { "trait": "adventurous", "chance": 0.1 } },
-        { "text_key": "CHOICE_SMALL_JOYS", "effects": { "happiness": 5, "mental_stability": 3 } },
-        { "text_key": "CHOICE_TOO_LATE", "effects": { "happiness": -5, "mental_stability": -3 } }
+        {
+          "text_key": "CHOICE_TRAVEL_DREAM",
+          "effects": { "happiness": 10, "health": -2 },
+          "money_effect": -8000,
+          "trait_chance": { "trait": "adventurous", "chance": 0.1 }
+        },
+        {
+          "text_key": "CHOICE_SMALL_JOYS",
+          "effects": { "happiness": 5, "mental_stability": 3 }
+        },
+        {
+          "text_key": "CHOICE_TOO_LATE",
+          "effects": { "happiness": -5, "mental_stability": -3 }
+        }
       ]
     },
     {
       "id": "elder_teaching",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 85, "category": "social", "weight": 35,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 85,
+      "category": "social",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_ELDER_TEACHING",
       "choices": [
-        { "text_key": "CHOICE_TEACH_YOUTH", "effects": { "charisma": 4, "happiness": 5 }, "morality_effect": 5, "trait_chance": { "trait": "wise", "chance": 0.12 } },
+        {
+          "text_key": "CHOICE_TEACH_YOUTH",
+          "effects": { "charisma": 4, "happiness": 5 },
+          "morality_effect": 5,
+          "trait_chance": { "trait": "wise", "chance": 0.12 }
+        },
         { "text_key": "CHOICE_KEEP_KNOWLEDGE", "effects": { "happiness": -1 } }
       ]
     },
     {
       "id": "elder_health_screening",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "health", "weight": 45,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "health",
+      "weight": 45,
       "conditions": {},
       "text_key": "EVENT_ELDER_SCREENING",
       "choices": [
-        { "text_key": "CHOICE_REGULAR_CHECKUP", "effects": { "health": 5 }, "money_effect": -800 },
+        {
+          "text_key": "CHOICE_REGULAR_CHECKUP",
+          "effects": { "health": 5 },
+          "money_effect": -800
+        },
         { "text_key": "CHOICE_SKIP_CHECKUP", "effects": { "health": -5 } }
       ]
     },
     {
       "id": "elder_downsizing",
-      "phases": ["ELDER"], "age_min": 70, "age_max": 100, "category": "finance", "weight": 35,
+      "phases": ["ELDER"],
+      "age_min": 70,
+      "age_max": 100,
+      "category": "finance",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_ELDER_DOWNSIZING",
       "choices": [
-        { "text_key": "CHOICE_MOVE_SMALLER", "effects": { "happiness": -3, "mental_stability": 2 }, "money_effect": 15000 },
-        { "text_key": "CHOICE_STAY_HOME", "effects": { "happiness": 3, "health": -2 }, "money_effect": -2000 },
-        { "text_key": "CHOICE_ASSISTED_LIVING", "effects": { "health": 3, "happiness": -2 }, "money_effect": -5000 }
+        {
+          "text_key": "CHOICE_MOVE_SMALLER",
+          "effects": { "happiness": -3, "mental_stability": 2 },
+          "money_effect": 15000
+        },
+        {
+          "text_key": "CHOICE_STAY_HOME",
+          "effects": { "happiness": 3, "health": -2 },
+          "money_effect": -2000
+        },
+        {
+          "text_key": "CHOICE_ASSISTED_LIVING",
+          "effects": { "health": 3, "happiness": -2 },
+          "money_effect": -5000
+        }
       ]
     },
     {
       "id": "elder_technology",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "social", "weight": 35,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "social",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_ELDER_TECHNOLOGY",
       "choices": [
-        { "text_key": "CHOICE_LEARN_TECH", "effects": { "intelligence": 4, "happiness": 3 } },
+        {
+          "text_key": "CHOICE_LEARN_TECH",
+          "effects": { "intelligence": 4, "happiness": 3 }
+        },
         { "text_key": "CHOICE_RESIST_TECH", "effects": { "happiness": -2 } }
       ]
     },
     {
       "id": "elder_family_reunion",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "family", "weight": 40,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "family",
+      "weight": 40,
       "conditions": {},
       "text_key": "EVENT_ELDER_FAMILY_REUNION",
       "choices": [
-        { "text_key": "CHOICE_HOST_REUNION", "effects": { "happiness": 8, "charisma": 2 }, "money_effect": -1000 },
+        {
+          "text_key": "CHOICE_HOST_REUNION",
+          "effects": { "happiness": 8, "charisma": 2 },
+          "money_effect": -1000
+        },
         { "text_key": "CHOICE_ATTEND_QUIETLY", "effects": { "happiness": 5 } },
-        { "text_key": "CHOICE_TOO_TIRED", "effects": { "health": 2, "happiness": -2 } }
+        {
+          "text_key": "CHOICE_TOO_TIRED",
+          "effects": { "health": 2, "happiness": -2 }
+        }
       ]
     },
     {
       "id": "elder_memory_loss",
-      "phases": ["ELDER"], "age_min": 72, "age_max": 100, "category": "health", "weight": 30,
+      "phases": ["ELDER"],
+      "age_min": 72,
+      "age_max": 100,
+      "category": "health",
+      "weight": 30,
       "conditions": {},
       "text_key": "EVENT_ELDER_MEMORY_LOSS",
       "choices": [
-        { "text_key": "CHOICE_BRAIN_EXERCISES", "effects": { "intelligence": 3, "mental_stability": 2 } },
-        { "text_key": "CHOICE_ACCEPT_MEMORY", "effects": { "mental_stability": 3, "happiness": -3 }, "trait_chance": { "trait": "wise", "chance": 0.08 } },
-        { "text_key": "CHOICE_SEE_SPECIALIST", "effects": { "health": 2, "intelligence": 2 }, "money_effect": -2000 }
+        {
+          "text_key": "CHOICE_BRAIN_EXERCISES",
+          "effects": { "intelligence": 3, "mental_stability": 2 }
+        },
+        {
+          "text_key": "CHOICE_ACCEPT_MEMORY",
+          "effects": { "mental_stability": 3, "happiness": -3 },
+          "trait_chance": { "trait": "wise", "chance": 0.08 }
+        },
+        {
+          "text_key": "CHOICE_SEE_SPECIALIST",
+          "effects": { "health": 2, "intelligence": 2 },
+          "money_effect": -2000
+        }
       ]
     },
     {
       "id": "elder_community_award",
-      "phases": ["ELDER"], "age_min": 68, "age_max": 100, "category": "social", "weight": 20,
+      "phases": ["ELDER"],
+      "age_min": 68,
+      "age_max": 100,
+      "category": "social",
+      "weight": 20,
       "conditions": { "min_morality": 60 },
       "text_key": "EVENT_ELDER_AWARD",
       "choices": [
-        { "text_key": "CHOICE_ACCEPT_HUMBLY", "effects": { "happiness": 8, "charisma": 3 }, "trait_chance": { "trait": "humble", "chance": 0.1 } },
-        { "text_key": "CHOICE_PROUD_SPEECH", "effects": { "happiness": 6, "charisma": 5 } }
+        {
+          "text_key": "CHOICE_ACCEPT_HUMBLY",
+          "effects": { "happiness": 8, "charisma": 3 },
+          "trait_chance": { "trait": "humble", "chance": 0.1 }
+        },
+        {
+          "text_key": "CHOICE_PROUD_SPEECH",
+          "effects": { "happiness": 6, "charisma": 5 }
+        }
       ]
     },
     {
       "id": "elder_gardening",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 95, "category": "health", "weight": 35,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 95,
+      "category": "health",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_ELDER_GARDENING",
       "choices": [
-        { "text_key": "CHOICE_START_GARDEN", "effects": { "health": 4, "happiness": 5, "mental_stability": 3 } },
+        {
+          "text_key": "CHOICE_START_GARDEN",
+          "effects": { "health": 4, "happiness": 5, "mental_stability": 3 }
+        },
         { "text_key": "CHOICE_NO_GARDENING", "effects": {} }
       ]
     },
     {
       "id": "elder_pet_companion",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 90, "category": "family", "weight": 30,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 90,
+      "category": "family",
+      "weight": 30,
       "conditions": {},
       "text_key": "EVENT_ELDER_PET",
       "choices": [
-        { "text_key": "CHOICE_GET_COMPANION_PET", "effects": { "happiness": 7, "mental_stability": 4, "health": 2 }, "money_effect": -300 },
+        {
+          "text_key": "CHOICE_GET_COMPANION_PET",
+          "effects": { "happiness": 7, "mental_stability": 4, "health": 2 },
+          "money_effect": -300
+        },
         { "text_key": "CHOICE_NO_ENERGY_PET", "effects": { "happiness": -1 } }
       ]
     },
     {
       "id": "elder_spiritual_journey",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 100, "category": "social", "weight": 25,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 100,
+      "category": "social",
+      "weight": 25,
       "conditions": {},
       "text_key": "EVENT_ELDER_SPIRITUAL",
       "choices": [
-        { "text_key": "CHOICE_FIND_PEACE", "effects": { "mental_stability": 8, "happiness": 5 }, "trait_chance": { "trait": "wise", "chance": 0.15 } },
-        { "text_key": "CHOICE_QUESTION_FAITH", "effects": { "intelligence": 3, "mental_stability": -2 } }
+        {
+          "text_key": "CHOICE_FIND_PEACE",
+          "effects": { "mental_stability": 8, "happiness": 5 },
+          "trait_chance": { "trait": "wise", "chance": 0.15 }
+        },
+        {
+          "text_key": "CHOICE_QUESTION_FAITH",
+          "effects": { "intelligence": 3, "mental_stability": -2 }
+        }
       ]
     },
     {
       "id": "elder_fall_injury",
-      "phases": ["ELDER"], "age_min": 72, "age_max": 100, "category": "health", "weight": 35,
+      "phases": ["ELDER"],
+      "age_min": 72,
+      "age_max": 100,
+      "category": "health",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_ELDER_FALL",
       "choices": [
-        { "text_key": "CHOICE_PHYSICAL_THERAPY", "effects": { "health": 3, "happiness": -2 }, "money_effect": -1500 },
-        { "text_key": "CHOICE_REST_RECOVER", "effects": { "health": -3, "happiness": -3 } }
+        {
+          "text_key": "CHOICE_PHYSICAL_THERAPY",
+          "effects": { "health": 3, "happiness": -2 },
+          "money_effect": -1500
+        },
+        {
+          "text_key": "CHOICE_REST_RECOVER",
+          "effects": { "health": -3, "happiness": -3 }
+        }
       ]
     },
     {
       "id": "elder_volunteer_retire",
-      "phases": ["ELDER"], "age_min": 65, "age_max": 85, "category": "social", "weight": 35,
+      "phases": ["ELDER"],
+      "age_min": 65,
+      "age_max": 85,
+      "category": "social",
+      "weight": 35,
       "conditions": {},
       "text_key": "EVENT_ELDER_VOLUNTEER",
       "choices": [
-        { "text_key": "CHOICE_REGULAR_VOLUNTEER", "effects": { "happiness": 5, "charisma": 3, "health": 2 }, "morality_effect": 8, "trait_chance": { "trait": "compassionate", "chance": 0.1 } },
-        { "text_key": "CHOICE_OCCASIONAL_HELP", "effects": { "happiness": 2 }, "morality_effect": 3 }
+        {
+          "text_key": "CHOICE_REGULAR_VOLUNTEER",
+          "effects": { "happiness": 5, "charisma": 3, "health": 2 },
+          "morality_effect": 8,
+          "trait_chance": { "trait": "compassionate", "chance": 0.1 }
+        },
+        {
+          "text_key": "CHOICE_OCCASIONAL_HELP",
+          "effects": { "happiness": 2 },
+          "morality_effect": 3
+        }
       ]
     },
     {
       "id": "elder_spouse_death",
-      "phases": ["ELDER"], "age_min": 70, "age_max": 100, "category": "family", "weight": 20,
+      "phases": ["ELDER"],
+      "age_min": 70,
+      "age_max": 100,
+      "category": "family",
+      "weight": 20,
       "conditions": {},
       "text_key": "EVENT_ELDER_SPOUSE_DEATH",
       "choices": [
-        { "text_key": "CHOICE_GRIEVE_DEEPLY", "effects": { "happiness": -15, "mental_stability": -8, "health": -5 } },
-        { "text_key": "CHOICE_CHERISH_MEMORIES", "effects": { "happiness": -8, "mental_stability": 2 }, "trait_chance": { "trait": "wise", "chance": 0.1 } },
-        { "text_key": "CHOICE_LEAN_ON_FAMILY", "effects": { "happiness": -5, "mental_stability": 3 }, "relationship_effects": { "CHILD": { "affection": 5 } } }
+        {
+          "text_key": "CHOICE_GRIEVE_DEEPLY",
+          "effects": { "happiness": -15, "mental_stability": -8, "health": -5 }
+        },
+        {
+          "text_key": "CHOICE_CHERISH_MEMORIES",
+          "effects": { "happiness": -8, "mental_stability": 2 },
+          "trait_chance": { "trait": "wise", "chance": 0.1 }
+        },
+        {
+          "text_key": "CHOICE_LEAN_ON_FAMILY",
+          "effects": { "happiness": -5, "mental_stability": 3 },
+          "relationship_effects": { "CHILD": { "affection": 5 } }
+        }
       ]
     }
   ]

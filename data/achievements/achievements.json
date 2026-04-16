@@ -1,154 +1,154 @@
 {
-	"achievements": [
-		{
-			"id": "first_steps",
-			"text_key": "ACH_FIRST_STEPS",
-			"icon": "👶",
-			"condition": {"type": "age_reached", "value": 1}
-		},
-		{
-			"id": "school_start",
-			"text_key": "ACH_SCHOOL_START",
-			"icon": "📚",
-			"condition": {"type": "age_reached", "value": 6}
-		},
-		{
-			"id": "teenager",
-			"text_key": "ACH_TEENAGER",
-			"icon": "🎸",
-			"condition": {"type": "age_reached", "value": 13}
-		},
-		{
-			"id": "adult_life",
-			"text_key": "ACH_ADULT_LIFE",
-			"icon": "🎓",
-			"condition": {"type": "age_reached", "value": 18}
-		},
-		{
-			"id": "midlife",
-			"text_key": "ACH_MIDLIFE",
-			"icon": "⏳",
-			"condition": {"type": "age_reached", "value": 40}
-		},
-		{
-			"id": "elder",
-			"text_key": "ACH_ELDER",
-			"icon": "👴",
-			"condition": {"type": "age_reached", "value": 65}
-		},
-		{
-			"id": "centenarian",
-			"text_key": "ACH_CENTENARIAN",
-			"icon": "🎂",
-			"condition": {"type": "age_reached", "value": 100}
-		},
-		{
-			"id": "first_job",
-			"text_key": "ACH_FIRST_JOB",
-			"icon": "💼",
-			"condition": {"type": "has_career", "value": true}
-		},
-		{
-			"id": "married",
-			"text_key": "ACH_MARRIED",
-			"icon": "💍",
-			"condition": {"type": "is_married", "value": true}
-		},
-		{
-			"id": "parent",
-			"text_key": "ACH_PARENT",
-			"icon": "👨‍👩‍👧",
-			"condition": {"type": "has_children", "value": true}
-		},
-		{
-			"id": "rich",
-			"text_key": "ACH_RICH",
-			"icon": "💰",
-			"condition": {"type": "min_money", "value": 100000}
-		},
-		{
-			"id": "millionaire",
-			"text_key": "ACH_MILLIONAIRE",
-			"icon": "🤑",
-			"condition": {"type": "min_money", "value": 1000000}
-		},
-		{
-			"id": "broke",
-			"text_key": "ACH_BROKE",
-			"icon": "📉",
-			"condition": {"type": "max_money", "value": -5000}
-		},
-		{
-			"id": "genius",
-			"text_key": "ACH_GENIUS",
-			"icon": "🧠",
-			"condition": {"type": "min_stat", "stat": "intelligence", "value": 95}
-		},
-		{
-			"id": "beautiful",
-			"text_key": "ACH_BEAUTIFUL",
-			"icon": "✨",
-			"condition": {"type": "min_stat", "stat": "appearance", "value": 95}
-		},
-		{
-			"id": "healthy",
-			"text_key": "ACH_HEALTHY",
-			"icon": "💪",
-			"condition": {"type": "min_stat", "stat": "health", "value": 95}
-		},
-		{
-			"id": "saint",
-			"text_key": "ACH_SAINT",
-			"icon": "😇",
-			"condition": {"type": "min_stat", "stat": "morality", "value": 95}
-		},
-		{
-			"id": "villain",
-			"text_key": "ACH_VILLAIN",
-			"icon": "😈",
-			"condition": {"type": "max_stat", "stat": "morality", "value": 10}
-		},
-		{
-			"id": "educated",
-			"text_key": "ACH_EDUCATED",
-			"icon": "🎓",
-			"condition": {"type": "min_education", "value": 4}
-		},
-		{
-			"id": "social_butterfly",
-			"text_key": "ACH_SOCIAL_BUTTERFLY",
-			"icon": "🦋",
-			"condition": {"type": "min_stat", "stat": "charisma", "value": 90}
-		},
-		{
-			"id": "depressed",
-			"text_key": "ACH_DEPRESSED",
-			"icon": "😢",
-			"condition": {"type": "max_stat", "stat": "happiness", "value": 10}
-		},
-		{
-			"id": "lucky",
-			"text_key": "ACH_LUCKY",
-			"icon": "🍀",
-			"condition": {"type": "min_stat", "stat": "luck", "value": 90}
-		},
-		{
-			"id": "survivor",
-			"text_key": "ACH_SURVIVOR",
-			"icon": "🛡️",
-			"condition": {"type": "events_survived", "value": 50}
-		},
-		{
-			"id": "trait_collector",
-			"text_key": "ACH_TRAIT_COLLECTOR",
-			"icon": "🏷️",
-			"condition": {"type": "min_traits", "value": 5}
-		},
-		{
-			"id": "five_lives",
-			"text_key": "ACH_FIVE_LIVES",
-			"icon": "🔄",
-			"condition": {"type": "completed_lives", "value": 5}
-		}
-	]
+  "achievements": [
+    {
+      "id": "first_steps",
+      "text_key": "ACH_FIRST_STEPS",
+      "icon": "👶",
+      "condition": { "type": "age_reached", "value": 1 }
+    },
+    {
+      "id": "school_start",
+      "text_key": "ACH_SCHOOL_START",
+      "icon": "📚",
+      "condition": { "type": "age_reached", "value": 6 }
+    },
+    {
+      "id": "teenager",
+      "text_key": "ACH_TEENAGER",
+      "icon": "🎸",
+      "condition": { "type": "age_reached", "value": 13 }
+    },
+    {
+      "id": "adult_life",
+      "text_key": "ACH_ADULT_LIFE",
+      "icon": "🎓",
+      "condition": { "type": "age_reached", "value": 18 }
+    },
+    {
+      "id": "midlife",
+      "text_key": "ACH_MIDLIFE",
+      "icon": "⏳",
+      "condition": { "type": "age_reached", "value": 40 }
+    },
+    {
+      "id": "elder",
+      "text_key": "ACH_ELDER",
+      "icon": "👴",
+      "condition": { "type": "age_reached", "value": 65 }
+    },
+    {
+      "id": "centenarian",
+      "text_key": "ACH_CENTENARIAN",
+      "icon": "🎂",
+      "condition": { "type": "age_reached", "value": 100 }
+    },
+    {
+      "id": "first_job",
+      "text_key": "ACH_FIRST_JOB",
+      "icon": "💼",
+      "condition": { "type": "has_career", "value": true }
+    },
+    {
+      "id": "married",
+      "text_key": "ACH_MARRIED",
+      "icon": "💍",
+      "condition": { "type": "is_married", "value": true }
+    },
+    {
+      "id": "parent",
+      "text_key": "ACH_PARENT",
+      "icon": "👨‍👩‍👧",
+      "condition": { "type": "has_children", "value": true }
+    },
+    {
+      "id": "rich",
+      "text_key": "ACH_RICH",
+      "icon": "💰",
+      "condition": { "type": "min_money", "value": 100000 }
+    },
+    {
+      "id": "millionaire",
+      "text_key": "ACH_MILLIONAIRE",
+      "icon": "🤑",
+      "condition": { "type": "min_money", "value": 1000000 }
+    },
+    {
+      "id": "broke",
+      "text_key": "ACH_BROKE",
+      "icon": "📉",
+      "condition": { "type": "max_money", "value": -5000 }
+    },
+    {
+      "id": "genius",
+      "text_key": "ACH_GENIUS",
+      "icon": "🧠",
+      "condition": { "type": "min_stat", "stat": "intelligence", "value": 95 }
+    },
+    {
+      "id": "beautiful",
+      "text_key": "ACH_BEAUTIFUL",
+      "icon": "✨",
+      "condition": { "type": "min_stat", "stat": "appearance", "value": 95 }
+    },
+    {
+      "id": "healthy",
+      "text_key": "ACH_HEALTHY",
+      "icon": "💪",
+      "condition": { "type": "min_stat", "stat": "health", "value": 95 }
+    },
+    {
+      "id": "saint",
+      "text_key": "ACH_SAINT",
+      "icon": "😇",
+      "condition": { "type": "min_stat", "stat": "morality", "value": 95 }
+    },
+    {
+      "id": "villain",
+      "text_key": "ACH_VILLAIN",
+      "icon": "😈",
+      "condition": { "type": "max_stat", "stat": "morality", "value": 10 }
+    },
+    {
+      "id": "educated",
+      "text_key": "ACH_EDUCATED",
+      "icon": "🎓",
+      "condition": { "type": "min_education", "value": 4 }
+    },
+    {
+      "id": "social_butterfly",
+      "text_key": "ACH_SOCIAL_BUTTERFLY",
+      "icon": "🦋",
+      "condition": { "type": "min_stat", "stat": "charisma", "value": 90 }
+    },
+    {
+      "id": "depressed",
+      "text_key": "ACH_DEPRESSED",
+      "icon": "😢",
+      "condition": { "type": "max_stat", "stat": "happiness", "value": 10 }
+    },
+    {
+      "id": "lucky",
+      "text_key": "ACH_LUCKY",
+      "icon": "🍀",
+      "condition": { "type": "min_stat", "stat": "luck", "value": 90 }
+    },
+    {
+      "id": "survivor",
+      "text_key": "ACH_SURVIVOR",
+      "icon": "🛡️",
+      "condition": { "type": "events_survived", "value": 50 }
+    },
+    {
+      "id": "trait_collector",
+      "text_key": "ACH_TRAIT_COLLECTOR",
+      "icon": "🏷️",
+      "condition": { "type": "min_traits", "value": 5 }
+    },
+    {
+      "id": "five_lives",
+      "text_key": "ACH_FIVE_LIVES",
+      "icon": "🔄",
+      "condition": { "type": "completed_lives", "value": 5 }
+    }
+  ]
 }

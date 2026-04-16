@@ -16,212 +16,283 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.102, 0.114, 0.18, 1)
+color = Color(0.93, 0.94, 0.95, 1)
 
-[node name="MainLayout" type="VBoxContainer" parent="."]
+[node name="MainVBox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 12.0
-offset_right = -16.0
-offset_bottom = -12.0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
-[node name="TopCard" type="PanelContainer" parent="MainLayout"]
+[node name="HeaderPanel" type="PanelContainer" parent="MainVBox"]
 layout_mode = 2
 
-[node name="TopBar" type="HBoxContainer" parent="MainLayout/TopCard"]
+[node name="HeaderVBox" type="VBoxContainer" parent="MainVBox/HeaderPanel"]
 layout_mode = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 2
 
-[node name="AvatarLabel" type="Label" parent="MainLayout/TopCard/TopBar"]
+[node name="TopRow" type="HBoxContainer" parent="MainVBox/HeaderPanel/HeaderVBox"]
+layout_mode = 2
+
+[node name="BtnMenu" type="Button" parent="MainVBox/HeaderPanel/HeaderVBox/TopRow"]
 unique_name_in_owner = true
 layout_mode = 2
-custom_minimum_size = Vector2(52, 52)
-theme_override_font_sizes/font_size = 36
+flat = true
+text = "☰"
+
+[node name="TitleLabel" type="Label" parent="MainVBox/HeaderPanel/HeaderVBox/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "NewLife"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainVBox/HeaderPanel/HeaderVBox/TopRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 0)
+
+[node name="InfoRow" type="HBoxContainer" parent="MainVBox/HeaderPanel/HeaderVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AvatarLabel" type="Label" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
 text = "👶"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NameInfo" type="VBoxContainer" parent="MainLayout/TopCard/TopBar"]
+[node name="NameVBox" type="VBoxContainer" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 2
+theme_override_constants/separation = 0
 
-[node name="CharName" type="Label" parent="MainLayout/TopCard/TopBar/NameInfo"]
+[node name="CharName" type="Label" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow/NameVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Name Here"
 
-[node name="AgePhase" type="Label" parent="MainLayout/TopCard/TopBar/NameInfo"]
+[node name="PhaseLabel" type="Label" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow/NameVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Age 0 · Baby · BR"
+text = "Baby"
 
-[node name="StatsCard" type="PanelContainer" parent="MainLayout"]
+[node name="MoneyVBox" type="VBoxContainer" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow"]
 layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
 
-[node name="StatsContainer" type="VBoxContainer" parent="MainLayout/StatsCard"]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="HealthRow" type="HBoxContainer" parent="MainLayout/StatsCard/StatsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Icon" type="Label" parent="MainLayout/StatsCard/StatsContainer/HealthRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(30, 0)
-theme_override_font_sizes/font_size = 18
-text = "❤️"
-
-[node name="HealthBar" type="ProgressBar" parent="MainLayout/StatsCard/StatsContainer/HealthRow"]
+[node name="MoneyLabel" type="Label" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow/MoneyVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 28)
-value = 80.0
-show_percentage = true
-
-[node name="HappyRow" type="HBoxContainer" parent="MainLayout/StatsCard/StatsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Icon" type="Label" parent="MainLayout/StatsCard/StatsContainer/HappyRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(30, 0)
-theme_override_font_sizes/font_size = 18
-text = "😊"
-
-[node name="HappinessBar" type="ProgressBar" parent="MainLayout/StatsCard/StatsContainer/HappyRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 28)
-value = 70.0
-show_percentage = true
-
-[node name="SocialRow" type="HBoxContainer" parent="MainLayout/StatsCard/StatsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Icon" type="Label" parent="MainLayout/StatsCard/StatsContainer/SocialRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(30, 0)
-theme_override_font_sizes/font_size = 18
-text = "👥"
-
-[node name="SocialBar" type="ProgressBar" parent="MainLayout/StatsCard/StatsContainer/SocialRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 28)
-value = 50.0
-show_percentage = true
-
-[node name="MoralRow" type="HBoxContainer" parent="MainLayout/StatsCard/StatsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Icon" type="Label" parent="MainLayout/StatsCard/StatsContainer/MoralRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(30, 0)
-theme_override_font_sizes/font_size = 18
-text = "⚖️"
-
-[node name="MoralityBar" type="ProgressBar" parent="MainLayout/StatsCard/StatsContainer/MoralRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 28)
-value = 50.0
-show_percentage = true
-
-[node name="MoneyRow" type="HBoxContainer" parent="MainLayout/StatsCard/StatsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Icon" type="Label" parent="MainLayout/StatsCard/StatsContainer/MoneyRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(30, 0)
-theme_override_font_sizes/font_size = 18
-text = "💰"
-
-[node name="MoneyLabel" type="Label" parent="MainLayout/StatsCard/StatsContainer/MoneyRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
 text = "$0"
+horizontal_alignment = 2
 
-[node name="LogCard" type="PanelContainer" parent="MainLayout"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="LogScroll" type="ScrollContainer" parent="MainLayout/LogCard"]
+[node name="MoneySubLabel" type="Label" parent="MainVBox/HeaderPanel/HeaderVBox/InfoRow/MoneyVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+text = "Bank Balance"
+horizontal_alignment = 2
+
+[node name="EventFeed" type="ScrollContainer" parent="MainVBox"]
+unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="LogEntries" type="VBoxContainer" parent="MainLayout/LogCard/LogScroll"]
+[node name="FeedMargin" type="MarginContainer" parent="MainVBox/EventFeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="FeedVBox" type="VBoxContainer" parent="MainVBox/EventFeed/FeedMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="BottomSection" type="VBoxContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NavBar" type="PanelContainer" parent="MainVBox/BottomSection"]
+layout_mode = 2
+
+[node name="NavHBox" type="HBoxContainer" parent="MainVBox/BottomSection/NavBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TabPhase" type="VBoxContainer" parent="MainVBox/BottomSection/NavBar/NavHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/separation = 2
+
+[node name="BtnPhase" type="Button" parent="MainVBox/BottomSection/NavBar/NavHBox/TabPhase"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+flat = true
+text = "👶"
+
+[node name="LblPhase" type="Label" parent="MainVBox/BottomSection/NavBar/NavHBox/TabPhase"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Baby"
+horizontal_alignment = 1
+
+[node name="TabAssets" type="VBoxContainer" parent="MainVBox/BottomSection/NavBar/NavHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/separation = 2
+
+[node name="BtnAssets" type="Button" parent="MainVBox/BottomSection/NavBar/NavHBox/TabAssets"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+flat = true
+text = "🏠"
+
+[node name="LblAssets" type="Label" parent="MainVBox/BottomSection/NavBar/NavHBox/TabAssets"]
+layout_mode = 2
+text = "Assets"
+horizontal_alignment = 1
+
+[node name="TabAge" type="VBoxContainer" parent="MainVBox/BottomSection/NavBar/NavHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/separation = 2
+
+[node name="BtnAge" type="Button" parent="MainVBox/BottomSection/NavBar/NavHBox/TabAge"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(68, 68)
+size_flags_horizontal = 4
+text = "+"
+
+[node name="LblAge" type="Label" parent="MainVBox/BottomSection/NavBar/NavHBox/TabAge"]
+layout_mode = 2
+text = "Age"
+horizontal_alignment = 1
+
+[node name="TabRelationships" type="VBoxContainer" parent="MainVBox/BottomSection/NavBar/NavHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/separation = 2
+
+[node name="BtnRelationships" type="Button" parent="MainVBox/BottomSection/NavBar/NavHBox/TabRelationships"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+flat = true
+text = "💕"
+
+[node name="LblRelationships" type="Label" parent="MainVBox/BottomSection/NavBar/NavHBox/TabRelationships"]
+layout_mode = 2
+text = "Relations"
+horizontal_alignment = 1
+
+[node name="TabActivities" type="VBoxContainer" parent="MainVBox/BottomSection/NavBar/NavHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/separation = 2
+
+[node name="BtnActivities" type="Button" parent="MainVBox/BottomSection/NavBar/NavHBox/TabActivities"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+flat = true
+text = "⚡"
+
+[node name="LblActivities" type="Label" parent="MainVBox/BottomSection/NavBar/NavHBox/TabActivities"]
+layout_mode = 2
+text = "Activities"
+horizontal_alignment = 1
+
+[node name="StatsPanel" type="PanelContainer" parent="MainVBox/BottomSection"]
+layout_mode = 2
+
+[node name="StatsVBox" type="VBoxContainer" parent="MainVBox/BottomSection/StatsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HappinessRow" type="HBoxContainer" parent="MainVBox/BottomSection/StatsPanel/StatsVBox"]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ActionGrid" type="GridContainer" parent="MainLayout"]
+[node name="LblHappiness" type="Label" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/HappinessRow"]
 layout_mode = 2
-columns = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
+custom_minimum_size = Vector2(120, 0)
+text = "Happiness 😄"
 
-[node name="BtnSocial" type="Button" parent="MainLayout/ActionGrid"]
+[node name="HappinessBar" type="ProgressBar" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/HappinessRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 52)
-text = "SOCIAL"
+custom_minimum_size = Vector2(0, 22)
+value = 70.0
+show_percentage = true
 
-[node name="BtnFamily" type="Button" parent="MainLayout/ActionGrid"]
+[node name="HealthRow" type="HBoxContainer" parent="MainVBox/BottomSection/StatsPanel/StatsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblHealth" type="Label" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/HealthRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 0)
+text = "Health ❤️"
+
+[node name="HealthBar" type="ProgressBar" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/HealthRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 52)
-text = "FAMILY"
+custom_minimum_size = Vector2(0, 22)
+value = 80.0
+show_percentage = true
 
-[node name="BtnSchoolWork" type="Button" parent="MainLayout/ActionGrid"]
+[node name="SocialRow" type="HBoxContainer" parent="MainVBox/BottomSection/StatsPanel/StatsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblSocial" type="Label" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/SocialRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 0)
+text = "Social 👥"
+
+[node name="SocialBar" type="ProgressBar" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/SocialRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 52)
-text = "SCHOOL"
+custom_minimum_size = Vector2(0, 22)
+value = 50.0
+show_percentage = true
 
-[node name="BtnHealth" type="Button" parent="MainLayout/ActionGrid"]
+[node name="MoralityRow" type="HBoxContainer" parent="MainVBox/BottomSection/StatsPanel/StatsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblMorality" type="Label" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/MoralityRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 0)
+text = "Morality ⚖️"
+
+[node name="MoralityBar" type="ProgressBar" parent="MainVBox/BottomSection/StatsPanel/StatsVBox/MoralityRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 52)
-text = "HEALTH"
-
-[node name="BtnFinance" type="Button" parent="MainLayout/ActionGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 52)
-text = "FINANCE"
-
-[node name="BtnCrime" type="Button" parent="MainLayout/ActionGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 52)
-text = "CRIME"
-
-[node name="BtnAdvanceYear" type="Button" parent="MainLayout"]
-unique_name_in_owner = true
-layout_mode = 2
-custom_minimum_size = Vector2(0, 60)
-text = "AGE_PLUS"
+custom_minimum_size = Vector2(0, 22)
+value = 50.0
+show_percentage = true
