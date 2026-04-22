@@ -30,7 +30,7 @@ func start_new_life(seed_value: int = -1) -> void:
 		seed_value = randi()
 	_rng.seed = seed_value
 
-	character = _generate_character(seed_value)
+	character = CharacterGenerator.generate_character(seed_value)
 	is_game_active = true
 	_event_queue.clear()
 	_current_event = null
@@ -81,7 +81,7 @@ func start_custom_life(config: Dictionary) -> void:
 	var seed_value := randi()
 	_rng.seed = seed_value
 
-	character = _generate_custom_character(config, seed_value)
+	character = CharacterGenerator.generate_custom_character(config, seed_value)
 	is_game_active = true
 	_event_queue.clear()
 	_current_event = null
@@ -96,7 +96,23 @@ func advance_year() -> void:
 	if not is_game_active or character == null or not character.alive:
 		return
 
+	if character.age >= 3:
+		# --- TRAVA DE DESENVOLVIMENTO DO BETA FASE 1 ---
+		var end_event = EventData.new()
+		end_event.id = "beta_phase_1_end"
+		end_event.text_key = "FIM DA FASE BEBÊ (4 Anos).\n\nAguarde os próximos Updates onde a Fase Criança será construída!\n\n(A simulação deste playteste será finalizada)"
+		end_event.choices.append({"text_key": "ENCERRAR VIDA / TELA DE MÁRMORE", "effects": {}})
+		_event_queue.append(end_event)
+		# Toca para a UI abrir a fila de eventos onde essa mensagem está
+		year_advanced.emit(character.age)
+		return
+
 	character.age += 1
+
+	# === NEW: SIMULAÇÃO DE VIDA OCULTA - EFEITO BORBOLETA ===
+	FamilyEconomySystem.process(character, _rng, _event_queue)
+	BabyPhaseSystem.process(character, _rng, _event_queue)
+	# ========================================================
 
 	# Update life phase
 	var new_phase := character.get_life_phase_for_age(character.age)
@@ -146,6 +162,17 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 	if choice_index < 0 or choice_index >= event.choices.size():
 		return {}
 
+	# === FIM DA FASE BEBÊ (BETA) ===
+	if event.id == "beta_phase_1_end":
+		var end_results := {}
+		# Apenas finaliza e muda de cena (LifeSummary)
+		is_game_active = false
+		character.alive = false
+		character.add_event_log("Fim do Playteste", "death")
+		SaveManager.save_completed_life(character)
+		character_died.emit(character)
+		return end_results
+	
 	var choice: Dictionary = event.choices[choice_index]
 	var results := {}
 
@@ -173,6 +200,12 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 	for rel_type_name in rel_effects:
 		var rel_changes: Dictionary = rel_effects[rel_type_name]
 		_apply_relationship_effects(rel_type_name, rel_changes)
+		
+	# Apply procedural memory logs to relationships
+	var memory_effects: Dictionary = choice.get("memory_effects", {})
+	for rel_type_name in memory_effects:
+		var mem_data: Dictionary = memory_effects[rel_type_name]
+		_apply_relationship_memory(rel_type_name, mem_data.get("type", "event"), mem_data.get("severity", 0), mem_data.get("description", ""))
 
 	# Trait chances
 	var trait_chance_data = choice.get("trait_chance", {})
@@ -209,7 +242,7 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 		if followup_event != null:
 			_event_queue.push_front(followup_event)
 
-	# Check luck/chance based followup
+# Check luck/chance based followup
 	var chance_followup: Dictionary = choice.get("chance_followup", {})
 	if not chance_followup.is_empty():
 		var base_chance: float = float(chance_followup.get("chance", 0.5))
@@ -242,313 +275,6 @@ func has_pending_events() -> bool:
 
 
 # === Private Methods ===
-
-func _generate_character(seed_value: int) -> Character:
-	var c := Character.new()
-	c.world_seed = seed_value
-
-	# Use sub-agent for name generation (loaded from JSON)
-	var names_data := _load_names()
-	
-	var is_preset = _rng.randf() < 0.05
-	
-	if is_preset:
-		var presets = [
-			{"fn":"Liana", "ln":"Ross", "g":"female", "co":"US", "ts":{"music":1.5}, "cha":95, "app":85, "int":60},
-			{"fn":"Karisson", "ln":"Ford", "g":"male", "co":"US", "ts":{"acting":1.5}, "cha":90, "app":80, "int":70},
-			{"fn":"Alberta", "ln":"Monteclaro", "g":"female", "co":"BR", "ts":{"science":1.5}, "cha":50, "app":60, "int":95},
-			{"fn":"Juliana", "ln":"Picos", "g":"female", "co":"BR", "ts":{"business":1.5}, "cha":95, "app":85, "int":75}
-		]
-		var p = presets[_rng.randi_range(0, presets.size() - 1)]
-		c.first_name = p["fn"]
-		c.last_name = p["ln"]
-		c.gender = p["g"]
-		c.country = p["co"]
-		c.health = clampi(_rng.randi_range(70, 100), 0, 100)
-		c.intelligence = clampi(p["int"] + _rng.randi_range(-5, 5), 0, 100)
-		c.charisma = clampi(p["cha"] + _rng.randi_range(-5, 5), 0, 100)
-		c.appearance = clampi(p["app"] + _rng.randi_range(-5, 5), 0, 100)
-		c.temperament = clampi(_rng.randi_range(40, 80), 0, 100)
-		c.luck = clampi(_rng.randi_range(70, 100), 0, 100)
-		c.talents = p["ts"]
-	else:
-		var country: String = ["BR", "US"][_rng.randi_range(0, 1)]
-		c.country = country
-		var gender: String = ["male", "female"][_rng.randi_range(0, 1)]
-		c.gender = gender
-
-		var lang := "pt_BR" if country == "BR" else "en"
-		var gender_key := "male_first" if gender == "male" else "female_first"
-
-		if names_data.has(lang):
-			var lang_names: Dictionary = names_data[lang]
-			var first_names: Array = lang_names.get(gender_key, ["Alex"])
-			var last_names: Array = lang_names.get("last", ["Silva"])
-			c.first_name = first_names[_rng.randi_range(0, first_names.size() - 1)]
-			c.last_name = last_names[_rng.randi_range(0, last_names.size() - 1)]
-		else:
-			c.first_name = "Alex"
-			c.last_name = "Smith"
-
-		# Attributes with variance
-		c.health = clampi(_rng.randi_range(60, 100), 0, 100)
-		c.intelligence = clampi(_rng.randi_range(20, 80), 0, 100)
-		c.charisma = clampi(_rng.randi_range(20, 80), 0, 100)
-		c.appearance = clampi(_rng.randi_range(20, 80), 0, 100)
-		c.temperament = clampi(_rng.randi_range(20, 80), 0, 100)
-		c.luck = clampi(_rng.randi_range(10, 90), 0, 100)
-		
-		# Assign random talents
-		var available_talents = ["music", "sports", "science", "writing", "acting", "business", "art", "social"]
-		var num_talents = _rng.randi_range(1, 2)
-		for _i in range(num_talents):
-			var t = available_talents[_rng.randi_range(0, available_talents.size() - 1)]
-			c.talents[t] = _rng.randf_range(1.1, 1.5)
-
-	c.happiness = clampi(_rng.randi_range(50, 90), 0, 100)
-	c.morality = 50
-	c.mental_stability = clampi(_rng.randi_range(50, 85), 0, 100)
-
-	# Social class based on luck
-	if c.luck > 70:
-		c.social_class = Character.SocialClass.HIGH
-		c.money = _rng.randf_range(50000, 200000)
-	elif c.luck > 35:
-		c.social_class = Character.SocialClass.MIDDLE
-		c.money = _rng.randf_range(5000, 50000)
-	else:
-		c.social_class = Character.SocialClass.LOW
-		c.money = _rng.randf_range(0, 5000)
-
-	# Initial traits (1–2) — use valid IDs from traits.json
-	var all_traits: Array[String] = [
-		"introvert", "extrovert", "brave", "creative",
-		"lazy", "athletic", "bookworm", "anxious",
-		"charismatic", "compassionate", "ambitious", "romantic",
-		"hardworking", "rebel", "sensitive", "optimistic",
-		"pessimistic", "lucky", "unlucky", "genius",
-		"clumsy", "beautiful", "funny", "calm",
-		"stubborn", "generous", "honest", "risk_taker"
-	]
-	var num_traits := _rng.randi_range(1, 2)
-	var available := all_traits.duplicate()
-	for i in num_traits:
-		if available.is_empty():
-			break
-		var idx := _rng.randi_range(0, available.size() - 1)
-		c.traits.append(available[idx])
-		available.remove_at(idx)
-
-	# Generate family
-	_generate_family(c)
-
-	c.birth_year = 2026 - c.age  # current year
-	c.age = 0
-	c.life_phase = Character.LifePhase.BABY
-
-	return c
-
-
-func _generate_custom_character(config: Dictionary, seed_value: int) -> Character:
-	var c := Character.new()
-	c.world_seed = seed_value
-
-	c.first_name = config.get("first_name", "Alex")
-	c.last_name = config.get("last_name", "Silva")
-	c.gender = config.get("gender", "male")
-	c.country = config.get("country", "BR")
-
-	# Attributes from config
-	c.health = clampi(config.get("health", 50), 0, 100)
-	c.intelligence = clampi(config.get("intelligence", 50), 0, 100)
-	c.charisma = clampi(config.get("charisma", 50), 0, 100)
-	c.appearance = clampi(config.get("appearance", 50), 0, 100)
-	c.temperament = clampi(config.get("temperament", 50), 0, 100)
-	c.luck = clampi(config.get("luck", 50), 0, 100)
-	c.happiness = clampi(_rng.randi_range(50, 90), 0, 100)
-	c.morality = 50
-	c.mental_stability = clampi(_rng.randi_range(50, 85), 0, 100)
-
-	# Social class from config
-	var social_class_idx: int = config.get("social_class", 1)
-	match social_class_idx:
-		0:
-			c.social_class = Character.SocialClass.LOW
-			c.money = _rng.randf_range(0, 5000)
-		1:
-			c.social_class = Character.SocialClass.MIDDLE
-			c.money = _rng.randf_range(5000, 50000)
-		_:
-			c.social_class = Character.SocialClass.HIGH
-			c.money = _rng.randf_range(50000, 200000)
-
-	# Initial traits (1–2)
-	var all_traits: Array[String] = [
-		"introvert", "extrovert", "brave", "creative",
-		"lazy", "athletic", "bookworm", "anxious",
-		"charismatic", "compassionate", "ambitious", "romantic",
-		"hardworking", "rebel", "sensitive", "optimistic",
-		"pessimistic", "lucky", "unlucky", "genius",
-		"clumsy", "beautiful", "funny", "calm",
-		"stubborn", "generous", "honest", "risk_taker"
-	]
-	var num_traits := _rng.randi_range(1, 2)
-	var available := all_traits.duplicate()
-	for i in num_traits:
-		if available.is_empty():
-			break
-		var idx := _rng.randi_range(0, available.size() - 1)
-		c.traits.append(available[idx])
-		available.remove_at(idx)
-
-	# Generate family with custom settings
-	var parents_mode: int = config.get("parents", 0)
-	var sibling_count: int = config.get("siblings", 0)
-	_generate_custom_family(c, parents_mode, sibling_count)
-
-	c.birth_year = 2026
-	c.age = 0
-	c.life_phase = Character.LifePhase.BABY
-
-	return c
-
-
-func _generate_custom_family(c: Character, parents_mode: int, sibling_count: int) -> void:
-	var names_data := _load_names()
-	var lang := "pt_BR" if c.country == "BR" else "en"
-	var lang_names: Dictionary = names_data.get(lang, {})
-	var male_names: Array = lang_names.get("male_first", ["Carlos"])
-	var female_names: Array = lang_names.get("female_first", ["Maria"])
-	var last_names: Array = lang_names.get("last", [c.last_name])
-
-	# parents_mode: 0=both, 1=father_only, 2=mother_only, 3=orphan
-	if parents_mode == 0:
-		# Both parents
-		var mother := Relationship.new()
-		mother.rel_type = Relationship.RelType.MOTHER
-		mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + last_names[_rng.randi_range(0, last_names.size() - 1)]
-		mother.person_age = _rng.randi_range(20, 38)
-		mother.person_gender = "female"
-		mother.affection = _rng.randi_range(50, 95)
-		mother.respect = _rng.randi_range(40, 80)
-		mother.trust = _rng.randi_range(50, 90)
-		c.relationships.append(mother)
-
-		var father := Relationship.new()
-		father.rel_type = Relationship.RelType.FATHER
-		father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
-		father.person_age = _rng.randi_range(22, 40)
-		father.person_gender = "male"
-		father.affection = _rng.randi_range(40, 90)
-		father.respect = _rng.randi_range(40, 80)
-		father.trust = _rng.randi_range(40, 85)
-		c.relationships.append(father)
-	elif parents_mode == 1:
-		# Father only
-		var father := Relationship.new()
-		father.rel_type = Relationship.RelType.FATHER
-		father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
-		father.person_age = _rng.randi_range(22, 40)
-		father.person_gender = "male"
-		father.affection = _rng.randi_range(50, 95)
-		father.respect = _rng.randi_range(40, 80)
-		father.trust = _rng.randi_range(50, 90)
-		c.relationships.append(father)
-	elif parents_mode == 2:
-		# Mother only
-		var mother := Relationship.new()
-		mother.rel_type = Relationship.RelType.MOTHER
-		mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + last_names[_rng.randi_range(0, last_names.size() - 1)]
-		mother.person_age = _rng.randi_range(20, 38)
-		mother.person_gender = "female"
-		mother.affection = _rng.randi_range(50, 95)
-		mother.respect = _rng.randi_range(40, 80)
-		mother.trust = _rng.randi_range(50, 90)
-		c.relationships.append(mother)
-	# parents_mode == 3: orphan — no parents
-
-	# Siblings
-	for i in sibling_count:
-		var sib := Relationship.new()
-		sib.rel_type = Relationship.RelType.SIBLING
-		var sib_gender: String = ["male", "female"][_rng.randi_range(0, 1)]
-		sib.person_gender = sib_gender
-		var sib_names: Array = male_names if sib_gender == "male" else female_names
-		sib.person_name = sib_names[_rng.randi_range(0, sib_names.size() - 1)] + " " + c.last_name
-		sib.person_age = _rng.randi_range(1, 15)
-		sib.affection = _rng.randi_range(30, 80)
-		sib.respect = _rng.randi_range(30, 70)
-		sib.trust = _rng.randi_range(30, 75)
-		c.relationships.append(sib)
-
-
-func _generate_family(c: Character) -> void:
-	var names_data := _load_names()
-	var lang := "pt_BR" if c.country == "BR" else "en"
-	var lang_names: Dictionary = names_data.get(lang, {})
-	var male_names: Array = lang_names.get("male_first", ["Carlos"])
-	var female_names: Array = lang_names.get("female_first", ["Maria"])
-	var last_names: Array = lang_names.get("last", [c.last_name])
-
-	# Father
-	var father := Relationship.new()
-	father.rel_type = Relationship.RelType.FATHER
-	father.person_name = male_names[_rng.randi_range(0, male_names.size() - 1)] + " " + c.last_name
-	father.person_age = _rng.randi_range(22, 40)
-	father.person_gender = "male"
-	father.affection = _rng.randi_range(40, 90)
-	father.respect = _rng.randi_range(40, 80)
-	father.trust = _rng.randi_range(40, 85)
-	c.relationships.append(father)
-
-	# Mother
-	var mother := Relationship.new()
-	mother.rel_type = Relationship.RelType.MOTHER
-	var mother_last: String = last_names[_rng.randi_range(0, last_names.size() - 1)]
-	mother.person_name = female_names[_rng.randi_range(0, female_names.size() - 1)] + " " + mother_last
-	mother.person_age = _rng.randi_range(20, 38)
-	mother.person_gender = "female"
-	mother.affection = _rng.randi_range(50, 95)
-	mother.respect = _rng.randi_range(40, 80)
-	mother.trust = _rng.randi_range(50, 90)
-	c.relationships.append(mother)
-
-	# Siblings (0–3)
-	var num_siblings := _rng.randi_range(0, 3)
-	for i in num_siblings:
-		var sib := Relationship.new()
-		sib.rel_type = Relationship.RelType.SIBLING
-		var sib_gender: String = ["male", "female"][_rng.randi_range(0, 1)] as String
-		sib.person_gender = sib_gender
-		var sib_names: Array = male_names if sib_gender == "male" else female_names
-		sib.person_name = sib_names[_rng.randi_range(0, sib_names.size() - 1)] + " " + c.last_name
-		sib.person_age = _rng.randi_range(0, 15)
-		sib.affection = _rng.randi_range(30, 80)
-		sib.respect = _rng.randi_range(30, 70)
-		sib.trust = _rng.randi_range(30, 75)
-		c.relationships.append(sib)
-
-
-var _names_cache: Dictionary = {}
-
-func _load_names() -> Dictionary:
-	if not _names_cache.is_empty():
-		return _names_cache
-
-	var result := {}
-	for lang in ["pt_BR", "en"]:
-		var filename := "names_ptbr.json" if lang == "pt_BR" else "names_en.json"
-		var path := "res://data/names/" + filename
-		if FileAccess.file_exists(path):
-			var file := FileAccess.open(path, FileAccess.READ)
-			var json_text := file.get_as_text()
-			file.close()
-			var parsed = JSON.parse_string(json_text)
-			if parsed is Dictionary:
-				result[lang] = parsed
-	_names_cache = result
-	return result
-
 
 func _trigger_events_for_year() -> void:
 	# Determine number of events this year based on phase
@@ -651,14 +377,39 @@ func _determine_cause_of_death() -> String:
 
 func _apply_relationship_effects(rel_type_name: String, changes: Dictionary) -> void:
 	for rel in character.relationships:
-		if rel is Relationship and rel.get_type_name().to_lower() == rel_type_name.to_lower():
-			if changes.has("affection"):
-				rel.modify_affection(int(changes["affection"]))
-			if changes.has("respect"):
-				rel.modify_respect(int(changes["respect"]))
-			if changes.has("trust"):
-				rel.modify_trust(int(changes["trust"]))
+		if not (rel is Relationship):
+			continue
+		if _rel_type_to_json_key(rel.rel_type) != rel_type_name.to_lower():
+			continue
+		if changes.has("affection"):
+			rel.modify_affection(int(changes["affection"]))
+		if changes.has("respect"):
+			rel.modify_respect(int(changes["respect"]))
+		if changes.has("trust"):
+			rel.modify_trust(int(changes["trust"]))
 
+func _apply_relationship_memory(rel_type_name: String, mem_type: String, severity: int, desc: String) -> void:
+	for rel in character.relationships:
+		if rel is Relationship and _rel_type_to_json_key(rel.rel_type) == rel_type_name.to_lower():
+			rel.add_memory(character.age, mem_type, severity, desc)
+
+static func _rel_type_to_json_key(rel_type: Relationship.RelType) -> String:
+	match rel_type:
+		Relationship.RelType.FATHER: return "father"
+		Relationship.RelType.MOTHER: return "mother"
+		Relationship.RelType.SIBLING: return "sibling"
+		Relationship.RelType.SPOUSE: return "spouse"
+		Relationship.RelType.CHILD: return "child"
+		Relationship.RelType.FRIEND: return "friend"
+		Relationship.RelType.COWORKER: return "coworker"
+		Relationship.RelType.BOSS: return "boss"
+		Relationship.RelType.ROMANTIC: return "romantic"
+		Relationship.RelType.ENEMY: return "enemy"
+		Relationship.RelType.GRANDPARENT: return "grandparent"
+		Relationship.RelType.UNCLE_AUNT: return "uncle_aunt"
+		Relationship.RelType.COUSIN: return "cousin"
+		Relationship.RelType.OTHER: return "other"
+	return ""
 
 # === Career System ===
 
@@ -852,7 +603,7 @@ func _process_romance() -> void:
 
 
 func _create_romantic_partner() -> void:
-	var names_data := _load_names()
+	var names_data := CharacterGenerator._load_names()
 	var lang := "pt_BR" if character.country == "BR" else "en"
 	var lang_names: Dictionary = names_data.get(lang, {})
 	var partner_gender := "female" if character.gender == "male" else "male"
@@ -894,7 +645,7 @@ func try_have_child() -> bool:
 	if character.age < 20 or character.age > 50:
 		return false
 
-	var names_data := _load_names()
+	var names_data := CharacterGenerator._load_names()
 	var lang := "pt_BR" if character.country == "BR" else "en"
 	var lang_names: Dictionary = names_data.get(lang, {})
 	var child_gender: String = ["male", "female"][_rng.randi_range(0, 1)]

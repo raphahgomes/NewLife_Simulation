@@ -25,6 +25,29 @@
             "intelligence": 1,
             "happiness": -2
           }
+        },
+        {
+          "text_key": "CHOICE_SIT_ALONE_SCHOOL",
+          "effects": {
+            "mental_stability": 2,
+            "happiness": -2
+          },
+          "trait_chance": { "trait": "introverted", "chance": 0.08 }
+        },
+        {
+          "text_key": "CHOICE_START_CONVO",
+          "effects": {
+            "charisma": 4,
+            "happiness": 3
+          },
+          "trait_chance": { "trait": "extrovert", "chance": 0.08 }
+        },
+        {
+          "text_key": "CHOICE_IMPRESS_TEACHER",
+          "effects": {
+            "intelligence": 3,
+            "charisma": 2
+          }
         }
       ]
     },
@@ -64,6 +87,14 @@
             "happiness": -5,
             "temperament": -3
           }
+        },
+        {
+          "text_key": "CHOICE_BEFRIEND_BULLY",
+          "effects": {
+            "charisma": 3,
+            "happiness": -1
+          },
+          "trait_chance": { "trait": "compassionate", "chance": 0.08 }
         }
       ]
     },
@@ -91,6 +122,20 @@
           "effects": {
             "intelligence": 2
           }
+        },
+        {
+          "text_key": "CHOICE_IMPRESS_FRIEND",
+          "effects": {
+            "charisma": 3,
+            "happiness": 2
+          }
+        },
+        {
+          "text_key": "CHOICE_MOCK_FRIEND",
+          "effects": {
+            "charisma": -3
+          },
+          "morality_effect": -5
         }
       ]
     },
@@ -117,6 +162,13 @@
           "text_key": "CHOICE_WING_IT",
           "effects": {
             "luck": 1
+          }
+        },
+        {
+          "text_key": "CHOICE_STUDY_LITTLE",
+          "effects": {
+            "intelligence": 2,
+            "happiness": 1
           }
         },
         {
@@ -160,6 +212,12 @@
             "trait": "bookworm",
             "chance": 0.1
           }
+        },
+        {
+          "text_key": "CHOICE_DO_NOTHING",
+          "effects": {
+            "happiness": 1
+          }
         }
       ]
     },
@@ -191,6 +249,22 @@
           "effects": {
             "happiness": 1
           }
+        },
+        {
+          "text_key": "CHOICE_TELL_JOKE",
+          "effects": {
+            "charisma": 4,
+            "happiness": 3
+          },
+          "trait_chance": { "trait": "funny", "chance": 0.1 }
+        },
+        {
+          "text_key": "CHOICE_PERFORM_FAIL",
+          "effects": {
+            "happiness": -5,
+            "mental_stability": -2,
+            "charisma": 2
+          }
         }
       ]
     },
@@ -220,6 +294,22 @@
         {
           "text_key": "CHOICE_WALK_AWAY",
           "effects": {}
+        },
+        {
+          "text_key": "CHOICE_TAKE_SHELTER",
+          "effects": {
+            "charisma": 2
+          },
+          "morality_effect": 6,
+          "trait_chance": { "trait": "compassionate", "chance": 0.08 }
+        },
+        {
+          "text_key": "CHOICE_HIDE_ANIMAL",
+          "effects": {
+            "happiness": 5,
+            "health": -1
+          },
+          "morality_effect": -2
         }
       ]
     },
@@ -256,6 +346,22 @@
               "affection": 3
             }
           }
+        },
+        {
+          "text_key": "CHOICE_BLAME_SELF",
+          "effects": {
+            "happiness": -6,
+            "mental_stability": -4
+          },
+          "trait_chance": { "trait": "anxious", "chance": 0.15 }
+        },
+        {
+          "text_key": "CHOICE_TELL_SOMEONE",
+          "effects": {
+            "happiness": -2,
+            "mental_stability": 3
+          },
+          "morality_effect": 3
         }
       ]
     },
@@ -281,6 +387,18 @@
           "effects": {},
           "morality_effect": -5,
           "money_effect": 20
+        },
+        {
+          "text_key": "CHOICE_SPEND_SECRET",
+          "effects": {
+            "happiness": 5
+          },
+          "morality_effect": -6
+        },
+        {
+          "text_key": "CHOICE_GIVE_TO_ADULT",
+          "effects": {},
+          "morality_effect": 6
         }
       ]
     },
@@ -312,6 +430,24 @@
           "effects": {
             "happiness": 1
           }
+        },
+        {
+          "text_key": "CHOICE_PARENT_HELP_FAIR",
+          "effects": {
+            "intelligence": 4,
+            "happiness": 3
+          },
+          "relationship_effects": {
+            "FATHER": { "affection": 3 }
+          }
+        },
+        {
+          "text_key": "CHOICE_WIN_FAIR",
+          "effects": {
+            "intelligence": 6,
+            "happiness": 7
+          },
+          "trait_chance": { "trait": "hardworking", "chance": 0.1 }
         }
       ]
     },
@@ -342,6 +478,23 @@
           "text_key": "CHOICE_QUIT_LESSONS",
           "effects": {
             "happiness": 2
+          }
+        },
+        {
+          "text_key": "CHOICE_FORCED_PRACTICE",
+          "effects": {
+            "intelligence": 2,
+            "happiness": -3
+          }
+        },
+        {
+          "text_key": "CHOICE_REFUSE_LESSONS",
+          "effects": {
+            "happiness": 3
+          },
+          "morality_effect": -2,
+          "relationship_effects": {
+            "MOTHER": { "affection": -3 }
           }
         }
       ]
@@ -376,6 +529,21 @@
               "affection": 5
             }
           }
+        },
+        {
+          "text_key": "CHOICE_BEFRIEND_CAMP",
+          "effects": {
+            "charisma": 5,
+            "happiness": 3
+          }
+        },
+        {
+          "text_key": "CHOICE_BREAK_CAMP_RULE",
+          "effects": {
+            "happiness": 4
+          },
+          "morality_effect": -3,
+          "trait_chance": { "trait": "reckless", "chance": 0.05 }
         }
       ]
     },
@@ -404,6 +572,20 @@
             "charisma": 2,
             "happiness": 4
           }
+        },
+        {
+          "text_key": "CHOICE_HELP_CLASSMATE",
+          "effects": {
+            "charisma": 3
+          },
+          "morality_effect": 5
+        },
+        {
+          "text_key": "CHOICE_SNEAK_OFF",
+          "effects": {
+            "happiness": 5
+          },
+          "morality_effect": -3
         }
       ]
     },
@@ -450,6 +632,13 @@
             "trait": "hardworking",
             "chance": 0.08
           }
+        },
+        {
+          "text_key": "CHOICE_COPY_HOMEWORK",
+          "effects": {
+            "intelligence": 1
+          },
+          "morality_effect": -5
         }
       ]
     },
@@ -483,6 +672,14 @@
             "charisma": -2
           },
           "morality_effect": -5
+        },
+        {
+          "text_key": "CHOICE_DEFEND_NEW_KID",
+          "effects": {
+            "charisma": 3
+          },
+          "morality_effect": 6,
+          "trait_chance": { "trait": "brave", "chance": 0.08 }
         }
       ]
     },
@@ -514,6 +711,20 @@
           "effects": {
             "happiness": -3
           }
+        },
+        {
+          "text_key": "CHOICE_LIE_DENTIST",
+          "effects": {
+            "health": -3
+          },
+          "morality_effect": -4
+        },
+        {
+          "text_key": "CHOICE_ADMIT_CAVITY",
+          "effects": {
+            "health": 2
+          },
+          "morality_effect": 5
         }
       ]
     },
@@ -544,6 +755,21 @@
           "text_key": "CHOICE_SMALL_PARTY",
           "effects": {
             "happiness": 5
+          }
+        },
+        {
+          "text_key": "CHOICE_INVITE_EVERYONE",
+          "effects": {
+            "charisma": 3,
+            "happiness": 5
+          },
+          "trait_chance": { "trait": "extrovert", "chance": 0.05 }
+        },
+        {
+          "text_key": "CHOICE_PARTY_CANCELED",
+          "effects": {
+            "happiness": -6,
+            "mental_stability": -2
           }
         }
       ]
@@ -580,6 +806,22 @@
             "trait": "anxious",
             "chance": 0.05
           }
+        },
+        {
+          "text_key": "CHOICE_OVERCOME_FEAR",
+          "effects": {
+            "health": 3,
+            "happiness": 2,
+            "temperament": 2
+          },
+          "trait_chance": { "trait": "brave", "chance": 0.15 }
+        },
+        {
+          "text_key": "CHOICE_FAKE_SICK_SWIM",
+          "effects": {
+            "happiness": 2
+          },
+          "morality_effect": -2
         }
       ]
     },
@@ -616,6 +858,21 @@
             "happiness": -3,
             "health": 2
           }
+        },
+        {
+          "text_key": "CHOICE_SHARE_GAMES",
+          "effects": {
+            "happiness": 3,
+            "charisma": 2
+          }
+        },
+        {
+          "text_key": "CHOICE_PLAY_SECRET",
+          "effects": {
+            "happiness": 5,
+            "health": -1
+          },
+          "morality_effect": -2
         }
       ]
     },
@@ -628,6 +885,7 @@
       "age_max": 12,
       "category": "family",
       "weight": 35,
+      "log_only": true,
       "conditions": {},
       "text_key": "EVENT_CHILD_COOKING",
       "choices": [
@@ -677,6 +935,20 @@
             "temperament": -3
           },
           "morality_effect": -2
+        },
+        {
+          "text_key": "CHOICE_BLAME_SIBLING",
+          "effects": {
+            "happiness": 2
+          },
+          "morality_effect": -4
+        },
+        {
+          "text_key": "CHOICE_TELL_PARENT_SIB",
+          "effects": {
+            "happiness": 1,
+            "charisma": -1
+          }
         }
       ]
     },
@@ -709,6 +981,22 @@
             "happiness": -5,
             "mental_stability": 2
           }
+        },
+        {
+          "text_key": "CHOICE_POST_FLYERS",
+          "effects": {
+            "intelligence": 2,
+            "happiness": -2
+          },
+          "morality_effect": 3
+        },
+        {
+          "text_key": "CHOICE_BLAME_SOMEONE",
+          "effects": {
+            "temperament": 3,
+            "happiness": -3
+          },
+          "morality_effect": -4
         }
       ]
     },
@@ -721,6 +1009,7 @@
       "age_max": 12,
       "category": "health",
       "weight": 35,
+      "log_only": true,
       "conditions": {},
       "text_key": "EVENT_CHILD_NATURE_HIKE",
       "choices": [
@@ -773,6 +1062,21 @@
             "happiness": 2,
             "charisma": 1
           }
+        },
+        {
+          "text_key": "CHOICE_SHOW_CLASS",
+          "effects": {
+            "charisma": 4,
+            "happiness": 3
+          },
+          "trait_chance": { "trait": "creative", "chance": 0.08 }
+        },
+        {
+          "text_key": "CHOICE_COPY_ART",
+          "effects": {
+            "intelligence": 1
+          },
+          "morality_effect": -3
         }
       ]
     },
@@ -804,6 +1108,20 @@
           "effects": {
             "happiness": 3
           }
+        },
+        {
+          "text_key": "CHOICE_CHAT_SHY_KID",
+          "effects": {
+            "charisma": 4,
+            "happiness": 2
+          }
+        },
+        {
+          "text_key": "CHOICE_KEEP_BOOK",
+          "effects": {
+            "intelligence": 2
+          },
+          "morality_effect": -4
         }
       ]
     },
@@ -843,6 +1161,20 @@
             "success": "pet_attack_friends",
             "failure": "pet_attack_bitten"
           }
+        },
+        {
+          "text_key": "CHOICE_CALL_ADULT",
+          "effects": {
+            "happiness": -1
+          },
+          "morality_effect": 3
+        },
+        {
+          "text_key": "CHOICE_PROVOKE_PET",
+          "effects": {
+            "health": -5
+          },
+          "morality_effect": -5
         }
       ]
     },
@@ -858,6 +1190,7 @@
       "age_max": 90,
       "category": "health",
       "weight": 0,
+      "log_only": true,
       "conditions": {},
       "text_key": "EVENT_PET_ESCAPE",
       "choices": [
@@ -881,6 +1214,7 @@
       "age_max": 90,
       "category": "health",
       "weight": 0,
+      "log_only": true,
       "conditions": {},
       "text_key": "EVENT_PET_BITTEN",
       "choices": [
@@ -895,6 +1229,7 @@
     },
     {
       "id": "pet_attack_friends",
+      "log_only": true,
       "phases": [
         "CHILD",
         "TEEN",
@@ -915,6 +1250,655 @@
             "social": 5
           }
         }
+      ]
+    },
+    {
+      "id": "child_cheating_exam",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "school", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_CHEAT_EXAM",
+      "choices": [
+        { "text_key": "CHOICE_FOCUS_OWN", "effects": { "intelligence": 4 } },
+        { "text_key": "CHOICE_COPY_ANSWERS", "effects": { "intelligence": 2 }, "morality_effect": -8, "trait_chance": { "trait": "dishonest", "chance": 0.15 } },
+        { "text_key": "CHOICE_TELL_TEACHER", "effects": { "intelligence": 1 }, "morality_effect": 8, "trait_chance": { "trait": "honest", "chance": 0.1 } }
+      ]
+    },
+    {
+      "id": "child_teacher_favorite",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "school", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_TEACHER_FAV",
+      "choices": [
+        { "text_key": "CHOICE_ENJOY_ATTENTION", "effects": { "charisma": 3, "happiness": 4 } },
+        { "text_key": "CHOICE_FEEL_EMBARRASSED", "effects": { "happiness": -2 } },
+        { "text_key": "CHOICE_WORK_HARDER", "effects": { "intelligence": 5 }, "trait_chance": { "trait": "hardworking", "chance": 0.13 } }
+      ]
+    },
+    {
+      "id": "child_bad_grade_parents",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "school", "weight": 50,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_BAD_GRADE",
+      "choices": [
+        { "text_key": "CHOICE_HIDE_GRADE", "effects": { "happiness": 2 }, "morality_effect": -5 },
+        { "text_key": "CHOICE_SHOW_PARENTS", "effects": { "intelligence": 1, "happiness": -3 }, "morality_effect": 5 },
+        { "text_key": "CHOICE_PROMISE_STUDY", "effects": { "intelligence": 2, "happiness": -1 } }
+      ]
+    },
+    {
+      "id": "child_reading_group",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 10,
+      "category": "school", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_READING_GROUP",
+      "choices": [
+        { "text_key": "CHOICE_READ_ALOUD", "effects": { "charisma": 3, "intelligence": 3 } },
+        { "text_key": "CHOICE_STRUGGLE_READ", "effects": { "intelligence": 1, "happiness": -3 } },
+        { "text_key": "CHOICE_SKIP_READING", "effects": { "intelligence": -1, "happiness": 1 } }
+      ]
+    },
+    {
+      "id": "child_school_election",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "school", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SCHOOL_ELECTION",
+      "choices": [
+        { "text_key": "CHOICE_RUN_CANDIDATE", "effects": { "charisma": 5, "happiness": 3 }, "trait_chance": { "trait": "extrovert", "chance": 0.1 } },
+        { "text_key": "CHOICE_VOTE_FRIEND", "effects": { "charisma": 2, "happiness": 2 } },
+        { "text_key": "CHOICE_IGNORE_ELECTION", "effects": {} }
+      ]
+    },
+    {
+      "id": "child_school_brawl",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "school", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SCHOOL_BRAWL",
+      "choices": [
+        { "text_key": "CHOICE_JOIN_BRAWL", "effects": { "temperament": 3, "health": -5 }, "morality_effect": -5 },
+        { "text_key": "CHOICE_STOP_FIGHT", "effects": { "charisma": 3 }, "morality_effect": 5, "trait_chance": { "trait": "brave", "chance": 0.1 } },
+        { "text_key": "CHOICE_WATCH_WALK", "effects": { "happiness": -2 } }
+      ]
+    },
+    {
+      "id": "child_after_school_detention",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "school", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_DETENTION",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_DETENTION", "effects": { "mental_stability": 2 }, "morality_effect": 3 },
+        { "text_key": "CHOICE_DENY_BLAME", "effects": { "charisma": -1 }, "morality_effect": -5 },
+        { "text_key": "CHOICE_MAKE_JOKES", "effects": { "charisma": 2, "happiness": 2 }, "morality_effect": -2 }
+      ]
+    },
+    {
+      "id": "child_class_presentation",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "school", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_PRESENTATION",
+      "choices": [
+        { "text_key": "CHOICE_PREPARE_WELL", "effects": { "intelligence": 4, "charisma": 3 } },
+        { "text_key": "CHOICE_WING_PRESENT", "effects": { "charisma": 2, "happiness": -2 } },
+        { "text_key": "CHOICE_SKIP_PRESENT", "effects": { "happiness": 3, "intelligence": -2 }, "morality_effect": -3 }
+      ]
+    },
+    {
+      "id": "child_gifted_program",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "school", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_GIFTED",
+      "choices": [
+        { "text_key": "CHOICE_JOIN_GIFTED", "effects": { "intelligence": 6, "happiness": 2 } },
+        { "text_key": "CHOICE_STAY_NORMAL", "effects": { "happiness": 3 } },
+        { "text_key": "CHOICE_TELL_FRIENDS", "effects": { "charisma": 2, "intelligence": 3 } }
+      ]
+    },
+    {
+      "id": "child_skip_grade",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 11,
+      "category": "school", "weight": 15,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SKIP_GRADE",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_SKIP", "effects": { "intelligence": 5, "happiness": -3 } },
+        { "text_key": "CHOICE_REFUSE_SKIP", "effects": { "happiness": 3 } }
+      ]
+    },
+    {
+      "id": "child_learning_disability",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 10,
+      "category": "school", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_LEARNING_DISAB",
+      "choices": [
+        { "text_key": "CHOICE_GET_HELP", "effects": { "intelligence": 3, "mental_stability": 2 } },
+        { "text_key": "CHOICE_HIDE_STRUGGLE", "effects": { "happiness": -4, "intelligence": -1 } },
+        { "text_key": "CHOICE_ACCEPT_SUPPORT", "effects": { "mental_stability": 3, "intelligence": 2 }, "trait_chance": { "trait": "compassionate", "chance": 0.05 } }
+      ]
+    },
+    {
+      "id": "child_playground_rumor",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "social", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_PLAYGROUND_RUMOR",
+      "choices": [
+        { "text_key": "CHOICE_CONFRONT_RUMORS", "effects": { "charisma": 3, "happiness": -2 } },
+        { "text_key": "CHOICE_IGNORE_RUMORS", "effects": { "mental_stability": 3, "happiness": -3 } },
+        { "text_key": "CHOICE_CRY_HOME", "effects": { "happiness": -5, "mental_stability": -2 } }
+      ]
+    },
+    {
+      "id": "child_first_crush",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "social", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIRST_CRUSH",
+      "choices": [
+        { "text_key": "CHOICE_TELL_CRUSH", "effects": { "charisma": 4, "happiness": 5 } },
+        { "text_key": "CHOICE_WRITE_NOTE", "effects": { "charisma": 2, "happiness": 4 } },
+        { "text_key": "CHOICE_KEEP_SECRET", "effects": { "happiness": 3 } }
+      ]
+    },
+    {
+      "id": "child_friend_betrayal",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "social", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FRIEND_BETRAYAL",
+      "choices": [
+        { "text_key": "CHOICE_CONFRONT_FRIEND", "effects": { "charisma": 3, "happiness": -3 } },
+        { "text_key": "CHOICE_END_FRIENDSHIP", "effects": { "happiness": -5, "mental_stability": 1 } },
+        { "text_key": "CHOICE_FORGIVE_FRIEND", "effects": { "happiness": -2 }, "morality_effect": 5, "trait_chance": { "trait": "compassionate", "chance": 0.1 } }
+      ]
+    },
+    {
+      "id": "child_online_first_game",
+      "phases": ["CHILD"],
+      "age_min": 9, "age_max": 12,
+      "category": "social", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_ONLINE_GAME",
+      "choices": [
+        { "text_key": "CHOICE_PLAY_CAREFULLY", "effects": { "intelligence": 2, "happiness": 4 } },
+        { "text_key": "CHOICE_CHAT_STRANGERS", "effects": { "happiness": 5, "health": -1 }, "morality_effect": -2 },
+        { "text_key": "CHOICE_RAGE_QUIT", "effects": { "happiness": -3, "temperament": 3 } }
+      ]
+    },
+    {
+      "id": "child_neighbor_friend",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 12,
+      "category": "social", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_NEIGHBOR_FRIEND",
+      "choices": [
+        { "text_key": "CHOICE_PLAY_TOGETHER", "effects": { "happiness": 6, "charisma": 3 } },
+        { "text_key": "CHOICE_STAY_INSIDE", "effects": { "happiness": 1 } },
+        { "text_key": "CHOICE_INVITE_INSIDE", "effects": { "happiness": 5, "charisma": 2 } }
+      ]
+    },
+    {
+      "id": "child_sleepover",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "social", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SLEEPOVER",
+      "choices": [
+        { "text_key": "CHOICE_HAVE_FUN_SLEEP", "effects": { "happiness": 7, "charisma": 3 } },
+        { "text_key": "CHOICE_MISS_HOME", "effects": { "happiness": -3, "mental_stability": -1 } },
+        { "text_key": "CHOICE_TELL_SECRETS", "effects": { "charisma": 3 }, "morality_effect": -2 }
+      ]
+    },
+    {
+      "id": "child_bully_becomes_friend",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "social", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_BULLY_FRIEND",
+      "choices": [
+        { "text_key": "CHOICE_REACH_OUT_BULLY", "effects": { "charisma": 5, "happiness": 5 }, "trait_chance": { "trait": "compassionate", "chance": 0.15 } },
+        { "text_key": "CHOICE_STAY_AWAY_BULLY", "effects": { "mental_stability": 2 } },
+        { "text_key": "CHOICE_BULLY_REVENGE", "effects": { "temperament": 3 }, "morality_effect": -5 }
+      ]
+    },
+    {
+      "id": "child_popular_group",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "social", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_POPULAR_GROUP",
+      "choices": [
+        { "text_key": "CHOICE_JOIN_POPULAR", "effects": { "charisma": 4, "happiness": 3 }, "trait_chance": { "trait": "extrovert", "chance": 0.08 } },
+        { "text_key": "CHOICE_STAY_YOURSELF", "effects": { "mental_stability": 3, "happiness": 1 } },
+        { "text_key": "CHOICE_REJECT_GROUP", "effects": { "happiness": -2 } }
+      ]
+    },
+    {
+      "id": "child_imaginary_friend",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 8,
+      "category": "social", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_IMAGINARY_FRIEND",
+      "choices": [
+        { "text_key": "CHOICE_PLAY_IMAGINARY", "effects": { "happiness": 5, "intelligence": 2 } },
+        { "text_key": "CHOICE_TELL_PARENTS", "effects": { "happiness": 2 } },
+        { "text_key": "CHOICE_HIDE_FRIEND", "effects": { "happiness": 4 } }
+      ]
+    },
+    {
+      "id": "child_social_exclusion",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "social", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SOCIAL_EXCLUSION",
+      "choices": [
+        { "text_key": "CHOICE_CONFRONT_GROUP", "effects": { "charisma": 2, "happiness": -3 } },
+        { "text_key": "CHOICE_FIND_NEW_FRIENDS", "effects": { "charisma": 3, "happiness": 1 } },
+        { "text_key": "CHOICE_KEEP_TO_SELF", "effects": { "happiness": -4, "mental_stability": -2 } }
+      ]
+    },
+    {
+      "id": "child_broken_bone",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "health", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_BROKEN_BONE",
+      "choices": [
+        { "text_key": "CHOICE_STAY_STRONG", "effects": { "health": -5, "mental_stability": 3 }, "trait_chance": { "trait": "brave", "chance": 0.1 } },
+        { "text_key": "CHOICE_CRY_LOUDLY", "effects": { "health": -5, "happiness": -5 } },
+        { "text_key": "CHOICE_HOSPITAL_ALONE", "effects": { "health": -3, "mental_stability": 2 } }
+      ]
+    },
+    {
+      "id": "child_glasses",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "health", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_GLASSES",
+      "choices": [
+        { "text_key": "CHOICE_LIKE_GLASSES", "effects": { "happiness": 2, "intelligence": 2 } },
+        { "text_key": "CHOICE_HATE_GLASSES", "effects": { "happiness": -3, "mental_stability": -2 } },
+        { "text_key": "CHOICE_HIDE_GLASSES", "effects": { "intelligence": -1 }, "morality_effect": -2 }
+      ]
+    },
+    {
+      "id": "child_allergy_diagnosed",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 12,
+      "category": "health", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_ALLERGY",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_ALLERGY", "effects": { "mental_stability": 3 } },
+        { "text_key": "CHOICE_IGNORE_ALLERGY", "effects": { "health": -3 }, "morality_effect": -1 },
+        { "text_key": "CHOICE_LEARN_MANAGE", "effects": { "intelligence": 2, "mental_stability": 2 } }
+      ]
+    },
+    {
+      "id": "child_first_period",
+      "phases": ["CHILD"],
+      "age_min": 10, "age_max": 12,
+      "category": "health", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIRST_PERIOD",
+      "choices": [
+        { "text_key": "CHOICE_TELL_MOM", "effects": { "happiness": 3, "mental_stability": 4 } },
+        { "text_key": "CHOICE_PANIC_ALONE", "effects": { "happiness": -5, "mental_stability": -3 } },
+        { "text_key": "CHOICE_HANDLE_ALONE", "effects": { "mental_stability": 2 } }
+      ]
+    },
+    {
+      "id": "child_obesity_risk",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "health", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_OBESITY",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_CHANGE", "effects": { "health": 4, "mental_stability": 2 } },
+        { "text_key": "CHOICE_FEEL_ASHAMED", "effects": { "happiness": -5, "mental_stability": -3 } },
+        { "text_key": "CHOICE_DENY_PROBLEM", "effects": { "health": -3 } }
+      ]
+    },
+    {
+      "id": "child_sports_injury",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "health", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SPORTS_INJURY",
+      "choices": [
+        { "text_key": "CHOICE_PUSH_THROUGH", "effects": { "health": -5, "temperament": 2 }, "trait_chance": { "trait": "brave", "chance": 0.1 } },
+        { "text_key": "CHOICE_STOP_PLAY", "effects": { "health": -2, "happiness": -3 } },
+        { "text_key": "CHOICE_DRAMATIC_CRY", "effects": { "health": -3, "happiness": -5, "charisma": -1 } }
+      ]
+    },
+    {
+      "id": "child_stepparent",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_STEPPARENT",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_STEP", "effects": { "happiness": 3, "mental_stability": 2 } },
+        { "text_key": "CHOICE_RESENT_STEP", "effects": { "happiness": -5, "temperament": 3 } },
+        { "text_key": "CHOICE_IGNORE_STEP", "effects": { "happiness": -2 } }
+      ]
+    },
+    {
+      "id": "child_parent_lost_job",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 12,
+      "category": "family", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_PARENT_JOB_LOSS",
+      "choices": [
+        { "text_key": "CHOICE_COMFORT_PARENT", "effects": { "charisma": 3 }, "morality_effect": 3, "trait_chance": { "trait": "compassionate", "chance": 0.08 } },
+        { "text_key": "CHOICE_WORRY_QUIETLY", "effects": { "mental_stability": -3, "happiness": -3 } },
+        { "text_key": "CHOICE_ASK_ABOUT_MONEY", "effects": { "intelligence": 2, "happiness": -2 } }
+      ]
+    },
+    {
+      "id": "child_moved_city",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_MOVED_CITY",
+      "choices": [
+        { "text_key": "CHOICE_EMBRACE_MOVE", "effects": { "charisma": 4, "happiness": 2 } },
+        { "text_key": "CHOICE_CRY_GOODBYE", "effects": { "happiness": -5, "mental_stability": -3 } },
+        { "text_key": "CHOICE_REFUSE_ACCEPT", "effects": { "happiness": -4, "temperament": 3 } }
+      ]
+    },
+    {
+      "id": "child_grandparent_ill",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_GRANDPARENT_ILL",
+      "choices": [
+        { "text_key": "CHOICE_VISIT_OFTEN", "effects": { "happiness": -2 }, "morality_effect": 5, "trait_chance": { "trait": "compassionate", "chance": 0.1 } },
+        { "text_key": "CHOICE_AVOID_SADNESS", "effects": { "happiness": -3, "mental_stability": -2 } },
+        { "text_key": "CHOICE_PRAY_HOPE", "effects": { "happiness": -1, "mental_stability": 2 } }
+      ]
+    },
+    {
+      "id": "child_grandparent_dies",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_GRANDPARENT_DIES",
+      "choices": [
+        { "text_key": "CHOICE_CRY_TOGETHER", "effects": { "happiness": -8, "mental_stability": -3 }, "relationship_effects": { "MOTHER": { "affection": 5 }, "FATHER": { "affection": 5 } } },
+        { "text_key": "CHOICE_BE_STRONG_FAM", "effects": { "happiness": -5, "mental_stability": 2 } },
+        { "text_key": "CHOICE_CONFUSED_DEATH", "effects": { "happiness": -6, "intelligence": 1 } }
+      ]
+    },
+    {
+      "id": "child_family_vacation",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FAMILY_VAC",
+      "choices": [
+        { "text_key": "CHOICE_EXPLORE_VACATION", "effects": { "happiness": 8, "intelligence": 2, "charisma": 2 } },
+        { "text_key": "CHOICE_SWIM_RELAX", "effects": { "happiness": 6, "health": 3 } },
+        { "text_key": "CHOICE_COMPLAIN_BORED", "effects": { "happiness": 3, "charisma": -2 } }
+      ]
+    },
+    {
+      "id": "child_chores_allowance",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "family", "weight": 45,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_CHORES_ALLOW",
+      "choices": [
+        { "text_key": "CHOICE_ACCEPT_DEAL", "effects": { "happiness": 3, "intelligence": 2 }, "trait_chance": { "trait": "hardworking", "chance": 0.1 } },
+        { "text_key": "CHOICE_NEGOTIATE_MORE", "effects": { "charisma": 3, "intelligence": 2 } },
+        { "text_key": "CHOICE_REFUSE_CHORES", "effects": { "happiness": 2 }, "morality_effect": -2 }
+      ]
+    },
+    {
+      "id": "child_abuse_witness",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 12,
+      "category": "family", "weight": 15,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_ABUSE_WITNESS",
+      "choices": [
+        { "text_key": "CHOICE_HIDE_ROOM", "effects": { "mental_stability": -5, "trauma": 3 } },
+        { "text_key": "CHOICE_CALL_FOR_HELP", "effects": { "mental_stability": -3 }, "morality_effect": 5, "trait_chance": { "trait": "brave", "chance": 0.1 } },
+        { "text_key": "CHOICE_FREEZE_SHOCK", "effects": { "mental_stability": -4, "trauma": 2 } }
+      ]
+    },
+    {
+      "id": "child_religious_event",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_RELIGIOUS",
+      "choices": [
+        { "text_key": "CHOICE_EMBRACE_FAITH", "effects": { "happiness": 4, "mental_stability": 2 } },
+        { "text_key": "CHOICE_GO_THROUGH_MOTIONS", "effects": { "happiness": 2 } },
+        { "text_key": "CHOICE_QUESTION_BELIEFS", "effects": { "intelligence": 3, "happiness": -1 } }
+      ]
+    },
+    {
+      "id": "child_parent_remarried",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "family", "weight": 15,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_PARENT_REMARRIED",
+      "choices": [
+        { "text_key": "CHOICE_HAPPY_FOR_THEM", "effects": { "happiness": 3, "mental_stability": 2 }, "trait_chance": { "trait": "compassionate", "chance": 0.05 } },
+        { "text_key": "CHOICE_FEEL_REPLACED", "effects": { "happiness": -6, "mental_stability": -3 } },
+        { "text_key": "CHOICE_GIVE_CHANCE", "effects": { "happiness": 1, "mental_stability": 1 } }
+      ]
+    },
+    {
+      "id": "child_first_allowance",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "finance", "weight": 40,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIRST_ALLOW",
+      "choices": [
+        { "text_key": "CHOICE_SAVE_ALL", "effects": { "intelligence": 2, "happiness": 1 }, "trait_chance": { "trait": "hardworking", "chance": 0.05 } },
+        { "text_key": "CHOICE_SPEND_CANDY", "effects": { "happiness": 5 } },
+        { "text_key": "CHOICE_SAVE_SPEND_HALF", "effects": { "happiness": 3, "intelligence": 1 } }
+      ]
+    },
+    {
+      "id": "child_lost_money",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "finance", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_LOST_MONEY",
+      "choices": [
+        { "text_key": "CHOICE_LOOK_FOR_IT", "effects": { "intelligence": 1, "happiness": -3 } },
+        { "text_key": "CHOICE_TELL_PARENTS_MONEY", "effects": { "happiness": -3 }, "morality_effect": 5 },
+        { "text_key": "CHOICE_HIDE_MISTAKE", "effects": { "happiness": -1 }, "morality_effect": -4 }
+      ]
+    },
+    {
+      "id": "child_steal_candy",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "finance", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_STEAL_CANDY",
+      "choices": [
+        { "text_key": "CHOICE_RESIST_TEMPTATION", "effects": { "happiness": 1 }, "morality_effect": 6, "trait_chance": { "trait": "honest", "chance": 0.1 } },
+        { "text_key": "CHOICE_STEAL_CANDY", "effects": { "happiness": 4 }, "morality_effect": -6, "trait_chance": { "trait": "dishonest", "chance": 0.1 } },
+        { "text_key": "CHOICE_ASK_TO_BUY", "effects": { "happiness": 3 }, "morality_effect": 3 }
+      ]
+    },
+    {
+      "id": "child_lemonade_stand",
+      "phases": ["CHILD"],
+      "age_min": 8, "age_max": 12,
+      "category": "finance", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_LEMONADE",
+      "choices": [
+        { "text_key": "CHOICE_WORK_HARD_STAND", "effects": { "intelligence": 3, "happiness": 5 }, "trait_chance": { "trait": "hardworking", "chance": 0.1 }, "money_effect": 10 },
+        { "text_key": "CHOICE_GIVE_UP_STAND", "effects": { "happiness": -2 } },
+        { "text_key": "CHOICE_PRICE_HIGH", "effects": { "intelligence": 2, "charisma": -1 }, "money_effect": 5 }
+      ]
+    },
+    {
+      "id": "child_find_wallet",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "finance", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIND_WALLET",
+      "choices": [
+        { "text_key": "CHOICE_RETURN_WALLET", "effects": {} , "morality_effect": 8, "trait_chance": { "trait": "honest", "chance": 0.15 } },
+        { "text_key": "CHOICE_KEEP_WALLET", "effects": {}, "morality_effect": -8, "money_effect": 30, "trait_chance": { "trait": "dishonest", "chance": 0.15 } },
+        { "text_key": "CHOICE_GIVE_PARENTS_WALLET", "effects": { "happiness": 2 }, "morality_effect": 4 }
+      ]
+    },
+    {
+      "id": "child_nightmare_recurring",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 12,
+      "category": "random", "weight": 25,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_NIGHTMARE",
+      "choices": [
+        { "text_key": "CHOICE_TELL_PARENTS_NIGHT", "effects": { "mental_stability": 3, "happiness": 2 } },
+        { "text_key": "CHOICE_KEEP_NIGHTMARE", "effects": { "mental_stability": -3, "happiness": -3 } },
+        { "text_key": "CHOICE_DRAW_NIGHTMARE", "effects": { "mental_stability": 2, "intelligence": 1 }, "trait_chance": { "trait": "creative", "chance": 0.05 } }
+      ]
+    },
+    {
+      "id": "child_lying_habit",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "random", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_LYING_HABIT",
+      "choices": [
+        { "text_key": "CHOICE_STOP_LYING", "effects": {}, "morality_effect": 5, "trait_chance": { "trait": "honest", "chance": 0.1 } },
+        { "text_key": "CHOICE_KEEP_LYING", "effects": {}, "morality_effect": -5, "trait_chance": { "trait": "dishonest", "chance": 0.1 } },
+        { "text_key": "CHOICE_LIE_ONLY_SMALL", "effects": {}, "morality_effect": -2 }
+      ]
+    },
+    {
+      "id": "child_hero_idol",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "random", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_HERO_IDOL",
+      "choices": [
+        { "text_key": "CHOICE_FOLLOW_HERO", "effects": { "happiness": 4, "intelligence": 2 } },
+        { "text_key": "CHOICE_TRY_BE_LIKE", "effects": { "charisma": 3, "temperament": 2 }, "trait_chance": { "trait": "brave", "chance": 0.08 } },
+        { "text_key": "CHOICE_JUST_ADMIRE", "effects": { "happiness": 3 } }
+      ]
+    },
+    {
+      "id": "child_first_heartbreak",
+      "phases": ["CHILD"],
+      "age_min": 7, "age_max": 12,
+      "category": "random", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIRST_HEARTBREAK",
+      "choices": [
+        { "text_key": "CHOICE_STAY_IN_TOUCH", "effects": { "charisma": 3, "happiness": -3 } },
+        { "text_key": "CHOICE_CRY_SAD", "effects": { "mental_stability": -3, "happiness": -5 } },
+        { "text_key": "CHOICE_MAKE_NEW_FRIENDS", "effects": { "charisma": 4, "happiness": -2 } }
+      ]
+    },
+    {
+      "id": "child_speech_impediment",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 10,
+      "category": "health", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_SPEECH_IMPED",
+      "choices": [
+        { "text_key": "CHOICE_GET_THERAPY", "effects": { "intelligence": 2, "mental_stability": 3 } },
+        { "text_key": "CHOICE_AVOID_SPEAKING", "effects": { "happiness": -3, "charisma": -2 }, "trait_chance": { "trait": "anxious", "chance": 0.1 } },
+        { "text_key": "CHOICE_PUSH_THROUGH_STUTTER", "effects": { "charisma": 1 }, "trait_chance": { "trait": "brave", "chance": 0.1 } }
+      ]
+    },
+    {
+      "id": "child_artistic_talent",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "random", "weight": 30,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_ARTISTIC_TALENT",
+      "choices": [
+        { "text_key": "CHOICE_NURTURE_TALENT", "effects": { "intelligence": 2, "happiness": 5 }, "trait_chance": { "trait": "creative", "chance": 0.2 } },
+        { "text_key": "CHOICE_SHOW_PARENTS_TALENT", "effects": { "charisma": 2, "happiness": 4 } },
+        { "text_key": "CHOICE_KEEP_PRIVATE", "effects": { "happiness": 3 } }
+      ]
+    },
+    {
+      "id": "child_first_lie_parents",
+      "phases": ["CHILD"],
+      "age_min": 6, "age_max": 12,
+      "category": "random", "weight": 35,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_FIRST_LIE",
+      "choices": [
+        { "text_key": "CHOICE_COME_CLEAN", "effects": { "happiness": -3 }, "morality_effect": 6, "trait_chance": { "trait": "honest", "chance": 0.1 } },
+        { "text_key": "CHOICE_STICK_TO_LIE", "effects": {}, "morality_effect": -5, "trait_chance": { "trait": "dishonest", "chance": 0.1 } },
+        { "text_key": "CHOICE_ADMIT_HALF", "effects": { "happiness": -1 }, "morality_effect": 1 }
+      ]
+    },
+    {
+      "id": "child_curiosity_fire",
+      "phases": ["CHILD"],
+      "age_min": 5, "age_max": 10,
+      "category": "random", "weight": 20,
+      "conditions": {},
+      "text_key": "EVENT_CHILD_CURIOSITY_FIRE",
+      "choices": [
+        { "text_key": "CHOICE_PLAY_SAFE_FIRE", "effects": { "intelligence": 2, "happiness": -1 } },
+        { "text_key": "CHOICE_LIGHT_MATCH", "effects": { "health": -3, "temperament": 3 }, "morality_effect": -3 },
+        { "text_key": "CHOICE_TELL_ADULT_FIRE", "effects": {}, "morality_effect": 5, "trait_chance": { "trait": "brave", "chance": 0.05 } }
       ]
     }
   ]

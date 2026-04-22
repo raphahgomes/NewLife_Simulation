@@ -13,6 +13,7 @@ extends Resource
 # Conditions may include: min_X, max_X for attributes, has_trait, has_career, etc.
 
 @export var text_key: String = ""  # localization key for the event description
+@export var log_only: bool = false  # if true, auto-apply first choice and skip popup
 @export var choices: Array[Dictionary] = []
 # Each choice: {
 #   "text_key": String,
@@ -27,7 +28,9 @@ extends Resource
 static func from_dict(d: Dictionary) -> EventData:
 	var e := EventData.new()
 	e.id = d.get("id", "")
-	var raw_phases: Array = d.get("phases", d.get("phase", []))
+	var raw_phases = d.get("phases", d.get("phase", []))
+	if raw_phases is String:
+		raw_phases = [raw_phases] if raw_phases != "" else []
 	e.phases = Array(raw_phases, TYPE_STRING, "", null)
 	var age_range: Array = d.get("age_range", [])
 	if age_range.size() >= 2:
@@ -40,6 +43,7 @@ static func from_dict(d: Dictionary) -> EventData:
 	e.weight = d.get("weight", 10)
 	e.conditions = d.get("conditions", {})
 	e.text_key = d.get("text_key", "")
+	e.log_only = d.get("log_only", false)
 	e.choices = Array(d.get("choices", []), TYPE_DICTIONARY, "", null)
 	return e
 

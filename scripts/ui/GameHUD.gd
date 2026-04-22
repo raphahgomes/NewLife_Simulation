@@ -48,7 +48,8 @@ func _ready() -> void:
 	if GameManager.character:
 		start_age = GameManager.character.age
 	_add_year_separator(start_age)
-	_process_next_event()
+	# Não processa eventos automaticamente ao entrar no HUD —
+	# eventos só aparecem ao avançar o ano ou realizar atividades.
 
 func _setup_monetization_button() -> void:
 	var mon_btn := Button.new()
@@ -342,6 +343,27 @@ func _add_log_entry(text: String, icon: String = "📌") -> void:
 	_scroll_to_bottom()
 
 
+# Applies affection delta to all relationships matching given types and logs each reaction.
+# reactions = [ {rel_types: [RelType,...], affection: int, reaction_text: String, emoji: String} ]
+func _apply_present_reactions(reactions: Array) -> void:
+	var c := GameManager.character
+	for rule in reactions:
+		var types: Array = rule.get("rel_types", [])
+		var aff_delta: int = rule.get("affection", 0)
+		var reaction_text: String = rule.get("reaction_text", "")
+		var emoji: String = rule.get("emoji", "💬")
+		for rel in c.relationships:
+			if not (rel is Relationship) or not rel.alive:
+				continue
+			if types.is_empty() or rel.rel_type in types:
+				var before: int = rel.affection
+				rel.modify_affection(aff_delta)
+				var diff: int = rel.affection - before
+				var diff_str := ("+" if diff >= 0 else "") + str(diff)
+				var rel_emoji := _get_rel_emoji(rel)
+				_add_log_entry(rel_emoji + " [b]" + rel.person_name + "[/b] — " + reaction_text + "  ❤️ " + diff_str, emoji)
+
+
 func _scroll_to_bottom() -> void:
 	await get_tree().process_frame
 	if event_feed:
@@ -375,6 +397,15 @@ func _process_next_event() -> void:
 		return
 
 	_add_log_entry(tr(event.text_key), _get_event_icon(event))
+
+	if event.log_only or event.choices.is_empty():
+		if not event.choices.is_empty():
+			var results := GameManager.apply_event_choice(event, 0)
+			_add_choice_result_summary(results)
+		if GameManager.has_pending_events():
+			await get_tree().create_timer(0.2).timeout
+			_process_next_event()
+		return
 
 	if not event.choices.is_empty():
 		_show_event_popup(event)
@@ -432,13 +463,190 @@ func _on_event_choice_made(choice_index: int, event: EventData) -> void:
 		if choice_text != "" and choice_text != choice.get("text_key", ""):
 			_add_log_entry(choice_text, "👉")
 
-	GameManager.apply_event_choice(event, choice_index)
+	var results := GameManager.apply_event_choice(event, choice_index)
 	_update_display()
+	_add_choice_result_summary(results)
 
 	if GameManager.has_pending_events():
 		await get_tree().create_timer(0.3).timeout
 		_process_next_event()
 
+
+func _add_choice_result_summary(results: Dictionary) -> void:
+	var parts: Array[String] = []
+	var stat_icons := {
+		"happiness": "😄", "health": "❤️", "intelligence": "🧠",
+		"charisma": "💬", "appearance": "✨", "morality": "⚖️",
+		"trauma": "💔", "mental_stability": "🧘", "attachment_profile": "🤝",
+		"cognitive_development": "🔬", "temperament": "🌡️", "money": "💰"
+	}
+	for key in results:
+		if key == "new_trait":
+			var trait_key := "TRAIT_" + (results[key] as String).to_upper()
+			parts.append("🌟 " + tr("NEW_TRAIT") + ": " + tr(trait_key))
+			continue
+		var val := int(results[key])
+		if val == 0:
+			continue
+		var icon: String = stat_icons.get(key, "")
+		if icon.is_empty():
+			continue
+		var sign := "+" if val > 0 else ""
+		parts.append(icon + " " + sign + str(val))
+	if not parts.is_empty():
+		_add_log_entry("  ".join(parts), "📊")
+
+
+func _handle_specific_activity(act_id: String) -> void:
+	var c := GameManager.character
+	match act_id:
+		"baby_cry_loud":
+			c.family_stress_level += 15
+			c.morality = clampi(c.morality + 2, 0, 100)
+			_add_log_entry(tr("LOG_BABY_CRY_LOUD"), "😭")
+			_apply_present_reactions([
+				{
+					"rel_types": [Relationship.RelType.FATHER, Relationship.RelType.MOTHER],
+					"affection": -5,
+					"reaction_text": tr("REL_REACT_CRY_PARENT"),
+					"emoji": "😤"
+				},
+				{
+					"rel_types": [Relationship.RelType.SIBLING],
+					"affection": -3,
+					"reaction_text": tr("REL_REACT_CRY_SIBLING"),
+					"emoji": "😒"
+				}
+			])
+			# Pai/Mãe solo com estresse crítico → pode colocar para adoção
+			var is_single_parent := c.family_status in ["Pai Solo", "Mãe Solo"]
+			if is_single_parent and c.family_stress_level >= 80:
+				var solo_happy: int = c.father_happiness if c.family_status == "Pai Solo" else c.mother_happiness
+				if solo_happy <= 25:
+					var adoption_ev := EventManager.get_event_by_id("baby_put_for_adoption")
+					if adoption_ev != null:
+						_show_event_popup(adoption_ev)
+						return
+			# Choro ignorado pelo stress geral
+			if c.family_stress_level >= 40:
+				var ignored_ev := EventManager.get_event_by_id("baby_ignored_cry")
+				if ignored_ev != null:
+					_show_event_popup(ignored_ev)
+					return
+			_update_display()
+		"baby_smile":
+			c.family_stress_level = max(0, c.family_stress_level - 15)
+			c.charisma = clampi(c.charisma + 2, 0, 100)
+			_add_log_entry(tr("LOG_BABY_SMILE"), "😊")
+			_apply_present_reactions([
+				{
+					"rel_types": [Relationship.RelType.FATHER, Relationship.RelType.MOTHER],
+					"affection": 8,
+					"reaction_text": tr("REL_REACT_SMILE_PARENT"),
+					"emoji": "🥰"
+				},
+				{
+					"rel_types": [Relationship.RelType.SIBLING],
+					"affection": 5,
+					"reaction_text": tr("REL_REACT_SMILE_SIBLING"),
+					"emoji": "😄"
+				}
+			])
+			_update_display()
+		"baby_bite":
+			c.family_stress_level += 30
+			c.trauma = clampi(c.trauma + 5, 0, 100)
+			_add_log_entry(tr("LOG_BABY_BITE"), "🦷")
+			_apply_present_reactions([
+				{
+					"rel_types": [Relationship.RelType.FATHER, Relationship.RelType.MOTHER, Relationship.RelType.SIBLING],
+					"affection": -15,
+					"reaction_text": tr("REL_REACT_BITE"),
+					"emoji": "😠"
+				}
+			])
+			_update_display()
+		"baby_sleep_well":
+			c.health = clampi(c.health + 5, 0, 100)
+			_add_log_entry(tr("LOG_BABY_SLEEP_WELL"), "😴")
+			_apply_present_reactions([
+				{
+					"rel_types": [Relationship.RelType.FATHER, Relationship.RelType.MOTHER],
+					"affection": 4,
+					"reaction_text": tr("REL_REACT_SLEEP_PARENT"),
+					"emoji": "😌"
+				}
+			])
+			_update_display()
+		"school":
+			var act_study := func():
+				c.intelligence = clampi(c.intelligence + 4, 0, 100)
+				c.happiness = clampi(c.happiness - 3, 0, 100)
+				_add_log_entry(tr("LOG_STUDY_HARD"), "📚")
+				_update_display()
+			var act_slack := func():
+				c.intelligence = clampi(c.intelligence - 3, 0, 100)
+				c.happiness = clampi(c.happiness + 4, 0, 100)
+				_add_log_entry(tr("LOG_SLACK_OFF"), "💤")
+				_update_display()
+			var act_socialize := func():
+				c.happiness = clampi(c.happiness + 2, 0, 100)
+				_add_log_entry(tr("LOG_SCHOOL_SOCIALIZE"), "💬")
+				_update_display()
+			_show_custom_menu("📚 " + tr("ACT_SCHOOL"), tr("CHOOSE_ACTION"), [
+				{"label": "📖 " + tr("ACT_SCHOOL_STUDY_HARD") + " (+Int, -Hap)", "action": act_study},
+				{"label": "💤 " + tr("ACT_SCHOOL_SLACK_OFF") + " (-Int, +Hap)", "action": act_slack},
+				{"label": "👫 " + tr("ACT_SCHOOL_SOCIALIZE") + " (+Soc)", "action": act_socialize},
+			])
+		"crime":
+			var act_shoplift := func():
+				c.morality = clampi(c.morality - 5, 0, 100)
+				var success := randf() > 0.4
+				if success:
+					c.money += randi_range(20, 100)
+					_add_log_entry(tr("LOG_SHOPLIFT_SUCCESS"), "💰")
+				else:
+					c.happiness -= 10
+					_add_log_entry(tr("LOG_SHOPLIFT_CAUGHT"), "🚨")
+				_update_display()
+			var act_gta := func():
+				c.morality = clampi(c.morality - 15, 0, 100)
+				var success := randf() > 0.7
+				if success:
+					c.money += randi_range(1000, 5000)
+					_add_log_entry(tr("LOG_GTA_SUCCESS"), "💰")
+				else:
+					c.happiness -= 30
+					_add_log_entry(tr("LOG_GTA_CAUGHT"), "🚨")
+				_update_display()
+			_show_custom_menu("🔪 " + tr("ACT_CRIME"), tr("CHOOSE_ACTION"), [
+				{"label": "🕵️ " + tr("ACT_CRIME_SHOPLIFT"), "action": act_shoplift},
+				{"label": "🚘 " + tr("ACT_CRIME_GRAND_THEFT"), "disabled": c.age < 14, "action": act_gta},
+			])
+		"health", "gym", "doctor":
+			var act_gym := func():
+				c.money -= 20
+				c.health = clampi(c.health + 3, 0, 100)
+				c.appearance = clampi(c.appearance + 2, 0, 100)
+				_add_log_entry(tr("LOG_GYM_WORKOUT"), "💪")
+				_update_display()
+			var act_meditate := func():
+				c.health = clampi(c.health + 1, 0, 100)
+				c.happiness = clampi(c.happiness + 3, 0, 100)
+				_add_log_entry(tr("LOG_MEDITATE"), "🧘")
+				_update_display()
+			var act_doctor := func():
+				c.money -= 100
+				c.health = clampi(c.health + 10, 0, 100)
+				_add_log_entry(tr("LOG_DOCTOR"), "👨‍⚕️")
+				_update_display()
+			_show_custom_menu("🏥 " + tr("HEALTH"), tr("CHOOSE_ACTION"), [
+				{"label": "💪 " + tr("ACT_GYM_WORKOUT") + " ($20)", "disabled": c.money < 20, "action": act_gym},
+				{"label": "🧘 " + tr("ACT_MEDITATE") + " (Free)", "action": act_meditate},
+				{"label": "👨‍⚕️ " + tr("ACT_DOCTOR_CHECKUP") + " ($100)", "disabled": c.money < 100, "action": act_doctor},
+			])
+		_:
+			_show_category_actions(act_id)
 
 func _show_category_actions(category: String) -> void:
 	var event_categories: Array[String] = []
@@ -532,10 +740,11 @@ func _show_activities_menu() -> void:
 			btn.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
 			btn.tooltip_text = act.get("tooltip", "")
 		else:
-			var cat: String = act["category"]
+			var cat: String = act.get("category", "")
+			var act_id: String = act.get("action_id", cat)
 			btn.pressed.connect(func():
 				overlay.queue_free()
-				_show_category_actions(cat)
+				_handle_specific_activity(act_id)
 			)
 		vbox.add_child(btn)
 
@@ -562,15 +771,107 @@ func _show_activities_menu() -> void:
 	add_child(overlay)
 
 
+func _show_custom_menu(title: String, subtitle: String, choices: Array) -> void:
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.5)
+	overlay.add_child(bg)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03
+	panel.anchor_right = 0.97
+	panel.anchor_top = 0.06
+	panel.anchor_bottom = 0.94
+	var panel_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16)
+	panel.add_theme_stylebox_override("panel", panel_style)
+	overlay.add_child(panel)
+
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
+
+	var t_lbl := Label.new()
+	t_lbl.text = title
+	t_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	t_lbl.add_theme_font_size_override("font_size", 28)
+	t_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox.add_child(t_lbl)
+
+	if subtitle != "":
+		var st_lbl := Label.new()
+		st_lbl.text = subtitle
+		st_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		st_lbl.add_theme_font_size_override("font_size", 20)
+		st_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		vbox.add_child(st_lbl)
+
+	var sep := HSeparator.new()
+	vbox.add_child(sep)
+
+	for choice in choices:
+		var btn := Button.new()
+		btn.text = choice["label"]
+		btn.custom_minimum_size = Vector2(0, 68)
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var btn_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 14, 16, 12)
+		btn.add_theme_stylebox_override("normal", btn_style)
+		var hover_style := ThemeSetup.make_flat_box(ThemeSetup.PRIMARY.darkened(0.3), 14, 16, 12)
+		btn.add_theme_stylebox_override("hover", hover_style)
+		btn.add_theme_font_size_override("font_size", 22)
+		btn.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+		
+		if choice.has("disabled") and choice["disabled"]:
+			btn.disabled = true
+			btn.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
+		else:
+			var bound_cb: Callable = choice["action"]
+			btn.pressed.connect(func():
+				overlay.queue_free()
+				bound_cb.call()
+			)
+		vbox.add_child(btn)
+
+	var sep2 := HSeparator.new()
+	vbox.add_child(sep2)
+	
+	var btn_close := Button.new()
+	btn_close.text = "✕ " + tr("CLOSE")
+	btn_close.custom_minimum_size = Vector2(0, 56)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12)
+	btn_close.add_theme_stylebox_override("normal", close_style)
+	btn_close.add_theme_font_size_override("font_size", 22)
+	btn_close.add_theme_color_override("font_color", Color.WHITE)
+	btn_close.pressed.connect(func(): overlay.queue_free())
+	vbox.add_child(btn_close)
+
+	bg.gui_input.connect(func(event_input: InputEvent):
+		if event_input is InputEventMouseButton and event_input.pressed:
+			overlay.queue_free()
+	)
+
+	add_child(overlay)
+
+
 func _get_phase_activities(c: Character) -> Array:
 	var activities := []
 
 	match c.life_phase:
 		Character.LifePhase.BABY:
-			# Babies have almost no actions — life just happens
-			activities.append({"label": "😴 " + tr("ACT_SLEEP"), "category": "health"})
-			activities.append({"label": "😭 " + tr("ACT_CRY"), "category": "social"})
-			activities.append({"label": "🧸 " + tr("ACT_PLAY_BABY"), "category": "social", "disabled": c.age < 1, "tooltip": tr("TOO_YOUNG")})
+			# Ações exclusivas e vitais do modo Bebê ("Borboleta")
+			activities.append({"label": "😭 Chorar Alto", "action_id": "baby_cry_loud", "tooltip": "Aumenta o estresse da família"})
+			activities.append({"label": "😊 Sorrir / Dar Alegria", "action_id": "baby_smile", "tooltip": "Tenta aliviar o estresse da família"})
+			activities.append({"label": "🦷 Morder / Causar Caos", "action_id": "baby_bite", "tooltip": "Aumenta trauma e explode o estresse"})
+			activities.append({"label": "😴 Dormir nas horas exatas", "action_id": "baby_sleep_well", "tooltip": "Melhora sua própria saúde"})
 
 		Character.LifePhase.CHILD:
 			# Children: school, play, family
@@ -924,6 +1225,57 @@ func _show_person_actions(rel: Relationship) -> void:
 func _apply_rel_action(rel: Relationship, effect: String) -> void:
 	var c := GameManager.character
 	match effect:
+		"talk":
+			var act_talk_casual := func():
+				rel.modify_affection(3)
+				c.happiness = clampi(c.happiness + 1, 0, 100)
+				_add_log_entry(tr("LOG_TALK_CASUAL").replace("{name}", rel.person_name), "💬")
+				_update_display()
+			var act_talk_deep := func():
+				rel.modify_affection(5)
+				rel.modify_respect(3)
+				c.happiness = clampi(c.happiness + 2, 0, 100)
+				_add_log_entry(tr("LOG_TALK_DEEP").replace("{name}", rel.person_name), "🗣️")
+				_update_display()
+			var act_talk_gossip := func():
+				rel.modify_affection(2)
+				c.morality = clampi(c.morality - 3, 0, 100)
+				_add_log_entry(tr("LOG_TALK_GOSSIP").replace("{name}", rel.person_name), "🤫")
+				_update_display()
+			_show_custom_menu("💬 " + tr("REL_TALK") + " - " + rel.person_name, tr("CHOOSE_ACTION"), [
+				{"label": "🗣️ " + tr("REL_TALK_CASUAL") + " (+Affection)", "action": act_talk_casual},
+				{"label": "🧠 " + tr("REL_TALK_DEEP") + " (+Aff, +Respect)", "action": act_talk_deep},
+				{"label": "🤫 " + tr("REL_TALK_GOSSIP") + " (+Aff, -Morality)", "action": act_talk_gossip},
+			])
+			return
+		"gift":
+			var act_chocolate := func():
+				c.money -= 15
+				rel.modify_affection(5)
+				_add_log_entry(tr("LOG_GIFT").replace("{name}", rel.person_name).replace("{item}", tr("GIFT_CHOCOLATE")), "🍫")
+				_update_display()
+			var act_book := func():
+				c.money -= 30
+				rel.modify_affection(8)
+				_add_log_entry(tr("LOG_GIFT").replace("{name}", rel.person_name).replace("{item}", tr("GIFT_BOOK")), "📖")
+				_update_display()
+			var act_watch := func():
+				c.money -= 200
+				rel.modify_affection(20)
+				_add_log_entry(tr("LOG_GIFT").replace("{name}", rel.person_name).replace("{item}", tr("GIFT_WATCH")), "⌚")
+				_update_display()
+			var act_car := func():
+				c.money -= 25000
+				rel.modify_affection(100)
+				_add_log_entry(tr("LOG_GIFT").replace("{name}", rel.person_name).replace("{item}", tr("GIFT_CAR")), "🚗")
+				_update_display()
+			_show_custom_menu("🎁 " + tr("REL_GIFT") + " - " + rel.person_name, tr("CHOOSE_GIFT"), [
+				{"label": "🍫 " + tr("GIFT_CHOCOLATE") + " ($15)", "disabled": c.money < 15, "action": act_chocolate},
+				{"label": "📖 " + tr("GIFT_BOOK") + " ($30)", "disabled": c.money < 30, "action": act_book},
+				{"label": "⌚ " + tr("GIFT_WATCH") + " ($200)", "disabled": c.money < 200, "action": act_watch},
+				{"label": "🚗 " + tr("GIFT_CAR") + " ($25000)", "disabled": c.money < 25000, "action": act_car},
+			])
+			return
 		"cry":
 			rel.modify_affection(-2)
 			c.happiness = clampi(c.happiness - 2, 0, 100)

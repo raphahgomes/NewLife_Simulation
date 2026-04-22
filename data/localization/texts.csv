@@ -1006,3 +1006,387 @@ CHOICE_REFUSE_LEAVE,Recusar e voltar para casa,Refuse and go home
 EVENT_ADULT_DEPRESSION_ALCOHOL,Você vem enfrentando um severo quadro de depressão. Recentemente o álcool se tornou sua válvula de escape e sua saúde está despencando depressa.,You have been facing a severe depression episode. Recently alcohol became your escape valve and your health is plummeting rapidly.
 CHOICE_SEEK_REHAB,Buscar médico e reabilitação,Seek doctor and rehab
 CHOICE_KEEP_DRINKING,Afogar as mágoas no bar,Drown your sorrows at the bar
+
+CHOOSE_ACTION,Choose Action,Escolher Ação
+CHOOSE_GIFT,Choose Gift,Escolher Presente
+ACT_SCHOOL_STUDY_HARD,Study Hard,Estudar Bastante
+ACT_SCHOOL_SLACK_OFF,Slack Off,Vadiar
+ACT_SCHOOL_SOCIALIZE,Socialize,Socializar
+ACT_CRIME_SHOPLIFT,Shoplift,Furtar Loja
+ACT_CRIME_GRAND_THEFT,Grand Theft Auto,Roubar Carro
+ACT_GYM_WORKOUT,Workout,Malhar
+ACT_DOCTOR_CHECKUP,Checkup,Consulta de Rotina
+REL_TALK_CASUAL,Casual Chat,Bate-papo
+REL_TALK_DEEP,Deep Talk,Conversa Profunda
+REL_TALK_GOSSIP,Gossip,Fofocar
+GIFT_CHOCOLATE,Chocolates,Chocolates
+GIFT_BOOK,Book,Livro
+GIFT_WATCH,Watch,Relógio
+GIFT_CAR,Car,Carro
+LOG_STUDY_HARD,You studied hard!,Você estudou muito e se sente mais inteligente.
+LOG_SLACK_OFF,You slacked off.,Você vadiou ao invés de estudar.
+LOG_SCHOOL_SOCIALIZE,You hung out with friends.,Você passou o tempo com amigos.
+LOG_SHOPLIFT_SUCCESS,You stole an item!,Você roubou com sucesso!
+LOG_SHOPLIFT_CAUGHT,You got caught shoplifting.,Você foi pego furtando.
+LOG_GTA_SUCCESS,You stole a car!,Você roubou um carro e o vendeu!
+LOG_GTA_CAUGHT,You crashed while stealing a car.,Você foi pego tentando roubar um carro.
+LOG_GYM_WORKOUT,You had a great workout.,Você fez um ótimo treino.
+LOG_MEDITATE,You feel at peace.,Você está em paz.
+LOG_DOCTOR,You are in good health.,O médico disse que você está bem.
+LOG_TALK_CASUAL,You chatted with {name}.,Você conversou um pouco com {name}.
+LOG_TALK_DEEP,You had a meaningful talk with {name}.,Você teve uma conversa profunda com {name}.
+LOG_TALK_GOSSIP,You gossiped with {name}.,Você fez fofocas com {name}.
+LOG_GIFT,You gave a {item} to {name}.,Você deu um(a) {item} para {name}.
+LOG_BABY_CRY_LOUD,You cried out loud. The whole house got a headache. [Family Stress +],Você chorou aos berros. A casa inteira ficou com dor de cabeça. [Stress Familia +]
+LOG_BABY_SMILE,You flashed a toothless smile. Your parents forgot their worries for a moment. [Family Stress -],Você abriu um sorriso banguela. Seus pais esqueceram os problemas momentaneamente. [Stress Familia -]
+LOG_BABY_BITE,You bit someone and caused absolute chaos! [Family Stress +++],Você mordeu alguém e causou um caos absoluto! [Stress Familia +++]
+LOG_BABY_SLEEP_WELL,You slept like an angel, recovering your strength.,Você dormiu feito um anjo, recuperando suas forças.
+EVENT_BABY_IGNORED_CRY,Your crying echoes through the house... but no one comes.,Você chora alto... mas ninguém vem.
+EVENT_BABY_IGNORED_CRY_DESC,The silence is deafening. You feel alone.,O silêncio dói. Você se sente completamente só.
+CHOICE_CRY_LOUDER,Cry even louder,Chorar ainda mais alto
+CHOICE_SILENT,Go quiet,Ficar quieto
+CHOICE_FUSS,Cry and squirm,Chorar e se debater
+EVENT_BABY_PARENT_READS,Your mom reads you a bedtime story.,Sua mãe te lê uma história antes de dormir.
+EVENT_BABY_PARENT_READS_DESC,Her voice is soft and the words dance in your mind.,A voz dela é suave e as palavras dançam na sua cabeça.
+CHOICE_LISTEN_INTENTLY,Listen carefully,Prestar atenção
+NEW_TRAIT,New Trait,Novo Traço
+CHOICE_OK,Ok,Ok
+EVENT_FAMILY_ADOPTED_PET,Your family adopted a pet!,Sua família adotou um animal de estimação!
+EVENT_FAMILY_ADOPTED_PET_DESC,A surprise addition to the household.,Uma surpresa para a casa — alegria ou caos?
+EVENT_FAMILY_HEALED_DEPRESSION,The mood at home has improved. The depression passed.,O clima em casa melhorou. A depressão foi embora.
+EVENT_FAMILY_PARENT_PROMOTION,One of your parents got promoted at work!,Um dos seus pais foi promovido no trabalho!
+EVENT_FAMILY_PARENT_PROMOTION_DESC,More money for the family.,Mais dinheiro para a família.
+EVENT_FAMILY_MISCARRIAGE,Your mother suffered a miscarriage...,Sua mãe sofreu um aborto espontâneo...
+EVENT_FAMILY_MISCARRIAGE_DESC,A heavy loss that changed the atmosphere at home.,Uma perda pesada que mudou o clima da casa.
+EVENT_FAMILY_NEW_SIBLING,You're getting a baby brother or sister!,Você vai ter um irmãozinho ou irmãzinha!
+EVENT_FAMILY_NEW_SIBLING_DESC,A new baby is on the way.,Um bebê está a caminho.
+EVENT_FAMILY_ABUSE_SAVED,Domestic violence almost escalated to tragedy — someone intervened in time.,A violência doméstica quase virou tragédia, mas alguém interveio a tempo.
+EVENT_FAMILY_ABUSE_ARREST,Your father was arrested for domestic violence.,Seu pai foi preso por violência doméstica.
+EVENT_FAMILY_ABUSE_ARREST_DESC,The family structure collapsed overnight.,A estrutura da família desmoronou da noite para o dia.
+EVENT_FAMILY_DIVORCE,Your parents are getting divorced.,Seus pais estão se divorciando.
+EVENT_FAMILY_DIVORCE_DESC,The constant fighting finally broke everything.,As brigas constantes quebraram tudo.
+EVENT_FAMILY_POVERTY_WORK,Your parents are working extra jobs to escape debt.,Seus pais estão trabalhando em dobro para escapar das dívidas.
+EVENT_FAMILY_POVERTY_WORK_DESC,The exhaustion shows on their faces.,O cansaço aparece no rosto deles.
+EVENT_BABY_COLIC,Terrible colic pain! The poor nutrition is hurting you.,Cólicas terríveis! A má alimentação está te prejudicando.
+EVENT_BABY_COLIC_DESC,You cry non-stop from the pain.,Você chora sem parar de dor.
+EVENT_BABY_COLD_RICH,You caught a cold — but your family got the best treatment.,Você ficou gripado, mas recebeu o melhor tratamento.
+EVENT_BABY_ACCIDENT_CURED,You had a bad accident but were fully cured.,Você sofreu um acidente sério mas foi curado completamente.
+EVENT_BABY_ACCIDENT_CURED_DESC,Thanks to your family's money, you had excellent care.,Graças ao dinheiro da família, você teve o melhor atendimento.
+EVENT_BABY_ACCIDENT_POOR,You had an accident and didn't get the best care.,Você sofreu um acidente e não teve o melhor tratamento.
+EVENT_BABY_ACCIDENT_POOR_DESC,Consequences may last a lifetime.,As consequências podem durar a vida toda.
+EVENT_PARENTS_THERAPY_CHILD,Your parents paid for a child psychologist for you.,Seus pais pagaram um psicólogo infantil para você.
+EVENT_PARENTS_THERAPY_CHILD_DESC,Your trauma has reduced significantly.,Seu trauma diminuiu bastante.
+EVENT_PARENTS_COUPLE_THERAPY,Your parents are attending couples therapy.,Seus pais estão fazendo terapia de casal.
+EVENT_PARENTS_COUPLE_THERAPY_DESC,The tension at home eased — but it cost them a lot.,A tensão em casa diminuiu — mas custou caro.
+EVENT_PET_MISCHIEF,The pet went crazy from stress and destroyed things at home!,O pet surtou de estresse e destruiu coisas em casa!
+EVENT_PET_TRAINER,Your parents hired a professional pet trainer.,Seus pais contrataram um adestrador profissional.
+EVENT_PET_ATTACKED_DONATED,The pet bit you badly and was donated.,O pet te mordeu com força e foi doado.
+EVENT_PET_ATTACKED_DONATED_DESC,A tough decision — but necessary for your safety.,Uma decisão difícil — mas necessária para sua segurança.
+EVENT_PET_ATTACKED_KEPT,The pet bit you and was kept anyway.,O pet te mordeu e ficou na família mesmo assim.
+EVENT_PET_ATTACKED_KEPT_DESC,You bear the scars. And still see it every day.,Você carrega as marcas. E ainda o vê todo dia.
+REL_FATHER,Father,Pai
+REL_MOTHER,Mother,Mãe
+REL_SIBLING_M,Brother,Irmão
+REL_SIBLING_F,Sister,Irmã
+REL_SPOUSE,Spouse,Cônjuge
+REL_CHILD,Child,Filho(a)
+REL_FRIEND,Friend,Amigo(a)
+REL_COWORKER,Coworker,Colega
+REL_BOSS,Boss,Chefe
+REL_ROMANTIC,Crush,Paquera
+REL_ENEMY,Enemy,Inimigo
+REL_GRANDPARENT_M,Grandfather,Avô
+REL_GRANDPARENT_F,Grandmother,Avó
+REL_UNCLE,Uncle,Tio
+REL_AUNT,Aunt,Tia
+REL_COUSIN,Cousin,Primo(a)
+REL_OTHER,Other,Outro
+REL_UNKNOWN,Unknown,Desconhecido
+EVENT_BABY_ADOPTION,You were put up for adoption...,Você foi colocado para adoção...
+EVENT_BABY_ADOPTION_DESC,Your parent couldn't handle it alone anymore.,Seu responsável não aguentou mais sozinho.
+LOG_ADOPTION_FINAL,You were given up for adoption. A new family awaits.,Você foi dado(a) para adoção. Uma nova família te espera.
+REL_ORPHAN_SIBLING_M,Brother (Orphanage),Irmão no Orfanato
+REL_ORPHAN_SIBLING_F,Sister (Orphanage),Irmã no Orfanato
+REL_REACT_CRY_PARENT,Got irritated with the crying,Ficou irritado(a) com o choro
+REL_REACT_CRY_SIBLING,Annoyed by the noise,Ficou incomodado(a) com o barulho
+REL_REACT_SMILE_PARENT,Melted with your smile,Derreteu com o seu sorriso
+REL_REACT_SMILE_SIBLING,Thought you were cute,Achou você muito fofo(a)
+REL_REACT_BITE,Hurt and upset with you,Ficou com dor e bravo(a) com você
+REL_REACT_SLEEP_PARENT,Relieved to have some quiet time,Aliviado(a) com a calmaria
+EVENT_BABY_PARK_OUTING,Your parents took you to the park. A family with another baby approaches...,Seus pais te levaram ao parque. Uma família com outro bebê se aproxima...
+EVENT_BABY_NEIGHBORHOOD_KID,A neighbor's kid comes to your house to play.,Uma criança da vizinhança vem brincar na sua casa.
+EVENT_BABY_SANDBOX_BULLY,An older kid grabbed your bucket at the sandbox!,Uma criança maior te tirou o balde na caixa de areia!
+EVENT_BABY_FAMILY_GATHERING,It's a big family party! Aunts, uncles, and cousins fill the house.,É dia de festa em família! Tios, primos e avós enchem a casa.
+EVENT_BABY_STRANGER_HOLDS,Someone your parents know wants to hold you.,Uma pessoa conhecida dos seus pais quer te pegar no colo.
+EVENT_BABY_DAYCARE_FRIEND,At daycare, the same kid always wants to play with you.,Na creche, sempre tem uma criança que quer brincar com você.
+EVENT_BABY_PUDDLE_JUMP,You spot a huge muddy puddle on the sidewalk...,Você vê uma poça de lama enorme na calçada...
+EVENT_BABY_MARKET_TANTRUM,At the supermarket, you spot a candy and really want it.,No supermercado você vê um doce e quer muito!
+EVENT_BABY_SEPARATION_ANXIETY,Your parents are going out and leaving you with a babysitter.,Seus pais vão sair e te deixar com uma babá.
+EVENT_BABY_DOG_ENCOUNTER,You see a dog on the street and it comes toward you.,Você vê um cachorro na rua e ele se aproxima.
+CHOICE_REACH_OUT,Reach out with open arms,Estender os braços animado
+CHOICE_CRY_HIDE,Cry and hide your face,Chorar e esconder o rosto
+CHOICE_PLAY_EXCITED,Play together excitedly,Brincar junto animado
+CHOICE_SHARE_TOY,Give your toy to them,Dar seu brinquedo pra eles
+CHOICE_PUSH_AWAY,Push them away,Empurrar e ficar sozinho
+CHOICE_CRY_TO_PARENT,Cry for your parent,Chorar pro seu pai/mãe
+CHOICE_TAKE_BACK,Take it back,Pegar de volta
+CHOICE_LET_GO,Let it go and move on,Deixar pra lá e brincar de outra coisa
+CHOICE_BE_CENTER,Be the center of attention,Ser o centro das atenções
+CHOICE_HIDE_CORNER,Hide in the corner,Ficar escondido no canto
+CHOICE_SLEEP_LAP,Fall asleep on someone's lap,Dormir no colo de alguém
+CHOICE_ACCEPT_STRANGER,Let them hold you,Deixar pegar no colo
+CHOICE_BECOME_FRIENDS,Become friends,Virar amigo(a)
+CHOICE_PREFER_ALONE,Prefer to be alone,Preferir ficar sozinho
+CHOICE_JUMP_PUDDLE,Jump in the puddle!,Pular na poça!
+CHOICE_RESIST_PUDDLE,Hold yourself back,Segurar o impulso
+CHOICE_ASK_PERMISSION,Ask your parent first,Pedir permissão primeiro
+CHOICE_CHARM_PARENT,Use your charm,Fazer charme e implorar
+CHOICE_TANTRUM,Throw a full tantrum,Gritar e se jogar no chão
+CHOICE_ACCEPT_NO,Accept the no calmly,Aceitar o não tranquilo
+CHOICE_CRY_ALL_NIGHT,Cry all night,Chorar a noite toda
+CHOICE_CALM_DOWN,Get upset but calm down,Ficar bravo mas se acalmar
+CHOICE_ACCEPT_BABYSITTER,Play with the babysitter,Brincar com a babá e dormir
+CHOICE_REACH_DOG,Reach toward the dog,Estender a mão pro cachorro
+CHOICE_FEAR_DOG,Cry from fear,Chorar de medo
+CHOICE_SIT_ALONE_SCHOOL,Sit by yourself quietly,Sentar sozinho em silêncio
+CHOICE_START_CONVO,Start a conversation,Puxar conversa com alguém
+CHOICE_IMPRESS_TEACHER,Try to impress the teacher,Tentar impressionar a professora
+CHOICE_STUDY_LITTLE,Study a little and hope for the best,Estudar pouco e torcer
+CHOICE_BEFRIEND_BULLY,Try to make friends with the bully,Tentar ser amigo do valentão
+CHOICE_IMPRESS_FRIEND,Try to impress them,Tentar impressionar
+CHOICE_MOCK_FRIEND,Make fun of them,Zoar e não ligar
+CHOICE_TELL_JOKE,Tell a joke on stage,Contar uma piada no palco
+CHOICE_PERFORM_FAIL,Go on stage and flop,Subir no palco e se dar mal
+CHOICE_PARENT_HELP_FAIR,Ask your parents to help,Pedir ajuda dos pais
+CHOICE_WIN_FAIR,Go all out for first place,Dar tudo por primeiro lugar
+CHOICE_COPY_HOMEWORK,Copy from a classmate,Copiar do colega
+CHOICE_HELP_CLASSMATE,Help a lost classmate,Ajudar um colega perdido
+CHOICE_SNEAK_OFF,Sneak off and explore alone,Escapar e explorar sozinho
+CHOICE_SHOW_CLASS,Show your work to the class,Mostrar seu desenho para a turma
+CHOICE_COPY_ART,Copy someone else's idea,Copiar a ideia de outra pessoa
+CHOICE_CHAT_SHY_KID,Chat with the shy kid in the corner,Conversar com a criança tímida no canto
+CHOICE_KEEP_BOOK,Take a book without returning,Levar um livro sem devolver
+CHOICE_FORCED_PRACTICE,Practice out of obligation,Praticar por obrigação
+CHOICE_REFUSE_LESSONS,Refuse to keep going,Recusar continuar as aulas
+CHOICE_BEFRIEND_CAMP,Make new friends at camp,Fazer amigos no acampamento
+CHOICE_BREAK_CAMP_RULE,Break the camp rules,Quebrar as regras do acampamento
+CHOICE_DEFEND_NEW_KID,Defend them from the others,Defender o novato dos outros
+CHOICE_DO_NOTHING,Skip both clubs and do nothing,Não entrar em nenhum clube
+CHOICE_INVITE_EVERYONE,Invite everyone from class,Convidar toda a turma
+CHOICE_PARTY_CANCELED,Your friends didn't show up,Seus amigos não apareceram
+CHOICE_OVERCOME_FEAR,Push past the fear and dive in,Superar o medo e mergulhar
+CHOICE_FAKE_SICK_SWIM,Fake being sick to skip it,Fingir estar doente para fugir
+CHOICE_LIE_DENTIST,Lie about brushing your teeth,Mentir que escovava os dentes
+CHOICE_ADMIT_CAVITY,Admit you ate too much sugar,Admitir que comeu doce demais
+CHOICE_SHARE_GAMES,Play together with your siblings,Jogar junto com seus irmãos
+CHOICE_PLAY_SECRET,Play secretly after bedtime,Jogar escondido depois de dormir
+CHOICE_BLAME_SELF,Blame yourself for everything,Se culpar por tudo
+CHOICE_TELL_SOMEONE,Tell a trusted adult,Contar para um adulto de confiança
+CHOICE_TAKE_SHELTER,Take them to an animal shelter,Levar a um abrigo de animais
+CHOICE_HIDE_ANIMAL,Hide the animal from your parents,Esconder o animal dos pais
+CHOICE_BLAME_SIBLING,Blame your sibling,Jogar a culpa no irmão
+CHOICE_TELL_PARENT_SIB,Tell your parents what happened,Contar para os pais o que aconteceu
+CHOICE_POST_FLYERS,Post missing pet flyers,Colar cartazes de animal desaparecido
+CHOICE_BLAME_SOMEONE,Blame someone for losing them,Culpar alguém pelo sumiço
+CHOICE_SPEND_SECRET,Spend it all secretly,Gastar tudo escondido
+CHOICE_GIVE_TO_ADULT,Give it to a nearby adult,Dar para um adulto próximo
+CHOICE_CALL_ADULT,Call an adult to step in,Chamar um adulto para intervir
+CHOICE_PROVOKE_PET,Poke and provoke the animal,Cutucar e provocar o animal
+EVENT_CHILD_CHEAT_EXAM,Someone slides you the answers during the test.,Alguém te passa a cola durante a prova.
+CHOICE_FOCUS_OWN,Focus on my own answers,Focar nas minhas respostas
+CHOICE_COPY_ANSWERS,Copy — live dangerously,Copiar as respostas — arriscado
+EVENT_CHILD_TEACHER_FAV,Your teacher singles you out as their favorite student.,Sua professora te destaca como o aluno favorito da turma.
+CHOICE_ENJOY_ATTENTION,Enjoy being the star,Aproveitar ser o centro das atenções
+CHOICE_FEEL_EMBARRASSED,Feel embarrassed by it,Ficar envergonhado com a atenção
+CHOICE_WORK_HARDER,Work even harder to deserve it,Trabalhar mais para merecer
+EVENT_CHILD_BAD_GRADE,You got a terrible grade and your parents will see the report card.,Você tirou uma nota péssima e seus pais vão ver o boletim.
+CHOICE_HIDE_GRADE,Hide the report card,Esconder o boletim
+CHOICE_SHOW_PARENTS,Show the grade and be honest,Mostrar a nota honestamente
+CHOICE_PROMISE_STUDY,Promise to study harder,Prometer estudar mais
+EVENT_CHILD_READING_GROUP,Your class forms a reading group. It's your turn to read out loud.,A turma forma um grupo de leitura. Chegou sua vez de ler em voz alta.
+CHOICE_READ_ALOUD,Read with confidence,Ler com confiança
+CHOICE_STRUGGLE_READ,Struggle but try anyway,Travar mas tentar mesmo assim
+CHOICE_SKIP_READING,Skip your turn,Pular a vez
+EVENT_CHILD_SCHOOL_ELECTION,The school is holding an election for class representative!,A escola vai ter eleição para líder de turma!
+CHOICE_RUN_CANDIDATE,Run as a candidate,Se candidatar
+CHOICE_VOTE_FRIEND,Vote for a friend,Votar em um amigo
+CHOICE_IGNORE_ELECTION,Ignore the whole thing,Ignorar tudo
+EVENT_CHILD_SCHOOL_BRAWL,A huge fight breaks out in the schoolyard. Everyone is watching.,Uma briga explode no pátio da escola. Todo mundo está olhando.
+CHOICE_JOIN_BRAWL,Jump into the fight,Entrar na briga
+CHOICE_STOP_FIGHT,Try to stop the fight,Tentar parar a briga
+CHOICE_WATCH_WALK,Watch and walk away,Olhar e ir embora
+EVENT_CHILD_DETENTION,You got sent to after-school detention.,Você foi mandado para a detenção depois da aula.
+CHOICE_ACCEPT_DETENTION,Accept it calmly,Aceitar com calma
+CHOICE_DENY_BLAME,Deny everything,Negar tudo
+CHOICE_MAKE_JOKES,Make jokes and clown around,Fazer graça e virar palhaço
+EVENT_CHILD_PRESENTATION,You have to give a presentation in front of the whole class.,Você precisa fazer uma apresentação na frente de toda a turma.
+CHOICE_PREPARE_WELL,Prepare everything carefully,Preparar tudo com cuidado
+CHOICE_WING_PRESENT,Wing it and improvise,Improvisar na hora
+CHOICE_SKIP_PRESENT,Skip the presentation,Fugir da apresentação
+EVENT_CHILD_GIFTED,Your teacher says you're gifted and invites you to join a special program.,Sua professora diz que você é superdotado e te convida para um programa especial.
+CHOICE_JOIN_GIFTED,Join the gifted program,Entrar no programa
+CHOICE_STAY_NORMAL,Stay in the normal class,Ficar na turma normal
+CHOICE_TELL_FRIENDS,Tell all your friends excitedly,Contar para todo mundo animado
+EVENT_CHILD_SKIP_GRADE,Your teachers suggest you skip a grade — you're way too advanced.,Seus professores sugerem que você pule um ano — você está avançado demais.
+CHOICE_ACCEPT_SKIP,Accept and skip the grade,Aceitar e pular o ano
+CHOICE_REFUSE_SKIP,Refuse — stay with your friends,Recusar — ficar com os amigos
+EVENT_CHILD_LEARNING_DISAB,Your teacher notices you're struggling and suspects a learning difficulty.,Sua professora percebe sua dificuldade e suspeita de um problema de aprendizado.
+CHOICE_GET_HELP,Accept the special support,Aceitar o apoio especial
+CHOICE_HIDE_STRUGGLE,Hide the difficulty from everyone,Esconder a dificuldade de todos
+CHOICE_ACCEPT_SUPPORT,Embrace the support proudly,Abraçar o suporte com orgulho
+EVENT_CHILD_PLAYGROUND_RUMOR,Someone spread a nasty rumor about you at school.,Alguém espalhou uma mentira sobre você na escola.
+CHOICE_CONFRONT_RUMORS,Confront whoever started it,Confrontar quem espalhou
+CHOICE_IGNORE_RUMORS,Pretend it doesn't bother you,Fingir que não liga
+CHOICE_CRY_HOME,Cry and go home early,Chorar e ir pra casa
+EVENT_CHILD_FIRST_CRUSH,You can't stop thinking about someone at school...,Você não consegue parar de pensar em alguém da escola...
+CHOICE_TELL_CRUSH,Tell them directly,Contar diretamente
+CHOICE_WRITE_NOTE,Write an anonymous note,Escrever um bilhetinho anônimo
+CHOICE_KEEP_SECRET,Keep it a total secret,Guardar o segredo para sempre
+EVENT_CHILD_FRIEND_BETRAYAL,Your best friend told your biggest secret to everyone.,Seu melhor amigo contou seu maior segredo para todo mundo.
+CHOICE_CONFRONT_FRIEND,Confront your friend,Confrontar seu amigo
+CHOICE_END_FRIENDSHIP,End the friendship,Terminar a amizade
+CHOICE_FORGIVE_FRIEND,Forgive them,Perdoar
+EVENT_CHILD_ONLINE_GAME,You play an online game for the first time and meet strangers.,Você joga online pela primeira vez e conhece estranhos.
+CHOICE_PLAY_CAREFULLY,Play carefully — ignore strangers,Jogar com cautela — ignorar os estranhos
+CHOICE_CHAT_STRANGERS,Talk to everyone online,Conversar com todo mundo online
+CHOICE_RAGE_QUIT,Rage quit after losing,Desligar com raiva depois de perder
+EVENT_CHILD_NEIGHBOR_FRIEND,A kid from your neighborhood knocks on your door to play.,Uma criança da vizinhança bate na sua porta para brincar.
+CHOICE_PLAY_TOGETHER,Play together all afternoon,Brincar juntos a tarde toda
+CHOICE_STAY_INSIDE,Stay inside alone,Ficar dentro de casa sozinho
+CHOICE_INVITE_INSIDE,Invite them inside,Convidar para entrar
+EVENT_CHILD_SLEEPOVER,You're invited to sleep over at a friend's house!,Você é convidado para dormir na casa de um amigo!
+CHOICE_HAVE_FUN_SLEEP,Have a blast and barely sleep,Curtir demais e quase não dormir
+CHOICE_MISS_HOME,Miss home too much to sleep,Sentir muita saudade de casa
+CHOICE_TELL_SECRETS,Tell each other secrets at night,Contar segredos um pro outro
+EVENT_CHILD_BULLY_FRIEND,The bully from before approaches you in a different way...,O valentão de antes se aproxima de você de um jeito diferente...
+CHOICE_REACH_OUT_BULLY,Reach out and try to be friends,Tentar ser amigo
+CHOICE_STAY_AWAY_BULLY,Keep your distance,Manter distância
+CHOICE_BULLY_REVENGE,Get revenge while you have the chance,Se vingar enquanto pode
+EVENT_CHILD_POPULAR_GROUP,The popular kids at school invite you to join their group.,Os garotos populares da escola te convidam para entrar no grupo deles.
+CHOICE_JOIN_POPULAR,Join the popular group,Entrar no grupo
+CHOICE_STAY_YOURSELF,Stay true to yourself,Permanecer você mesmo
+CHOICE_REJECT_GROUP,Reject their invitation,Rejeitar o convite
+EVENT_CHILD_IMAGINARY_FRIEND,You have a very real imaginary friend that only you can see.,Você tem um amigo imaginário muito real que só você consegue ver.
+CHOICE_PLAY_IMAGINARY,Play with your imaginary friend all day,Brincar com seu amigo imaginário o dia todo
+CHOICE_TELL_PARENTS,Tell your parents about them,Contar para seus pais
+CHOICE_HIDE_FRIEND,Keep them a secret,Manter em segredo
+EVENT_CHILD_SOCIAL_EXCLUSION,Your classmates exclude you from a game during recess.,Seus colegas te excluem de uma brincadeira no recreio.
+CHOICE_CONFRONT_GROUP,Confront the group,Confrontar o grupo
+CHOICE_FIND_NEW_FRIENDS,Find other friends to play with,Encontrar outros amigos
+CHOICE_KEEP_TO_SELF,Keep to yourself,Ficar sozinho
+EVENT_CHILD_BROKEN_BONE,While playing you fall and break a bone. It hurts a lot.,Brincando você cai e quebra um osso. Dói muito.
+CHOICE_STAY_STRONG,Stay strong and wait for help,Aguentar firme e esperar ajuda
+CHOICE_CRY_LOUDLY,Cry loudly and draw attention,Chorar muito e chamar atenção
+CHOICE_HOSPITAL_ALONE,Try to be brave at the hospital,Ser corajoso no hospital
+EVENT_CHILD_GLASSES,At the eye doctor you find out you need glasses.,Na consulta você descobre que vai precisar usar óculos.
+CHOICE_LIKE_GLASSES,Think glasses are cool,Achar óculos estiloso
+CHOICE_HATE_GLASSES,Hate wearing glasses,Odiar usar óculos
+CHOICE_HIDE_GLASSES,Hide them and suffer headaches,Esconder e sofrer de dor de cabeça
+EVENT_CHILD_ALLERGY,After a scary reaction doctors find you have a severe allergy.,Após uma reação assustadora os médicos descobrem que você tem uma alergia grave.
+CHOICE_ACCEPT_ALLERGY,Accept it calmly,Aceitar com calma
+CHOICE_IGNORE_ALLERGY,Pretend it's not a big deal,Fingir que não é nada
+CHOICE_LEARN_MANAGE,Learn how to live with it,Aprender a conviver com ela
+EVENT_CHILD_FIRST_PERIOD,Something unexpected and new happens to your body today.,Algo inesperado e novo acontece com o seu corpo hoje.
+CHOICE_TELL_MOM,Tell your mom right away,Contar para a mãe na hora
+CHOICE_PANIC_ALONE,Panic and hide in the bathroom,Entrar em pânico no banheiro
+CHOICE_HANDLE_ALONE,Handle it yourself quietly,Resolver sozinho com calma
+EVENT_CHILD_OBESITY,The doctor says you've been gaining too much weight.,O médico diz que você está engordando demais.
+CHOICE_ACCEPT_CHANGE,Accept the doctor's advice and start changing,Aceitar o conselho do médico e mudar
+CHOICE_FEEL_ASHAMED,Feel ashamed and stop eating,Sentir vergonha e parar de comer
+CHOICE_DENY_PROBLEM,Deny there's a problem,Negar o problema
+EVENT_CHILD_SPORTS_INJURY,During the game you get hurt and have to leave the field.,Durante a partida você se machuca e precisa sair do jogo.
+CHOICE_PUSH_THROUGH,Push through the pain,Aguentar a dor e continuar
+CHOICE_STOP_PLAY,Stop and rest,Parar e descansar
+CHOICE_DRAMATIC_CRY,Make a big dramatic scene,Fazer um escândalo dramático
+EVENT_CHILD_STEPPARENT,Your parent introduces someone new and says they're going to date them.,Seu pai/mãe apresenta alguém novo e diz que vai namorar essa pessoa.
+CHOICE_ACCEPT_STEP,Give them a fair chance,Dar uma chance justa
+CHOICE_RESENT_STEP,Resent them from day one,Ressentir desde o primeiro dia
+CHOICE_IGNORE_STEP,Ignore them completely,Ignorar completamente
+EVENT_CHILD_PARENT_JOB_LOSS,You overhear your parent crying. They just lost their job.,Você ouve seu pai/mãe chorando. Ele acabou de perder o emprego.
+CHOICE_COMFORT_PARENT,Comfort your parent,Confortar seu pai/mãe
+CHOICE_WORRY_QUIETLY,Worry in silence,Se preocupar em silêncio
+CHOICE_ASK_ABOUT_MONEY,Ask about the money situation,Perguntar sobre a situação financeira
+EVENT_CHILD_MOVED_CITY,Your family says you're moving to another city.,Sua família diz que vai se mudar para outra cidade.
+CHOICE_EMBRACE_MOVE,Embrace the new adventure,Abraçar a nova aventura
+CHOICE_CRY_GOODBYE,Cry about leaving your friends,Chorar pelos amigos que ficam
+CHOICE_REFUSE_ACCEPT,Refuse to accept the move,Se recusar a aceitar a mudança
+EVENT_CHILD_GRANDPARENT_ILL,Your grandparent is very sick and in the hospital.,Seu avô/avó está muito doente e internado no hospital.
+CHOICE_VISIT_OFTEN,Visit them at the hospital often,Visitar no hospital com frequência
+CHOICE_AVOID_SADNESS,Avoid thinking about it,Evitar pensar no assunto
+CHOICE_PRAY_HOPE,Pray and hope for the best,Rezar e ter esperança
+EVENT_CHILD_GRANDPARENT_DIES,Your grandparent has passed away. Your first time experiencing loss.,Seu avô/avó faleceu. A primeira vez que você sente a perda de alguém.
+CHOICE_CRY_TOGETHER,Cry and mourn with the family,Chorar e lamentar com a família
+CHOICE_BE_STRONG_FAM,Try to be strong for the family,Tentar ser forte pela família
+CHOICE_CONFUSED_DEATH,Try to understand what death means,Tentar entender o que é a morte
+EVENT_CHILD_FAMILY_VAC,Your family is going on vacation! Time to explore.,Sua família vai viajar nas férias! Hora de explorar.
+CHOICE_EXPLORE_VACATION,Explore every corner of the place,Explorar cada cantinho do lugar
+CHOICE_SWIM_RELAX,Swim and relax by the pool,Nadar e relaxar na piscina
+CHOICE_COMPLAIN_BORED,Complain about being bored the whole time,Reclamar de tédio o tempo todo
+EVENT_CHILD_CHORES_ALLOW,Your parents offer you allowance if you do weekly chores.,Seus pais te oferecem mesada se você fizer as tarefas de casa toda semana.
+CHOICE_ACCEPT_DEAL,Accept the deal,Aceitar o combinado
+CHOICE_NEGOTIATE_MORE,Negotiate for more money,Negociar por mais dinheiro
+CHOICE_REFUSE_CHORES,Refuse to do chores,Se recusar a fazer as tarefas
+EVENT_CHILD_ABUSE_WITNESS,Something very scary is happening at home. You hear shouting and breaking things.,Algo muito assustador está acontecendo em casa. Você ouve gritos e coisas quebrando.
+CHOICE_HIDE_ROOM,Hide in your room and cover your ears,Se esconder no quarto e tampar os ouvidos
+CHOICE_CALL_FOR_HELP,Call for help,Pedir ajuda
+CHOICE_FREEZE_SHOCK,Freeze in shock and can't move,Travar de choque e não conseguir se mover
+EVENT_CHILD_RELIGIOUS,A big religious ceremony is planned for you and your family is very involved.,Uma cerimônia religiosa importante foi planejada — sua família está muito envolvida.
+CHOICE_EMBRACE_FAITH,Embrace the ceremony with joy,Abraçar a cerimônia com alegria
+CHOICE_GO_THROUGH_MOTIONS,Go through it without feeling,Fazer de obrigação
+CHOICE_QUESTION_BELIEFS,Question the whole thing,Questionar tudo
+EVENT_CHILD_PARENT_REMARRIED,Your parent announces they're getting married again.,Seu pai/mãe anuncia que vai se casar de novo.
+CHOICE_HAPPY_FOR_THEM,Be happy for your parent,Ficar feliz pela família
+CHOICE_FEEL_REPLACED,Feel replaced and deeply hurt,Se sentir substituído(a)
+CHOICE_GIVE_CHANCE,Give the new person a chance,Dar uma chance à nova pessoa
+EVENT_CHILD_FIRST_ALLOW,Your parents decide to give you a weekly allowance.,Seus pais decidem te dar uma mesada semanal.
+CHOICE_SAVE_ALL,Save every single cent,Guardar tudo
+CHOICE_SPEND_CANDY,Spend it all on candy and snacks,Gastar tudo em doce e besteira
+CHOICE_SAVE_SPEND_HALF,Save half and spend the other half,Guardar metade e gastar metade
+EVENT_CHILD_LOST_MONEY,You lost the money your parents gave you for school snacks.,Você perdeu o dinheiro que seus pais deram para o lanche da escola.
+CHOICE_LOOK_FOR_IT,Look for it everywhere,Procurar em tudo quanto é lugar
+CHOICE_TELL_PARENTS_MONEY,Tell your parents the truth,Contar a verdade para os pais
+CHOICE_HIDE_MISTAKE,Hide the mistake and hope nobody notices,Esconder o erro e torcer
+EVENT_CHILD_STEAL_CANDY,At the store while nobody's looking you could grab a candy for free.,Na loja enquanto ninguém olha você poderia pegar um doce de graça.
+CHOICE_RESIST_TEMPTATION,Walk away without taking it,Passar reto sem pegar
+CHOICE_STEAL_CANDY,Grab it while nobody's looking,Pegar enquanto ninguém vê
+CHOICE_ASK_TO_BUY,Ask your parents to buy it,Pedir para comprar
+EVENT_CHILD_LEMONADE,You decide to set up a lemonade stand in front of your house.,Você decide montar uma banca de limonada na frente da sua casa.
+CHOICE_WORK_HARD_STAND,Work hard all day to sell as much as possible,Trabalhar o dia inteiro para vender o máximo
+CHOICE_GIVE_UP_STAND,Give up when it gets tough,Desistir quando o bicho pega
+CHOICE_PRICE_HIGH,Charge a high price and sell less,Cobrar caro e vender menos
+EVENT_CHILD_FIND_WALLET,You find a wallet on the sidewalk with a lot of money inside.,Você encontra uma carteira na calçada com muito dinheiro dentro.
+CHOICE_RETURN_WALLET,Find the owner and return it,Encontrar o dono e devolver
+CHOICE_KEEP_WALLET,Keep the money and walk away,Ficar com o dinheiro
+CHOICE_GIVE_PARENTS_WALLET,Give it to your parents to decide,Dar para os pais decidirem
+EVENT_CHILD_NIGHTMARE,You've been having the same scary nightmare over and over.,Você tem tido o mesmo pesadelo assustador várias vezes seguidas.
+CHOICE_TELL_PARENTS_NIGHT,Tell your parents about the nightmares,Contar para os pais sobre os pesadelos
+CHOICE_KEEP_NIGHTMARE,Keep the nightmares to yourself,Guardar os pesadelos pra você
+CHOICE_DRAW_NIGHTMARE,Draw the nightmares to cope,Desenhar os pesadelos para lidar
+EVENT_CHILD_LYING_HABIT,You've been lying to get out of trouble and it's becoming a habit.,Você tem mentido para se safar dos problemas e está virando costume.
+CHOICE_STOP_LYING,Stop lying and come clean,Parar de mentir e ser honesto
+CHOICE_KEEP_LYING,Keep lying when it's useful,Continuar mentindo quando for útil
+CHOICE_LIE_ONLY_SMALL,Only lie for small things,Mentir só para coisas pequenas
+EVENT_CHILD_HERO_IDOL,You discover a hero or idol you want to be like.,Você descobre um herói ou ídolo que você quer ser igual.
+CHOICE_FOLLOW_HERO,Seriously follow their path,Seguir o caminho do ídolo de verdade
+CHOICE_TRY_BE_LIKE,Try to be like them every single day,Tentar ser como eles todo dia
+CHOICE_JUST_ADMIRE,Just admire them from afar,Apenas admirar de longe
+EVENT_CHILD_FIRST_HEARTBREAK,Your best friend is moving to another city. You may never see them again.,Seu melhor amigo está se mudando para outra cidade. Você pode nunca mais vê-lo.
+CHOICE_STAY_IN_TOUCH,Try hard to keep in touch,Tentar manter contato de todo jeito
+CHOICE_CRY_SAD,Cry and feel completely lost,Chorar e se sentir completamente perdido
+CHOICE_MAKE_NEW_FRIENDS,Focus on making new friends,Focar em fazer novos amigos
+EVENT_CHILD_SPEECH_IMPED,You realize you have a stutter that makes talking in front of others really hard.,Você percebe que tem uma gagueira que dificulta falar na frente dos outros.
+CHOICE_GET_THERAPY,Get speech therapy,Fazer fonoaudiologia
+CHOICE_AVOID_SPEAKING,Avoid speaking in public as much as possible,Evitar falar em público ao máximo
+CHOICE_PUSH_THROUGH_STUTTER,Push through despite the stutter,Continuar apesar da gagueira
+EVENT_CHILD_ARTISTIC_TALENT,You created something — a drawing or poem — and it's surprisingly good.,Você criou algo — um desenho ou poema — e ficou surpreendentemente bom.
+CHOICE_NURTURE_TALENT,Nurture and develop the talent,Cultivar e desenvolver o talento
+CHOICE_SHOW_PARENTS_TALENT,Show your parents what you made,Mostrar para os pais
+CHOICE_KEEP_PRIVATE,Keep it private and personal,Guardar para si
+EVENT_CHILD_FIRST_LIE,You did something wrong and have to decide whether to tell your parents.,Você fez algo errado e precisa decidir se conta a verdade para seus pais.
+CHOICE_COME_CLEAN,Tell the truth and face the consequences,Contar a verdade e assumir as consequências
+CHOICE_STICK_TO_LIE,Stick to the lie,Manter a mentira
+CHOICE_ADMIT_HALF,Admit part of it,Admitir parte da coisa
+EVENT_CHILD_CURIOSITY_FIRE,You find a box of matches and curiosity takes over.,Você encontra uma caixa de fósforos e a curiosidade bate forte.
+CHOICE_PLAY_SAFE_FIRE,Hold back the curiosity and put it away,Segurar a curiosidade e guardar
+CHOICE_LIGHT_MATCH,Light one just to see what happens,Acender um só pra ver
+CHOICE_TELL_ADULT_FIRE,Tell an adult about what you found,Contar para um adulto o que encontrou

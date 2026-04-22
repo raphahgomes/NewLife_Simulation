@@ -49,14 +49,17 @@ func _on_sound_changed(value: float) -> void:
 
 
 func _on_font_size_changed(value: float) -> void:
-	var theme := get_tree().root.theme
-	if theme:
-		theme.set_default_font_size(int(value))
+	var root_theme := get_tree().root.theme
+	if root_theme:
+		root_theme.set_default_font_size(int(value))
 	_save_settings()
 
 
 func _on_back() -> void:
-	SceneTransition.change_scene("res://scenes/screens/MainMenu.tscn")
+	if GameManager.is_game_active:
+		SceneTransition.change_scene("res://scenes/screens/GameHUD.tscn")
+	else:
+		SceneTransition.change_scene("res://scenes/screens/MainMenu.tscn")
 
 
 func _save_settings() -> void:
@@ -87,6 +90,6 @@ func _load_settings() -> void:
 			sound_slider.value = data["sound_volume"]
 		if data.has("font_size"):
 			font_size_slider.value = data["font_size"]
-			var theme := get_tree().root.theme
-			if theme:
-				theme.set_default_font_size(int(data["font_size"]))
+			var root_theme := get_tree().root.theme
+			if root_theme:
+				root_theme.set_default_font_size(int(data["font_size"]))

@@ -1,386 +1,1599 @@
-{
-  "events": [
-    {
-      "id": "baby_first_word",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 2,
-      "category": "family",
-      "weight": 80,
-      "conditions": {},
-      "text_key": "EVENT_BABY_FIRST_WORD",
-      "choices": [
-        {
-          "text_key": "CHOICE_MAMA",
-          "effects": { "happiness": 5 },
-          "relationship_effects": { "MOTHER": { "affection": 10 } }
-        },
-        {
-          "text_key": "CHOICE_PAPA",
-          "effects": { "happiness": 5 },
-          "relationship_effects": { "FATHER": { "affection": 10 } }
-        }
-      ]
-    },
-    {
-      "id": "baby_crawling",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 1,
-      "category": "health",
-      "weight": 70,
-      "conditions": {},
-      "text_key": "EVENT_BABY_CRAWLING",
-      "choices": [
-        {
-          "text_key": "CHOICE_EXPLORE",
-          "effects": { "intelligence": 3, "happiness": 2 }
-        },
-        { "text_key": "CHOICE_STAY_SAFE", "effects": { "health": 2 } }
-      ]
-    },
-    {
-      "id": "baby_pet_encounter",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 3,
-      "category": "social",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_BABY_PET",
-      "choices": [
-        {
-          "text_key": "CHOICE_PET_GENTLE",
-          "effects": { "charisma": 2, "happiness": 3 }
-        },
-        { "text_key": "CHOICE_PET_SCARED", "effects": { "temperament": -2 } }
-      ]
-    },
-    {
-      "id": "baby_tantrum",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 4,
-      "category": "family",
-      "weight": 60,
-      "conditions": {},
-      "text_key": "EVENT_BABY_TANTRUM",
-      "choices": [
-        {
-          "text_key": "CHOICE_CRY_MORE",
-          "effects": { "temperament": -3 },
-          "relationship_effects": { "MOTHER": { "affection": -2 } }
-        },
-        {
-          "text_key": "CHOICE_CALM_DOWN",
-          "effects": { "temperament": 3, "happiness": -2 }
-        }
-      ]
-    },
-    {
-      "id": "baby_sick",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 3,
-      "category": "health",
-      "weight": 40,
-      "conditions": {},
-      "text_key": "EVENT_BABY_SICK",
-      "choices": [
-        { "text_key": "CHOICE_REST", "effects": { "health": 5 } },
-        { "text_key": "CHOICE_IGNORE", "effects": { "health": -5 } }
-      ]
-    },
-    {
-      "id": "baby_playground",
-      "phases": ["BABY"],
-      "age_min": 2,
-      "age_max": 4,
-      "category": "social",
-      "weight": 55,
-      "conditions": {},
-      "text_key": "EVENT_BABY_PLAYGROUND",
-      "choices": [
-        {
-          "text_key": "CHOICE_PLAY_OTHERS",
-          "effects": { "charisma": 3, "happiness": 3 }
-        },
-        { "text_key": "CHOICE_PLAY_ALONE", "effects": { "intelligence": 2 } }
-      ]
-    },
-    {
-      "id": "baby_funny_face",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 2,
-      "category": "family",
-      "weight": 65,
-      "conditions": {},
-      "text_key": "EVENT_BABY_FUNNY_FACE",
-      "choices": [
-        {
-          "text_key": "CHOICE_LAUGH",
-          "effects": { "happiness": 5, "charisma": 1 }
-        },
-        { "text_key": "CHOICE_STARE", "effects": { "intelligence": 2 } }
-      ]
-    },
-    {
-      "id": "baby_first_steps",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 2,
-      "category": "health",
-      "weight": 75,
-      "conditions": {},
-      "text_key": "EVENT_BABY_FIRST_STEPS",
-      "choices": [
-        {
-          "text_key": "CHOICE_WALK_BRAVELY",
-          "effects": { "health": 3, "happiness": 5 },
-          "trait_chance": { "trait": "brave", "chance": 0.05 }
-        },
-        { "text_key": "CHOICE_FALL_CRY", "effects": { "happiness": -2 } }
-      ]
-    },
-    {
-      "id": "baby_teething",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 2,
-      "category": "health",
-      "weight": 55,
-      "conditions": {},
-      "text_key": "EVENT_BABY_TEETHING",
-      "choices": [
-        {
-          "text_key": "CHOICE_CHEW_TOY",
-          "effects": { "health": 2, "happiness": 1 }
-        },
-        {
-          "text_key": "CHOICE_CRY_ALL_NIGHT",
-          "effects": { "happiness": -3, "temperament": -2 },
-          "relationship_effects": { "MOTHER": { "affection": -1 } }
-        }
-      ]
-    },
-    {
-      "id": "baby_night_terror",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 3,
-      "category": "health",
-      "weight": 35,
-      "conditions": {},
-      "text_key": "EVENT_BABY_NIGHT_TERROR",
-      "choices": [
-        {
-          "text_key": "CHOICE_COMFORT_PARENT",
-          "effects": { "happiness": 2, "mental_stability": 2 },
-          "relationship_effects": { "MOTHER": { "affection": 3 } }
-        },
-        {
-          "text_key": "CHOICE_SCREAM_LOUD",
-          "effects": { "happiness": -3, "mental_stability": -2 }
-        }
-      ]
-    },
-    {
-      "id": "baby_bath_time",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 3,
-      "category": "family",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_BABY_BATH_TIME",
-      "choices": [
-        {
-          "text_key": "CHOICE_SPLASH_AROUND",
-          "effects": { "happiness": 4, "charisma": 1 }
-        },
-        {
-          "text_key": "CHOICE_HATE_WATER",
-          "effects": { "happiness": -3, "temperament": -1 }
-        }
-      ]
-    },
-    {
-      "id": "baby_first_birthday",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 1,
-      "category": "family",
-      "weight": 90,
-      "conditions": {},
-      "text_key": "EVENT_BABY_FIRST_BIRTHDAY",
-      "choices": [
-        {
-          "text_key": "CHOICE_SMASH_CAKE",
-          "effects": { "happiness": 8, "charisma": 2 }
-        },
-        {
-          "text_key": "CHOICE_SHY_PARTY",
-          "effects": { "happiness": 3 },
-          "trait_chance": { "trait": "introvert", "chance": 0.05 }
-        }
-      ]
-    },
-    {
-      "id": "baby_daycare",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 3,
-      "category": "social",
-      "weight": 45,
-      "conditions": {},
-      "text_key": "EVENT_BABY_DAYCARE",
-      "choices": [
-        {
-          "text_key": "CHOICE_ENJOY_DAYCARE",
-          "effects": { "charisma": 3, "intelligence": 2 },
-          "trait_chance": { "trait": "extrovert", "chance": 0.05 }
-        },
-        {
-          "text_key": "CHOICE_CRY_FOR_MOM",
-          "effects": { "happiness": -4 },
-          "relationship_effects": { "MOTHER": { "affection": 5 } }
-        }
-      ]
-    },
-    {
-      "id": "baby_food_allergy",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 3,
-      "category": "health",
-      "weight": 25,
-      "conditions": {},
-      "text_key": "EVENT_BABY_FOOD_ALLERGY",
-      "choices": [
-        { "text_key": "CHOICE_DOCTOR_VISIT", "effects": { "health": 5 } },
-        { "text_key": "CHOICE_WAIT_IT_OUT", "effects": { "health": -3 } }
-      ]
-    },
-    {
-      "id": "baby_learning_colors",
-      "phases": ["BABY"],
-      "age_min": 2,
-      "age_max": 3,
-      "category": "family",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_BABY_LEARNING_COLORS",
-      "choices": [
-        {
-          "text_key": "CHOICE_FAST_LEARNER",
-          "effects": { "intelligence": 4, "happiness": 2 },
-          "trait_chance": { "trait": "genius", "chance": 0.03 }
-        },
-        {
-          "text_key": "CHOICE_PREFER_PLAYING",
-          "effects": { "happiness": 3, "charisma": 1 }
-        }
-      ]
-    },
-    {
-      "id": "baby_toy_sharing",
-      "phases": ["BABY"],
-      "age_min": 2,
-      "age_max": 3,
-      "category": "social",
-      "weight": 40,
-      "conditions": {},
-      "text_key": "EVENT_BABY_TOY_SHARING",
-      "choices": [
-        {
-          "text_key": "CHOICE_SHARE_TOY",
-          "effects": { "charisma": 3, "happiness": 2 },
-          "morality_effect": 3,
-          "trait_chance": { "trait": "generous", "chance": 0.05 }
-        },
-        {
-          "text_key": "CHOICE_KEEP_TOY",
-          "effects": { "happiness": 1, "temperament": -2 }
-        }
-      ]
-    },
-    {
-      "id": "baby_nursery_rhymes",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 3,
-      "category": "family",
-      "weight": 55,
-      "conditions": {},
-      "text_key": "EVENT_BABY_NURSERY_RHYMES",
-      "choices": [
-        {
-          "text_key": "CHOICE_SING_ALONG",
-          "effects": { "happiness": 4, "intelligence": 2 },
-          "trait_chance": { "trait": "creative", "chance": 0.05 }
-        },
-        { "text_key": "CHOICE_FALL_ASLEEP", "effects": { "health": 3 } }
-      ]
-    },
-    {
-      "id": "baby_first_haircut",
-      "phases": ["BABY"],
-      "age_min": 1,
-      "age_max": 3,
-      "category": "family",
-      "weight": 40,
-      "conditions": {},
-      "text_key": "EVENT_BABY_FIRST_HAIRCUT",
-      "choices": [
-        {
-          "text_key": "CHOICE_SIT_STILL",
-          "effects": { "temperament": 3 },
-          "trait_chance": { "trait": "calm", "chance": 0.05 }
-        },
-        {
-          "text_key": "CHOICE_SCREAM_SCISSORS",
-          "effects": { "temperament": -3, "happiness": -2 }
-        }
-      ]
-    },
-    {
-      "id": "baby_sibling_born",
-      "phases": ["BABY"],
-      "age_min": 2,
-      "age_max": 3,
-      "category": "family",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_BABY_SIBLING_BORN",
-      "choices": [
-        {
-          "text_key": "CHOICE_EXCITED_SIBLING",
-          "effects": { "happiness": 5, "charisma": 2 }
-        },
-        {
-          "text_key": "CHOICE_JEALOUS_SIBLING",
-          "effects": { "happiness": -4, "temperament": -3 }
-        }
-      ]
-    },
-    {
-      "id": "baby_grandparent_visit",
-      "phases": ["BABY"],
-      "age_min": 0,
-      "age_max": 3,
-      "category": "family",
-      "weight": 45,
-      "conditions": {},
-      "text_key": "EVENT_BABY_GRANDPARENT_VISIT",
-      "choices": [
-        {
-          "text_key": "CHOICE_HUG_GRANDMA",
-          "effects": { "happiness": 5, "charisma": 1 }
-        },
-        { "text_key": "CHOICE_SHY_GRANDPA", "effects": { "happiness": 1 } }
-      ]
-    }
-  ]
-}
+﻿{
+    "events":  [
+                   {
+                       "id":  "baby_first_word",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  2,
+                       "category":  "family",
+                       "weight":  80,
+                       "conditions":  {
 
+                                      },
+                       "text_key":  "EVENT_BABY_FIRST_WORD",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_MAMA",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "cognitive_development":  5,
+                                                           "attachment_profile":  2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  10
+                                                                                   }
+                                                                    },
+                                           "memory_effects":  {
+                                                                  "MOTHER":  {
+                                                                                 "type":  "milestone",
+                                                                                 "severity":  2,
+                                                                                 "description":  "First word was mama"
+                                                                             }
+                                                              }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PAPA",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "cognitive_development":  5,
+                                                           "attachment_profile":  2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "FATHER":  {
+                                                                                       "affection":  10
+                                                                                   }
+                                                                    },
+                                           "memory_effects":  {
+                                                                  "FATHER":  {
+                                                                                 "type":  "milestone",
+                                                                                 "severity":  2,
+                                                                                 "description":  "First word was papa"
+                                                                             }
+                                                              }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SILENT",
+                                           "effects":  {
+                                                           "happiness":  -2,
+                                                           "cognitive_development":  -5,
+                                                           "temperament":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_crawling",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  1,
+                       "category":  "health",
+                       "weight":  70,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_CRAWLING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_EXPLORE",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "cognitive_development":  10,
+                                                           "happiness":  5,
+                                                           "health":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "curious":  0.3
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAY_SAFE",
+                                           "effects":  {
+                                                           "health":  2,
+                                                           "cognitive_development":  -2,
+                                                           "attachment_profile":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "anxious":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_ignored_cry",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "family",
+                       "weight":  60,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_IGNORED_CRY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CRY_LOUDER",
+                                           "effects":  {
+                                                           "temperament":  -5,
+                                                           "trauma":  5,
+                                                           "attachment_profile":  -10,
+                                                           "mental_stability":  -2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  -2
+                                                                                   },
+                                                                        "FATHER":  {
+                                                                                       "affection":  -2
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_GIVE_UP",
+                                           "effects":  {
+                                                           "temperament":  5,
+                                                           "trauma":  10,
+                                                           "attachment_profile":  -15,
+                                                           "mental_stability":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "introvert":  0.4,
+                                                                "anxious":  0.4
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_parent_reads",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_PARENT_READS",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_LISTEN_INTENTLY",
+                                           "effects":  {
+                                                           "cognitive_development":  15,
+                                                           "attachment_profile":  5,
+                                                           "intelligence":  2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  5
+                                                                                   }
+                                                                    },
+                                           "trait_chance":  {
+                                                                "bookworm":  0.3,
+                                                                "genius":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FALL_ASLEEP",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "happiness":  5,
+                                                           "attachment_profile":  5
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_sick",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_SICK",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REST",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "trauma":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FUSS",
+                                           "effects":  {
+                                                           "health":  -5,
+                                                           "mental_stability":  -2,
+                                                           "temperament":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_playground",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  60,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_PLAYGROUND",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_PLAY_OTHERS",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PLAY_ALONE",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_funny_face",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "family",
+                       "weight":  65,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_FUNNY_FACE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_LAUGH",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "charisma":  1
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STARE",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_first_steps",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "health",
+                       "weight":  75,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_FIRST_STEPS",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_WALK_BRAVELY",
+                                           "effects":  {
+                                                           "health":  3,
+                                                           "happiness":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "brave",
+                                                                "chance":  0.05
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FALL_CRY",
+                                           "effects":  {
+                                                           "happiness":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_teething",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "health",
+                       "weight":  55,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_TEETHING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CHEW_TOY",
+                                           "effects":  {
+                                                           "health":  2,
+                                                           "happiness":  1
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_CRY_ALL_NIGHT",
+                                           "effects":  {
+                                                           "happiness":  -3,
+                                                           "temperament":  -2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  -1
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_night_terror",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_NIGHT_TERROR",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_COMFORT_PARENT",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "mental_stability":  2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  3
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SCREAM_LOUD",
+                                           "effects":  {
+                                                           "happiness":  -3,
+                                                           "mental_stability":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_bath_time",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_BATH_TIME",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SPLASH_AROUND",
+                                           "effects":  {
+                                                           "happiness":  4,
+                                                           "charisma":  1
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_HATE_WATER",
+                                           "effects":  {
+                                                           "happiness":  -3,
+                                                           "temperament":  -1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_first_birthday",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  1,
+                       "category":  "family",
+                       "weight":  90,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_FIRST_BIRTHDAY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SMASH_CAKE",
+                                           "effects":  {
+                                                           "happiness":  8,
+                                                           "charisma":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SHY_PARTY",
+                                           "effects":  {
+                                                           "happiness":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "introvert",
+                                                                "chance":  0.05
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_daycare",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_DAYCARE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ENJOY_DAYCARE",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "intelligence":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "extrovert",
+                                                                "chance":  0.05
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_CRY_FOR_MOM",
+                                           "effects":  {
+                                                           "happiness":  -4
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  5
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_food_allergy",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_FOOD_ALLERGY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_DOCTOR_VISIT",
+                                           "effects":  {
+                                                           "health":  5
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_WAIT_IT_OUT",
+                                           "effects":  {
+                                                           "health":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_learning_colors",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  2,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_LEARNING_COLORS",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_FAST_LEARNER",
+                                           "effects":  {
+                                                           "intelligence":  4,
+                                                           "happiness":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "genius",
+                                                                "chance":  0.03
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PREFER_PLAYING",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "charisma":  1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_toy_sharing",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  2,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_TOY_SHARING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SHARE_TOY",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  2
+                                                       },
+                                           "morality_effect":  3,
+                                           "trait_chance":  {
+                                                                "trait":  "generous",
+                                                                "chance":  0.05
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_KEEP_TOY",
+                                           "effects":  {
+                                                           "happiness":  1,
+                                                           "temperament":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_nursery_rhymes",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  55,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_NURSERY_RHYMES",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SING_ALONG",
+                                           "effects":  {
+                                                           "happiness":  4,
+                                                           "intelligence":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "creative",
+                                                                "chance":  0.05
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FALL_ASLEEP",
+                                           "effects":  {
+                                                           "health":  3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_first_haircut",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_FIRST_HAIRCUT",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SIT_STILL",
+                                           "effects":  {
+                                                           "temperament":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "calm",
+                                                                "chance":  0.05
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SCREAM_SCISSORS",
+                                           "effects":  {
+                                                           "temperament":  -3,
+                                                           "happiness":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_sibling_born",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  2,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_SIBLING_BORN",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_EXCITED_SIBLING",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "charisma":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_JEALOUS_SIBLING",
+                                           "effects":  {
+                                                           "happiness":  -4,
+                                                           "temperament":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_grandparent_visit",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_GRANDPARENT_VISIT",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_HUG_GRANDMA",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "charisma":  1
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SHY_GRANDPA",
+                                           "effects":  {
+                                                           "happiness":  1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_adopted_pet",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_ADOPTED_PET",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_healed_depression",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_HEALED_DEPRESSION",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_parent_promotion",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_PARENT_PROMOTION",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_miscarriage",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_MISCARRIAGE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_new_sibling",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_NEW_SIBLING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_abuse_extreme_saved",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_ABUSE_SAVED",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_abuse_extreme_arrest",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_ABUSE_ARREST",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_divorce_stress",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_DIVORCE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "family_poverty_work",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_FAMILY_POVERTY_WORK",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_poor_health_colic",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_COLIC",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_rich_health_cold",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_COLD_RICH",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_random_accident_cured",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_ACCIDENT_CURED",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_random_accident_poor",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_ACCIDENT_POOR",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "parents_paid_therapy_child",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_PARENTS_THERAPY_CHILD",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "parents_couple_therapy",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_PARENTS_COUPLE_THERAPY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "pet_mischief_mess",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_PET_MISCHIEF",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "pet_trainer_hired",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_PET_TRAINER",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "pet_attacked_and_donated",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_PET_ATTACKED_DONATED",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "pet_attacked_retained",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "health",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_PET_ATTACKED_KEPT",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_put_for_adoption",
+                       "text_key":  "EVENT_BABY_ADOPTION",
+                       "description_key":  "EVENT_BABY_ADOPTION_DESC",
+                       "weight":  0,
+                       "phase":  "BABY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_OK",
+                                           "effects":  {
+                                                           "trauma":  40,
+                                                           "happiness":  -30
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_park_outing",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  55,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_PARK_OUTING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REACH_OUT",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "charisma":  3,
+                                                           "cognitive_development":  2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "mother":  {
+                                                                                       "affection":  3
+                                                                                   },
+                                                                        "father":  {
+                                                                                       "affection":  3
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_WATCH_QUIETLY",
+                                           "effects":  {
+                                                           "cognitive_development":  5,
+                                                           "intelligence":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_CRY_HIDE",
+                                           "effects":  {
+                                                           "trauma":  3,
+                                                           "charisma":  -2,
+                                                           "attachment_profile":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_neighborhood_kid",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_NEIGHBORHOOD_KID",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_PLAY_EXCITED",
+                                           "effects":  {
+                                                           "happiness":  8,
+                                                           "charisma":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "extrovert":  0.25
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SHARE_TOY",
+                                           "effects":  {
+                                                           "morality":  5,
+                                                           "charisma":  3,
+                                                           "happiness":  4
+                                                       },
+                                           "trait_chance":  {
+                                                                "generous":  0.3
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PUSH_AWAY",
+                                           "effects":  {
+                                                           "charisma":  -3,
+                                                           "temperament":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "stubborn":  0.25
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_sandbox_bully",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_SANDBOX_BULLY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CRY_TO_PARENT",
+                                           "effects":  {
+                                                           "attachment_profile":  3,
+                                                           "charisma":  -2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "mother":  {
+                                                                                       "affection":  5
+                                                                                   },
+                                                                        "father":  {
+                                                                                       "affection":  5
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TAKE_BACK",
+                                           "effects":  {
+                                                           "charisma":  5,
+                                                           "happiness":  4,
+                                                           "temperament":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "brave":  0.3
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_LET_GO",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "calm":  0.3
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_family_gathering",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_FAMILY_GATHERING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_BE_CENTER",
+                                           "effects":  {
+                                                           "charisma":  5,
+                                                           "happiness":  8
+                                                       },
+                                           "trait_chance":  {
+                                                                "extrovert":  0.3
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_HIDE_CORNER",
+                                           "effects":  {
+                                                           "trauma":  3,
+                                                           "charisma":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "introvert":  0.35
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SLEEP_LAP",
+                                           "effects":  {
+                                                           "health":  3,
+                                                           "happiness":  5,
+                                                           "attachment_profile":  5
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_stranger_holds",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "social",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_STRANGER_HOLDS",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_STRANGER",
+                                           "effects":  {
+                                                           "charisma":  5,
+                                                           "mental_stability":  3,
+                                                           "attachment_profile":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FUSS",
+                                           "effects":  {
+                                                           "trauma":  2,
+                                                           "attachment_profile":  3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "mother":  {
+                                                                                       "affection":  4
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_daycare_friend",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "social",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_DAYCARE_FRIEND",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_BECOME_FRIENDS",
+                                           "effects":  {
+                                                           "happiness":  8,
+                                                           "charisma":  5,
+                                                           "morality":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "extrovert":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PREFER_ALONE",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "charisma":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "introvert":  0.35
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_puddle_jump",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  2,
+                       "age_max":  3,
+                       "category":  "random",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_PUDDLE_JUMP",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_JUMP_PUDDLE",
+                                           "effects":  {
+                                                           "happiness":  10,
+                                                           "health":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "risk_taker":  0.25
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_RESIST_PUDDLE",
+                                           "effects":  {
+                                                           "morality":  3,
+                                                           "mental_stability":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "calm":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_ASK_PERMISSION",
+                                           "effects":  {
+                                                           "morality":  5,
+                                                           "attachment_profile":  3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "mother":  {
+                                                                                       "affection":  3
+                                                                                   },
+                                                                        "father":  {
+                                                                                       "affection":  3
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_market_tantrum",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  1,
+                       "age_max":  3,
+                       "category":  "family",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_MARKET_TANTRUM",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CHARM_PARENT",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "manipulative":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TANTRUM",
+                                           "effects":  {
+                                                           "temperament":  -5,
+                                                           "trauma":  3,
+                                                           "happiness":  -5
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "mother":  {
+                                                                                       "affection":  -5
+                                                                                   },
+                                                                        "father":  {
+                                                                                       "affection":  -5
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_NO",
+                                           "effects":  {
+                                                           "morality":  5,
+                                                           "mental_stability":  3,
+                                                           "attachment_profile":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "calm":  0.25
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_separation_anxiety",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "family",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_SEPARATION_ANXIETY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CRY_ALL_NIGHT",
+                                           "effects":  {
+                                                           "trauma":  8,
+                                                           "mental_stability":  -5,
+                                                           "happiness":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "anxious":  0.4
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_CALM_DOWN",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "temperament":  -3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_BABYSITTER",
+                                           "effects":  {
+                                                           "mental_stability":  5,
+                                                           "charisma":  3,
+                                                           "happiness":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "calm":  0.2
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "baby_dog_encounter",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  3,
+                       "category":  "random",
+                       "weight":  55,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_BABY_DOG_ENCOUNTER",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REACH_DOG",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  5,
+                                                           "cognitive_development":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "compassionate":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FEAR_DOG",
+                                           "effects":  {
+                                                           "trauma":  3,
+                                                           "charisma":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "anxious":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_WATCH_QUIETLY",
+                                           "effects":  {
+                                                           "cognitive_development":  3,
+                                                           "intelligence":  2
+                                                       }
+                                       }
+                                   ]
+                   }
+               ]
+}

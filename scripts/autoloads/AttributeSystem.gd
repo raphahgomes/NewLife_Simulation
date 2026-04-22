@@ -23,6 +23,12 @@ func modify_stat(character: Character, stat_name: String, amount: int) -> void:
 			character.morality = clampi(character.morality + amount, 0, 100)
 		"mental_stability":
 			character.mental_stability = clampi(character.mental_stability + amount, 0, 100)
+		"attachment_profile":
+			character.attachment_profile = clampi(character.attachment_profile + amount, 0, 100)
+		"cognitive_development":
+			character.cognitive_development = clampi(character.cognitive_development + amount, 0, 100)
+		"trauma":
+			character.trauma = clampi(character.trauma + amount, 0, 100)
 		"school_performance":
 			character.school_performance = clampi(character.school_performance + amount, 0, 100)
 
@@ -44,6 +50,25 @@ func apply_aging(character: Character) -> void:
 
 	# Apply trait effects
 	_apply_trait_effects(character)
+
+	# Psychosocial effects on attributes
+	# Brain Mapping (0-2 years) affects intelligence permanently
+	if character.age <= 2 and character.cognitive_development > 70:
+		character.intelligence = clampi(character.intelligence + 2, 0, 100)
+	elif character.age <= 2 and character.cognitive_development < 30:
+		character.intelligence = clampi(character.intelligence - 1, 0, 100)
+
+	# Attachment affects charisma and mental stability later in life
+	if character.age >= 3:
+		if character.attachment_profile > 80:
+			character.charisma = clampi(character.charisma + 1, 0, 100)
+			character.mental_stability = clampi(character.mental_stability + 1, 0, 100)
+		elif character.attachment_profile < 30:
+			character.mental_stability = clampi(character.mental_stability - 2, 0, 100)
+
+	# Trauma drastically reduces mental stability over time if left untreated
+	if character.trauma > 40:
+		character.mental_stability = clampi(character.mental_stability - roundi(character.trauma / 10.0), 0, 100)
 
 	# Relationship decay (if not maintained)
 	for rel in character.relationships:
