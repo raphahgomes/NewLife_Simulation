@@ -29,6 +29,14 @@ enum LifePhase { BABY, CHILD, TEEN, ADULT, ELDER }
 @export var happiness: int = 70
 @export var morality: int = 50
 @export var mental_stability: int = 70
+@export var stress: int = 0       # 0 = calm, 100 = breakdown
+@export var sanity: int = 100     # 0 = breakdown, 100 = healthy
+
+# === Criminal Record ===
+@export var criminal_record: bool = false
+
+# === Fame ===
+@export var fame: int = 0  # 0 = unknown, 100 = world-famous
 
 # === Psychosocial & Early Development (0-100) ===
 @export var attachment_profile: int = 50 # 0 = Insecure/Avoidant, 100 = Secure

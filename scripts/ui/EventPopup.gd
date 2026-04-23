@@ -51,6 +51,21 @@ func _populate() -> void:
 	for child in choices_container.get_children():
 		child.queue_free()
 
+	# If many choices, wrap in scroll
+	var parent := choices_container.get_parent()
+	if choices_container.get_parent() is ScrollContainer:
+		pass  # already wrapped
+	elif _event.choices.size() > 3 and parent != null:
+		var sc := ScrollContainer.new()
+		sc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		sc.custom_minimum_size = Vector2(0, 240)
+		var idx_in_parent := choices_container.get_index()
+		parent.remove_child(choices_container)
+		sc.add_child(choices_container)
+		parent.add_child(sc)
+		parent.move_child(sc, idx_in_parent)
+
 	# Create choice buttons
 	for i in _event.choices.size():
 		var choice: Dictionary = _event.choices[i]

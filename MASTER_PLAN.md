@@ -164,7 +164,20 @@ Variáveis ocultas já definidas e parte injetada em `Character.gd`:
 > **Nota sobre `weight: 0`:** Eventos com `weight: 0` nunca são sorteados aleatoriamente. Eles só disparam via `followup_event` de outra escolha ou via código no `GameManager` (eventos forçados do sistema oculto).
 
 ---
+## ✅ STATUS FINAL DOS SPRINTS
 
+| Sprint | Descrição | Status |
+|--------|-----------|--------|
+| Sprint 1 | Assets (Áudio + Visual) | 🔄 Parcial |
+| Sprint 2 | UI/UX Polish | ✅ COMPLETO |
+| Sprint 3 | 321 Eventos | ✅ COMPLETO |
+| Sprint 4 | Sistemas: Crime, Hobbies, Propriedades, Saúde | ✅ COMPLETO |
+| Sprint 5 | Efeito Borboleta Completo | ✅ COMPLETO |
+| Sprint 6 | Combate, Licenças, Carreiras Interativas, UI wiring | ✅ COMPLETO |
+| Sprint 7 | Herança, Genealogia, Sistema de Fama | ✅ COMPLETO |
+| Sprint 8 | Export configs, Google Play, Steam/PC | ✅ COMPLETO |
+
+---
 ## �🗺️ ROADMAP POR SPRINT
 
 ### SPRINT 1 — Assets (Áudio + Visual)

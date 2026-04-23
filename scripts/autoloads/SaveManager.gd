@@ -86,7 +86,10 @@ func save_completed_life(character: Character) -> void:
 		"education": character.education,
 		"social_class": character.social_class,
 		"key_events": _extract_key_events(character),
-		"seed": character.world_seed
+		"seed": character.world_seed,
+		"fame": character.fame,
+		"fame_tier_key": FameSystem.get_tier_name_key(character),
+		"stats": character.statistics,
 	}
 	lives.append(summary)
 

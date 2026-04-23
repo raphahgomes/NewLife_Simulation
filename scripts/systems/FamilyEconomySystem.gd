@@ -78,6 +78,49 @@ static func process(character: Character, rng: RandomNumberGenerator, event_queu
 		if rng.randf() < 0.4:
 			_trigger_forced_event(event_queue, "family_poverty_work")
 
+	# === SPRINT 5: BUTTERFLY EFFECT OCULTO ===
+
+	# Estresse alto → risco de violência doméstica
+	if character.family_stress_level >= 80 and character.age <= 12:
+		if rng.randf() < 0.25:
+			_trigger_forced_event(event_queue, "family_domestic_violence")
+			character.trauma = clampi(character.trauma + 20, 0, 100)
+			character.emotional_tags.append("trauma_infancia")
+			if not character.emotional_tags.has("ansioso"):
+				character.emotional_tags.append("ansioso")
+
+	# Riqueza cai → mudança de escola / perda da casa
+	if character.family_hidden_wealth < 0 and character.age >= 6:
+		_trigger_forced_event(event_queue, "family_lost_home")
+		character.family_hidden_wealth = 500.0  # Reset mínimo para não gerar loop
+
+	# Família divorciada → renda cai 50% se mãe não trabalha
+	if character.family_status == "Divorciados":
+		character.family_hidden_wealth *= 0.5
+		if character.family_stress_level < 60:
+			character.family_stress_level += 10.0
+
+	# Pais deprimidos → negligência
+	if character.parents_depressed and character.age <= 12:
+		if rng.randf() < 0.30:
+			_trigger_forced_event(event_queue, "family_neglect")
+			character.attachment_profile = clampi(character.attachment_profile - 10, 0, 100)
+
+	# Stress adulto: aplica nas próprias stats do personagem se adulto
+	if character.age >= 18:
+		var stress_gain := 0
+		if character.debt > 10000: stress_gain += 5
+		if character.salary < 1000: stress_gain += 5
+		if character.relationships.is_empty(): stress_gain += 3
+		character.stress = clampi(character.stress + stress_gain, 0, 100)
+		# Sanidade cai com stress crônico
+		if character.stress >= 70:
+			character.sanity = clampi(character.sanity - 2, 0, 100)
+		elif character.stress <= 20:
+			character.sanity = clampi(character.sanity + 1, 0, 100)
+			character.stress = clampi(character.stress - 3, 0, 100)
+
+
 static func _trigger_forced_event(event_queue: Array, event_id: String) -> void:
 	var ev = EventManager.get_event_by_id(event_id)
 	if ev:

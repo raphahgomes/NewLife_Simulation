@@ -59,6 +59,28 @@ func start_legacy_life(parent: Character, child_rel: Relationship) -> void:
 	character.money = maxf(0.0, parent.money * passed_percentage)
 	character.assets_value = parent.assets_value * passed_percentage
 
+	# === Trait inheritance — 30% per trait ===
+	for t in parent.traits:
+		if _rng.randf() < 0.3:
+			character.add_trait(t)
+
+	# === Talent inheritance — 25% chance per hobby, inherits half the level ===
+	for key in parent.talents:
+		if (key as String).ends_with("_xp"):
+			continue
+		if _rng.randf() < 0.25:
+			character.talents[key] = maxi(1, (parent.talents[key] as int) / 2)
+
+	# === Fame legacy — child gets small fame boost from famous parent ===
+	if parent.fame >= FameSystem.TIER_NATIONAL:
+		character.fame = _rng.randi_range(5, 15)
+	elif parent.fame >= FameSystem.TIER_REGIONAL:
+		character.fame = _rng.randi_range(0, 8)
+
+	# === Social class inheritance ===
+	character.social_class = parent.social_class
+	character.family_hidden_wealth = maxf(500.0, parent.money * 0.3)
+
 	# Randomize basic stats
 	character.health = _rng.randi_range(60, 100)
 	character.happiness = _rng.randi_range(60, 100)
@@ -102,6 +124,21 @@ func advance_year() -> void:
 	FamilyEconomySystem.process(character, _rng, _event_queue)
 	BabyPhaseSystem.process(character, _rng, _event_queue)
 	# ========================================================
+
+	# Health system: diseases, addictions, mental health
+	HealthSystem.process_year(character, _rng, _event_queue)
+
+	# Property upkeep costs
+	var property_cost := PropertySystem.process_year(character, _rng)
+	if property_cost > 0:
+		character.money = maxf(0.0, character.money - property_cost)
+		if property_cost > character.money:
+			character.debt += property_cost - character.money
+
+	# Fame progression
+	var fame_result := FameSystem.process_year(character, _rng)
+	if fame_result.get("tier_up", false):
+		character.add_event_log("FAME_TIER_UP_" + fame_result.get("tier_key", ""), "career")
 
 	# Update life phase
 	var new_phase := character.get_life_phase_for_age(character.age)

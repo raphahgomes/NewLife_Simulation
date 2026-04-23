@@ -103,5 +103,27 @@ func matches_character(character: Character) -> bool:
 				if character.education < val: return false
 			"social_class":
 				if character.social_class != val: return false
+			"min_stress":
+				if character.stress < val: return false
+			"max_stress":
+				if character.stress > val: return false
+			"min_family_wealth":
+				if character.family_hidden_wealth < val: return false
+			"max_family_wealth":
+				if character.family_hidden_wealth > val: return false
+			"has_emotional_tag":
+				if not character.emotional_tags.has(val): return false
+			"not_emotional_tag":
+				if character.emotional_tags.has(val): return false
+			"criminal_record":
+				if character.criminal_record != val: return false
+			"min_sanity":
+				if character.sanity < val: return false
+			"max_sanity":
+				if character.sanity > val: return false
+			"has_disease":
+				if not HealthSystem.has_disease(character, val): return false
+			"no_disease":
+				if HealthSystem.has_disease(character, val): return false
 
 	return true

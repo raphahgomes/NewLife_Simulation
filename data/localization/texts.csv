@@ -1713,3 +1713,89 @@ CHOICE_CHERISH_LIFE_MORE,Cherish every moment,Valorizar cada momento
 CHOICE_PREPARE_DEATH,Prepare for the inevitable,Preparar para o inevitável
 ACHIEVEMENTS,Achievements,Conquistas
 ACHIEVEMENTS_UNLOCKED,Unlocked,Desbloqueadas
+CAREER,Career,Carreira
+NO_JOB,No job,Sem emprego
+CAREER_ENTRY,Entry level,Iniciante
+CAREER_MID,Mid level,Pleno
+CAREER_SENIOR,Senior,Sênior
+CAREER_EXECUTIVE,Executive,Executivo
+CAREER_LEVEL,Level,Nível
+CAREER_YEARS,Time in career,Tempo na carreira
+SALARY,Salary,Salário
+DEBT,Debt,Dívida
+CAREER_PROGRESS,Progress to promotion,Progresso para promoção
+ASK_RAISE,Ask for a raise,Pedir aumento
+RAISE_SUCCESS,Your boss approved the raise! Salary +15%,Seu chefe aprovou o aumento! Salário +15%
+RAISE_DENIED,Your boss denied the raise. You are frustrated.,Seu chefe negou o aumento. Você ficou frustrado.
+QUIT_JOB,Quit job,Pedir demissão
+QUIT_JOB_LOG,You quit your job.,Você pediu demissão.
+YEARS,years,anos
+YEARS_OLD,years old,anos
+TUT_TITLE_PHASES,Life Phases,Fases da Vida
+TUT_BODY_PHASES,Your life has 5 phases: [b]Baby[/b], [b]Child[/b], [b]Teen[/b], [b]Adult[/b] and [b]Elder[/b]. Each phase has unique events and opportunities.,Sua vida tem 5 fases: [b]Bebê[/b], [b]Criança[/b], [b]Adolescente[/b], [b]Adulto[/b] e [b]Idoso[/b]. Cada fase tem eventos e oportunidades únicas.
+TUT_TITLE_STATS,Stats & Attributes,Stats e Atributos
+TUT_BODY_STATS,Watch your [b]Health[/b], [b]Happiness[/b], [b]Intelligence[/b] and other bars. [color=green]Green[/color] is great, [color=yellow]yellow[/color] is warning, [color=red]red[/color] is critical.,Observe suas barras de [b]Saúde[/b], [b]Felicidade[/b], [b]Inteligência[/b] e mais. [color=green]Verde[/color] é ótimo, [color=yellow]amarelo[/color] é alerta, [color=red]vermelho[/color] é crítico.
+TUT_TITLE_EVENTS,Events & Choices,Eventos e Escolhas
+TUT_BODY_EVENTS,Every year brings events. Tap [b]Age ➕[/b] to advance a year and see what happens. Your choices [b]shape your entire life[/b]!,Todo ano traz eventos. Toque em [b]Envelhecer ➕[/b] para avançar um ano. Suas escolhas [b]moldam sua vida inteira[/b]!
+TUT_TITLE_ACHIEVEMENTS,Achievements,Conquistas
+TUT_BODY_ACHIEVEMENTS,Unlock [b]achievements[/b] by reaching milestones. Tap the [b]🏆 trophy button[/b] to see your progress.,Desbloqueie [b]conquistas[/b] atingindo marcos importantes. Toque no [b]botão 🏆 troféu[/b] para ver seu progresso.
+TUT_TITLE_ADVANCE,Relationships & Career,Relacionamentos e Carreira
+TUT_BODY_ADVANCE,Use the [b]💕 button[/b] for relationships and the [b]💼 button[/b] for your career. Activities button gives you extra choices each year.,Use o [b]botão 💕[/b] para relacionamentos e o [b]botão 💼[/b] para carreira. O botão Atividades dá escolhas extras a cada ano.
+NEXT,Next,Próximo
+FINISH,Finish,Concluir
+ACT_HOBBIES_DETAIL,Hobbies,Hobbies
+ACT_PROPERTIES,Properties,Propriedades
+ACT_LICENSES,Licenses,Habilitações
+ACT_HEALTH_DETAIL,Health Detail,Saúde Detalhada
+ACT_CRIME_ADVANCED,Crime,Crimes
+CHOOSE_HOBBY,Choose a hobby to practice,Escolha um hobby para praticar
+CHOOSE_LICENSE,Choose a license to attempt,Escolha uma habilitação
+CHOOSE_CRIME,Choose a crime to commit,Escolha um crime
+HEALTH_CURRENT_CONDITIONS,Current health conditions,Condições de saúde atuais
+HEALTH_NO_DISEASES,You are in great health!,Você está com ótima saúde!
+TREATED_DISEASE,Treated disease,Doença tratada
+SOLD_PROPERTY,Sold property,Propriedade vendida
+BOUGHT_PROPERTY,Bought property,Propriedade comprada
+OWNED_PROPERTIES,Owned Properties,Propriedades Próprias
+BUY_PROPERTY,Buy Property,Comprar Propriedade
+SELL,Sell,Vender
+NO_LICENSES_AVAILABLE,No licenses available for your age,Sem habilitações disponíveis para sua idade
+LIC_PASSED,Passed license exam,Passou no exame
+LIC_FAILED,Failed license exam,Reprovou no exame
+CRIME_TOO_YOUNG,You are too young to commit crimes,Você é jovem demais para cometer crimes
+CRIME_SUCCESS,Crime succeeded,Crime bem-sucedido
+CRIME_CAUGHT,Caught by police,Preso pela polícia
+CRIME_ESCAPED,Escaped but injured,Escapou, mas machucado
+CRIME_SHOPLIFTING,Shoplifting,Furto em loja
+CRIME_PICKPOCKET,Pickpocketing,Batedor de carteira
+CRIME_BURGLARY,Burglary,Arrombamento
+CRIME_DRUG_DEALING,Drug Dealing,Tráfico de drogas
+CRIME_FRAUD,Fraud,Fraude
+CRIME_CAR_THEFT,Car Theft,Furto de carro
+NEW_TRAIT,New trait unlocked,Novo traço desbloqueado
+FAME,Fame,Fama
+FAME_TIER_UNKNOWN,Unknown,Desconhecido
+FAME_TIER_LOCAL,Local Celebrity,Celebridade Local
+FAME_TIER_REGIONAL,Regional Star,Estrela Regional
+FAME_TIER_NATIONAL,National Fame,Fama Nacional
+FAME_TIER_WORLD,World Famous,Famoso Mundial
+GENEALOGY,Family History,Árvore Genealógica
+NO_PAST_LIVES,No past lives yet. Live and die to build your family legacy!,Sem vidas anteriores. Viva e morra para construir seu legado familiar!
+FAME_TIER_UP_FAME_TIER_LOCAL,You became a local celebrity!,Você se tornou uma celebridade local!
+FAME_TIER_UP_FAME_TIER_REGIONAL,You became a regional star!,Você se tornou uma estrela regional!
+FAME_TIER_UP_FAME_TIER_NATIONAL,You became nationally famous!,Você ficou famoso nacionalmente!
+FAME_TIER_UP_FAME_TIER_WORLD,You are now world famous!,Você agora é famoso mundialmente!
+HOBBY_MUSIC,Music,Música
+HOBBY_ART,Art,Arte
+HOBBY_SPORT,Sport,Esporte
+HOBBY_COOKING,Cooking,Culinária
+HOBBY_READING,Reading,Leitura
+HOBBY_GAMING,Gaming,Games
+HOBBY_CODING,Coding,Programação
+HOBBY_DANCE,Dance,Dança
+HOBBY_LVL_BEGINNER,Beginner,Iniciante
+HOBBY_LVL_AMATEUR,Amateur,Amador
+HOBBY_LVL_INTERMEDIATE,Intermediate,Intermediário
+HOBBY_LVL_ADVANCED,Advanced,Avançado
+HOBBY_LVL_EXPERT,Expert,Especialista
+HOBBY_LVL_MASTER,Master,Mestre

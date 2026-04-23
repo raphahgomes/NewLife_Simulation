@@ -50,6 +50,9 @@ func _ready() -> void:
 	if GameManager.character:
 		start_age = GameManager.character.age
 	_add_year_separator(start_age)
+
+	if not SaveManager.load_setting("tutorial_done", false):
+		call_deferred("_show_tutorial")
 	# Não processa eventos automaticamente ao entrar no HUD —
 	# eventos só aparecem ao avançar o ano ou realizar atividades.
 
@@ -324,7 +327,7 @@ func _connect_signals() -> void:
 	btn_menu.pressed.connect(_open_pause_menu)
 	btn_age.pressed.connect(_on_advance_year)
 	btn_phase.pressed.connect(_show_achievements_overlay)
-	btn_assets.pressed.connect(func(): _show_category_actions("finance"))
+	btn_assets.pressed.connect(_show_career_panel)
 	btn_relationships.pressed.connect(_show_relationships_list)
 	btn_activities.pressed.connect(_show_activities_menu)
 
@@ -460,9 +463,29 @@ func _on_advance_year() -> void:
 
 
 func _on_year_advanced(age: int) -> void:
+	_flash_year_transition(age)
 	_add_year_separator(age)
 	_update_display()
 	_process_next_event()
+
+
+func _flash_year_transition(age: int) -> void:
+	var flash := Label.new()
+	flash.text = str(age) + " " + tr("YEARS_OLD")
+	flash.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	flash.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	flash.anchor_left = 0.0; flash.anchor_right = 1.0
+	flash.anchor_top = 0.35; flash.anchor_bottom = 0.65
+	flash.add_theme_font_size_override("font_size", 72)
+	flash.add_theme_color_override("font_color", Color("#4CAF50"))
+	flash.modulate.a = 0.0
+	add_child(flash)
+	var tween := create_tween()
+	tween.tween_property(flash, "modulate:a", 0.85, 0.18)
+	tween.tween_interval(0.55)
+	tween.tween_property(flash, "modulate:a", 0.0, 0.25)
+	await tween.finished
+	flash.queue_free()
 
 
 func _on_phase_changed(_new_phase: Character.LifePhase) -> void:
@@ -728,6 +751,16 @@ func _handle_specific_activity(act_id: String) -> void:
 				{"label": "🧘 " + tr("ACT_MEDITATE") + " (Free)", "action": act_meditate},
 				{"label": "👨‍⚕️ " + tr("ACT_DOCTOR_CHECKUP") + " ($100)", "disabled": c.money < 100, "action": act_doctor},
 			])
+		"hobbies":
+			_show_hobbies_menu()
+		"properties":
+			_show_properties_menu()
+		"licenses":
+			_show_licenses_menu()
+		"health_detail":
+			_show_health_detail_menu()
+		"crime_advanced":
+			_show_crime_advanced_menu()
 		_:
 			_show_category_actions(act_id)
 
@@ -984,6 +1017,8 @@ func _get_phase_activities(c: Character) -> Array:
 				activities.append({"label": "🔒 " + tr("ACT_PART_TIME"), "category": "finance", "disabled": true, "tooltip": tr("NEED_AGE_16")})
 			activities.append({"label": "🔪 " + tr("ACT_CRIME"), "category": "crime"})
 			activities.append({"label": "🔒 " + tr("ACT_DRIVE"), "category": "social", "disabled": c.age < 16, "tooltip": tr("NEED_AGE_16")})
+			activities.append({"label": "🎵 " + tr("ACT_HOBBIES_DETAIL"), "action_id": "hobbies"})
+			activities.append({"label": "🪪 " + tr("ACT_LICENSES"), "action_id": "licenses"})
 
 		Character.LifePhase.ADULT:
 			# Adults: full range of actions
@@ -1006,8 +1041,13 @@ func _get_phase_activities(c: Character) -> Array:
 			activities.append({"label": "💰 " + tr("ACT_INVEST"), "category": "finance"})
 			activities.append({"label": "👨‍👩‍👧 " + tr("ACT_FAMILY_TIME"), "category": "family"})
 			activities.append({"label": "🔪 " + tr("ACT_CRIME"), "category": "crime"})
+			activities.append({"label": "🚨 " + tr("ACT_CRIME_ADVANCED"), "action_id": "crime_advanced"})
 			activities.append({"label": "🍺 " + tr("ACT_NIGHTLIFE"), "category": "social"})
 			activities.append({"label": "🧘 " + tr("ACT_MEDITATE"), "category": "health"})
+			activities.append({"label": "🎵 " + tr("ACT_HOBBIES_DETAIL"), "action_id": "hobbies"})
+			activities.append({"label": "🏡 " + tr("ACT_PROPERTIES"), "action_id": "properties"})
+			activities.append({"label": "🪪 " + tr("ACT_LICENSES"), "action_id": "licenses"})
+			activities.append({"label": "🩺 " + tr("ACT_HEALTH_DETAIL"), "action_id": "health_detail"})
 
 		Character.LifePhase.ELDER:
 			# Elders: retirement, health focus, legacy
@@ -1400,6 +1440,623 @@ func _apply_rel_action(rel: Relationship, effect: String) -> void:
 				rel.modify_affection(-5)
 				_add_log_entry(tr("REL_RESULT_ASK_MONEY_NO").replace("{name}", rel.person_name), "😒")
 	_update_display()
+
+
+func _show_career_panel() -> void:
+	var c := GameManager.character
+	if c == null:
+		return
+
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.5)
+	overlay.add_child(bg)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03; panel.anchor_right = 0.97
+	panel.anchor_top = 0.06; panel.anchor_bottom = 0.94
+	panel.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16))
+	overlay.add_child(panel)
+
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 12)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
+
+	var title := Label.new()
+	title.text = "💼 " + tr("CAREER")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 28)
+	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox.add_child(title)
+
+	var sep0 := HSeparator.new()
+	vbox.add_child(sep0)
+
+	var _add_row := func(label: String, value: String) -> void:
+		var card := PanelContainer.new()
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		card.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 10, 12, 8))
+		var hbox := HBoxContainer.new()
+		card.add_child(hbox)
+		var lbl := Label.new()
+		lbl.text = label
+		lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		lbl.add_theme_font_size_override("font_size", 20)
+		lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		hbox.add_child(lbl)
+		var val := Label.new()
+		val.text = value
+		val.add_theme_font_size_override("font_size", 20)
+		val.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+		hbox.add_child(val)
+		vbox.add_child(card)
+
+	if c.current_career == "":
+		var no_job := Label.new()
+		no_job.text = tr("NO_JOB")
+		no_job.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		no_job.add_theme_font_size_override("font_size", 22)
+		no_job.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		vbox.add_child(no_job)
+	else:
+		var level_names := [tr("CAREER_ENTRY"), tr("CAREER_MID"), tr("CAREER_SENIOR"), tr("CAREER_EXECUTIVE")]
+		var level_str := level_names[clampi(c.career_level, 0, 3)]
+		_add_row.call("💼 " + tr("CAREER") + ":", tr("CAREER_" + c.current_career.to_upper()))
+		_add_row.call("⭐ " + tr("CAREER_LEVEL") + ":", level_str)
+		_add_row.call("📅 " + tr("CAREER_YEARS") + ":", str(c.career_years) + " " + tr("YEARS"))
+		_add_row.call("💰 " + tr("SALARY") + ":", "$" + _fmt_money(c.salary) + "/ano")
+		_add_row.call("💳 " + tr("DEBT") + ":", "$" + _fmt_money(c.debt))
+		_add_row.call("⭐ " + tr("FAME") + ":", tr(FameSystem.get_tier_name_key(c)) + " (" + str(c.fame) + "/100)")
+
+		var prog_lbl := Label.new()
+		prog_lbl.text = tr("CAREER_PROGRESS")
+		prog_lbl.add_theme_font_size_override("font_size", 18)
+		prog_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		vbox.add_child(prog_lbl)
+
+		var prog_bar := ProgressBar.new()
+		prog_bar.custom_minimum_size = Vector2(0, 24)
+		prog_bar.max_value = 5.0
+		prog_bar.value = float(c.career_years % 5)
+		prog_bar.show_percentage = false
+		prog_bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		prog_bar.add_theme_stylebox_override("fill", ThemeSetup.make_bar_fill(Color("#FFC107")))
+		prog_bar.add_theme_stylebox_override("background", ThemeSetup.make_bar_bg())
+		vbox.add_child(prog_bar)
+
+		var btn_sep := HSeparator.new()
+		vbox.add_child(btn_sep)
+
+		# Action buttons
+		var btn_raise := Button.new()
+		btn_raise.text = "💰 " + tr("ASK_RAISE")
+		btn_raise.custom_minimum_size = Vector2(0, 60)
+		btn_raise.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn_raise.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#1B5E20"), 12, 14, 10))
+		btn_raise.add_theme_font_size_override("font_size", 22)
+		btn_raise.add_theme_color_override("font_color", Color.WHITE)
+		btn_raise.pressed.connect(func():
+			overlay.queue_free()
+			var success := randf() > 0.5 if c.career_years >= 2 else randf() > 0.8
+			if success:
+				c.salary *= 1.15
+				_add_log_entry(tr("RAISE_SUCCESS"), "💰")
+			else:
+				c.happiness = clampi(c.happiness - 5, 0, 100)
+				_add_log_entry(tr("RAISE_DENIED"), "😤")
+			_update_display()
+		)
+		vbox.add_child(btn_raise)
+
+		var btn_quit := Button.new()
+		btn_quit.text = "🚪 " + tr("QUIT_JOB")
+		btn_quit.custom_minimum_size = Vector2(0, 60)
+		btn_quit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn_quit.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#B71C1C"), 12, 14, 10))
+		btn_quit.add_theme_font_size_override("font_size", 22)
+		btn_quit.add_theme_color_override("font_color", Color.WHITE)
+		btn_quit.pressed.connect(func():
+			overlay.queue_free()
+			c.current_career = ""
+			c.salary = 0.0
+			c.career_level = 0
+			c.career_years = 0
+			_add_log_entry(tr("QUIT_JOB_LOG"), "🚪")
+			_update_display()
+		)
+		vbox.add_child(btn_quit)
+
+	var sep_end := HSeparator.new()
+	vbox.add_child(sep_end)
+
+	var btn_genealogy := Button.new()
+	btn_genealogy.text = "🌳 " + tr("GENEALOGY")
+	btn_genealogy.custom_minimum_size = Vector2(0, 56)
+	btn_genealogy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn_genealogy.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#1B5E20"), 14, 16, 12))
+	btn_genealogy.add_theme_font_size_override("font_size", 22)
+	btn_genealogy.add_theme_color_override("font_color", Color.WHITE)
+	btn_genealogy.pressed.connect(func():
+		overlay.queue_free()
+		_show_genealogy_overlay()
+	)
+	vbox.add_child(btn_genealogy)
+
+	var btn_close := Button.new()
+	btn_close.text = "✕ " + tr("CLOSE")
+	btn_close.custom_minimum_size = Vector2(0, 56)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn_close.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12))
+	btn_close.add_theme_font_size_override("font_size", 22)
+	btn_close.add_theme_color_override("font_color", Color.WHITE)
+	btn_close.pressed.connect(func(): overlay.queue_free())
+	vbox.add_child(btn_close)
+
+	bg.gui_input.connect(func(e: InputEvent):
+		if e is InputEventMouseButton and e.pressed:
+			overlay.queue_free()
+	)
+	add_child(overlay)
+
+
+func _fmt_money(v: float) -> String:
+	if v >= 1_000_000:
+		return str(snappedf(v / 1_000_000.0, 0.1)) + "M"
+	elif v >= 1_000:
+		return str(snappedf(v / 1_000.0, 0.1)) + "K"
+	return str(int(v))
+
+
+func _show_tutorial() -> void:
+	var pages := [
+		{"icon": "👶", "title": tr("TUT_TITLE_PHASES"), "body": tr("TUT_BODY_PHASES")},
+		{"icon": "❤️", "title": tr("TUT_TITLE_STATS"), "body": tr("TUT_BODY_STATS")},
+		{"icon": "📌", "title": tr("TUT_TITLE_EVENTS"), "body": tr("TUT_BODY_EVENTS")},
+		{"icon": "🏆", "title": tr("TUT_TITLE_ACHIEVEMENTS"), "body": tr("TUT_BODY_ACHIEVEMENTS")},
+		{"icon": "⏩", "title": tr("TUT_TITLE_ADVANCE"), "body": tr("TUT_BODY_ADVANCE")},
+	]
+	var page_idx := 0
+
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.75)
+	overlay.add_child(bg)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.05; panel.anchor_right = 0.95
+	panel.anchor_top = 0.15; panel.anchor_bottom = 0.85
+	panel.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 20, 28, 20))
+	overlay.add_child(panel)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 14)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(vbox)
+
+	var icon_lbl := Label.new()
+	icon_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	icon_lbl.add_theme_font_size_override("font_size", 56)
+	vbox.add_child(icon_lbl)
+
+	var title_lbl := Label.new()
+	title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title_lbl.add_theme_font_size_override("font_size", 28)
+	title_lbl.add_theme_color_override("font_color", ThemeSetup.PRIMARY)
+	title_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	vbox.add_child(title_lbl)
+
+	var body_lbl := RichTextLabel.new()
+	body_lbl.bbcode_enabled = true
+	body_lbl.fit_content = false
+	body_lbl.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	body_lbl.add_theme_font_size_override("normal_font_size", 22)
+	body_lbl.add_theme_color_override("default_color", ThemeSetup.TEXT_SECONDARY)
+	vbox.add_child(body_lbl)
+
+	var dots_hbox := HBoxContainer.new()
+	dots_hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	dots_hbox.add_theme_constant_override("separation", 8)
+	vbox.add_child(dots_hbox)
+	var dots: Array[Label] = []
+	for i in pages.size():
+		var dot := Label.new()
+		dot.text = "●"
+		dot.add_theme_font_size_override("font_size", 20)
+		dots_hbox.add_child(dot)
+		dots.append(dot)
+
+	var nav_hbox := HBoxContainer.new()
+	nav_hbox.add_theme_constant_override("separation", 10)
+	vbox.add_child(nav_hbox)
+
+	var btn_prev := Button.new()
+	btn_prev.text = "◀"
+	btn_prev.custom_minimum_size = Vector2(70, 56)
+	btn_prev.add_theme_font_size_override("font_size", 26)
+	nav_hbox.add_child(btn_prev)
+
+	var btn_next := Button.new()
+	btn_next.text = tr("NEXT") + " ▶"
+	btn_next.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn_next.custom_minimum_size = Vector2(0, 56)
+	btn_next.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(ThemeSetup.PRIMARY, 12, 14, 10))
+	btn_next.add_theme_font_size_override("font_size", 22)
+	btn_next.add_theme_color_override("font_color", Color.WHITE)
+	nav_hbox.add_child(btn_next)
+
+	var _refresh := func() -> void:
+		var p := pages[page_idx]
+		icon_lbl.text = p["icon"]
+		title_lbl.text = p["title"]
+		body_lbl.text = p["body"]
+		btn_prev.disabled = (page_idx == 0)
+		btn_next.text = tr("FINISH") if page_idx == pages.size() - 1 else tr("NEXT") + " ▶"
+		for i in dots.size():
+			dots[i].add_theme_color_override("font_color",
+				ThemeSetup.PRIMARY if i == page_idx else Color(0.5, 0.5, 0.5, 1.0))
+
+	_refresh.call()
+
+	btn_prev.pressed.connect(func():
+		if page_idx > 0:
+			page_idx -= 1
+			_refresh.call()
+	)
+	btn_next.pressed.connect(func():
+		if page_idx < pages.size() - 1:
+			page_idx += 1
+			_refresh.call()
+		else:
+			SaveManager.save_setting("tutorial_done", true)
+			overlay.queue_free()
+	)
+
+	add_child(overlay)
+
+
+func _show_hobbies_menu() -> void:
+	var c := GameManager.character
+	var hobbies := HobbySystem.get_hobbies_for_age(c.age)
+	var choices := []
+	for hid in hobbies:
+		var lvl := HobbySystem.get_level(c, hid)
+		var icon := HobbySystem.get_icon(hid)
+		var data := HobbySystem.HOBBY_DATA[hid] as Dictionary
+		var lbl := icon + " " + tr(data["name_key"]) + "  [" + tr(HobbySystem.get_level_name_key(lvl)) + "]"
+		var bound_hid := hid
+		choices.append({"label": lbl, "action": func():
+			var result := HobbySystem.practice(c, bound_hid, _rng)
+			var msg := icon + " " + tr(data["name_key"]) + " +" + str(result.get("gain", 1)) + " " + result.get("stat", "")
+			if result.get("leveled_up", false):
+				msg += "  🔼 " + tr(result.get("new_level_key", ""))
+			if result.has("new_trait"):
+				msg += "  🌟 " + tr("NEW_TRAIT") + ": " + tr("TRAIT_" + (result["new_trait"] as String).to_upper())
+			_add_log_entry(msg, icon)
+			_update_display()
+		})
+	_show_custom_menu("🎵 " + tr("ACT_HOBBIES_DETAIL"), tr("CHOOSE_HOBBY"), choices)
+
+
+func _show_properties_menu() -> void:
+	var c := GameManager.character
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.5)
+	overlay.add_child(bg)
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03; panel.anchor_right = 0.97
+	panel.anchor_top = 0.04; panel.anchor_bottom = 0.96
+	panel.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16))
+	overlay.add_child(panel)
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
+
+	var title := Label.new()
+	title.text = "🏡 " + tr("ACT_PROPERTIES")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 26)
+	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox.add_child(title)
+
+	# Owned
+	var owned := PropertySystem.get_owned(c)
+	if not owned.is_empty():
+		var own_lbl := Label.new()
+		own_lbl.text = tr("OWNED_PROPERTIES")
+		own_lbl.add_theme_font_size_override("font_size", 20)
+		own_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+		vbox.add_child(own_lbl)
+		for item in owned:
+			var d := item as Dictionary
+			var card := PanelContainer.new()
+			card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			card.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(Color("#1B5E20"), 8, 12, 8))
+			var hbox := HBoxContainer.new()
+			card.add_child(hbox)
+			var ilbl := Label.new()
+			ilbl.text = d.get("icon", "🏠") + "  " + tr(d.get("name_key", "")) + "  $" + _fmt_money(d.get("current_value", 0.0))
+			ilbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			ilbl.add_theme_font_size_override("font_size", 19)
+			ilbl.add_theme_color_override("font_color", Color.WHITE)
+			hbox.add_child(ilbl)
+			var sell_btn := Button.new()
+			sell_btn.text = tr("SELL")
+			sell_btn.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#B71C1C"), 8, 8, 6))
+			sell_btn.add_theme_color_override("font_color", Color.WHITE)
+			var bound_id: String = d.get("id", "")
+			sell_btn.pressed.connect(func():
+				var res := PropertySystem.sell(c, bound_id)
+				_add_log_entry("🏡 " + tr("SOLD_PROPERTY") + " +$" + _fmt_money(res.get("sold_for", 0.0)), "💰")
+				overlay.queue_free()
+				_show_properties_menu()
+				_update_display()
+			)
+			hbox.add_child(sell_btn)
+			vbox.add_child(card)
+
+	# Available to buy
+	var available := PropertySystem.get_available_to_buy(c)
+	var buy_lbl := Label.new()
+	buy_lbl.text = tr("BUY_PROPERTY")
+	buy_lbl.add_theme_font_size_override("font_size", 20)
+	buy_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+	vbox.add_child(buy_lbl)
+	for tmpl in available:
+		var t := tmpl as Dictionary
+		var can_buy := c.money >= t["price"]
+		var btn := Button.new()
+		btn.text = t["icon"] + " " + tr(t["name_key"]) + "  $" + _fmt_money(t["price"]) + "  📅 $" + _fmt_money(t["monthly_cost"]) + "/mês"
+		btn.custom_minimum_size = Vector2(0, 60)
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn.disabled = not can_buy
+		btn.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 10, 12, 8))
+		btn.add_theme_font_size_override("font_size", 18)
+		btn.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY if can_buy else ThemeSetup.TEXT_HINT)
+		var bound_id: String = t["id"]
+		btn.pressed.connect(func():
+			var res := PropertySystem.buy(c, bound_id, _rng)
+			if res.get("success", false):
+				_add_log_entry(t["icon"] + " " + tr("BOUGHT_PROPERTY") + " -$" + _fmt_money(t["price"]), "🏡")
+			overlay.queue_free()
+			_show_properties_menu()
+			_update_display()
+		)
+		vbox.add_child(btn)
+
+	var btn_close := Button.new()
+	btn_close.text = "✕ " + tr("CLOSE")
+	btn_close.custom_minimum_size = Vector2(0, 56)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn_close.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12))
+	btn_close.add_theme_font_size_override("font_size", 22)
+	btn_close.add_theme_color_override("font_color", Color.WHITE)
+	btn_close.pressed.connect(func(): overlay.queue_free())
+	vbox.add_child(btn_close)
+	bg.gui_input.connect(func(e: InputEvent):
+		if e is InputEventMouseButton and e.pressed: overlay.queue_free()
+	)
+	add_child(overlay)
+
+
+func _show_licenses_menu() -> void:
+	var c := GameManager.character
+	var available := LicenseSystem.get_available_licenses(c)
+	if available.is_empty():
+		_add_log_entry(tr("NO_LICENSES_AVAILABLE"), "🪪")
+		return
+	var choices := []
+	for lid in available:
+		var lic := LicenseSystem.LICENSES[lid] as Dictionary
+		var bound_lid := lid
+		choices.append({"label": lic["icon"] + " " + tr(lic["name_key"]) + "  $" + _fmt_money(lic["fee"]),
+			"disabled": c.money < lic["fee"],
+			"action": func(): _show_license_exam(bound_lid)
+		})
+	_show_custom_menu("🪪 " + tr("ACT_LICENSES"), tr("CHOOSE_LICENSE"), choices)
+
+
+func _show_license_exam(license_id: String) -> void:
+	var c := GameManager.character
+	var lic := LicenseSystem.LICENSES[license_id] as Dictionary
+	var questions: Array = lic["questions"]
+	var answers: Array[int] = []
+	var q_idx := 0
+
+	var _proceed_exam: Callable
+	_proceed_exam = func() -> void:
+		if q_idx >= questions.size():
+			var result := LicenseSystem.attempt_exam(c, license_id, answers)
+			if result.get("passed", false):
+				_add_log_entry(lic["icon"] + " " + tr("LIC_PASSED") + " " + tr(lic["name_key"]) + "  (" + str(result["score"]) + "/" + str(result["total"]) + ")", lic["icon"])
+			else:
+				_add_log_entry(lic["icon"] + " " + tr("LIC_FAILED") + "  (" + str(result["score"]) + "/" + str(result["total"]) + ") -$" + _fmt_money(result.get("fee_lost", 0.0)), "❌")
+			_update_display()
+			return
+		var q_data := questions[q_idx] as Dictionary
+		var opts: Array = q_data["options"]
+		var choice_list := []
+		for oi in opts.size():
+			var bound_oi := oi
+			choice_list.append({"label": tr(opts[oi]), "action": func():
+				answers.append(bound_oi)
+				q_idx += 1
+				_proceed_exam.call()
+			})
+		_show_custom_menu(lic["icon"] + " " + tr(lic["name_key"]),
+			tr(q_data["q"]) + "  (" + str(q_idx + 1) + "/" + str(questions.size()) + ")",
+			choice_list)
+
+	_proceed_exam.call()
+
+
+func _show_health_detail_menu() -> void:
+	var c := GameManager.character
+	var diseases := HealthSystem.get_active_diseases(c)
+	var choices := []
+
+	if diseases.is_empty():
+		choices.append({"label": tr("HEALTH_NO_DISEASES"), "disabled": true, "action": func(): pass})
+	else:
+		for dis in diseases:
+			var d := dis as Dictionary
+			var did: String = d.get("id", "")
+			var ddata := HealthSystem.DISEASE_DATA.get(did, {}) as Dictionary
+			var cost := ddata.get("treatment_cost", 0.0)
+			var can_treat := c.money >= cost
+			var bound_did := did
+			choices.append({"label": d.get("icon","🤒") + " " + tr(d.get("name_key","")) + "  💊 $" + _fmt_money(cost),
+				"disabled": not can_treat,
+				"action": func():
+					var res := HealthSystem.treat_disease(c, bound_did)
+					if res.get("success", false):
+						_add_log_entry(tr("TREATED_DISEASE") + ": " + tr(d.get("name_key","")) + " -$" + _fmt_money(res.get("cost", 0.0)), "💊")
+					_update_display()
+			})
+	_show_custom_menu("🩺 " + tr("ACT_HEALTH_DETAIL"), tr("HEALTH_CURRENT_CONDITIONS"), choices)
+
+
+func _show_crime_advanced_menu() -> void:
+	var c := GameManager.character
+	if c.age < 16:
+		_add_log_entry(tr("CRIME_TOO_YOUNG"), "🚫")
+		return
+	var crimes := [
+		{"label": "🛒 " + tr("CRIME_SHOPLIFTING"), "crime": CrimeSystem.CrimeType.SHOPLIFTING},
+		{"label": "👜 " + tr("CRIME_PICKPOCKET"), "crime": CrimeSystem.CrimeType.PICKPOCKET},
+		{"label": "🏠 " + tr("CRIME_BURGLARY"), "crime": CrimeSystem.CrimeType.BURGLARY, "disabled": c.age < 18},
+		{"label": "💊 " + tr("CRIME_DRUG_DEALING"), "crime": CrimeSystem.CrimeType.DRUG_DEALING, "disabled": c.age < 18},
+		{"label": "💳 " + tr("CRIME_FRAUD"), "crime": CrimeSystem.CrimeType.FRAUD, "disabled": c.age < 18},
+		{"label": "🚗 " + tr("CRIME_CAR_THEFT"), "crime": CrimeSystem.CrimeType.CAR_THEFT, "disabled": c.age < 18},
+	]
+	var choices := []
+	for cr in crimes:
+		var bound_cr := cr
+		choices.append({"label": cr["label"],
+			"disabled": cr.get("disabled", false),
+			"action": func():
+				var result := CrimeSystem.attempt_crime(c, bound_cr["crime"], _rng)
+				CrimeSystem.apply_result(c, result)
+				match result.get("outcome", -1):
+					CrimeSystem.CrimeResult.SUCCESS:
+						_add_log_entry(tr("CRIME_SUCCESS") + " +$" + _fmt_money(result.get("money", 0)), "💰")
+					CrimeSystem.CrimeResult.CAUGHT:
+						var msg := tr("CRIME_CAUGHT") + " -$" + _fmt_money(result.get("fine", 0))
+						if result.get("prison_years", 0) > 0:
+							msg += "  ⛓️ " + str(result["prison_years"]) + " " + tr("YEARS")
+						_add_log_entry(msg, "🚨")
+					CrimeSystem.CrimeResult.ESCAPED_INJURED:
+						_add_log_entry(tr("CRIME_ESCAPED") + " -" + str(abs(result.get("health_delta", 0))) + " HP", "🏃")
+				_update_display()
+		})
+	_show_custom_menu("🚨 " + tr("ACT_CRIME_ADVANCED"), tr("CHOOSE_CRIME"), choices)
+
+
+func _show_genealogy_overlay() -> void:
+	var lives := SaveManager.get_completed_lives()
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.55)
+	overlay.add_child(bg)
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03; panel.anchor_right = 0.97
+	panel.anchor_top = 0.04; panel.anchor_bottom = 0.96
+	panel.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16))
+	overlay.add_child(panel)
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(scroll)
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 14)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(vbox)
+	var title := Label.new()
+	title.text = "🌳 " + tr("GENEALOGY")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 28)
+	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox.add_child(title)
+
+	if lives.is_empty():
+		var empty := Label.new()
+		empty.text = tr("NO_PAST_LIVES")
+		empty.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		empty.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
+		vbox.add_child(empty)
+	else:
+		# Newest first
+		var sorted := lives.duplicate()
+		sorted.reverse()
+		for life in sorted:
+			var d := life as Dictionary
+			var card := PanelContainer.new()
+			card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			card.add_theme_stylebox_override("panel", ThemeSetup.make_flat_box(ThemeSetup.BG_CARD_LIGHT, 10, 12, 8))
+			var cv := VBoxContainer.new()
+			cv.add_theme_constant_override("separation", 6)
+			card.add_child(cv)
+			var name_lbl := Label.new()
+			name_lbl.text = "👤 " + d.get("name", "?") + "  —  " + str(d.get("death_age", 0)) + " " + tr("YEARS_OLD")
+			name_lbl.add_theme_font_size_override("font_size", 20)
+			name_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+			cv.add_child(name_lbl)
+			var career_lbl := Label.new()
+			career_lbl.text = "💼 " + tr(d.get("career", "") if d.get("career", "") != "" else "NO_JOB") + "  💰 $" + _fmt_money(d.get("net_worth", 0.0))
+			career_lbl.add_theme_font_size_override("font_size", 17)
+			career_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+			cv.add_child(career_lbl)
+			var fame_lbl := Label.new()
+			var fame_tier: String = d.get("fame_tier_key", "FAME_TIER_UNKNOWN")
+			var fame_val: int = d.get("fame", 0)
+			fame_lbl.text = "⭐ " + tr(fame_tier) + "  (" + str(fame_val) + "/100)  ☠️ " + d.get("cause_of_death", "?")
+			fame_lbl.add_theme_font_size_override("font_size", 16)
+			fame_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
+			cv.add_child(fame_lbl)
+			if not (d.get("traits", []) as Array).is_empty():
+				var trow := Label.new()
+				trow.text = "🧬 " + ", ".join((d.get("traits", []) as Array).map(func(t): return tr("TRAIT_" + (t as String).to_upper())))
+				trow.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+				trow.add_theme_font_size_override("font_size", 15)
+				trow.add_theme_color_override("font_color", ThemeSetup.TEXT_HINT)
+				cv.add_child(trow)
+			vbox.add_child(card)
+
+	var close_btn := Button.new()
+	close_btn.text = "✕ " + tr("CLOSE")
+	close_btn.custom_minimum_size = Vector2(0, 56)
+	close_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	close_btn.add_theme_stylebox_override("normal", ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12))
+	close_btn.add_theme_font_size_override("font_size", 22)
+	close_btn.add_theme_color_override("font_color", Color.WHITE)
+	close_btn.pressed.connect(func(): overlay.queue_free())
+	vbox.add_child(close_btn)
+	bg.gui_input.connect(func(e: InputEvent):
+		if e is InputEventMouseButton and e.pressed: overlay.queue_free()
+	)
+	add_child(overlay)
 
 
 func _show_achievements_overlay() -> void:
