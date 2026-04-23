@@ -241,13 +241,40 @@ func to_save_dict() -> Dictionary:
 		"relationships": rel_dicts,
 		"event_log": event_log,
 		"seen_events": seen_events,
-		"stress = d.get("stress", 0)
+		"world_seed": world_seed,
+		"statistics": statistics
+	}
+
+static func from_save_dict(d: Dictionary) -> Character:
+	var c := Character.new()
+	c.first_name = d.get("first_name", "")
+	c.last_name = d.get("last_name", "")
+	c.gender = d.get("gender", "male")
+	c.country = d.get("country", "BR")
+	c.birth_year = d.get("birth_year", 2000)
+	c.age = d.get("age", 0)
+	c.alive = d.get("alive", true)
+	c.cause_of_death = d.get("cause_of_death", "")
+	c.life_phase = d.get("life_phase", LifePhase.BABY)
+	
+	c.health = d.get("health", 80)
+	c.intelligence = d.get("intelligence", 50)
+	c.charisma = d.get("charisma", 50)
+	c.appearance = d.get("appearance", 50)
+	c.temperament = d.get("temperament", 50)
+	c.luck = d.get("luck", 50)
+	c.happiness = d.get("happiness", 70)
+	c.morality = d.get("morality", 50)
+	c.mental_stability = d.get("mental_stability", 70)
+	c.stress = d.get("stress", 0)
 	c.sanity = d.get("sanity", 100)
 	c.criminal_record = d.get("criminal_record", false)
 	c.fame = d.get("fame", 0)
+	
 	c.attachment_profile = d.get("attachment_profile", 50)
 	c.cognitive_development = d.get("cognitive_development", 50)
 	c.trauma = d.get("trauma", 0)
+	
 	c.money = d.get("money", 0.0)
 	c.salary = d.get("salary", 0.0)
 	c.debt = d.get("debt", 0.0)
@@ -279,41 +306,20 @@ func to_save_dict() -> Dictionary:
 	c.siblings_count = d.get("siblings_count", 0)
 	c.dead_siblings = d.get("dead_siblings", 0)
 	c.pets = Array(d.get("pets", []), TYPE_DICTIONARY, "", null)
+	
 	c.talents = d.get("talents", {})
-	
-	c.health = d.get("health", 80)
-	c.intelligence = d.get("intelligence", 50)
-	c.charisma = d.get("charisma", 50)
-	c.appearance = d.get("appearance", 50)
-	c.temperament = d.get("temperament", 50)
-	c.luck = d.get("luck", 50)
-	c.happiness = d.get("happiness", 70)
-	c.morality = d.get("morality", 50)
-	c.mental_stability = d.get("mental_stability", 70)
-	c.attachment_profile = d.get("attachment_profile", 50)
-	c.cognitive_development = d.get("cognitive_development", 50)
-	c.trauma = d.get("trauma", 0)
-	c.money = d.get("money", 0.0)
-	c.salary = d.get("salary", 0.0)
-	c.debt = d.get("debt", 0.0)
-	c.credit_score = d.get("credit_score", 500)
-	c.assets_value = d.get("assets_value", 0.0)
-	
-	var inv_array: Array = d.get("inventory", [])
-	c.inventory = []
-	for i in inv_array:
-		c.inventory.append(i as Dictionary)
-		
-	c.social_class = d.get("social_class", SocialClass.MIDDLE)
 	c.traits = Array(d.get("traits", []), TYPE_STRING, "", null)
+	
 	c.current_career = d.get("current_career", "")
 	c.career_years = d.get("career_years", 0)
 	c.career_level = d.get("career_level", 0)
 	c.education = d.get("education", Education.NONE)
 	c.school_performance = d.get("school_performance", 50)
+	
 	c.event_log = Array(d.get("event_log", []), TYPE_DICTIONARY, "", null)
 	c.seen_events = Array(d.get("seen_events", []), TYPE_STRING, "", null)
 	c.world_seed = d.get("world_seed", 0)
+	
 	var saved_stats: Dictionary = d.get("statistics", {})
 	for key in c.statistics:
 		if saved_stats.has(key):

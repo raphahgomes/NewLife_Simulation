@@ -92,7 +92,7 @@ Variáveis ocultas já definidas e parte injetada em `Character.gd`:
 | `min_education` | int | `"min_education": 2` |
 | `social_class` | String | `"social_class": "poor"` |
 
-> ⚠️ **Sprint 5** adicionará novas chaves para os campos ocultos ainda não existentes em `Character.gd`: `min_stress`, `max_stress`, `min_family_wealth`, `max_family_wealth`, `has_emotional_tag`. Não use essas chaves em eventos do Sprint 3 — elas não serão reconhecidas até o Sprint 5 ser implementado.
+> ℹ️ **Nota sobre Efeitos Ocultos:** Desde a implementação do Sprint 5, novas chaves para campos ocultos em `Character.gd` estão ativas: `min_stress`, `max_stress`, `min_family_wealth`, `max_family_wealth`, `has_emotional_tag`. Essas chaves já estão disponíveis e podem ser usadas em novos eventos; só use com critério para não depender demais de conteúdo ainda não escrito.
 
 ### Schema de cada `choice`
 
@@ -175,7 +175,7 @@ Variáveis ocultas já definidas e parte injetada em `Character.gd`:
 | Sprint 5 | Efeito Borboleta Completo | ✅ COMPLETO |
 | Sprint 6 | Combate, Licenças, Carreiras Interativas | 🔄 Parcial (Carreiras interativas incompletas) |
 | Sprint 7 | Herança, Genealogia, Sistema de Fama | 🔄 Parcial (Faltam modos de jogo, cloud save, etc) |
-| Sprint 8 | Publicação (Google Play, Steam/PC) | ⬜ Não Iniciado |
+| Sprint 8 | Publicação (Google Play, Steam/PC) | 🔄 Parcial (AAB em teste interno) |
 
 ---
 ## �🗺️ ROADMAP POR SPRINT
@@ -453,6 +453,8 @@ criminal_record: bool
 
 ### SPRINT 8 — Publicação
 
+> AAB já exportado e rodando em teste interno. Faltam integrações de SDKs.
+
 #### Google Play / Mobile
 | Tarefa | Detalhes | Status |
 |--------|----------|--------|
@@ -493,15 +495,15 @@ criminal_record: bool
 | Eventos de saúde que afetam autoestima | ❌ | Sprint 3 |
 | Stepparent / nova configuração familiar | ❌ | Sprint 3 |
 | Programa de superdotados / pular ano | ❌ | Sprint 3 |
-| Crimes com múltiplas abordagens | ❌ | Sprint 4 |
-| Hobbies com progressão de nível | ❌ | Sprint 4 |
-| Propriedades com valor real | ❌ | Sprint 4 |
-| Doenças com tratamentos diferentes por riqueza | ❌ | Sprint 4 |
-| Efeito borboleta oculto (stress → eventos forçados) | ❌ | Sprint 5 |
-| Combate em turnos | ❌ | Sprint 6 |
+| Crimes com múltiplas abordagens | ✅ parcial | Sprint 4 |
+| Hobbies com progressão de nível | ✅ parcial | Sprint 4 |
+| Propriedades com valor real | ✅ parcial | Sprint 4 |
+| Doenças com tratamentos diferentes por riqueza | ✅ parcial | Sprint 4 |
+| Efeito borboleta oculto (stress → eventos forçados) | ✅ | Sprint 5 |
+| Combate em turnos | ✅ | Sprint 6 |
 | Dilemas de trabalho por profissão | ❌ | Sprint 6 |
-| Quiz para licenças (motorista, piloto) | ❌ | Sprint 6 |
-| Herança entre gerações | ❌ | Sprint 7 |
+| Quiz para licenças (motorista, piloto) | ✅ | Sprint 6 |
+| Herança entre gerações | ✅ | Sprint 7 |
 
 ---
 
@@ -521,12 +523,19 @@ scripts/
   systems/
     CrimeSystem.gd       — NOVO (Sprint 4)
     CombatSystem.gd      — NOVO (Sprint 6)
-    MedicalCareerSystem.gd — NOVO (Sprint 6)
-    FamilyEconomySystem.gd — Expandir (Sprint 5)
+    HobbySystem.gd       — NOVO (Sprint 4)
+    PropertySystem.gd    — NOVO (Sprint 4)
+    HealthSystem.gd      — NOVO (Sprint 4)
+    LicenseSystem.gd     — NOVO (Sprint 6)
+    FameSystem.gd        — NOVO (Sprint 7)
+    FamilyEconomySystem.gd — Expandido (Sprint 5)
   ui/
     EventPopup.gd / .tscn
     GameHUD.gd / .tscn
-    CombatHUD.gd / .tscn — NOVO (Sprint 6)
+    MedicalCareerSystem.gd — (A Criar - Sprint 6)
+    CombatHUD.gd / .tscn — (A Criar - Sprint 6)
+  items/
+    black_market.json    — (A Criar - Sprint 4)
 
 data/
   events/
