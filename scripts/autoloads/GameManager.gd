@@ -251,6 +251,13 @@ func apply_event_choice(event: EventData, choice_index: int) -> Dictionary:
 					character.add_trait(trait_name)
 					results["new_trait"] = trait_name
 
+	# Apply emotional tag (enables cross-phase butterfly effect chains)
+	var tag_to_add: String = choice.get("emotional_tag_add", "")
+	if tag_to_add != "":
+		if not character.emotional_tags.has(tag_to_add):
+			character.emotional_tags.append(tag_to_add)
+		results["emotional_tag"] = tag_to_add
+
 	# Update statistics
 	character.statistics["total_events"] += 1
 	character.statistics["total_choices"] += 1
