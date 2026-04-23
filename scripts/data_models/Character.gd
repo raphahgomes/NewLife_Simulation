@@ -198,6 +198,10 @@ func to_save_dict() -> Dictionary:
 		"happiness": happiness,
 		"morality": morality,
 		"mental_stability": mental_stability,
+		"stress": stress,
+		"sanity": sanity,
+		"criminal_record": criminal_record,
+		"fame": fame,
 		"attachment_profile": attachment_profile,
 		"cognitive_development": cognitive_development,
 		"trauma": trauma,
@@ -208,6 +212,26 @@ func to_save_dict() -> Dictionary:
 		"assets_value": assets_value,
 		"inventory": inventory,
 		"social_class": social_class,
+		"family_hidden_wealth": family_hidden_wealth,
+		"family_stress_level": family_stress_level,
+		"family_sanity": family_sanity,
+		"family_status": family_status,
+		"emotional_tags": emotional_tags,
+		"parents_depressed": parents_depressed,
+		"mother_luck": mother_luck,
+		"father_luck": father_luck,
+		"mother_age": mother_age,
+		"father_age": father_age,
+		"mother_health": mother_health,
+		"father_health": father_health,
+		"mother_happiness": mother_happiness,
+		"father_happiness": father_happiness,
+		"mother_fertility": mother_fertility,
+		"father_fertility": father_fertility,
+		"siblings_count": siblings_count,
+		"dead_siblings": dead_siblings,
+		"pets": pets,
+		"talents": talents,
 		"traits": traits,
 		"current_career": current_career,
 		"career_years": career_years,
@@ -217,21 +241,46 @@ func to_save_dict() -> Dictionary:
 		"relationships": rel_dicts,
 		"event_log": event_log,
 		"seen_events": seen_events,
-		"world_seed": world_seed,
-		"statistics": statistics
-	}
-
-static func from_save_dict(d: Dictionary) -> Character:
-	var c := Character.new()
-	c.first_name = d.get("first_name", "")
-	c.last_name = d.get("last_name", "")
-	c.gender = d.get("gender", "male")
-	c.country = d.get("country", "BR")
-	c.birth_year = d.get("birth_year", 2000)
-	c.age = d.get("age", 0)
-	c.alive = d.get("alive", true)
-	c.cause_of_death = d.get("cause_of_death", "")
-	c.life_phase = d.get("life_phase", LifePhase.BABY)
+		"stress = d.get("stress", 0)
+	c.sanity = d.get("sanity", 100)
+	c.criminal_record = d.get("criminal_record", false)
+	c.fame = d.get("fame", 0)
+	c.attachment_profile = d.get("attachment_profile", 50)
+	c.cognitive_development = d.get("cognitive_development", 50)
+	c.trauma = d.get("trauma", 0)
+	c.money = d.get("money", 0.0)
+	c.salary = d.get("salary", 0.0)
+	c.debt = d.get("debt", 0.0)
+	c.credit_score = d.get("credit_score", 500)
+	c.assets_value = d.get("assets_value", 0.0)
+	
+	var inv_array: Array = d.get("inventory", [])
+	c.inventory = []
+	for i in inv_array:
+		c.inventory.append(i as Dictionary)
+		
+	c.social_class = d.get("social_class", SocialClass.MIDDLE)
+	c.family_hidden_wealth = d.get("family_hidden_wealth", 5000.0)
+	c.family_stress_level = d.get("family_stress_level", 0.0)
+	c.family_sanity = d.get("family_sanity", 100.0)
+	c.family_status = d.get("family_status", "Casados")
+	c.emotional_tags = Array(d.get("emotional_tags", []), TYPE_STRING, "", null)
+	c.parents_depressed = d.get("parents_depressed", false)
+	c.mother_luck = d.get("mother_luck", 50)
+	c.father_luck = d.get("father_luck", 50)
+	c.mother_age = d.get("mother_age", 25)
+	c.father_age = d.get("father_age", 27)
+	c.mother_health = d.get("mother_health", 80)
+	c.father_health = d.get("father_health", 80)
+	c.mother_happiness = d.get("mother_happiness", 70)
+	c.father_happiness = d.get("father_happiness", 70)
+	c.mother_fertility = d.get("mother_fertility", 80)
+	c.father_fertility = d.get("father_fertility", 80)
+	c.siblings_count = d.get("siblings_count", 0)
+	c.dead_siblings = d.get("dead_siblings", 0)
+	c.pets = Array(d.get("pets", []), TYPE_DICTIONARY, "", null)
+	c.talents = d.get("talents", {})
+	
 	c.health = d.get("health", 80)
 	c.intelligence = d.get("intelligence", 50)
 	c.charisma = d.get("charisma", 50)

@@ -168,14 +168,14 @@ Variáveis ocultas já definidas e parte injetada em `Character.gd`:
 
 | Sprint | Descrição | Status |
 |--------|-----------|--------|
-| Sprint 1 | Assets (Áudio + Visual) | 🔄 Parcial |
-| Sprint 2 | UI/UX Polish | ✅ COMPLETO |
-| Sprint 3 | 321 Eventos | ✅ COMPLETO |
-| Sprint 4 | Sistemas: Crime, Hobbies, Propriedades, Saúde | ✅ COMPLETO |
+| Sprint 1 | Assets (Áudio + Visual) | 🔄 Parcial (Sem assets exportados) |
+| Sprint 2 | UI/UX Polish | 🔄 Parcial (Componentes unificados pendentes) |
+| Sprint 3 | Eventos (meta 300+) | 🔄 Parcial (140 de 300+ eventos) |
+| Sprint 4 | Crimes, Hobbies, Propriedades, Saúde | 🔄 Parcial (Sistemas prontos, itens pendentes) |
 | Sprint 5 | Efeito Borboleta Completo | ✅ COMPLETO |
-| Sprint 6 | Combate, Licenças, Carreiras Interativas, UI wiring | ✅ COMPLETO |
-| Sprint 7 | Herança, Genealogia, Sistema de Fama | ✅ COMPLETO |
-| Sprint 8 | Export configs, Google Play, Steam/PC | ✅ COMPLETO |
+| Sprint 6 | Combate, Licenças, Carreiras Interativas | 🔄 Parcial (Carreiras interativas incompletas) |
+| Sprint 7 | Herança, Genealogia, Sistema de Fama | 🔄 Parcial (Faltam modos de jogo, cloud save, etc) |
+| Sprint 8 | Publicação (Google Play, Steam/PC) | ⬜ Não Iniciado |
 
 ---
 ## �🗺️ ROADMAP POR SPRINT
@@ -566,6 +566,7 @@ git add . ; git commit -m "feat: descrição" ; git push origin main
 
 ## 📋 PRÓXIMA AÇÃO IMEDIATA
 
-**Sprint 1 — Áudio:** `python C:\IA\generate_assets.py music` → testar AudioManager no Godot  
-**Sprint 3 — Eventos:** Implementar os 40 novos eventos child a partir da tabela acima  
-**Sprint 5 — Efeito Borboleta:** Adicionar campos ocultos no `Character.gd` e lógica no `GameManager.gd`
+1. **Volume de Eventos (Sprint 3):** Criar json de eventos com o volume faltante, usando o schema atual e os novos hooks disponíveis de stats/condições.
+2. **Assets Basis (Sprint 1):** Configurar placeholders em `assets/sounds/` e exportar áudio final real.
+3. **UI Separada (Sprint 2 / 6):** Extrair Careers / relationships de GameManager para cenas dinâmicas / UIs encapsuladas separadas e incluir painel de Carreiras Interativas.
+4. **Conteúdo do Black Market (Sprint 4):** Criar `data/items/black_market.json` com os equipamentos necessários.
