@@ -96,17 +96,6 @@ func advance_year() -> void:
 	if not is_game_active or character == null or not character.alive:
 		return
 
-	if character.age >= 3:
-		# --- TRAVA DE DESENVOLVIMENTO DO BETA FASE 1 ---
-		var end_event = EventData.new()
-		end_event.id = "beta_phase_1_end"
-		end_event.text_key = "FIM DA FASE BEBÊ (4 Anos).\n\nAguarde os próximos Updates onde a Fase Criança será construída!\n\n(A simulação deste playteste será finalizada)"
-		end_event.choices.append({"text_key": "ENCERRAR VIDA / TELA DE MÁRMORE", "effects": {}})
-		_event_queue.append(end_event)
-		# Toca para a UI abrir a fila de eventos onde essa mensagem está
-		year_advanced.emit(character.age)
-		return
-
 	character.age += 1
 
 	# === NEW: SIMULAÇÃO DE VIDA OCULTA - EFEITO BORBOLETA ===

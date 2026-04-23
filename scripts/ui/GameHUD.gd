@@ -33,6 +33,8 @@ extends Control
 var _event_popup_scene: PackedScene = preload("res://scenes/popups/EventPopup.tscn")
 var _pause_menu_scene: PackedScene = preload("res://scenes/popups/PauseMenu.tscn")
 var _current_year_logged: int = -1
+var _toast_queue: Array[Dictionary] = []
+var _toast_active: bool = false
 
 
 func _ready() -> void:
@@ -104,6 +106,67 @@ func _open_pause_menu() -> void:
 
 func _on_achievement_unlocked(_id: String, text_key: String, icon: String) -> void:
 	_add_log_entry("🏆 " + tr("ACHIEVEMENT_UNLOCKED") + ": " + icon + " " + tr(text_key), "🏆")
+	_enqueue_toast(icon, tr(text_key))
+
+
+func _enqueue_toast(icon: String, text: String) -> void:
+	_toast_queue.append({"icon": icon, "text": text})
+	if not _toast_active:
+		_show_next_toast()
+
+
+func _show_next_toast() -> void:
+	if _toast_queue.is_empty():
+		_toast_active = false
+		return
+	_toast_active = true
+	var data := _toast_queue.pop_front() as Dictionary
+
+	var toast := PanelContainer.new()
+	toast.anchor_left = 0.05
+	toast.anchor_right = 0.95
+	toast.anchor_top = 0.0
+	toast.anchor_bottom = 0.0
+	toast.offset_top = 24.0
+	toast.offset_bottom = 90.0
+	var ts := ThemeSetup.make_flat_box(Color("#F57F17"), 12, 12, 10)
+	toast.add_theme_stylebox_override("panel", ts)
+
+	var hbox := HBoxContainer.new()
+	hbox.add_theme_constant_override("separation", 10)
+	toast.add_child(hbox)
+
+	var icon_lbl := Label.new()
+	icon_lbl.text = data["icon"]
+	icon_lbl.add_theme_font_size_override("font_size", 34)
+	hbox.add_child(icon_lbl)
+
+	var vbox := VBoxContainer.new()
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	hbox.add_child(vbox)
+
+	var top_lbl := Label.new()
+	top_lbl.text = "🏆 " + tr("ACHIEVEMENT_UNLOCKED")
+	top_lbl.add_theme_font_size_override("font_size", 16)
+	top_lbl.add_theme_color_override("font_color", Color.WHITE)
+	vbox.add_child(top_lbl)
+
+	var name_lbl := Label.new()
+	name_lbl.text = data["text"]
+	name_lbl.add_theme_font_size_override("font_size", 20)
+	name_lbl.add_theme_color_override("font_color", Color.WHITE)
+	name_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	vbox.add_child(name_lbl)
+
+	add_child(toast)
+
+	var tween := create_tween()
+	tween.tween_property(toast, "modulate:a", 1.0, 0.2)
+	tween.tween_interval(2.5)
+	tween.tween_property(toast, "modulate:a", 0.0, 0.4)
+	await tween.finished
+	toast.queue_free()
+	_show_next_toast()
 
 
 # ── STYLING ──
@@ -242,12 +305,25 @@ func _animate_bar(bar: ProgressBar, target: float) -> void:
 	tween.tween_property(bar, "value", target, 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 
 
+func _update_bar_color(bar: ProgressBar, value: float, base_color: Color) -> void:
+	if bar == null:
+		return
+	var c: Color
+	if value >= 60:
+		c = base_color
+	elif value >= 30:
+		c = base_color.lerp(Color("#FFC107"), (60.0 - value) / 30.0)
+	else:
+		c = Color("#F44336")
+	bar.add_theme_stylebox_override("fill", ThemeSetup.make_bar_fill(c))
+
+
 # ── SIGNALS ──
 
 func _connect_signals() -> void:
 	btn_menu.pressed.connect(_open_pause_menu)
 	btn_age.pressed.connect(_on_advance_year)
-	btn_phase.pressed.connect(func(): _show_category_actions("social"))
+	btn_phase.pressed.connect(_show_achievements_overlay)
 	btn_assets.pressed.connect(func(): _show_category_actions("finance"))
 	btn_relationships.pressed.connect(_show_relationships_list)
 	btn_activities.pressed.connect(_show_activities_menu)
@@ -270,8 +346,8 @@ func _update_display() -> void:
 
 	_update_avatar(c)
 
-	lbl_phase.text = tr(c.get_phase_name())
-	btn_phase.text = _get_phase_emoji(c)
+	lbl_phase.text = tr("ACHIEVEMENTS")
+	btn_phase.text = "🏆"
 
 	_update_money(c)
 
@@ -281,6 +357,13 @@ func _update_display() -> void:
 	_animate_bar(morality_bar, c.morality)
 	_animate_bar(intelligence_bar, c.intelligence)
 	_animate_bar(beauty_bar, c.appearance)
+
+	_update_bar_color(happiness_bar, c.happiness, ThemeSetup.COLOR_HAPPINESS)
+	_update_bar_color(health_bar, c.health, ThemeSetup.COLOR_HEALTH)
+	_update_bar_color(social_bar, c.get_relationship_average(), ThemeSetup.COLOR_SOCIAL)
+	_update_bar_color(morality_bar, c.morality, ThemeSetup.COLOR_MORALITY)
+	_update_bar_color(intelligence_bar, c.intelligence, Color("#8E24AA"))
+	_update_bar_color(beauty_bar, c.appearance, Color("#E91E63"))
 
 
 func _update_avatar(c: Character) -> void:
@@ -1317,6 +1400,113 @@ func _apply_rel_action(rel: Relationship, effect: String) -> void:
 				rel.modify_affection(-5)
 				_add_log_entry(tr("REL_RESULT_ASK_MONEY_NO").replace("{name}", rel.person_name), "😒")
 	_update_display()
+
+
+func _show_achievements_overlay() -> void:
+	var all_ach: Array = AchievementManager.get_all_achievements()
+
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0, 0, 0, 0.6)
+	overlay.add_child(bg)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.03
+	panel.anchor_right = 0.97
+	panel.anchor_top = 0.04
+	panel.anchor_bottom = 0.96
+	var panel_style := ThemeSetup.make_flat_box(ThemeSetup.BG_CARD, 16, 24, 16)
+	panel.add_theme_stylebox_override("panel", panel_style)
+	overlay.add_child(panel)
+
+	var vbox_outer := VBoxContainer.new()
+	vbox_outer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	vbox_outer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	panel.add_child(vbox_outer)
+
+	var title := Label.new()
+	title.text = "🏆 " + tr("ACHIEVEMENTS")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 28)
+	title.add_theme_color_override("font_color", ThemeSetup.TEXT_PRIMARY)
+	vbox_outer.add_child(title)
+
+	var unlocked_count := AchievementManager.get_unlocked_count()
+	var total_count := all_ach.size()
+	var progress_lbl := Label.new()
+	progress_lbl.text = str(unlocked_count) + " / " + str(total_count) + " " + tr("ACHIEVEMENTS_UNLOCKED")
+	progress_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	progress_lbl.add_theme_font_size_override("font_size", 18)
+	progress_lbl.add_theme_color_override("font_color", ThemeSetup.TEXT_SECONDARY)
+	vbox_outer.add_child(progress_lbl)
+
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	vbox_outer.add_child(scroll)
+
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 10)
+	grid.add_theme_constant_override("v_separation", 10)
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(grid)
+
+	for ach in all_ach:
+		var id: String = ach.get("id", "")
+		var is_unlocked: bool = AchievementManager.is_unlocked(id)
+		var icon: String = ach.get("icon", "🏅")
+		var text_key: String = ach.get("text_key", "")
+
+		var card := PanelContainer.new()
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var card_bg := Color("#1E1E2E") if not is_unlocked else Color("#1B5E20")
+		var card_style := ThemeSetup.make_flat_box(card_bg, 10, 14, 10)
+		card.add_theme_stylebox_override("panel", card_style)
+
+		var card_vbox := VBoxContainer.new()
+		card_vbox.add_theme_constant_override("separation", 4)
+		card.add_child(card_vbox)
+
+		var icon_lbl := Label.new()
+		icon_lbl.text = icon if is_unlocked else "🔒"
+		icon_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		icon_lbl.add_theme_font_size_override("font_size", 36)
+		card_vbox.add_child(icon_lbl)
+
+		var name_lbl := Label.new()
+		name_lbl.text = tr(text_key) if is_unlocked else "???"
+		name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		name_lbl.add_theme_font_size_override("font_size", 16)
+		name_lbl.add_theme_color_override("font_color", Color.WHITE if is_unlocked else ThemeSetup.TEXT_HINT)
+		name_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		card_vbox.add_child(name_lbl)
+
+		grid.add_child(card)
+
+	var sep := HSeparator.new()
+	vbox_outer.add_child(sep)
+
+	var btn_close := Button.new()
+	btn_close.text = "✕ " + tr("CLOSE")
+	btn_close.custom_minimum_size = Vector2(0, 56)
+	btn_close.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var close_style := ThemeSetup.make_flat_box(Color("#C62828"), 14, 16, 12)
+	btn_close.add_theme_stylebox_override("normal", close_style)
+	btn_close.add_theme_font_size_override("font_size", 22)
+	btn_close.add_theme_color_override("font_color", Color.WHITE)
+	btn_close.pressed.connect(func(): overlay.queue_free())
+	vbox_outer.add_child(btn_close)
+
+	bg.gui_input.connect(func(event_input: InputEvent):
+		if event_input is InputEventMouseButton and event_input.pressed:
+			overlay.queue_free()
+	)
+
+	add_child(overlay)
 
 
 func _get_rel_emoji(rel: Relationship) -> String:

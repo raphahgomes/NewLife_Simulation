@@ -1,1084 +1,2455 @@
-{
-  "events": [
-    {
-      "id": "teen_sneak_out",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_SNEAK_OUT",
-      "choices": [
-        {
-          "text_key": "CHOICE_SNEAK_OUT_SUCCESS",
-          "effects": {
-            "happiness": 15,
-            "intelligence": -2,
-            "charisma": 5
-          },
-          "trait_chance": {
-            "trait": "rebellious",
-            "chance": 0.2
-          }
-        },
-        {
-          "text_key": "CHOICE_STAY_HOME",
-          "effects": {
-            "intelligence": 2,
-            "happiness": -5,
-            "charisma": -2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_first_crush",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 70,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_FIRST_CRUSH",
-      "choices": [
-        {
-          "text_key": "CHOICE_CONFESS",
-          "effects": {
-            "charisma": 3,
-            "happiness": 5
-          },
-          "trait_chance": {
-            "trait": "romantic",
-            "chance": 0.1
-          }
-        },
-        {
-          "text_key": "CHOICE_KEEP_SECRET",
-          "effects": {
-            "happiness": -2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_party_invite",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 60,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_PARTY",
-      "choices": [
-        {
-          "text_key": "CHOICE_GO_PARTY",
-          "effects": {
-            "charisma": 3,
-            "happiness": 5
-          }
-        },
-        {
-          "text_key": "CHOICE_STAY_HOME",
-          "effects": {
-            "intelligence": 3
-          }
-        },
-        {
-          "text_key": "CHOICE_PARTY_DRINK",
-          "effects": {
-            "charisma": 2,
-            "health": -3
-          },
-          "morality_effect": -3,
-          "trait_chance": {
-            "trait": "rebel",
-            "chance": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_job_offer",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "finance",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_FIRST_JOB",
-      "choices": [
-        {
-          "text_key": "CHOICE_TAKE_JOB",
-          "effects": {
-            "intelligence": 2
-          },
-          "money_effect": 500,
-          "trait_chance": {
-            "trait": "hardworking",
-            "chance": 0.15
-          }
-        },
-        {
-          "text_key": "CHOICE_DECLINE",
-          "effects": {
-            "happiness": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_exam_pressure",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "school",
-      "weight": 65,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_EXAM_PRESSURE",
-      "choices": [
-        {
-          "text_key": "CHOICE_STUDY_ALL_NIGHT",
-          "effects": {
-            "intelligence": 5,
-            "health": -3,
-            "happiness": -3
-          }
-        },
-        {
-          "text_key": "CHOICE_BALANCED_STUDY",
-          "effects": {
-            "intelligence": 3,
-            "happiness": 1
-          }
-        },
-        {
-          "text_key": "CHOICE_SKIP_EXAM",
-          "effects": {
-            "happiness": 2,
-            "intelligence": -2
-          },
-          "trait_chance": {
-            "trait": "lazy",
-            "chance": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_drugs_offer",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "crime",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_DRUGS",
-      "choices": [
-        {
-          "text_key": "CHOICE_REFUSE",
-          "effects": {
-            "morality": 5,
-            "temperament": 3
-          },
-          "morality_effect": 5
-        },
-        {
-          "text_key": "CHOICE_TRY_ONCE",
-          "effects": {
-            "health": -5,
-            "happiness": 3
-          },
-          "morality_effect": -5,
-          "trait_chance": {
-            "trait": "rebel",
-            "chance": 0.15
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_college_decision",
-      "phases": ["TEEN"],
-      "age_min": 17,
-      "age_max": 17,
-      "category": "school",
-      "weight": 90,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_COLLEGE_DECISION",
-      "choices": [
-        {
-          "text_key": "CHOICE_APPLY_COLLEGE",
-          "effects": {
-            "intelligence": 3
-          }
-        },
-        {
-          "text_key": "CHOICE_TRADE_SCHOOL",
-          "effects": {
-            "intelligence": 2
-          }
-        },
-        {
-          "text_key": "CHOICE_START_WORKING",
-          "effects": {},
-          "money_effect": 1000
-        }
-      ]
-    },
-    {
-      "id": "teen_social_media",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 45,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_SOCIAL_MEDIA",
-      "choices": [
-        {
-          "text_key": "CHOICE_POST_OFTEN",
-          "effects": {
-            "charisma": 2,
-            "happiness": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_STAY_OFFLINE",
-          "effects": {
-            "mental_stability": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_volunteer",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 35,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_VOLUNTEER",
-      "choices": [
-        {
-          "text_key": "CHOICE_VOLUNTEER",
-          "effects": {
-            "charisma": 3,
-            "happiness": 3
-          },
-          "morality_effect": 5,
-          "trait_chance": {
-            "trait": "compassionate",
-            "chance": 0.15
-          }
-        },
-        {
-          "text_key": "CHOICE_NO_TIME",
-          "effects": {}
-        }
-      ]
-    },
-    {
-      "id": "teen_breakup",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 40,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_BREAKUP",
-      "choices": [
-        {
-          "text_key": "CHOICE_MOVE_ON",
-          "effects": {
-            "temperament": 3,
-            "happiness": -3
-          }
-        },
-        {
-          "text_key": "CHOICE_HEARTBROKEN",
-          "effects": {
-            "happiness": -8,
-            "mental_stability": -3
-          },
-          "trait_chance": {
-            "trait": "sensitive",
-            "chance": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_shoplifting",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "crime",
-      "weight": 25,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_SHOPLIFTING",
-      "choices": [
-        {
-          "text_key": "CHOICE_SHOPLIFT",
-          "effects": {
-            "happiness": 2
-          },
-          "morality_effect": -8,
-          "money_effect": 50,
-          "trait_chance": {
-            "trait": "delinquent",
-            "chance": 0.1
-          }
-        },
-        {
-          "text_key": "CHOICE_WALK_AWAY",
-          "effects": {},
-          "morality_effect": 3
-        }
-      ]
-    },
-    {
-      "id": "teen_driving_lessons",
-      "phases": ["TEEN"],
-      "age_min": 16,
-      "age_max": 17,
-      "category": "social",
-      "weight": 55,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_DRIVING",
-      "choices": [
-        {
-          "text_key": "CHOICE_LEARN_DRIVE",
-          "effects": {
-            "intelligence": 2,
-            "happiness": 5
-          }
-        },
-        {
-          "text_key": "CHOICE_TOO_SCARED",
-          "effects": {
-            "happiness": -1
-          },
-          "trait_chance": {
-            "trait": "anxious",
-            "chance": 0.05
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_prom",
-      "phases": ["TEEN"],
-      "age_min": 16,
-      "age_max": 17,
-      "category": "social",
-      "weight": 60,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_PROM",
-      "choices": [
-        {
-          "text_key": "CHOICE_ASK_DATE",
-          "effects": {
-            "charisma": 4,
-            "happiness": 6
-          },
-          "trait_chance": {
-            "trait": "romantic",
-            "chance": 0.08
-          }
-        },
-        {
-          "text_key": "CHOICE_GO_ALONE",
-          "effects": {
-            "happiness": 2
-          }
-        },
-        {
-          "text_key": "CHOICE_SKIP_PROM",
-          "effects": {
-            "intelligence": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_detention",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "school",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_DETENTION",
-      "choices": [
-        {
-          "text_key": "CHOICE_ACCEPT_PUNISHMENT",
-          "effects": {
-            "temperament": 3
-          },
-          "morality_effect": 2
-        },
-        {
-          "text_key": "CHOICE_SNEAK_OUT",
-          "effects": {
-            "happiness": 3
-          },
-          "morality_effect": -5,
-          "trait_chance": {
-            "trait": "rebel",
-            "chance": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_sports_tryout",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "health",
-      "weight": 45,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_SPORTS_TRYOUT",
-      "choices": [
-        {
-          "text_key": "CHOICE_TRY_HARD",
-          "effects": {
-            "health": 5,
-            "charisma": 3
-          },
-          "trait_chance": {
-            "trait": "athletic",
-            "chance": 0.12
-          }
-        },
-        {
-          "text_key": "CHOICE_NOT_INTERESTED",
-          "effects": {
-            "intelligence": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_online_bullying",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 35,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_CYBERBULLY",
-      "choices": [
-        {
-          "text_key": "CHOICE_REPORT_BLOCK",
-          "effects": {
-            "intelligence": 2,
-            "mental_stability": 2
-          }
-        },
-        {
-          "text_key": "CHOICE_FIGHT_ONLINE",
-          "effects": {
-            "happiness": -5,
-            "mental_stability": -3
-          }
-        },
-        {
-          "text_key": "CHOICE_TELL_ADULT",
-          "effects": {
-            "mental_stability": 3
-          },
-          "relationship_effects": {
-            "MOTHER": {
-              "affection": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_identity_crisis",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "health",
-      "weight": 35,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_IDENTITY",
-      "choices": [
-        {
-          "text_key": "CHOICE_EXPLORE_SELF",
-          "effects": {
-            "intelligence": 3,
-            "mental_stability": 2
-          }
-        },
-        {
-          "text_key": "CHOICE_CONFORM",
-          "effects": {
-            "charisma": 2,
-            "happiness": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_REBEL_IDENTITY",
-          "effects": {
-            "happiness": 3,
-            "temperament": -2
-          },
-          "trait_chance": {
-            "trait": "rebel",
-            "chance": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_gaming_addiction",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "health",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_GAMING_ADDICTION",
-      "choices": [
-        {
-          "text_key": "CHOICE_KEEP_GAMING",
-          "effects": {
-            "happiness": 3,
-            "health": -3,
-            "intelligence": -2
-          },
-          "trait_chance": {
-            "trait": "lazy",
-            "chance": 0.08
-          }
-        },
-        {
-          "text_key": "CHOICE_SET_LIMITS",
-          "effects": {
-            "intelligence": 2,
-            "health": 2
-          }
-        },
-        {
-          "text_key": "CHOICE_QUIT_GAMES",
-          "effects": {
-            "health": 3,
-            "happiness": -3
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_climate_activism",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_CLIMATE",
-      "choices": [
-        {
-          "text_key": "CHOICE_JOIN_PROTEST",
-          "effects": {
-            "charisma": 4,
-            "happiness": 3
-          },
-          "morality_effect": 5,
-          "trait_chance": {
-            "trait": "compassionate",
-            "chance": 0.08
-          }
-        },
-        {
-          "text_key": "CHOICE_NOT_MY_PROBLEM",
-          "effects": {}
-        }
-      ]
-    },
-    {
-      "id": "teen_mental_health",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "health",
-      "weight": 30,
-      "conditions": {
-        "max_happiness": 40
-      },
-      "text_key": "EVENT_TEEN_MENTAL_HEALTH",
-      "choices": [
-        {
-          "text_key": "CHOICE_SEEK_HELP",
-          "effects": {
-            "mental_stability": 8,
-            "happiness": 5
-          }
-        },
-        {
-          "text_key": "CHOICE_BOTTLE_UP",
-          "effects": {
-            "mental_stability": -5
-          },
-          "trait_chance": {
-            "trait": "anxious",
-            "chance": 0.15
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_tattoo_piercing",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "social",
-      "weight": 25,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_TATTOO",
-      "choices": [
-        {
-          "text_key": "CHOICE_GET_PIERCING",
-          "effects": {
-            "appearance": 1,
-            "happiness": 3
-          },
-          "trait_chance": {
-            "trait": "rebel",
-            "chance": 0.08
-          }
-        },
-        {
-          "text_key": "CHOICE_TOO_RISKY",
-          "effects": {
-            "temperament": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_internship",
-      "phases": ["TEEN"],
-      "age_min": 16,
-      "age_max": 17,
-      "category": "finance",
-      "weight": 35,
-      "conditions": {
-        "min_intelligence": 45
-      },
-      "text_key": "EVENT_TEEN_INTERNSHIP",
-      "choices": [
-        {
-          "text_key": "CHOICE_TAKE_INTERNSHIP",
-          "effects": {
-            "intelligence": 4,
-            "charisma": 2
-          },
-          "money_effect": 300,
-          "trait_chance": {
-            "trait": "ambitious",
-            "chance": 0.1
-          }
-        },
-        {
-          "text_key": "CHOICE_ENJOY_SUMMER",
-          "effects": {
-            "happiness": 4,
-            "health": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_body_image",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "health",
-      "weight": 40,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_BODY_IMAGE",
-      "choices": [
-        {
-          "text_key": "CHOICE_ACCEPT_BODY",
-          "effects": {
-            "mental_stability": 5,
-            "happiness": 3
-          },
-          "trait_chance": {
-            "trait": "calm",
-            "chance": 0.05
-          }
-        },
-        {
-          "text_key": "CHOICE_START_EXERCISE",
-          "effects": {
-            "health": 5,
-            "appearance": 2
-          },
-          "trait_chance": {
-            "trait": "athletic",
-            "chance": 0.08
-          }
-        },
-        {
-          "text_key": "CHOICE_FEEL_INSECURE",
-          "effects": {
-            "happiness": -5,
-            "mental_stability": -3
-          },
-          "trait_chance": {
-            "trait": "anxious",
-            "chance": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_secret_relationship",
-      "phases": ["TEEN"],
-      "age_min": 14,
-      "age_max": 17,
-      "category": "social",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_SECRET_RELATIONSHIP",
-      "choices": [
-        {
-          "text_key": "CHOICE_KEEP_HIDING",
-          "effects": {
-            "happiness": 2,
-            "mental_stability": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_TELL_PARENTS",
-          "effects": {
-            "mental_stability": 3,
-            "happiness": -1
-          },
-          "relationship_effects": {
-            "MOTHER": {
-              "trust": 5
-            },
-            "FATHER": {
-              "trust": 5
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_graduation",
-      "phases": ["TEEN"],
-      "age_min": 17,
-      "age_max": 17,
-      "category": "school",
-      "weight": 85,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_GRADUATION",
-      "choices": [
-        {
-          "text_key": "CHOICE_CELEBRATE_GRAD",
-          "effects": {
-            "happiness": 8,
-            "charisma": 2
-          }
-        },
-        {
-          "text_key": "CHOICE_RELIEF_GRAD",
-          "effects": {
-            "happiness": 5,
-            "mental_stability": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_band",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 35,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_BAND",
-      "choices": [
-        {
-          "text_key": "CHOICE_JOIN_BAND",
-          "effects": {
-            "charisma": 4,
-            "happiness": 4
-          },
-          "trait_chance": {
-            "trait": "creative",
-            "chance": 0.1
-          }
-        },
-        {
-          "text_key": "CHOICE_SOLO_MUSIC",
-          "effects": {
-            "intelligence": 2,
-            "happiness": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_peer_pressure",
-      "phases": ["TEEN"],
-      "age_min": 13,
-      "age_max": 17,
-      "category": "social",
-      "weight": 40,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_PEER_PRESSURE",
-      "choices": [
-        {
-          "text_key": "CHOICE_GIVE_IN",
-          "effects": {
-            "charisma": 2,
-            "happiness": 1
-          },
-          "morality_effect": -3
-        },
-        {
-          "text_key": "CHOICE_STAND_GROUND",
-          "effects": {
-            "temperament": 4,
-            "mental_stability": 3
-          },
-          "morality_effect": 3,
-          "trait_chance": {
-            "trait": "honest",
-            "chance": 0.08
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_scholarship",
-      "phases": ["TEEN"],
-      "age_min": 16,
-      "age_max": 17,
-      "category": "school",
-      "weight": 25,
-      "conditions": {
-        "min_intelligence": 60
-      },
-      "text_key": "EVENT_TEEN_SCHOLARSHIP",
-      "choices": [
-        {
-          "text_key": "CHOICE_APPLY_SCHOLARSHIP",
-          "effects": {
-            "intelligence": 3,
-            "happiness": 5
-          },
-          "money_effect": 5000
-        },
-        {
-          "text_key": "CHOICE_DONT_BOTHER",
-          "effects": {
-            "happiness": -1
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_part_time_stress",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "finance",
-      "weight": 30,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_WORK_STRESS",
-      "choices": [
-        {
-          "text_key": "CHOICE_PUSH_THROUGH",
-          "effects": {
-            "temperament": 3,
-            "health": -2
-          },
-          "money_effect": 400,
-          "trait_chance": {
-            "trait": "hardworking",
-            "chance": 0.1
-          }
-        },
-        {
-          "text_key": "CHOICE_QUIT_JOB",
-          "effects": {
-            "happiness": 3,
-            "health": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_possessive",
-      "phases": ["TEEN", "ADULT"],
-      "age_min": 14,
-      "age_max": 25,
-      "category": "social",
-      "weight": 45,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_POSSESSIVE",
-      "choices": [
-        {
-          "text_key": "CHOICE_TALK_IT_OUT",
-          "effects": {
-            "intelligence": 5,
-            "happiness": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_FIGHT_BACK",
-          "effects": {
-            "health": -5,
-            "charisma": 5,
-            "morality": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_GIVE_IN",
-          "effects": {
-            "happiness": -10,
-            "morality": -3
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_school_fight",
-      "phases": ["CHILD", "TEEN"],
-      "age_min": 10,
-      "age_max": 18,
-      "category": "health",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_FIGHT",
-      "choices": [
-        {
-          "text_key": "CHOICE_DEFEND_SELF",
-          "effects": {
-            "health": -2,
-            "charisma": 5
-          },
-          "trait_chance": {
-            "trait": "brave",
-            "chance": 0.2
-          }
-        },
-        {
-          "text_key": "CHOICE_RUN_AWAY",
-          "effects": {
-            "health": 2,
-            "charisma": -5
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_possessive",
-      "phases": ["TEEN", "ADULT"],
-      "age_min": 14,
-      "age_max": 25,
-      "category": "social",
-      "weight": 45,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_POSSESSIVE",
-      "choices": [
-        {
-          "text_key": "CHOICE_TALK_IT_OUT",
-          "effects": {
-            "intelligence": 5,
-            "happiness": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_FIGHT_BACK",
-          "effects": {
-            "health": -5,
-            "charisma": 5,
-            "morality": -2
-          }
-        },
-        {
-          "text_key": "CHOICE_GIVE_IN",
-          "effects": {
-            "happiness": -10,
-            "morality": -3
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_school_fight",
-      "phases": ["CHILD", "TEEN"],
-      "age_min": 10,
-      "age_max": 18,
-      "category": "health",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_FIGHT",
-      "choices": [
-        {
-          "text_key": "CHOICE_DEFEND_SELF",
-          "effects": {
-            "health": -2,
-            "charisma": 5
-          },
-          "trait_chance": {
-            "trait": "brave",
-            "chance": 0.2
-          }
-        },
-        {
-          "text_key": "CHOICE_RUN_AWAY",
-          "effects": {
-            "health": 2,
-            "charisma": -5
-          }
-        }
-      ]
-    },
-    {
-      "id": "teen_peer_pressure_smoking",
-      "phases": ["TEEN"],
-      "age_min": 15,
-      "age_max": 17,
-      "category": "social",
-      "weight": 50,
-      "conditions": {},
-      "text_key": "EVENT_TEEN_PEER_PRESSURE",
-      "choices": [
-        {
-          "text_key": "CHOICE_SMOKE_DRINK",
-          "effects": {
-            "health": -10,
-            "charisma": 5,
-            "intelligence": -5
-          },
-          "trait_chance": {
-            "trait": "rebellious",
-            "chance": 0.3
-          }
-        },
-        {
-          "text_key": "CHOICE_SAY_NO",
-          "effects": {
-            "health": 5,
-            "charisma": -5,
-            "temperament": 5
-          }
-        }
-      ]
-    }
-  ]
+﻿{
+    "events":  [
+                   {
+                       "id":  "teen_sneak_out",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SNEAK_OUT",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SNEAK_OUT_SUCCESS",
+                                           "effects":  {
+                                                           "happiness":  15,
+                                                           "intelligence":  -2,
+                                                           "charisma":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "rebellious",
+                                                                "chance":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAY_HOME",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "happiness":  -5,
+                                                           "charisma":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_first_crush",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  70,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FIRST_CRUSH",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CONFESS",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "romantic",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_KEEP_SECRET",
+                                           "effects":  {
+                                                           "happiness":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_party_invite",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  60,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PARTY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_GO_PARTY",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  5
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAY_HOME",
+                                           "effects":  {
+                                                           "intelligence":  3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PARTY_DRINK",
+                                           "effects":  {
+                                                           "charisma":  2,
+                                                           "health":  -3
+                                                       },
+                                           "morality_effect":  -3,
+                                           "trait_chance":  {
+                                                                "trait":  "rebel",
+                                                                "chance":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_job_offer",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "finance",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FIRST_JOB",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_TAKE_JOB",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       },
+                                           "money_effect":  500,
+                                           "trait_chance":  {
+                                                                "trait":  "hardworking",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DECLINE",
+                                           "effects":  {
+                                                           "happiness":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_exam_pressure",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  65,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_EXAM_PRESSURE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_STUDY_ALL_NIGHT",
+                                           "effects":  {
+                                                           "intelligence":  5,
+                                                           "health":  -3,
+                                                           "happiness":  -3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_BALANCED_STUDY",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "happiness":  1
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SKIP_EXAM",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "intelligence":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "lazy",
+                                                                "chance":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_drugs_offer",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "crime",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_DRUGS",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REFUSE",
+                                           "effects":  {
+                                                           "morality":  5,
+                                                           "temperament":  3
+                                                       },
+                                           "morality_effect":  5
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TRY_ONCE",
+                                           "effects":  {
+                                                           "health":  -5,
+                                                           "happiness":  3
+                                                       },
+                                           "morality_effect":  -5,
+                                           "trait_chance":  {
+                                                                "trait":  "rebel",
+                                                                "chance":  0.15
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_college_decision",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  17,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  90,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_COLLEGE_DECISION",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_APPLY_COLLEGE",
+                                           "effects":  {
+                                                           "intelligence":  3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TRADE_SCHOOL",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_START_WORKING",
+                                           "effects":  {
+
+                                                       },
+                                           "money_effect":  1000
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_social_media",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SOCIAL_MEDIA",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_POST_OFTEN",
+                                           "effects":  {
+                                                           "charisma":  2,
+                                                           "happiness":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAY_OFFLINE",
+                                           "effects":  {
+                                                           "mental_stability":  3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_volunteer",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_VOLUNTEER",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_VOLUNTEER",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  3
+                                                       },
+                                           "morality_effect":  5,
+                                           "trait_chance":  {
+                                                                "trait":  "compassionate",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_NO_TIME",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_breakup",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_BREAKUP",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_MOVE_ON",
+                                           "effects":  {
+                                                           "temperament":  3,
+                                                           "happiness":  -3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_HEARTBROKEN",
+                                           "effects":  {
+                                                           "happiness":  -8,
+                                                           "mental_stability":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "sensitive",
+                                                                "chance":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_shoplifting",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "crime",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SHOPLIFTING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SHOPLIFT",
+                                           "effects":  {
+                                                           "happiness":  2
+                                                       },
+                                           "morality_effect":  -8,
+                                           "money_effect":  50,
+                                           "trait_chance":  {
+                                                                "trait":  "delinquent",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_WALK_AWAY",
+                                           "effects":  {
+
+                                                       },
+                                           "morality_effect":  3
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_driving_lessons",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  16,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  55,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_DRIVING",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_LEARN_DRIVE",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "happiness":  5
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TOO_SCARED",
+                                           "effects":  {
+                                                           "happiness":  -1
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "anxious",
+                                                                "chance":  0.05
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_prom",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  16,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  60,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PROM",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ASK_DATE",
+                                           "effects":  {
+                                                           "charisma":  4,
+                                                           "happiness":  6
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "romantic",
+                                                                "chance":  0.08
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_GO_ALONE",
+                                           "effects":  {
+                                                           "happiness":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SKIP_PROM",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_detention",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_DETENTION",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_PUNISHMENT",
+                                           "effects":  {
+                                                           "temperament":  3
+                                                       },
+                                           "morality_effect":  2
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SNEAK_OUT",
+                                           "effects":  {
+                                                           "happiness":  3
+                                                       },
+                                           "morality_effect":  -5,
+                                           "trait_chance":  {
+                                                                "trait":  "rebel",
+                                                                "chance":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_sports_tryout",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SPORTS_TRYOUT",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_TRY_HARD",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "charisma":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "athletic",
+                                                                "chance":  0.12
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_NOT_INTERESTED",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_online_bullying",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_CYBERBULLY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REPORT_BLOCK",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "mental_stability":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FIGHT_ONLINE",
+                                           "effects":  {
+                                                           "happiness":  -5,
+                                                           "mental_stability":  -3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TELL_ADULT",
+                                           "effects":  {
+                                                           "mental_stability":  3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  3
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_identity_crisis",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_IDENTITY",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_EXPLORE_SELF",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "mental_stability":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_CONFORM",
+                                           "effects":  {
+                                                           "charisma":  2,
+                                                           "happiness":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_REBEL_IDENTITY",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "temperament":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "rebel",
+                                                                "chance":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_gaming_addiction",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_GAMING_ADDICTION",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_KEEP_GAMING",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "health":  -3,
+                                                           "intelligence":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "lazy",
+                                                                "chance":  0.08
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SET_LIMITS",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "health":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_QUIT_GAMES",
+                                           "effects":  {
+                                                           "health":  3,
+                                                           "happiness":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_climate_activism",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_CLIMATE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_JOIN_PROTEST",
+                                           "effects":  {
+                                                           "charisma":  4,
+                                                           "happiness":  3
+                                                       },
+                                           "morality_effect":  5,
+                                           "trait_chance":  {
+                                                                "trait":  "compassionate",
+                                                                "chance":  0.08
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_NOT_MY_PROBLEM",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_mental_health",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  30,
+                       "conditions":  {
+                                          "max_happiness":  40
+                                      },
+                       "text_key":  "EVENT_TEEN_MENTAL_HEALTH",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SEEK_HELP",
+                                           "effects":  {
+                                                           "mental_stability":  8,
+                                                           "happiness":  5
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_BOTTLE_UP",
+                                           "effects":  {
+                                                           "mental_stability":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "anxious",
+                                                                "chance":  0.15
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_tattoo_piercing",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_TATTOO",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_GET_PIERCING",
+                                           "effects":  {
+                                                           "appearance":  1,
+                                                           "happiness":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "rebel",
+                                                                "chance":  0.08
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TOO_RISKY",
+                                           "effects":  {
+                                                           "temperament":  1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_internship",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  16,
+                       "age_max":  17,
+                       "category":  "finance",
+                       "weight":  35,
+                       "conditions":  {
+                                          "min_intelligence":  45
+                                      },
+                       "text_key":  "EVENT_TEEN_INTERNSHIP",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_TAKE_INTERNSHIP",
+                                           "effects":  {
+                                                           "intelligence":  4,
+                                                           "charisma":  2
+                                                       },
+                                           "money_effect":  300,
+                                           "trait_chance":  {
+                                                                "trait":  "ambitious",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_ENJOY_SUMMER",
+                                           "effects":  {
+                                                           "happiness":  4,
+                                                           "health":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_body_image",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_BODY_IMAGE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_BODY",
+                                           "effects":  {
+                                                           "mental_stability":  5,
+                                                           "happiness":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "calm",
+                                                                "chance":  0.05
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_START_EXERCISE",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "appearance":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "athletic",
+                                                                "chance":  0.08
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FEEL_INSECURE",
+                                           "effects":  {
+                                                           "happiness":  -5,
+                                                           "mental_stability":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "anxious",
+                                                                "chance":  0.1
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_secret_relationship",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SECRET_RELATIONSHIP",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_KEEP_HIDING",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "mental_stability":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TELL_PARENTS",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  -1
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "trust":  5
+                                                                                   },
+                                                                        "FATHER":  {
+                                                                                       "trust":  5
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_graduation",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  17,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  85,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_GRADUATION",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CELEBRATE_GRAD",
+                                           "effects":  {
+                                                           "happiness":  8,
+                                                           "charisma":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_RELIEF_GRAD",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "mental_stability":  3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_band",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_BAND",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_JOIN_BAND",
+                                           "effects":  {
+                                                           "charisma":  4,
+                                                           "happiness":  4
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "creative",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SOLO_MUSIC",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "happiness":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_peer_pressure",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PEER_PRESSURE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_GIVE_IN",
+                                           "effects":  {
+                                                           "charisma":  2,
+                                                           "happiness":  1
+                                                       },
+                                           "morality_effect":  -3
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAND_GROUND",
+                                           "effects":  {
+                                                           "temperament":  4,
+                                                           "mental_stability":  3
+                                                       },
+                                           "morality_effect":  3,
+                                           "trait_chance":  {
+                                                                "trait":  "honest",
+                                                                "chance":  0.08
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_scholarship",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  16,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  25,
+                       "conditions":  {
+                                          "min_intelligence":  60
+                                      },
+                       "text_key":  "EVENT_TEEN_SCHOLARSHIP",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_APPLY_SCHOLARSHIP",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "happiness":  5
+                                                       },
+                                           "money_effect":  5000
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DONT_BOTHER",
+                                           "effects":  {
+                                                           "happiness":  -1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_part_time_stress",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "finance",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_WORK_STRESS",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_PUSH_THROUGH",
+                                           "effects":  {
+                                                           "temperament":  3,
+                                                           "health":  -2
+                                                       },
+                                           "money_effect":  400,
+                                           "trait_chance":  {
+                                                                "trait":  "hardworking",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_QUIT_JOB",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "health":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_possessive",
+                       "phases":  [
+                                      "TEEN",
+                                      "ADULT"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  25,
+                       "category":  "social",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_POSSESSIVE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_TALK_IT_OUT",
+                                           "effects":  {
+                                                           "intelligence":  5,
+                                                           "happiness":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FIGHT_BACK",
+                                           "effects":  {
+                                                           "health":  -5,
+                                                           "charisma":  5,
+                                                           "morality":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_GIVE_IN",
+                                           "effects":  {
+                                                           "happiness":  -10,
+                                                           "morality":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_school_fight",
+                       "phases":  [
+                                      "CHILD",
+                                      "TEEN"
+                                  ],
+                       "age_min":  10,
+                       "age_max":  18,
+                       "category":  "health",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FIGHT",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_DEFEND_SELF",
+                                           "effects":  {
+                                                           "health":  -2,
+                                                           "charisma":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "brave",
+                                                                "chance":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_RUN_AWAY",
+                                           "effects":  {
+                                                           "health":  2,
+                                                           "charisma":  -5
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_peer_pressure_smoking",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  50,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PEER_PRESSURE",
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SMOKE_DRINK",
+                                           "effects":  {
+                                                           "health":  -10,
+                                                           "charisma":  5,
+                                                           "intelligence":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "rebellious",
+                                                                "chance":  0.3
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SAY_NO",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "charisma":  -5,
+                                                           "temperament":  5
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_family_financial_crisis",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "family",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FAMILY_FINANCIAL_CRISIS",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_GET_JOB_HELP_FAMILY",
+                                           "effects":  {
+                                                           "happiness":  -3,
+                                                           "charisma":  3
+                                                       },
+                                           "money_effect":  400,
+                                           "morality_effect":  5,
+                                           "trait_chance":  {
+                                                                "trait":  "responsible",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_IGNORE_CRISIS",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "morality":  -3
+                                                       },
+                                           "morality_effect":  -3
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_EMOTIONALLY_SUPPORT_PARENTS",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  -2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  5
+                                                                                   },
+                                                                        "FATHER":  {
+                                                                                       "affection":  5
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_found_drug_in_school",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "crime",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FOUND_DRUG_IN_SCHOOL",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REPORT_TO_PRINCIPAL",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       },
+                                           "morality_effect":  5,
+                                           "trait_chance":  {
+                                                                "trait":  "honest",
+                                                                "chance":  0.12
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAY_QUIET",
+                                           "effects":  {
+                                                           "mental_stability":  -2
+                                                       },
+                                           "morality_effect":  -2
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_KEEP_THE_DRUGS",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "mental_stability":  -5
+                                                       },
+                                           "morality_effect":  -8,
+                                           "trait_chance":  {
+                                                                "trait":  "reckless",
+                                                                "chance":  0.2
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_romantic_rejection",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  45,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_ROMANTIC_REJECTION",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_HANDLE_WITH_GRACE",
+                                           "effects":  {
+                                                           "mental_stability":  4,
+                                                           "charisma":  2
+                                                       },
+                                           "morality_effect":  2
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FEEL_HEARTBROKEN",
+                                           "effects":  {
+                                                           "happiness":  -8,
+                                                           "mental_stability":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "sensitive",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_GET_REVENGE",
+                                           "effects":  {
+                                                           "charisma":  -3,
+                                                           "happiness":  -5
+                                                       },
+                                           "morality_effect":  -5
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_parent_divorce",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "family",
+                       "weight":  20,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PARENT_DIVORCE",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_DIVORCE",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "resilient",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_BLAME_YOURSELF",
+                                           "effects":  {
+                                                           "mental_stability":  -8,
+                                                           "happiness":  -10
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "anxious",
+                                                                "chance":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TAKE_SIDES",
+                                           "effects":  {
+                                                           "happiness":  -3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  5
+                                                                                   },
+                                                                        "FATHER":  {
+                                                                                       "affection":  -10
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_study_abroad_offer",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  20,
+                       "conditions":  {
+                                          "min_intelligence":  60
+                                      },
+                       "text_key":  "EVENT_TEEN_STUDY_ABROAD",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ACCEPT_STUDY_ABROAD",
+                                           "effects":  {
+                                                           "intelligence":  8,
+                                                           "charisma":  5,
+                                                           "happiness":  5
+                                                       },
+                                           "money_effect":  -2000,
+                                           "trait_chance":  {
+                                                                "trait":  "adventurous",
+                                                                "chance":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DECLINE_STUDY_ABROAD",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_viral_video",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  20,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_VIRAL_VIDEO",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_EMBRACE_FAME",
+                                           "effects":  {
+                                                           "charisma":  5,
+                                                           "happiness":  5,
+                                                           "appearance":  2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "extrovert",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DELETE_VIDEO",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_church_pressure",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_CHURCH_PRESSURE",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_EMBRACE_RELIGION",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "mental_stability":  3
+                                                       },
+                                           "morality_effect":  3
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_QUESTION_FAITH",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "happiness":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_REJECT_RELIGION",
+                                           "effects":  {
+                                                           "happiness":  -3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  -5
+                                                                                   },
+                                                                        "FATHER":  {
+                                                                                       "affection":  -5
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_first_car",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  16,
+                       "age_max":  17,
+                       "category":  "finance",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FIRST_CAR",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_BUY_OLD_CAR",
+                                           "effects":  {
+                                                           "happiness":  8
+                                                       },
+                                           "money_effect":  -3000,
+                                           "trait_chance":  {
+                                                                "trait":  "independent",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PARENTS_GIFT_CAR",
+                                           "effects":  {
+                                                           "happiness":  10
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_NO_CAR_YET",
+                                           "effects":  {
+                                                           "intelligence":  2
+                                                       },
+                                           "money_effect":  500
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_eating_disorder",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  18,
+                       "conditions":  {
+                                          "max_happiness":  50
+                                      },
+                       "text_key":  "EVENT_TEEN_EATING_DISORDER",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_SEEK_TREATMENT",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "mental_stability":  5
+                                                       },
+                                           "money_effect":  -500
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_HIDE_IT",
+                                           "effects":  {
+                                                           "health":  -8,
+                                                           "mental_stability":  -5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "anxious",
+                                                                "chance":  0.2
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_science_fair",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  16,
+                       "category":  "school",
+                       "weight":  30,
+                       "conditions":  {
+                                          "min_intelligence":  50
+                                      },
+                       "text_key":  "EVENT_TEEN_SCIENCE_FAIR",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_WIN_SCIENCE_FAIR",
+                                           "effects":  {
+                                                           "intelligence":  5,
+                                                           "happiness":  8,
+                                                           "charisma":  3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "analytical",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PARTICIPATE_SCIENCE_FAIR",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "happiness":  3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SKIP_SCIENCE_FAIR",
+                                           "effects":  {
+                                                           "intelligence":  -1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_caught_lying",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "family",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_CAUGHT_LYING",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CONFESS_LIE",
+                                           "effects":  {
+                                                           "mental_stability":  3
+                                                       },
+                                           "morality_effect":  5,
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  3
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_LIE_MORE",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "mental_stability":  -4
+                                                       },
+                                           "morality_effect":  -5,
+                                           "trait_chance":  {
+                                                                "trait":  "manipulative",
+                                                                "chance":  0.12
+                                                            }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_cyberbullying_perpetrator",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "crime",
+                       "weight":  15,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_CYBERBULLY_PERP",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_JOIN_BULLYING",
+                                           "effects":  {
+                                                           "charisma":  2,
+                                                           "mental_stability":  -3
+                                                       },
+                                           "morality_effect":  -8,
+                                           "trait_chance":  {
+                                                                "trait":  "bully",
+                                                                "chance":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DEFEND_VICTIM",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  3
+                                                       },
+                                           "morality_effect":  8
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_REPORT_CYBERBULLY",
+                                           "effects":  {
+                                                           "mental_stability":  2
+                                                       },
+                                           "morality_effect":  5
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_first_alcohol",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  40,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FIRST_ALCOHOL",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_DRINK_ALCOHOL",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "health":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "reckless",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_REFUSE_ALCOHOL",
+                                           "effects":  {
+                                                           "health":  2,
+                                                           "mental_stability":  2
+                                                       },
+                                           "morality_effect":  2
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DRINK_A_LITTLE",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "health":  -1
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_school_election",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SCHOOL_ELECTION",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_RUN_FOR_PRESIDENT",
+                                           "effects":  {
+                                                           "charisma":  5,
+                                                           "intelligence":  2,
+                                                           "happiness":  4
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "leader",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SUPPORT_CANDIDATE",
+                                           "effects":  {
+                                                           "charisma":  2,
+                                                           "happiness":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_IGNORE_ELECTION",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_online_relationship",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_ONLINE_RELATIONSHIP",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_PURSUE_ONLINE_REL",
+                                           "effects":  {
+                                                           "happiness":  5,
+                                                           "mental_stability":  -2
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "romantic",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_KEEP_IT_FRIENDLY",
+                                           "effects":  {
+                                                           "happiness":  2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_BLOCK_PERSON",
+                                           "effects":  {
+                                                           "mental_stability":  3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_sibling_rivalry",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "family",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SIBLING_RIVALRY",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_COMPETE_SIBLING",
+                                           "effects":  {
+                                                           "happiness":  -2,
+                                                           "intelligence":  3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "SIBLING":  {
+                                                                                        "affection":  -5
+                                                                                    }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SUPPORT_SIBLING",
+                                           "effects":  {
+                                                           "happiness":  3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "SIBLING":  {
+                                                                                        "affection":  8
+                                                                                    }
+                                                                    },
+                                           "morality_effect":  4
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_IGNORE_SIBLING_RIVALRY",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_sports_championship",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SPORTS_CHAMPIONSHIP",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_WIN_CHAMPIONSHIP",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "charisma":  5,
+                                                           "happiness":  10
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "athletic",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_LOSE_CHAMPIONSHIP",
+                                           "effects":  {
+                                                           "health":  3,
+                                                           "happiness":  -3
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "resilient",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SKIP_CHAMPIONSHIP",
+                                           "effects":  {
+                                                           "happiness":  -5
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_creative_project",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  28,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_CREATIVE_PROJECT",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_INVEST_IN_PROJECT",
+                                           "effects":  {
+                                                           "intelligence":  4,
+                                                           "happiness":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "creative",
+                                                                "chance":  0.18
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_GIVE_UP_PROJECT",
+                                           "effects":  {
+                                                           "intelligence":  1,
+                                                           "happiness":  -3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_volunteer_work",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  14,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  28,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_VOLUNTEER_WORK",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_VOLUNTEER_REGULARLY",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  5
+                                                       },
+                                           "morality_effect":  6,
+                                           "trait_chance":  {
+                                                                "trait":  "compassionate",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_VOLUNTEER_ONCE",
+                                           "effects":  {
+                                                           "charisma":  1,
+                                                           "happiness":  2
+                                                       },
+                                           "morality_effect":  2
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_SKIP_VOLUNTEER",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_suspicion_of_cheating",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  25,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SUSPICION_CHEATING",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_CONFRONT_CHEATER",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  -3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_CHEAT_TOO",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "happiness":  2
+                                                       },
+                                           "morality_effect":  -8
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STUDY_HARDER",
+                                           "effects":  {
+                                                           "intelligence":  5,
+                                                           "happiness":  -2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_run_away_thought",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "family",
+                       "weight":  18,
+                       "conditions":  {
+                                          "max_happiness":  40
+                                      },
+                       "text_key":  "EVENT_TEEN_RUN_AWAY",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_ACTUALLY_RUN_AWAY",
+                                           "effects":  {
+                                                           "happiness":  -5,
+                                                           "health":  -5,
+                                                           "mental_stability":  -8
+                                                       },
+                                           "morality_effect":  -3
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TALK_TO_SOMEONE",
+                                           "effects":  {
+                                                           "mental_stability":  5,
+                                                           "happiness":  3
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  5
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_STAY_ENDURE",
+                                           "effects":  {
+                                                           "mental_stability":  -3,
+                                                           "temperament":  3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_hobby_music",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  16,
+                       "category":  "social",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_HOBBY_MUSIC",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_LEARN_INSTRUMENT",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "happiness":  5
+                                                       },
+                                           "money_effect":  -200,
+                                           "trait_chance":  {
+                                                                "trait":  "creative",
+                                                                "chance":  0.12
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_JOIN_CHOIR",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  4
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_NO_MUSIC",
+                                           "effects":  {
+
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_friend_in_trouble",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_FRIEND_IN_TROUBLE",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_HELP_FRIEND",
+                                           "effects":  {
+                                                           "happiness":  3,
+                                                           "charisma":  2
+                                                       },
+                                           "morality_effect":  6,
+                                           "relationship_effects":  {
+                                                                        "FRIEND":  {
+                                                                                       "affection":  10
+                                                                                   }
+                                                                    }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DISTANCE_FROM_FRIEND",
+                                           "effects":  {
+                                                           "mental_stability":  2
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "FRIEND":  {
+                                                                                       "affection":  -8
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_pandemic_lockdown",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  15,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PANDEMIC_LOCKDOWN",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_STUDY_ONLINE",
+                                           "effects":  {
+                                                           "intelligence":  4,
+                                                           "happiness":  -3
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_GAMING_LOCKDOWN",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "health":  -3,
+                                                           "intelligence":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_HOME_EXERCISE",
+                                           "effects":  {
+                                                           "health":  5,
+                                                           "happiness":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_pregnancy_scare",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "health",
+                       "weight":  15,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PREGNANCY_SCARE",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_TELL_PARTNER_SCARE",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  -5
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_PANIC_ALONE",
+                                           "effects":  {
+                                                           "mental_stability":  -8,
+                                                           "happiness":  -8
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "anxious",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TAKE_TEST_CALM",
+                                           "effects":  {
+                                                           "mental_stability":  5,
+                                                           "happiness":  3
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_gifted_recognition",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  16,
+                       "category":  "school",
+                       "weight":  20,
+                       "conditions":  {
+                                          "min_intelligence":  70
+                                      },
+                       "text_key":  "EVENT_TEEN_GIFTED_RECOGNITION",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_EMBRACE_GIFTED",
+                                           "effects":  {
+                                                           "intelligence":  5,
+                                                           "happiness":  5
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "analytical",
+                                                                "chance":  0.2
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_DOWNPLAY_GIFTED",
+                                           "effects":  {
+                                                           "charisma":  3,
+                                                           "happiness":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_stolen_item",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "crime",
+                       "weight":  20,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_STOLEN_ITEM",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_REPORT_THEFT",
+                                           "effects":  {
+                                                           "happiness":  -3
+                                                       },
+                                           "morality_effect":  4
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_RETALIATE",
+                                           "effects":  {
+                                                           "happiness":  2,
+                                                           "temperament":  -3
+                                                       },
+                                           "morality_effect":  -5
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_LET_IT_GO",
+                                           "effects":  {
+                                                           "mental_stability":  2
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_part_time_job",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  15,
+                       "age_max":  17,
+                       "category":  "finance",
+                       "weight":  35,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_PART_TIME_JOB",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_TAKE_PART_TIME",
+                                           "effects":  {
+                                                           "intelligence":  2,
+                                                           "charisma":  2,
+                                                           "happiness":  -3
+                                                       },
+                                           "money_effect":  600,
+                                           "trait_chance":  {
+                                                                "trait":  "hardworking",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_FOCUS_STUDIES",
+                                           "effects":  {
+                                                           "intelligence":  4
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_teacher_conflict",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "school",
+                       "weight":  28,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_TEACHER_CONFLICT",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_RESPECTFULLY_DISAGREE",
+                                           "effects":  {
+                                                           "intelligence":  3,
+                                                           "charisma":  2
+                                                       },
+                                           "morality_effect":  2
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_BACK_DOWN",
+                                           "effects":  {
+                                                           "temperament":  -2,
+                                                           "happiness":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_INVOLVE_PARENTS",
+                                           "effects":  {
+                                                           "intelligence":  1
+                                                       },
+                                           "relationship_effects":  {
+                                                                        "MOTHER":  {
+                                                                                       "affection":  2
+                                                                                   }
+                                                                    }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_summer_camp",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  16,
+                       "category":  "social",
+                       "weight":  30,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_SUMMER_CAMP",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_LOVE_CAMP",
+                                           "effects":  {
+                                                           "charisma":  4,
+                                                           "health":  3,
+                                                           "happiness":  8
+                                                       },
+                                           "trait_chance":  {
+                                                                "trait":  "social",
+                                                                "chance":  0.1
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_HOMESICK_CAMP",
+                                           "effects":  {
+                                                           "happiness":  -4,
+                                                           "mental_stability":  -2
+                                                       }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_MAKE_FRIENDS_CAMP",
+                                           "effects":  {
+                                                           "charisma":  5,
+                                                           "happiness":  6
+                                                       }
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  "teen_bully_escalates",
+                       "phases":  [
+                                      "TEEN"
+                                  ],
+                       "age_min":  13,
+                       "age_max":  17,
+                       "category":  "social",
+                       "weight":  0,
+                       "conditions":  {
+
+                                      },
+                       "text_key":  "EVENT_TEEN_BULLY_ESCALATES",
+                       "log_only":  false,
+                       "choices":  [
+                                       {
+                                           "text_key":  "CHOICE_FIGHT_BULLY",
+                                           "effects":  {
+                                                           "health":  -5,
+                                                           "happiness":  3,
+                                                           "temperament":  -5
+                                                       },
+                                           "morality_effect":  -2,
+                                           "trait_chance":  {
+                                                                "trait":  "aggressive",
+                                                                "chance":  0.15
+                                                            }
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_REPORT_BULLY_TEEN",
+                                           "effects":  {
+                                                           "mental_stability":  3,
+                                                           "happiness":  2
+                                                       },
+                                           "morality_effect":  3
+                                       },
+                                       {
+                                           "text_key":  "CHOICE_TRANSFER_SCHOOL",
+                                           "effects":  {
+                                                           "happiness":  -3,
+                                                           "mental_stability":  5
+                                                       }
+                                       }
+                                   ]
+                   }
+               ]
 }

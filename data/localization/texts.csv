@@ -1390,3 +1390,326 @@ EVENT_CHILD_CURIOSITY_FIRE,You find a box of matches and curiosity takes over.,V
 CHOICE_PLAY_SAFE_FIRE,Hold back the curiosity and put it away,Segurar a curiosidade e guardar
 CHOICE_LIGHT_MATCH,Light one just to see what happens,Acender um só pra ver
 CHOICE_TELL_ADULT_FIRE,Tell an adult about what you found,Contar para um adulto o que encontrou
+EVENT_TEEN_FAMILY_FINANCIAL_CRISIS,Your family is going through a financial crisis.,Sua família está passando por uma crise financeira.
+CHOICE_GET_JOB_HELP_FAMILY,Get a job to help,Arrumar emprego para ajudar
+CHOICE_IGNORE_CRISIS,Ignore the crisis,Ignorar a crise
+CHOICE_EMOTIONALLY_SUPPORT_PARENTS,Support your parents emotionally,Apoiar os pais emocionalmente
+EVENT_TEEN_FOUND_DRUG_IN_SCHOOL,You found drugs in a classmate's locker.,Você encontrou drogas no armário de um colega.
+CHOICE_REPORT_TO_PRINCIPAL,Report to the principal,Reportar ao diretor
+CHOICE_STAY_QUIET,Stay quiet,Ficar quieto
+CHOICE_KEEP_THE_DRUGS,Keep the drugs,Ficar com as drogas
+EVENT_TEEN_ROMANTIC_REJECTION,You were rejected by someone you like.,Você foi rejeitado por alguém que gosta.
+CHOICE_HANDLE_WITH_GRACE,Handle it with grace,Lidar com maturidade
+CHOICE_FEEL_HEARTBROKEN,Feel heartbroken,Sentir o coração partido
+CHOICE_GET_REVENGE,Get revenge,Se vingar
+EVENT_TEEN_PARENT_DIVORCE,Your parents are getting a divorce.,Seus pais estão se divorciando.
+CHOICE_ACCEPT_DIVORCE,Accept the situation,Aceitar a situação
+CHOICE_BLAME_YOURSELF,Blame yourself,Se culpar
+CHOICE_TAKE_SIDES,Take a side,Tomar partido
+EVENT_TEEN_STUDY_ABROAD,You received an offer to study abroad.,Você recebeu uma oferta para estudar no exterior.
+CHOICE_ACCEPT_STUDY_ABROAD,Accept the opportunity,Aceitar a oportunidade
+CHOICE_DECLINE_STUDY_ABROAD,Decline the offer,Recusar a oferta
+EVENT_TEEN_VIRAL_VIDEO,A video of you went viral online.,Um vídeo seu viralizou na internet.
+CHOICE_EMBRACE_FAME,Embrace the fame,Abraçar a fama
+CHOICE_DELETE_VIDEO,Delete the video,Apagar o vídeo
+EVENT_TEEN_CHURCH_PRESSURE,Your family pressures you about religion.,Sua família pressiona você sobre religião.
+CHOICE_EMBRACE_RELIGION,Embrace religion,Abraçar a religião
+CHOICE_QUESTION_FAITH,Question your faith,Questionar a fé
+CHOICE_REJECT_RELIGION,Reject religion,Rejeitar a religião
+EVENT_TEEN_FIRST_CAR,You have the chance to get your first car.,Você tem a chance de ter seu primeiro carro.
+CHOICE_BUY_OLD_CAR,Buy an old car,Comprar um carro velho
+CHOICE_PARENTS_GIFT_CAR,Parents gift you a car,Pais te dão um carro de presente
+CHOICE_NO_CAR_YET,Not yet,Ainda não
+EVENT_TEEN_EATING_DISORDER,You notice signs of an eating disorder.,Você percebe sinais de um transtorno alimentar.
+CHOICE_SEEK_TREATMENT,Seek treatment,Buscar tratamento
+CHOICE_HIDE_IT,Hide it from everyone,Esconder de todos
+EVENT_TEEN_SCIENCE_FAIR,You have the chance to participate in the science fair.,Você tem a chance de participar da feira de ciências.
+CHOICE_WIN_SCIENCE_FAIR,Win first place,Ganhar o primeiro lugar
+CHOICE_PARTICIPATE_SCIENCE_FAIR,Participate,Participar
+CHOICE_SKIP_SCIENCE_FAIR,Skip it,Não participar
+EVENT_TEEN_CAUGHT_LYING,You were caught in a lie.,Você foi pego em uma mentira.
+CHOICE_CONFESS_LIE,Confess and apologize,Confessar e pedir desculpas
+CHOICE_LIE_MORE,Lie to cover up,Mentir mais para encobrir
+EVENT_TEEN_CYBERBULLY_PERP,Someone asks you to join in cyberbullying.,Alguém te pede para participar de cyberbullying.
+CHOICE_JOIN_BULLYING,Join in,Participar
+CHOICE_DEFEND_VICTIM,Defend the victim,Defender a vítima
+CHOICE_REPORT_CYBERBULLY,Report the bully,Denunciar o agressor
+EVENT_TEEN_FIRST_ALCOHOL,You're offered alcohol at a party.,Você é oferecido álcool em uma festa.
+CHOICE_DRINK_ALCOHOL,Drink,Beber
+CHOICE_REFUSE_ALCOHOL,Refuse,Recusar
+CHOICE_DRINK_A_LITTLE,Have just a little,Beber só um pouco
+EVENT_TEEN_SCHOOL_ELECTION,The school election is coming up.,As eleições da escola estão chegando.
+CHOICE_RUN_FOR_PRESIDENT,Run for class president,Se candidatar a presidente
+CHOICE_SUPPORT_CANDIDATE,Support a candidate,Apoiar um candidato
+CHOICE_IGNORE_ELECTION,Ignore the election,Ignorar a eleição
+EVENT_TEEN_ONLINE_RELATIONSHIP,You developed feelings for someone you met online.,Você desenvolveu sentimentos por alguém que conheceu online.
+CHOICE_PURSUE_ONLINE_REL,Pursue the relationship,Seguir com o relacionamento
+CHOICE_KEEP_IT_FRIENDLY,Keep it as friends,Manter como amizade
+CHOICE_BLOCK_PERSON,Block the person,Bloquear a pessoa
+EVENT_TEEN_SIBLING_RIVALRY,There's intense rivalry between you and your sibling.,Há rivalidade intensa entre você e seu irmão.
+CHOICE_COMPETE_SIBLING,Compete to be better,Competir para ser melhor
+CHOICE_SUPPORT_SIBLING,Support your sibling,Apoiar seu irmão
+CHOICE_IGNORE_SIBLING_RIVALRY,Ignore the rivalry,Ignorar a rivalidade
+EVENT_TEEN_SPORTS_CHAMPIONSHIP,Your team made it to the championship!,Seu time chegou ao campeonato!
+CHOICE_WIN_CHAMPIONSHIP,Win the championship,Ganhar o campeonato
+CHOICE_LOSE_CHAMPIONSHIP,Lose the championship,Perder o campeonato
+CHOICE_SKIP_CHAMPIONSHIP,Skip the championship,Não participar do campeonato
+EVENT_TEEN_CREATIVE_PROJECT,You have a creative project idea.,Você tem uma ideia de projeto criativo.
+CHOICE_INVEST_IN_PROJECT,Invest time in it,Investir tempo nele
+CHOICE_GIVE_UP_PROJECT,Give up on it,Desistir dele
+EVENT_TEEN_VOLUNTEER_WORK,You have the opportunity to volunteer.,Você tem a oportunidade de fazer trabalho voluntário.
+CHOICE_VOLUNTEER_REGULARLY,Volunteer regularly,Fazer voluntariado regularmente
+CHOICE_VOLUNTEER_ONCE,Volunteer once,Fazer voluntariado uma vez
+CHOICE_SKIP_VOLUNTEER,Skip it,Não participar
+EVENT_TEEN_SUSPICION_CHEATING,You suspect a classmate is cheating on the exam.,Você suspeita que um colega está colando na prova.
+CHOICE_CONFRONT_CHEATER,Confront them,Confrontar
+CHOICE_CHEAT_TOO,Cheat too,Colar também
+CHOICE_STUDY_HARDER,Study harder next time,Estudar mais na próxima
+EVENT_TEEN_RUN_AWAY,Life feels unbearable and you think about running away.,A vida parece insuportável e você pensa em fugir de casa.
+CHOICE_ACTUALLY_RUN_AWAY,Run away from home,Fugir de casa
+CHOICE_TALK_TO_SOMEONE,Talk to someone,Conversar com alguém
+CHOICE_STAY_ENDURE,Stay and endure,Ficar e aguentar
+EVENT_TEEN_HOBBY_MUSIC,You feel drawn to music.,Você sente atração pela música.
+CHOICE_LEARN_INSTRUMENT,Learn an instrument,Aprender um instrumento
+CHOICE_JOIN_CHOIR,Join a choir,Entrar em um coral
+CHOICE_NO_MUSIC,Not interested,Sem interesse
+EVENT_TEEN_FRIEND_IN_TROUBLE,Your best friend is in serious trouble.,Seu melhor amigo está em sérios problemas.
+CHOICE_HELP_FRIEND,Help them,Ajudar
+CHOICE_DISTANCE_FROM_FRIEND,Distance yourself,Se afastar
+EVENT_TEEN_PANDEMIC_LOCKDOWN,A pandemic forces everyone into lockdown.,Uma pandemia força todos ao isolamento.
+CHOICE_STUDY_ONLINE,Study online productively,Estudar online de forma produtiva
+CHOICE_GAMING_LOCKDOWN,Play games all day,Jogar videogame o dia todo
+CHOICE_HOME_EXERCISE,Exercise at home,Fazer exercícios em casa
+EVENT_TEEN_PREGNANCY_SCARE,There's a pregnancy scare.,Há um susto de gravidez.
+CHOICE_TELL_PARTNER_SCARE,Tell your partner,Contar ao parceiro
+CHOICE_PANIC_ALONE,Panic alone,Entrar em pânico sozinho
+CHOICE_TAKE_TEST_CALM,Take a test calmly,Fazer o teste com calma
+EVENT_TEEN_GIFTED_RECOGNITION,A teacher recognizes your exceptional abilities.,Um professor reconhece suas habilidades excepcionais.
+CHOICE_EMBRACE_GIFTED,Embrace being gifted,Abraçar o talento
+CHOICE_DOWNPLAY_GIFTED,Downplay it with peers,Minimizar entre os colegas
+EVENT_TEEN_STOLEN_ITEM,Someone stole something valuable from you.,Alguém roubou algo valioso seu.
+CHOICE_REPORT_THEFT,Report the theft,Denunciar o roubo
+CHOICE_RETALIATE,Retaliate,Retaliar
+CHOICE_LET_IT_GO,Let it go,Deixar para lá
+EVENT_TEEN_PART_TIME_JOB,You have a chance to get a part-time job.,Você tem a chance de conseguir um emprego de meio período.
+CHOICE_TAKE_PART_TIME,Take the job,Pegar o emprego
+CHOICE_FOCUS_STUDIES,Focus on studies,Focar nos estudos
+EVENT_TEEN_TEACHER_CONFLICT,You disagree strongly with a teacher.,Você discorda fortemente de um professor.
+CHOICE_RESPECTFULLY_DISAGREE,Respectfully disagree,Discordar respeitosamente
+CHOICE_BACK_DOWN,Back down,Ceder
+CHOICE_INVOLVE_PARENTS,Involve your parents,Envolver os pais
+EVENT_TEEN_SUMMER_CAMP,You're invited to a summer camp.,Você foi convidado para um acampamento de verão.
+CHOICE_LOVE_CAMP,Love the experience,Adorar a experiência
+CHOICE_HOMESICK_CAMP,Feel homesick,Sentir saudade de casa
+CHOICE_MAKE_FRIENDS_CAMP,Make many friends,Fazer muitos amigos
+EVENT_TEEN_BULLY_ESCALATES,The bully from childhood has escalated their behavior.,O valentão da infância escalou seu comportamento.
+CHOICE_FIGHT_BULLY,Fight back,Lutar de volta
+CHOICE_REPORT_BULLY_TEEN,Report to school,Denunciar à escola
+CHOICE_TRANSFER_SCHOOL,Transfer schools,Mudar de escola
+EVENT_ADULT_STARTUP_FAILURE,Your startup is failing.,Sua startup está falindo.
+CHOICE_PIVOT_STARTUP,Pivot the business,Mudar a direção do negócio
+CHOICE_CLOSE_STARTUP,Close down,Fechar
+CHOICE_FIND_INVESTOR,Find an investor,Encontrar um investidor
+EVENT_ADULT_POLITICAL_INVOLVEMENT,You have a chance to get involved in politics.,Você tem a chance de se envolver na política.
+CHOICE_RUN_FOR_OFFICE,Run for office,Se candidatar
+CHOICE_CAMPAIGN_VOLUNTEER,Volunteer for a campaign,Ser voluntário em campanha
+CHOICE_STAY_APOLITICAL,Stay out of politics,Ficar fora da política
+EVENT_ADULT_CHRONIC_ILLNESS,You've been diagnosed with a chronic illness.,Você foi diagnosticado com uma doença crônica.
+CHOICE_FOLLOW_TREATMENT,Follow the treatment plan,Seguir o plano de tratamento
+CHOICE_IGNORE_ILLNESS,Ignore the diagnosis,Ignorar o diagnóstico
+CHOICE_ALTERNATIVE_MEDICINE,Try alternative medicine,Tentar medicina alternativa
+EVENT_ADULT_HOUSE_FIRE,Your house caught fire.,Sua casa pegou fogo.
+CHOICE_ESCAPE_FIRE_SAFE,Escape safely,Escapar com segurança
+CHOICE_SAVE_BELONGINGS,Try to save belongings,Tentar salvar pertences
+EVENT_ADULT_FOUND_OLD_FRIEND,You found an old friend from childhood.,Você encontrou um amigo antigo da infância.
+CHOICE_RECONNECT_FRIEND,Reconnect with them,Reconectar com eles
+CHOICE_KEEP_DISTANCE,Keep your distance,Manter distância
+EVENT_ADULT_ADOPTION_OPPORTUNITY,You have the opportunity to adopt a child.,Você tem a oportunidade de adotar uma criança.
+CHOICE_ADOPT_CHILD,Adopt the child,Adotar a criança
+CHOICE_DECLINE_ADOPTION,Decline,Recusar
+EVENT_ADULT_IDENTITY_THEFT,Your identity was stolen.,Sua identidade foi roubada.
+CHOICE_REPORT_ID_THEFT,Report and freeze accounts,Denunciar e bloquear contas
+CHOICE_IGNORE_ID_THEFT,Ignore it,Ignorar
+EVENT_ADULT_RELIGIOUS_CONVERSION,You feel drawn to convert to a new religion.,Você sente atração por se converter a uma nova religião.
+CHOICE_CONVERT_FAITH,Convert,Se converter
+CHOICE_STAY_CURRENT_FAITH,Stay with current faith,Permanecer na fé atual
+CHOICE_BECOME_ATHEIST,Become atheist,Tornar-se ateu
+EVENT_ADULT_AFFAIR,Someone attractive flirts with you while you're in a relationship.,Alguém atraente flerta com você enquanto você está em um relacionamento.
+CHOICE_HAVE_AFFAIR,Have the affair,Ter o caso
+CHOICE_REJECT_AFFAIR,Reject the advance,Rejeitar a investida
+EVENT_ADULT_SECOND_CHANCE_EDUCATION,You have the chance to return to school.,Você tem a chance de voltar a estudar.
+CHOICE_ENROLL_COLLEGE_ADULT,Enroll in college,Matricular na faculdade
+CHOICE_ONLINE_COURSE_ADULT,Take an online course,Fazer um curso online
+CHOICE_SKIP_EDUCATION,Skip it,Não aproveitar
+EVENT_ADULT_CHILD_MILESTONE,Your child reached an important milestone.,Seu filho atingiu um marco importante.
+CHOICE_CELEBRATE_MILESTONE,Celebrate together,Celebrar juntos
+CHOICE_MISS_MILESTONE,Miss the event,Perder o evento
+EVENT_ADULT_CANCER_DIAGNOSIS,You were diagnosed with cancer.,Você foi diagnosticado com câncer.
+CHOICE_FIGHT_CANCER,Fight with treatment,Lutar com tratamento
+CHOICE_PALLIATIVE_CARE,Choose palliative care,Escolher cuidados paliativos
+EVENT_ADULT_IMMIGRATION_DECISION,You have the opportunity to immigrate.,Você tem a oportunidade de imigrar.
+CHOICE_IMMIGRATE,Immigrate to another country,Imigrar para outro país
+CHOICE_STAY_COUNTRY,Stay in your country,Ficar no seu país
+EVENT_ADULT_STOCK_CRASH,The stock market crashed.,O mercado de ações despencou.
+CHOICE_SELL_STOCKS,Sell everything,Vender tudo
+CHOICE_HOLD_STOCKS,Hold and wait,Segurar e esperar
+CHOICE_BUY_MORE_STOCKS,Buy more at low prices,Comprar mais a preços baixos
+EVENT_ADULT_DOMESTIC_VIOLENCE,Your partner becomes violent.,Seu parceiro fica violento.
+CHOICE_LEAVE_ABUSER,Leave the relationship,Sair do relacionamento
+CHOICE_STAY_ABUSER,Stay and hope for change,Ficar e esperar mudança
+CHOICE_SEEK_HELP_DV,Seek help from a shelter,Buscar ajuda em um abrigo
+EVENT_ADULT_CELEBRITY_ENCOUNTER,You run into a celebrity.,Você se depara com uma celebridade.
+CHOICE_CHAT_WITH_CELEBRITY,Strike up a conversation,Puxar conversa
+CHOICE_ASK_SELFIE,Ask for a selfie,Pedir selfie
+CHOICE_IGNORE_CELEBRITY,Ignore them,Ignorar
+EVENT_ADULT_JOB_DISCRIMINATION,You face discrimination at work.,Você enfrenta discriminação no trabalho.
+CHOICE_FILE_COMPLAINT,File an HR complaint,Registrar queixa no RH
+CHOICE_QUIT_JOB_DISCRIMINATION,Quit the job,Pedir demissão
+CHOICE_ENDURE_DISCRIMINATION,Endure in silence,Aguentar em silêncio
+EVENT_ADULT_PRENATAL_SCARE,There's a prenatal health scare.,Há um susto de saúde pré-natal.
+CHOICE_GET_FULL_CHECKUP,Get full checkup immediately,Fazer check-up completo imediatamente
+CHOICE_TRUST_PROCESS,Trust the process,Confiar no processo
+EVENT_ADULT_COWORKER_FEUD,A colleague is making your work life difficult.,Um colega está tornando sua vida no trabalho difícil.
+CHOICE_CONFRONT_COWORKER,Confront them directly,Confrontar diretamente
+CHOICE_IGNORE_COWORKER,Ignore the situation,Ignorar a situação
+CHOICE_HR_COMPLAINT,Go to HR,Ir ao RH
+EVENT_ADULT_PET_DEATH,Your beloved pet passed away.,Seu amado animal de estimação morreu.
+CHOICE_GRIEVE_PET,Take time to grieve,Tirar tempo para o luto
+CHOICE_GET_NEW_PET,Get a new pet,Ter um novo pet
+EVENT_ADULT_FINANCIAL_WINDFALL,You came into unexpected money.,Você recebeu dinheiro inesperado.
+CHOICE_INVEST_WINDFALL,Invest wisely,Investir com sabedoria
+CHOICE_SPEND_WINDFALL,Splurge on yourself,Gastar consigo mesmo
+CHOICE_DONATE_WINDFALL,Donate to charity,Doar para caridade
+EVENT_ADULT_PROMOTION_DENIED,You were passed over for promotion.,Você foi preterido para promoção.
+CHOICE_ACCEPT_DENIAL,Accept the decision,Aceitar a decisão
+CHOICE_APPEAL_DENIAL,Appeal the decision,Recorrer da decisão
+CHOICE_QUIT_AFTER_DENIAL,Quit and find better,Pedir demissão e buscar melhor
+EVENT_ADULT_MARRIAGE_COUNSELING,Your relationship is struggling.,Seu relacionamento está em crise.
+CHOICE_ATTEND_COUNSELING,Attend counseling,Fazer terapia de casal
+CHOICE_REFUSE_COUNSELING,Refuse counseling,Recusar a terapia
+EVENT_ADULT_PARENT_CARE,Your aging parent needs care.,Seu pai/mãe idoso precisa de cuidados.
+CHOICE_CARE_FOR_PARENT,Care for them at home,Cuidar em casa
+CHOICE_NURSING_HOME,Place them in a nursing home,Colocá-los em um asilo
+CHOICE_NEGLECT_PARENT,Neglect them,Negligenciá-los
+EVENT_ADULT_WHISTLEBLOWER,You discover serious misconduct at work.,Você descobre irregularidades graves no trabalho.
+CHOICE_BLOW_WHISTLE,Blow the whistle,Denunciar
+CHOICE_STAY_SILENT_WHISTLE,Stay silent,Ficar quieto
+EVENT_ADULT_MID_CAREER_SWITCH,You feel the urge to change careers completely.,Você sente vontade de mudar completamente de carreira.
+CHOICE_SWITCH_CAREER_PASSION,Switch to your passion,Mudar para sua paixão
+CHOICE_STAY_SAFE_CAREER,Stay the safe path,Ficar no caminho seguro
+EVENT_ADULT_FRIEND_DEATH,A close friend passed away suddenly.,Um amigo próximo faleceu de repente.
+CHOICE_ATTEND_FUNERAL,Attend the funeral,Ir ao velório
+CHOICE_SKIP_FUNERAL,Skip the funeral,Não ir ao velório
+EVENT_ADULT_COMMUNITY_PROJECT,Your neighborhood launches a community project.,Seu bairro lança um projeto comunitário.
+CHOICE_LEAD_PROJECT,Lead the project,Liderar o projeto
+CHOICE_JOIN_PROJECT,Join in,Participar
+CHOICE_SKIP_PROJECT,Skip it,Não participar
+EVENT_ADULT_HOME_PURCHASE,You have enough saved to buy a house.,Você economizou o suficiente para comprar uma casa.
+CHOICE_BUY_HOUSE_ADULT,Buy the house,Comprar a casa
+CHOICE_KEEP_RENTING,Keep renting for now,Continuar alugando por ora
+EVENT_ADULT_DRUG_ARREST,You were arrested in a drug raid.,Você foi preso em uma operação policial de drogas.
+CHOICE_COOPERATE_POLICE_DRUG,Cooperate with police,Cooperar com a polícia
+CHOICE_HIRE_LAWYER_DRUG,Hire a lawyer,Contratar um advogado
+EVENT_ADULT_BURNOUT_RECOVERY,You're experiencing severe burnout.,Você está sofrendo de burnout grave.
+CHOICE_TAKE_SABBATICAL,Take a sabbatical,Tirar uma licença
+CHOICE_PUSH_THROUGH,Push through it,Aguentar firme
+CHOICE_REDUCE_HOURS,Reduce working hours,Reduzir as horas de trabalho
+EVENT_ADULT_VIRAL_BUSINESS,Your small business went viral.,Seu pequeno negócio viralizou.
+CHOICE_SCALE_VIRAL_BUSINESS,Scale up the business,Escalar o negócio
+CHOICE_SELL_VIRAL_BUSINESS,Sell the business,Vender o negócio
+EVENT_ADULT_MIDLIFE_REDISCOVERY,You feel the need to rediscover yourself.,Você sente necessidade de se redescobrir.
+CHOICE_NEW_HOBBY_MIDLIFE,Take up a new hobby,Pegar um novo hobby
+CHOICE_RECONNECT_FAMILY,Reconnect with family,Reconectar com a família
+CHOICE_TRAVEL_MIDLIFE,Travel to find yourself,Viajar para se encontrar
+EVENT_ADULT_PENSION_DECISION,It's time to think about retirement planning.,É hora de pensar em planejamento de aposentadoria.
+CHOICE_PRIVATE_PENSION,Open a private pension,Abrir previdência privada
+CHOICE_INVEST_PENSION,Invest independently,Investir de forma independente
+CHOICE_NO_PENSION,Live in the present,Viver o presente
+EVENT_ADULT_RACISM_EXPERIENCE,You experience overt racism.,Você sofre racismo aberto.
+CHOICE_CONFRONT_RACISM,Confront the racist,Confrontar o racista
+CHOICE_REPORT_RACISM,Report the incident,Denunciar o incidente
+CHOICE_MOVE_PAST_RACISM,Move past it,Seguir em frente
+EVENT_ADULT_MAJOR_ACCIDENT,You're involved in a serious accident.,Você está envolvido em um acidente grave.
+CHOICE_RECOVER_ACCIDENT,Focus on full recovery,Focar na recuperação completa
+CHOICE_REHAB_ACCIDENT,Enter rehabilitation,Entrar em reabilitação
+EVENT_ADULT_PARENTING_CHALLENGE,You face a major parenting challenge.,Você enfrenta um grande desafio na criação dos filhos.
+CHOICE_STRICT_PARENTING,Be strict,Ser rígido
+CHOICE_PERMISSIVE_PARENTING,Be permissive,Ser permissivo
+CHOICE_BALANCED_PARENTING,Find balance,Encontrar equilíbrio
+EVENT_ADULT_DRUG_ADDICTION_ONSET,You realize you've become dependent on drugs.,Você percebe que se tornou dependente de drogas.
+CHOICE_SEEK_REHAB,Seek rehabilitation,Buscar reabilitação
+CHOICE_CONTROL_DRUG_USE,Try to control the use,Tentar controlar o uso
+CHOICE_QUIT_COLD_TURKEY,Quit cold turkey,Parar de uma vez
+EVENT_ADULT_BONUS_RECEIVED,Your company gives you a bonus!,Sua empresa te dá um bônus!
+CHOICE_SAVE_BONUS,Save the bonus,Guardar o bônus
+CHOICE_INVEST_BONUS,Invest the bonus,Investir o bônus
+CHOICE_PARTY_BONUS,Celebrate lavishly,Comemorar com estilo
+EVENT_ADULT_PROTEST_MOVEMENT,A major protest movement is forming.,Um importante movimento de protesto está se formando.
+CHOICE_JOIN_PROTEST,Join the protest,Participar do protesto
+CHOICE_ORGANIZE_PROTEST,Organize the protest,Organizar o protesto
+CHOICE_AVOID_PROTEST,Stay out of it,Ficar de fora
+EVENT_ADULT_LOTTERY_TICKET,You bought a lottery ticket.,Você comprou um bilhete de loteria.
+CHOICE_WIN_LOTTERY,Win the jackpot!,Ganhar o jackpot!
+CHOICE_LOSE_LOTTERY,Lose,Perder
+CHOICE_SKIP_LOTTERY,Don't buy a ticket,Não comprar bilhete
+EVENT_ADULT_INFERTILITY,You and your partner face infertility.,Você e seu parceiro enfrentam infertilidade.
+CHOICE_IVF_TREATMENT,Try IVF,Tentar FIV
+CHOICE_ADOPTION_PATH,Consider adoption,Considerar adoção
+CHOICE_ACCEPT_CHILDLESS,Accept a child-free life,Aceitar uma vida sem filhos
+EVENT_ADULT_STALKER,You realize someone is stalking you.,Você percebe que alguém está te seguindo.
+CHOICE_REPORT_STALKER,Report to police,Denunciar à polícia
+CHOICE_CONFRONT_STALKER,Confront the stalker,Confrontar o perseguidor
+CHOICE_MOVE_AWAY_STALKER,Move to a new area,Mudar para uma nova área
+EVENT_ADULT_MENTOR_OPPORTUNITY,You can mentor or be mentored.,Você pode mentorar ou ser mentorado.
+CHOICE_BECOME_MENTOR,Become a mentor,Tornar-se mentor
+CHOICE_FIND_MENTOR,Find a mentor,Encontrar um mentor
+CHOICE_SKIP_MENTORING,Skip,Pular
+EVENT_ADULT_SIBLING_FEUD,You and your sibling have a major falling out.,Você e seu irmão têm uma grande briga.
+CHOICE_RECONCILE_SIBLING,Reconcile,Reconciliar
+CHOICE_WIN_ARGUMENT,Win the argument,Ganhar a discussão
+CHOICE_AVOID_SIBLING_FEUD,Avoid the conflict,Evitar o conflito
+EVENT_ELDER_DEMENTIA_CARE,You need dementia care.,Você precisa de cuidados por demência.
+CHOICE_ACCEPT_CARE,Accept the care,Aceitar o cuidado
+CHOICE_REFUSE_CARE,Refuse treatment,Recusar o tratamento
+EVENT_ELDER_WISDOM_BOOK,You feel the urge to document your life wisdom.,Você sente vontade de documentar sua sabedoria de vida.
+CHOICE_WRITE_MEMOIR,Write a memoir,Escrever um livro de memórias
+CHOICE_TELL_FAMILY,Share stories with family,Compartilhar histórias com a família
+CHOICE_KEEP_PRIVATE,Keep it private,Manter privado
+EVENT_ELDER_ESTRANGED_CHILD,You have an estranged child you haven't spoken to in years.,Você tem um filho afastado com quem não fala há anos.
+CHOICE_REACH_OUT_CHILD,Reach out to them,Entrar em contato
+CHOICE_RESPECT_DISTANCE,Respect the distance,Respeitar a distância
+EVENT_ELDER_FINANCIAL_FRAUD,You were targeted by a financial scam.,Você foi alvo de um golpe financeiro.
+CHOICE_REPORT_ELDER_FRAUD,Report and recover,Denunciar e recuperar
+CHOICE_IGNORE_ELDER_FRAUD,Ignore it,Ignorar
+EVENT_ELDER_LATE_CAREER,You're considering your options at this late stage.,Você está considerando suas opções nessa fase tardia.
+CHOICE_KEEP_WORKING,Keep working full-time,Continuar trabalhando em tempo integral
+CHOICE_RETIRE_EARLY,Retire early,Se aposentar cedo
+CHOICE_PART_TIME_ELDER,Work part-time,Trabalhar meio período
+EVENT_ELDER_NEW_ROMANCE,You meet someone special.,Você conhece alguém especial.
+CHOICE_PURSUE_ROMANCE_ELDER,Pursue the romance,Seguir com o romance
+CHOICE_STAY_SINGLE_ELDER,Stay single,Ficar solteiro
+EVENT_ELDER_HEALTH_SURGERY,The doctor recommends surgery.,O médico recomenda uma cirurgia.
+CHOICE_AGREE_SURGERY,Agree to the surgery,Concordar com a cirurgia
+CHOICE_REFUSE_SURGERY,Refuse the surgery,Recusar a cirurgia
+EVENT_ELDER_GRANDCHILD_NAME,A new grandchild is about to be named.,Um novo neto está prestes a receber um nome.
+CHOICE_SUGGEST_NAME,Suggest a family name,Sugerir um nome da família
+CHOICE_LET_THEM_CHOOSE,Let the parents decide,Deixar os pais decidirem
+EVENT_ELDER_LIFE_REGRET,You reflect on life's regrets.,Você reflete sobre os arrependimentos da vida.
+CHOICE_MAKE_AMENDS,Make amends,Fazer as pazes
+CHOICE_ACCEPT_REGRET,Accept them with peace,Aceitar com paz
+CHOICE_DENY_REGRET,Deny any regrets,Negar qualquer arrependimento
+EVENT_ELDER_INHERITANCE_DISPUTE,There's a dispute over the inheritance.,Há uma disputa pela herança.
+CHOICE_LAWYER_DISPUTE,Hire a lawyer,Contratar advogado
+CHOICE_SPLIT_EVENLY,Split it evenly,Dividir igualmente
+CHOICE_DONATE_CHARITY,Donate most to charity,Doar a maior parte para caridade
+EVENT_ELDER_DIGITAL_LEARNING,Someone offers to teach you modern technology.,Alguém se oferece para te ensinar tecnologia moderna.
+CHOICE_LEARN_TECH,Learn with enthusiasm,Aprender com entusiasmo
+CHOICE_IGNORE_TECH,Decline,Recusar
+EVENT_ELDER_CHARITY_LEGACY,You want to leave a charitable legacy.,Você quer deixar um legado filantrópico.
+CHOICE_FUND_CHARITY,Fund a charity,Financiar uma instituição de caridade
+CHOICE_LEAVE_TO_FAMILY,Leave wealth to family,Deixar riqueza para a família
+EVENT_ELDER_NEAR_DEATH,You survived a near-death experience.,Você sobreviveu a uma experiência de quase morte.
+CHOICE_CHERISH_LIFE_MORE,Cherish every moment,Valorizar cada momento
+CHOICE_PREPARE_DEATH,Prepare for the inevitable,Preparar para o inevitável
+ACHIEVEMENTS,Achievements,Conquistas
+ACHIEVEMENTS_UNLOCKED,Unlocked,Desbloqueadas
