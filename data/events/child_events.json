@@ -86,7 +86,8 @@
           "effects": {
             "happiness": -5,
             "temperament": -3
-          }
+          },
+          "emotional_tag_add": "bullied_as_child"
         },
         {
           "text_key": "CHOICE_BEFRIEND_BULLY",

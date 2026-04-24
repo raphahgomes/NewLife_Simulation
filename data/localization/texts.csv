@@ -1215,6 +1215,7 @@ EVENT_CHILD_SCHOOL_BRAWL,A huge fight breaks out in the schoolyard. Everyone is 
 CHOICE_JOIN_BRAWL,Jump into the fight,Entrar na briga
 CHOICE_STOP_FIGHT,Try to stop the fight,Tentar parar a briga
 CHOICE_WATCH_WALK,Watch and walk away,Olhar e ir embora
+CHOICE_WATCH_QUIETLY,Watch quietly,Observar quieto
 EVENT_CHILD_DETENTION,You got sent to after-school detention.,Você foi mandado para a detenção depois da aula.
 CHOICE_ACCEPT_DETENTION,Accept it calmly,Aceitar com calma
 CHOICE_DENY_BLAME,Deny everything,Negar tudo

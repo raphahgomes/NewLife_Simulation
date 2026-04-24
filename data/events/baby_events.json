@@ -1125,10 +1125,15 @@
                    },
                    {
                        "id":  "baby_put_for_adoption",
+                       "phases":  [
+                                      "BABY"
+                                  ],
+                       "age_min":  0,
+                       "age_max":  2,
+                       "category":  "family",
                        "text_key":  "EVENT_BABY_ADOPTION",
-                       "description_key":  "EVENT_BABY_ADOPTION_DESC",
                        "weight":  0,
-                       "phase":  "BABY",
+                       "conditions":  {},
                        "choices":  [
                                        {
                                            "text_key":  "CHOICE_OK",
